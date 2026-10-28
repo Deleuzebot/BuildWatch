@@ -44,3 +44,7 @@ test('unavailable robots file is distinct from explicit restrictions and actual 
 test('parcel-only reference source performs no retrieval or publication',async()=>{
  const s=source(mappings.find((v:any)=>v.config.sourceRole==='location_reference'));const calls:string[]=[];const rpc:any=async(action:string)=>{calls.push(action);if(action==='claim')return {status:'running',run:{id:'r',lease:'l'},state:{max_seconds:40,max_requests:8,max_records:50},sources:[s]};return {};};const r=await runState(rpc,{state:'NC',mode:'initial',dryRun:true,key:'parcel-test',onlySource:s.id},async()=>{throw Error('Parcel feed must not be downloaded');});assert.equal(r.referenceSourcesSkipped,1);assert.equal(r.sourceRecords,0);assert.ok(!calls.includes('finding'));
 });
+test('pilot source labels survive record-budget checkpoints',async()=>{
+ const s=source(mappings[0]);const rpc:any=async(action:string)=>action==='claim'?{status:'running',run:{id:'r',lease:'l'},state:{max_seconds:40,max_requests:1,max_records:50},sources:[s]}:{};
+ const result=await runState(rpc,{state:'NC',mode:'initial',dryRun:true,key:'label-test',onlySource:s.id},async()=>new Response('',{status:404}));assert.equal(result.status,'partially_completed');assert.equal(result.pilotSource.id,s.id);assert.match(result.coverage,/not statewide/);
+});

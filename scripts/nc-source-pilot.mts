@@ -7,7 +7,7 @@ const db=new PostgresDatabase(),started=Date.now(),campaign=process.env.GITHUB_R
 const dir='reports/maintenance/nc-source-pilot-'+campaign.replace(/[^a-zA-Z0-9-]/g,'-');mkdirSync(dir,{recursive:true});
 const registry=JSON.parse(readFileSync('config/maintenance/nc-registry.json','utf8'));
 const selection=process.env.BW_PILOT_SOURCE||'';
-if(selection&&selection!=='blocked'&&selection.split(',').some(id=>!registry.some((s:any)=>s.sourceId===id)))throw Error('Unknown source selection');
+if(selection&&selection!=='blocked'&&selection.split(',').some((id:string)=>!registry.some((s:any)=>s.sourceId===id)))throw Error('Unknown source selection');
 const sources=process.argv.includes('--blocked-only')||selection==='blocked'?registry.filter((s:any)=>s.previouslyBlocked):selection?registry.filter((s:any)=>selection.split(',').includes(s.sourceId)):registry;
 const report:any={created:new Date().toISOString(),dryRun:true,campaign,coverage:'At most 50 records per source; readiness sample, not statewide verification.',results:[]};
 const rpc=async(action:string,input:any={})=>(await db.one('SELECT public.buildwatch_maintenance_worker($1,$2::jsonb) value',[action,JSON.stringify(input)])).value;

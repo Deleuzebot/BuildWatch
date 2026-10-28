@@ -15,6 +15,7 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
  const cp={done:[] as string[],cursors:{} as Record<string,number>,...(run.checkpoint||{})};
  const stats:any={projectsChecked:0,sourceRecords:0,newFindings:0,statusChanges:0,milestones:0,archived:0,wouldArchive:0,duplicateCandidates:0,unverified:0,sourceFailures:0,unchangedDocuments:0,archivedExcluded:0,aiUnresolved:0,...(run.stats||{})};
  const sources:Source[]=claimed.sources.filter((s:Source)=>!options.onlySource||s.id===options.onlySource);
+ if(options.onlySource){const selected=sources.find(s=>s.id===options.onlySource);stats.pilotSelection=true;stats.pilotSource=selected?{id:selected.id,jurisdiction:selected.jurisdiction,url:selected.url,role:selected.config.sourceRole||'development_review',mappingVersion:selected.config.mappingVersion||null}:null;stats.coverage='Selected-source pilot only; not statewide verification';}
  const errors:string[]=[];let status='completed';
  try{
   if(!sources.length){status='partially_completed';errors.push('No enabled source adapters cover this selection.');}
@@ -101,7 +102,6 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
    for(const p of await call('expirations')){if(Date.now()-budget.started>=budget.seconds*1000-1000)throw new LimitReached('Archive checkpoint deferred at runtime ceiling');const value=await call('expire',{projectId:p.id});if(value.outcome==='archived')stats.archived++;if(value.outcome==='would_archive')stats.wouldArchive++;}
   }
   if(errors.length)status='partially_completed';else if(stats.unverified||stats.aiUnresolved)status='awaiting_review';
-  if(options.onlySource){stats.pilotSelection=true;const selected=sources.find(s=>s.id===options.onlySource);stats.pilotSource=selected?{id:selected.id,jurisdiction:selected.jurisdiction,url:selected.url,role:selected.config.sourceRole||'development_review',mappingVersion:selected.config.mappingVersion||null}:null;}
   if(options.onlySource)stats.coverage='Selected-source pilot only; not statewide verification';
   else stats.coverage='Enabled source adapters only; not verification of every jurisdiction or project';
  }catch(e:any){status=e instanceof LimitReached?'partially_completed':'failed';errors.push(e.message);}
