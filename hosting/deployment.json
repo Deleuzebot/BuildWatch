@@ -1,0 +1,11 @@
+{
+  "provider": "Cloudflare Pages",
+  "project": "buildwatch",
+  "accountId": "010e34896e0e561d72187a43e1b9ffc5",
+  "productionURL": "https://buildwatch-3ky.pages.dev",
+  "outputDirectory": "dist-public",
+  "buildCommand": "pnpm build:public",
+  "staticOnly": true,
+  "supabaseProject": "iuchstlnusdnserweutj",
+  "scheduledJobs": false
+}

@@ -1,0 +1,75 @@
+name: BuildWatch state research and maintenance
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [weekly, initial]
+        default: weekly
+      states:
+        description: Comma separated state codes or rotation (inactive states are skipped)
+        type: string
+        default: NC
+      dry_run:
+        type: boolean
+        default: true
+      queued_requests:
+        description: Process administrator-queued dry-run requests
+        type: boolean
+        default: false
+      pilot_source:
+        description: Optional registered source ID for a bounded pilot
+        type: string
+        default: ''
+  # INTENTIONALLY DISABLED. Enable only after pilot validation and explicit approval.
+  # schedule:
+  #   - cron: '17 5 * * 1-5'
+  #     timezone: America/New_York
+permissions:
+  contents: read
+concurrency:
+  group: buildwatch-maintenance
+  cancel-in-progress: false
+jobs:
+  research:
+    if: vars.BUILDWATCH_MAINTENANCE_CONFIGURED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: buildwatch-maintenance
+    env:
+      PGHOST: ${{ secrets.BW_WORKER_PGHOST }}
+      PGPORT: ${{ secrets.BW_WORKER_PGPORT }}
+      PGUSER: ${{ secrets.BW_WORKER_PGUSER }}
+      PGPASSWORD: ${{ secrets.BW_WORKER_PGPASSWORD }}
+      PGDATABASE: postgres
+      PGPOOL_MAX: 1
+      BW_ALLOW_LIVE_WRITES: 'false'
+      BW_AI_ENABLED: 'false'
+      BW_MODE: ${{ inputs.mode || 'weekly' }}
+      BW_STATES: ${{ inputs.states || 'rotation' }}
+      BW_DRY_RUN: ${{ github.event_name == 'schedule' || inputs.dry_run }}
+      BW_QUEUE: ${{ inputs.queued_requests || false }}
+      BW_PILOT_SOURCE: ${{ inputs.pilot_source || '' }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.25.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          # No Actions package cache or artifacts: avoid storage charges.
+      - run: pnpm install --frozen-lockfile
+      - name: Verify database TLS
+        env:
+          BW_WORKER_CA: ${{ secrets.BW_WORKER_CA }}
+        run: |
+          if [ -n "$BW_WORKER_CA" ]; then
+            printf '%s' "$BW_WORKER_CA" > "$RUNNER_TEMP/buildwatch-ca.pem"
+            echo "PGSSLROOTCERT=$RUNNER_TEMP/buildwatch-ca.pem" >> "$GITHUB_ENV"
+          fi
+      - name: Run bounded worker
+        run: pnpm exec tsx scripts/maintenance.mts "--mode=$BW_MODE" "--states=$BW_STATES" "--dry-run=$BW_DRY_RUN" "--queue=$BW_QUEUE" "--source=$BW_PILOT_SOURCE"
+      - name: Report failure
+        if: failure()
+        run: echo "::error::BuildWatch maintenance did not finish. Check the run summary and persistent Supabase checkpoints. Projects were not marked verified merely because this workflow ran."

@@ -1,0 +1,11 @@
+{
+  "EXPO_PUBLIC_BACKEND": "supabase",
+  "EXPO_PUBLIC_SUPABASE_URL": "https://iuchstlnusdnserweutj.supabase.co",
+  "EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY": "sb_publishable_gXoZ02FhSZNbTFUzWfSWcg_rCIN0H23",
+  "EXPO_PUBLIC_AUTH0_DOMAIN": "dev-vjr3zn3qo2l5pp5z.us.auth0.com",
+  "EXPO_PUBLIC_AUTH0_WEB_CLIENT_ID": "6oQRWJZDIY9CIEadAun6thIjMIvjpK18",
+  "EXPO_PUBLIC_AUTH0_NATIVE_CLIENT_ID": "WXH0S2fgQQuMnOZk0JSih6hqktYgQWqe",
+  "EXPO_PUBLIC_AUTH0_AUDIENCE": "urn:buildwatch:api",
+  "EXPO_PUBLIC_AUTH0_EMAIL_CONNECTION": "Username-Password-Authentication",
+  "EXPO_PUBLIC_AUTH0_APPLE_ENABLED": "false"
+}

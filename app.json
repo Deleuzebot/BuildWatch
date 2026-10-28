@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "BuildWatch",
+    "slug": "buildwatch",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "buildwatch",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.example.buildwatch",
+      "buildNumber": "1",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "platforms": ["ios", "web"],
+    "assetBundlePatterns": ["**/*"],
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200,
+          "backgroundColor": "#102D2B"
+        }
+      ],
+      "expo-web-browser",
+      "expo-secure-store",
+      "expo-notifications"
+    ],
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/icon.png"
+    }
+  }
+}

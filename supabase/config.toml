@@ -1,0 +1,6 @@
+project_id = "buildwatch"
+
+[functions.buildwatch]
+# Auth0 access tokens are verified inside the function against issuer/audience/JWKS.
+# No privileged route runs without verified identity and database authorization.
+verify_jwt = false

@@ -1,0 +1,742 @@
+{
+  "version": 1,
+  "tables": [
+    {
+      "name": "approval_policy",
+      "columns": [
+        "project_id",
+        "approval_date",
+        "approval_at",
+        "approval_evidence",
+        "schedules",
+        "exception_until",
+        "expires_at",
+        "due_at",
+        "review_reason",
+        "actor",
+        "updated"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "archive_events",
+      "columns": [
+        "id",
+        "project_id",
+        "action",
+        "actor",
+        "created",
+        "detail"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "archive_operation_items",
+      "columns": [
+        "operation_id",
+        "project_id",
+        "snapshot",
+        "status",
+        "reason"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "archive_operations",
+      "columns": [
+        "id",
+        "actor",
+        "action",
+        "scope",
+        "status",
+        "created",
+        "updated",
+        "expires",
+        "owner",
+        "selected",
+        "eligible",
+        "done",
+        "blocked",
+        "error"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "archived_projects",
+      "columns": [
+        "project_id",
+        "reason",
+        "archived_at",
+        "actor",
+        "run_id",
+        "approval_date",
+        "expires_at"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "automation_audit",
+      "columns": [
+        "id",
+        "actor",
+        "action",
+        "detail",
+        "created"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "automation_changes",
+      "columns": [
+        "id",
+        "run_id",
+        "project_id",
+        "evidence_id",
+        "kind",
+        "before_data",
+        "after_data",
+        "created"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "automation_controls",
+      "columns": [
+        "id",
+        "enabled",
+        "last_success",
+        "last_error"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "automation_jobs",
+      "columns": [
+        "id",
+        "kind",
+        "request_key",
+        "status",
+        "actor",
+        "created",
+        "started",
+        "finished",
+        "owner",
+        "lease_until",
+        "checkpoint",
+        "stats",
+        "error",
+        "attempts"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "automation_lease",
+      "columns": [
+        "id",
+        "owner",
+        "expires"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "automation_outcomes",
+      "columns": [
+        "run_id",
+        "item_key",
+        "data"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "automation_project_policy",
+      "columns": [
+        "project_id",
+        "classification"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "automation_reviews",
+      "columns": [
+        "id",
+        "issue_key",
+        "project_id",
+        "record_id",
+        "source_id",
+        "reason",
+        "evidence_id",
+        "status",
+        "created",
+        "updated",
+        "reviewer"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "automation_settings",
+      "columns": [
+        "id",
+        "paused",
+        "updated"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "automation_worker",
+      "columns": [
+        "id",
+        "heartbeat",
+        "version"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "classification_review_candidates",
+      "columns": [
+        "project_id",
+        "reason",
+        "original_hash",
+        "original_revision",
+        "created"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "community_verifications",
+      "columns": [
+        "project_id",
+        "evidence",
+        "actor",
+        "updated"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "deleted_project_ids",
+      "columns": [
+        "project_id",
+        "operation_id",
+        "deleted",
+        "source_keys"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "deliveries",
+      "columns": [
+        "notification_id",
+        "token",
+        "status",
+        "ticket",
+        "attempts",
+        "next_attempt"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "devices",
+      "columns": [
+        "token",
+        "user_id"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "duplicate_candidates",
+      "columns": [
+        "id",
+        "a_id",
+        "b_id",
+        "group_id",
+        "reasons",
+        "metadata",
+        "evidence_hash",
+        "status",
+        "revision",
+        "detected_at",
+        "updated_at"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "duplicate_decisions",
+      "columns": [
+        "id",
+        "candidate_id",
+        "action",
+        "actor",
+        "created",
+        "note",
+        "before_state",
+        "after_state",
+        "undoes_id"
+      ],
+      "rowid": true
+    },
+    {
+      "name": "duplicate_group_members",
+      "columns": [
+        "group_id",
+        "project_id"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "duplicate_previews",
+      "columns": [
+        "token",
+        "actor",
+        "candidate_id",
+        "input",
+        "signature",
+        "expires",
+        "used"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "entitlements",
+      "columns": [
+        "user_id",
+        "expires",
+        "store",
+        "management_url",
+        "synced"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "expiration_cleanups",
+      "columns": [
+        "id",
+        "created",
+        "actor",
+        "backup",
+        "statistics"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "follow_history",
+      "columns": [
+        "id",
+        "user_id",
+        "project_id",
+        "action",
+        "created"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "follows",
+      "columns": [
+        "user_id",
+        "project_id",
+        "rank"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "history",
+      "columns": [
+        "id",
+        "project_id",
+        "actor",
+        "before_data",
+        "after_data",
+        "created"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "invitations",
+      "columns": [
+        "hash",
+        "email",
+        "expires",
+        "accepted",
+        "created_by",
+        "created"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "map_index",
+      "columns": [
+        "rid",
+        "id",
+        "latitude",
+        "longitude",
+        "x",
+        "y",
+        "status",
+        "state",
+        "searchtext",
+        "meetings"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "map_meetings",
+      "columns": [
+        "project_rid",
+        "id",
+        "starts",
+        "data"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "map_meta",
+      "columns": [
+        "id",
+        "version"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "map_types",
+      "columns": [
+        "rid",
+        "category"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "meta",
+      "columns": [
+        "key",
+        "value"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "notification_meeting_refs",
+      "columns": [
+        "notification_id",
+        "project_id",
+        "meeting_id",
+        "starts_at"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "notifications",
+      "columns": [
+        "id",
+        "user_id",
+        "project_id",
+        "kind",
+        "title",
+        "body",
+        "created",
+        "read",
+        "event_key"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "permanent_deletion_audit",
+      "columns": [
+        "operation_id",
+        "actor",
+        "started",
+        "finished",
+        "record_count"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "policy_expiration_queue",
+      "columns": [
+        "project_id",
+        "due_at"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "policy_permit_queue",
+      "columns": [
+        "project_id"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "project_activity",
+      "columns": [
+        "id",
+        "project_id",
+        "origin",
+        "event_key",
+        "type",
+        "event_date",
+        "occurred_at",
+        "description",
+        "source_url",
+        "recorded_at"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "project_categories",
+      "columns": [
+        "project_id",
+        "input",
+        "normalized",
+        "updated"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "project_overrides",
+      "columns": [
+        "project_id",
+        "data",
+        "revision"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "project_relationships",
+      "columns": [
+        "source_id",
+        "target_id",
+        "kind",
+        "decision_id",
+        "created"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "project_retirements",
+      "columns": [
+        "project_id",
+        "status",
+        "evidence_id",
+        "source_keys",
+        "created",
+        "latitude",
+        "longitude",
+        "name"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "projects",
+      "columns": [
+        "id",
+        "data",
+        "revision"
+      ],
+      "rowid": true
+    },
+    {
+      "name": "research_audit",
+      "columns": [
+        "id",
+        "proposal_id",
+        "actor",
+        "action",
+        "note",
+        "created"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "research_batches",
+      "columns": [
+        "id",
+        "created",
+        "summary"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "research_previews",
+      "columns": [
+        "token",
+        "proposal_id",
+        "actor",
+        "signature",
+        "result",
+        "expires",
+        "used"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "research_proposals",
+      "columns": [
+        "id",
+        "batch_id",
+        "kind",
+        "project_id",
+        "data",
+        "status",
+        "revision",
+        "updated"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "revoked_subjects",
+      "columns": [
+        "subject"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "road_project_policy",
+      "columns": [
+        "project_id",
+        "version",
+        "detail",
+        "updated"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "role_audit",
+      "columns": [
+        "id",
+        "actor",
+        "target",
+        "action",
+        "created"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "source_bindings",
+      "columns": [
+        "source_id",
+        "external_id",
+        "record_id",
+        "project_id",
+        "classification",
+        "observation_id",
+        "last_checked",
+        "last_success"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "source_http_cache",
+      "columns": [
+        "url",
+        "etag",
+        "last_modified",
+        "body",
+        "checked"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "source_observations",
+      "columns": [
+        "id",
+        "source_id",
+        "external_id",
+        "url",
+        "payload",
+        "normalized",
+        "observed_at"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "submissions",
+      "columns": [
+        "id",
+        "user_id",
+        "kind",
+        "project_id",
+        "body",
+        "patch",
+        "status",
+        "reviewer",
+        "created"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "supporting_sources",
+      "columns": [
+        "id",
+        "data",
+        "issuer",
+        "external_id",
+        "source_url",
+        "observed_at"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "users",
+      "columns": [
+        "id",
+        "subject",
+        "email",
+        "name",
+        "verified",
+        "role",
+        "disabled",
+        "preferences",
+        "created"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "verified_import_batches",
+      "columns": [
+        "id",
+        "digest",
+        "created",
+        "summary"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "verified_import_evidence",
+      "columns": [
+        "project_id",
+        "batch_id",
+        "evidence"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "web_research_sources",
+      "columns": [
+        "id",
+        "query_id",
+        "url",
+        "published",
+        "verified",
+        "data"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "web_search_queries",
+      "columns": [
+        "id",
+        "area",
+        "query",
+        "state",
+        "created",
+        "completed",
+        "result_count"
+      ],
+      "rowid": false
+    },
+    {
+      "name": "webhook_events",
+      "columns": [
+        "id",
+        "created"
+      ],
+      "rowid": false
+    }
+  ]
+}

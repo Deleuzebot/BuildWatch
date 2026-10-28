@@ -1,0 +1,13 @@
+import {DatabaseSync} from 'node:sqlite';import {writeFileSync} from 'node:fs';
+import {Store} from '../server/accounts/store';import {primaryCategories} from '../src/lib/categories';
+const file=process.argv[2],baseline=process.argv[3],output=process.argv[4];if(!file||!baseline||!output)throw Error('Usage: category-report.mts database.sqlite before.sqlite report.json');
+const before=new DatabaseSync(baseline,{readOnly:true});before.function('bw_now',()=>Date.now());
+const beforeIds=new Set((before.prepare('SELECT id FROM active_map_index').all() as any[]).map(p=>p.id));
+const store=new Store(file),afterIds=new Set(store.list().map(p=>p.id));
+if(beforeIds.size!==afterIds.size||[...beforeIds].some(id=>!afterIds.has(id)))throw Error('Classification unexpectedly changed public eligibility.');
+const preserved=['projects','project_overrides','history','follows','follow_history','users','entitlements','invitations','submissions','notifications','duplicate_candidates','duplicate_decisions','classification_review_candidates','project_relationships','approval_policy','archived_projects'];
+for(const table of preserved){const a=before.prepare('SELECT * FROM '+table).all(),b=store.all('SELECT * FROM '+table);if(JSON.stringify(a)!==JSON.stringify(b))throw Error('Unexpected source or relationship mutation: '+table);}
+if((store.db.prepare('PRAGMA integrity_check').get() as any).integrity_check!=='ok'||store.all('PRAGMA foreign_key_check').length)throw Error('Database integrity failed.');
+const categories=primaryCategories.map(category=>({category,stored:store.one("SELECT count(*) n FROM project_categories WHERE json_extract(normalized,'$.primaryCategory')=?",category).n,public:store.one("SELECT count(*) n FROM project_categories c JOIN active_map_index m ON m.id=c.project_id WHERE json_extract(normalized,'$.primaryCategory')=?",category).n}));
+const unresolved=store.all("SELECT p.id,json_extract(p.data,'$.name') name,json_extract(c.normalized,'$.originalCategory') originalCategory,json_extract(c.normalized,'$.classification.reason') reason,EXISTS(SELECT 1 FROM active_map_index m WHERE m.id=p.id) public FROM project_categories c JOIN project_profiles p ON p.id=c.project_id WHERE json_extract(c.normalized,'$.classification.status')='needs_review' ORDER BY public DESC,p.id");
+const report={version:1,total:store.one('SELECT count(*) n FROM projects').n,publicTotal:afterIds.size,categories,unresolvedCount:unresolved.length,publicUnresolved:unresolved.filter(p=>p.public).length,unresolved,preservation:'All source payloads, revisions, histories, relationships and public eligibility preserved.'};writeFileSync(output,JSON.stringify(report,null,2));console.log(JSON.stringify({...report,unresolved:undefined},null,2));store.close();before.close();

@@ -1,0 +1,1 @@
+export function consumeAdministratorResume(){const flag=window.sessionStorage.getItem('buildwatch-admin-setup-return');if(flag)window.sessionStorage.removeItem('buildwatch-admin-setup-return');return flag==='1';}

@@ -1,0 +1,565 @@
+{
+  "reviewedAt": "2026-10-25",
+  "populationVintage": 2025,
+  "threshold": 50000,
+  "populationSources": {
+    "municipalities": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+    "counties": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+  },
+  "permitSourceAsOf": "2026-08-10",
+  "total": 11940,
+  "curated": 80,
+  "municipal": 1244,
+  "permitRecords": 10616,
+  "municipalities": [
+    {
+      "city": "Apex",
+      "population": 77453,
+      "records": 215,
+      "projectRecords": 165
+    },
+    {
+      "city": "Asheville",
+      "population": 97700,
+      "records": 109,
+      "projectRecords": 0
+    },
+    {
+      "city": "Burlington",
+      "population": 62377,
+      "records": 130,
+      "projectRecords": 97
+    },
+    {
+      "city": "Cary",
+      "population": 190336,
+      "records": 174,
+      "projectRecords": 117
+    },
+    {
+      "city": "Chapel Hill",
+      "population": 63483,
+      "records": 53,
+      "projectRecords": 20
+    },
+    {
+      "city": "Charlotte",
+      "population": 959079,
+      "records": 803,
+      "projectRecords": 0
+    },
+    {
+      "city": "Concord",
+      "population": 116941,
+      "records": 103,
+      "projectRecords": 0
+    },
+    {
+      "city": "Durham",
+      "population": 306475,
+      "records": 201,
+      "projectRecords": 20
+    },
+    {
+      "city": "Fayetteville",
+      "population": 211282,
+      "records": 205,
+      "projectRecords": 67
+    },
+    {
+      "city": "Gastonia",
+      "population": 87621,
+      "records": 119,
+      "projectRecords": 59
+    },
+    {
+      "city": "Greensboro",
+      "population": 307952,
+      "records": 248,
+      "projectRecords": 20
+    },
+    {
+      "city": "Greenville",
+      "population": 97120,
+      "records": 97,
+      "projectRecords": 0
+    },
+    {
+      "city": "High Point",
+      "population": 118208,
+      "records": 165,
+      "projectRecords": 117
+    },
+    {
+      "city": "Holly Springs",
+      "population": 50499,
+      "records": 95,
+      "projectRecords": 60
+    },
+    {
+      "city": "Huntersville",
+      "population": 67842,
+      "records": 223,
+      "projectRecords": 140
+    },
+    {
+      "city": "Jacksonville",
+      "population": 71101,
+      "records": 72,
+      "projectRecords": 0
+    },
+    {
+      "city": "Kannapolis",
+      "population": 59965,
+      "records": 101,
+      "projectRecords": 46
+    },
+    {
+      "city": "Mooresville",
+      "population": 60297,
+      "records": 208,
+      "projectRecords": 145
+    },
+    {
+      "city": "Raleigh",
+      "population": 504445,
+      "records": 213,
+      "projectRecords": 20
+    },
+    {
+      "city": "Rocky Mount",
+      "population": 55966,
+      "records": 19,
+      "projectRecords": 0
+    },
+    {
+      "city": "Wake Forest",
+      "population": 60658,
+      "records": 132,
+      "projectRecords": 83
+    },
+    {
+      "city": "Wilmington",
+      "population": 126247,
+      "records": 125,
+      "projectRecords": 0
+    },
+    {
+      "city": "Wilson",
+      "population": 50691,
+      "records": 80,
+      "projectRecords": 0
+    },
+    {
+      "city": "Winston-Salem",
+      "population": 260060,
+      "records": 227,
+      "projectRecords": 0
+    }
+  ],
+  "counties": [
+    {
+      "county": "Alamance",
+      "population": 187982,
+      "records": 280,
+      "projectRecords": 110
+    },
+    {
+      "county": "Brunswick",
+      "population": 176619,
+      "records": 454,
+      "projectRecords": 0
+    },
+    {
+      "county": "Buncombe",
+      "population": 278235,
+      "records": 366,
+      "projectRecords": 0
+    },
+    {
+      "county": "Burke",
+      "population": 90346,
+      "records": 87,
+      "projectRecords": 0
+    },
+    {
+      "county": "Cabarrus",
+      "population": 251342,
+      "records": 270,
+      "projectRecords": 40
+    },
+    {
+      "county": "Caldwell",
+      "population": 82192,
+      "records": 54,
+      "projectRecords": 0
+    },
+    {
+      "county": "Carteret",
+      "population": 71659,
+      "records": 96,
+      "projectRecords": 0
+    },
+    {
+      "county": "Catawba",
+      "population": 171604,
+      "records": 129,
+      "projectRecords": 0
+    },
+    {
+      "county": "Chatham",
+      "population": 84505,
+      "records": 395,
+      "projectRecords": 24
+    },
+    {
+      "county": "Cleveland",
+      "population": 102115,
+      "records": 73,
+      "projectRecords": 0
+    },
+    {
+      "county": "Columbus",
+      "population": 50341,
+      "records": 45,
+      "projectRecords": 0
+    },
+    {
+      "county": "Craven",
+      "population": 108175,
+      "records": 96,
+      "projectRecords": 0
+    },
+    {
+      "county": "Cumberland",
+      "population": 341048,
+      "records": 342,
+      "projectRecords": 67
+    },
+    {
+      "county": "Davidson",
+      "population": 181248,
+      "records": 186,
+      "projectRecords": 1
+    },
+    {
+      "county": "Duplin",
+      "population": 50548,
+      "records": 33,
+      "projectRecords": 0
+    },
+    {
+      "county": "Durham",
+      "population": 345085,
+      "records": 253,
+      "projectRecords": 20
+    },
+    {
+      "county": "Forsyth",
+      "population": 400766,
+      "records": 461,
+      "projectRecords": 1
+    },
+    {
+      "county": "Franklin",
+      "population": 82732,
+      "records": 122,
+      "projectRecords": 6
+    },
+    {
+      "county": "Gaston",
+      "population": 249916,
+      "records": 263,
+      "projectRecords": 67
+    },
+    {
+      "county": "Granville",
+      "population": 61020,
+      "records": 47,
+      "projectRecords": 0
+    },
+    {
+      "county": "Guilford",
+      "population": 557963,
+      "records": 573,
+      "projectRecords": 140
+    },
+    {
+      "county": "Harnett",
+      "population": 149841,
+      "records": 273,
+      "projectRecords": 0
+    },
+    {
+      "county": "Haywood",
+      "population": 64522,
+      "records": 35,
+      "projectRecords": 0
+    },
+    {
+      "county": "Henderson",
+      "population": 123440,
+      "records": 108,
+      "projectRecords": 0
+    },
+    {
+      "county": "Hoke",
+      "population": 56642,
+      "records": 78,
+      "projectRecords": 0
+    },
+    {
+      "county": "Iredell",
+      "population": 214151,
+      "records": 410,
+      "projectRecords": 164
+    },
+    {
+      "county": "Johnston",
+      "population": 257598,
+      "records": 481,
+      "projectRecords": 0
+    },
+    {
+      "county": "Lee",
+      "population": 70161,
+      "records": 118,
+      "projectRecords": 0
+    },
+    {
+      "county": "Lenoir",
+      "population": 54904,
+      "records": 36,
+      "projectRecords": 0
+    },
+    {
+      "county": "Lincoln",
+      "population": 98409,
+      "records": 132,
+      "projectRecords": 0
+    },
+    {
+      "county": "Mecklenburg",
+      "population": 1224717,
+      "records": 1370,
+      "projectRecords": 155
+    },
+    {
+      "county": "Moore",
+      "population": 112063,
+      "records": 222,
+      "projectRecords": 0
+    },
+    {
+      "county": "Nash",
+      "population": 100148,
+      "records": 109,
+      "projectRecords": 0
+    },
+    {
+      "county": "New Hanover",
+      "population": 245917,
+      "records": 293,
+      "projectRecords": 0
+    },
+    {
+      "county": "Onslow",
+      "population": 217827,
+      "records": 236,
+      "projectRecords": 0
+    },
+    {
+      "county": "Orange",
+      "population": 151404,
+      "records": 108,
+      "projectRecords": 19
+    },
+    {
+      "county": "Pender",
+      "population": 71328,
+      "records": 108,
+      "projectRecords": 0
+    },
+    {
+      "county": "Pitt",
+      "population": 182281,
+      "records": 268,
+      "projectRecords": 0
+    },
+    {
+      "county": "Randolph",
+      "population": 148941,
+      "records": 126,
+      "projectRecords": 0
+    },
+    {
+      "county": "Robeson",
+      "population": 118295,
+      "records": 61,
+      "projectRecords": 0
+    },
+    {
+      "county": "Rockingham",
+      "population": 94004,
+      "records": 68,
+      "projectRecords": 0
+    },
+    {
+      "county": "Rowan",
+      "population": 155298,
+      "records": 129,
+      "projectRecords": 9
+    },
+    {
+      "county": "Rutherford",
+      "population": 65089,
+      "records": 46,
+      "projectRecords": 0
+    },
+    {
+      "county": "Sampson",
+      "population": 61009,
+      "records": 52,
+      "projectRecords": 0
+    },
+    {
+      "county": "Stanly",
+      "population": 68617,
+      "records": 72,
+      "projectRecords": 0
+    },
+    {
+      "county": "Surry",
+      "population": 72264,
+      "records": 55,
+      "projectRecords": 0
+    },
+    {
+      "county": "Union",
+      "population": 271383,
+      "records": 261,
+      "projectRecords": 0
+    },
+    {
+      "county": "Wake",
+      "population": 1259530,
+      "records": 1733,
+      "projectRecords": 501
+    },
+    {
+      "county": "Watauga",
+      "population": 55213,
+      "records": 42,
+      "projectRecords": 0
+    },
+    {
+      "county": "Wayne",
+      "population": 120861,
+      "records": 140,
+      "projectRecords": 0
+    },
+    {
+      "county": "Wilkes",
+      "population": 65995,
+      "records": 32,
+      "projectRecords": 0
+    },
+    {
+      "county": "Wilson",
+      "population": 81209,
+      "records": 113,
+      "projectRecords": 0
+    }
+  ],
+  "localInventories": [
+    {
+      "jurisdiction": "Apex",
+      "url": "https://www.apexnc.org/2119/Demographic-and-Development-Data",
+      "layer": "https://services1.arcgis.com/nry3yyvaEfskMEXA/arcgis/rest/services/Development/FeatureServer/0",
+      "records": 189
+    },
+    {
+      "jurisdiction": "Huntersville",
+      "url": "https://huntersville.org/461/Projects-Map",
+      "layer": "https://services7.arcgis.com/CADYoH7VVBN3BQHU/arcgis/rest/services/Development_Projects/FeatureServer/0",
+      "records": 156
+    },
+    {
+      "jurisdiction": "Kannapolis",
+      "url": "https://storymaps.arcgis.com/stories/0f9c148eae464255a9953cafcfb0c773",
+      "layer": "https://maps.kannapolisnc.gov/arcgis/rest/services/Planning/Developments/FeatureServer/22",
+      "records": 48
+    },
+    {
+      "jurisdiction": "Mooresville",
+      "url": "https://experience.arcgis.com/experience/6bae748dbea446dbb770b9132548984e",
+      "layer": "https://gis.mooresvillenc.gov/gisadmin/rest/services/Planning/active_projects/MapServer/0",
+      "records": 164
+    },
+    {
+      "jurisdiction": "Gastonia",
+      "url": "https://gastonianc.gov/plans-and-maps2/maps",
+      "layer": "https://services3.arcgis.com/u6Nvh8zpOQRNNRJi/arcgis/rest/services/Gaston_County___GCLMPO___Developments_2025/FeatureServer/26",
+      "records": 67
+    },
+    {
+      "jurisdiction": "Burlington",
+      "url": "https://www.burlingtonnc.gov/2689/Burlington-Development-Dashboard",
+      "layer": "https://maps.regisnc.org/arcgis/rest/services/sde_baselayers/BURL_TRC_Points/FeatureServer/0",
+      "records": 114
+    },
+    {
+      "jurisdiction": "Fayetteville",
+      "url": "https://www.fayettevillenc.gov/City-Development",
+      "layer": "https://services.arcgis.com/j3zNT485kmwrBtMJ/arcgis/rest/services/InfrastructureProjects_allfundedprojects_c26055940a844acf9834f8717d3fe712/FeatureServer/0",
+      "records": 67
+    },
+    {
+      "jurisdiction": "Wake Forest",
+      "url": "https://www.wakeforestnc.gov/planning/development-review/development-activity-dashboard",
+      "layer": "https://services1.arcgis.com/gqTCvanrwF2z2HEu/arcgis/rest/services/Active_Developments_2026/FeatureServer/0",
+      "records": 103
+    },
+    {
+      "jurisdiction": "Holly Springs",
+      "url": "https://www.hollyspringsnc.gov/devmap",
+      "layer": "https://gis.hollyspringsnc.us/ths_arcserver/rest/services/Planning/InteractiveDevelopment/FeatureServer/0",
+      "records": 83
+    },
+    {
+      "jurisdiction": "High Point",
+      "url": "https://www.highpointnc.gov/2019/Development-Activity",
+      "layer": "https://giswa02.highpointnc.gov/server/rest/services/LandDevelopment/MapServer/0",
+      "records": 118
+    },
+    {
+      "jurisdiction": "Cary",
+      "url": "https://data.townofcary.org/explore/assets/developments/view/",
+      "layer": "https://data.townofcary.org/api/explore/v2.1/catalog/datasets/developments/records",
+      "records": 135
+    }
+  ],
+  "limitations": [
+    "This is coverage of specified public inventories, not a complete census of every development.",
+    "Permit-only records describe dated regulatory coverage, not confirmed current construction or full local approvals.",
+    "NC DEQ register is dated August 10, 2026; records added or terminated after that date may be missing or outdated.",
+    "Municipal inventories may retain stale statuses. Source-listed status and available dates are preserved.",
+    "Not every county or municipality has had its full local planning inventory reviewed.",
+    "Pins are approximate; postal towns, planning jurisdictions, municipal limits and counties can differ.",
+    "Projects without usable locations, contradictory county coordinates, or unresolved duplicate matches are held for review.",
+    "No automatic live synchronization or fabricated meeting dates."
+  ],
+  "permitStats": {
+    "sourceRows": 13636,
+    "activeEligible": 12272,
+    "rejectedStatus": 254,
+    "rejectedCounty": 1110,
+    "rejectedLocation": 122,
+    "privateHome": 105,
+    "knownCompleted": 25,
+    "ambiguousDuplicate": 28,
+    "mergedLocal": 154
+  },
+  "heldForReview": 150,
+  "duplicatesMerged": 165
+}
