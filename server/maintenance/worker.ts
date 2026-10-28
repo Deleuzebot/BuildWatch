@@ -1,6 +1,6 @@
 import{Budget,LimitReached,hash,evaluateFinding,type Source}from'./policy';
 import{SourceHTTP}from'./http';
-import{parsePage,sourcePage}from'./adapters';
+import{parsePage,sourcePage,validateSourceSchema}from'./adapters';
 import{deriveProject}from'../supabase/derive';
 import{extractDocument}from'./ai';
 export type WorkerRPC=(action:string,input?:Record<string,any>)=>Promise<any>;
@@ -31,22 +31,25 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
     const crawlDelay=Math.max(1,...[...policy.matchAll(/^crawl-delay:\s*(\d+(?:\.\d+)?)/gim)].map(v=>Number(v[1])));
     if(crawlDelay>60)throw Error('Source crawl delay exceeds the bounded worker; defer for access review.');
     http.minimumInterval=crawlDelay*1000;
-    if(source.adapter==='arcgis'&&!source.config.idField){
+    if(source.adapter==='arcgis'&&(!source.config.idField||source.config.requiredFields?.length)){
      const meta=JSON.parse((await http.get(source.url+'?f=json')).body);
+     if(source.config.requiredFields?.length)validateSourceSchema(source,meta);
      const oid=meta.objectIdField||meta.fields?.find((v:any)=>v.type==='esriFieldTypeOID')?.name;
      if(!oid||!Array.isArray(meta.fields))throw Error('Stable source object identifier unavailable');
-     source.config={...source.config,idField:oid};await call('source',{sourceId:source.id,config:{idField:oid}});
+     if(!source.config.idField){source.config={...source.config,idField:oid};await call('source',{sourceId:source.id,config:{idField:oid}});}
     }
     let cursor=cp.cursors[source.id]||0,more=true;
     while(more){
-     budget.check();const url=sourcePage(source,cursor),cached=await call('document',{sourceId:source.id,url});
-     const reusable=options.mode==='weekly'&&cached.applied===!options.dryRun;
-     const result=await http.get(url,reusable?{...(cached.etag?{'If-None-Match':cached.etag}:{}),...(cached.modified?{'If-Modified-Since':cached.modified}:{})}:{});
+     budget.check();const url=sourcePage(source,cursor);
+     const cacheURL=source.config.mappingVersion?url+'#mapping='+encodeURIComponent(source.config.mappingVersion):url;
+     const cache=await call('document',{sourceId:source.id,url:cacheURL});
+     const reusable=options.mode==='weekly'&&cache.applied===!options.dryRun;
+     const result=await http.get(url,reusable?{...(cache.etag?{'If-None-Match':cache.etag}:{}),...(cache.modified?{'If-Modified-Since':cache.modified}:{})}:{});
      if(result.status===304){stats.unchangedDocuments++; // Page cardinality is retained, not guessed from HTTP 304.
-      if(cached.more){cursor+=50;cp.cursors[source.id]=cursor;await call('checkpoint',{checkpoint:cp,stats:{...stats,...snapshot()}});continue;}more=false;break;
+      if(cache.more){cursor+=50;cp.cursors[source.id]=cursor;await call('checkpoint',{checkpoint:cp,stats:{...stats,...snapshot()}});continue;}more=false;break;
      }
      const digest=hash(result.body);
-     if(digest===cached.hash&&reusable){stats.unchangedDocuments++;more=!!cached.more;}
+     if(digest===cache.hash&&reusable){stats.unchangedDocuments++;more=!!cache.more;}
      else if(source.adapter==='document'){
       const ai=await extractDocument(result.body,source.url,budget);stats.aiUnresolved+=ai.findings.length||1;stats.unverified++;
       // Preserve source evidence even if AI is off or unavailable. No invented project.
@@ -57,6 +60,11 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
       const page=parsePage(source,result.body);more=page.more;
       for(const finding of page.findings){
        budget.check();budget.records++;stats.sourceRecords++;
+       const quality=stats.mappingQuality??={named:0,statusDecoded:0,statusRequiresReview:0,polygonFootprints:0,verifiedPoints:0,planDates:0,permitDates:0,conflictingNotes:0};
+       if(finding.name)quality.named++;if(finding.status)quality.statusDecoded++;else quality.statusRequiresReview++;
+       if(finding.locationEvidence?.type==='polygon')quality.polygonFootprints++;if(finding.locationVerified)quality.verifiedPoints++;
+       if(finding.sourceDates?.plansSubmittedAt)quality.planDates++;if(finding.sourceDates?.permitIssuedAt)quality.permitDates++;
+       if(finding.reviewNotes?.length)quality.conflictingNotes++;
        const match=await call('match',{sourceId:source.id,externalId:finding.externalId});stats.projectsChecked+=match.ids.length===1?1:0;
        const evaluation=evaluateFinding(finding,source,match.project);
        if(match.ids.length>1)evaluation.reasons.push('Shared source identifier maps to multiple records; duplicate review required');
@@ -65,7 +73,7 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
        if(res.outcome==='potential_duplicate')stats.duplicateCandidates++;else if(res.outcome==='awaiting_review')stats.unverified++;else if(res.outcome==='excluded_archive')stats.archivedExcluded++;else if(res.outcome==='published'){if(!match.project)stats.newFindings++;else if(match.project.status!==finding.status)stats.statusChanges++;stats.milestones+=finding.eventDate?1:0;}
       }
      }
-     await call('cache',{sourceId:source.id,url,hash:digest,etag:result.etag,modified:result.modified,more,applied:!options.dryRun});
+     await call('cache',{sourceId:source.id,url:cacheURL,hash:digest,etag:result.etag,modified:result.modified,more,applied:!options.dryRun});
      cursor+=50;cp.cursors[source.id]=cursor;
      await call('checkpoint',{checkpoint:cp,stats:{...stats,...snapshot()}});
     }

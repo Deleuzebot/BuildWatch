@@ -1,0 +1,98 @@
+{
+  "sourceId": "source-eb945f0d43d269a3824983773bc797",
+  "url": "https://arcgis.hickorync.gov/server/rest/services/EconomicDevelopment/Hickory_Development_Projects/MapServer/0",
+  "metadataURL": "https://arcgis.hickorync.gov/server/rest/services/EconomicDevelopment/Hickory_Development_Projects/MapServer/0?f=pjson",
+  "verifiedAt": "2026-10-28",
+  "config": {
+    "mappingVersion": "hickory-2026-10-28-v1",
+    "idField": "OBJECTID",
+    "originalIdentityField": "OBJECTID",
+    "statusScope": "planning-inventory",
+    "scopeVerified": false,
+    "fields": {
+      "name": "P_Name",
+      "developer": "D_Name",
+      "description": "Comments",
+      "status": "Status",
+      "category": "Type"
+    },
+    "statusLabels": {
+      "Pre": "Preliminary",
+      "AP": "Approved Plans",
+      "Con": "Construction",
+      "Fin": "Final"
+    },
+    "statusValues": {
+      "Pre": "Proposed",
+      "AP": "Approved",
+      "Con": "Under construction"
+    },
+    "categoryValues": {
+      "Com": "Commercial",
+      "Ind": "Industrial",
+      "MU": "Mixed-Use",
+      "OI": "Office/Institutional",
+      "Res": "Residential"
+    },
+    "subtypeValues": {
+      "SF": "Single Family",
+      "TH": "Townhomes",
+      "A": "Apartments"
+    },
+    "dateFields": {
+      "plansSubmittedAt": "PSD",
+      "permitIssuedAt": "Per_Date"
+    },
+    "factFields": {
+      "units": "Units",
+      "residentialUse": "RU",
+      "permitNumber": "Per_Num",
+      "acreage": "Acreage",
+      "squareFeet": "SqFt",
+      "proposedInvestment": "Pro_Inv",
+      "proposedJobs": "Pro_Jobs",
+      "permitValue": "Per_Val",
+      "globalId": "GlobalID"
+    },
+    "reviewPhrases": [
+      "approval of previously submitted plans have lapsed",
+      "new plans and permits must be submitted and approved"
+    ],
+    "requiredFields": [
+      "OBJECTID",
+      "P_Name",
+      "D_Name",
+      "Type",
+      "Status",
+      "Comments",
+      "PSD",
+      "Per_Date",
+      "Units",
+      "RU",
+      "Per_Num",
+      "GlobalID"
+    ],
+    "expectedDomains": {
+      "Status": {
+        "Pre": "Preliminary",
+        "AP": "Approved Plans",
+        "Con": "Construction",
+        "Fin": "Final"
+      },
+      "Type": {
+        "Com": "Commercial",
+        "Ind": "Industrial",
+        "MU": "Mixed Use",
+        "OI": "Office/Institutional",
+        "Res": "Residential"
+      }
+    },
+    "notes": [
+      "No street-address field is supplied.",
+      "PSD is Plans Submitted Date, not approval date.",
+      "Per_Date is Permit Date, not construction-start date.",
+      "Final is not proof of completed construction.",
+      "Polygon footprints are source evidence; no centroid or point is fabricated."
+    ]
+  }
+}

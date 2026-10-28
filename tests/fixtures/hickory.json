@@ -1,0 +1,401 @@
+{
+  "sourceURL": "https://arcgis.hickorync.gov/server/rest/services/EconomicDevelopment/Hickory_Development_Projects/MapServer/0",
+  "retrievedAt": "2026-10-28",
+  "metadata": {
+    "geometryType": "esriGeometryPolygon",
+    "fields": [
+      {
+        "name": "OBJECTID",
+        "type": "esriFieldTypeOID",
+        "alias": "OBJECTID",
+        "domain": null
+      },
+      {
+        "name": "P_Name",
+        "type": "esriFieldTypeString",
+        "alias": "Project Name",
+        "length": 50,
+        "domain": null
+      },
+      {
+        "name": "D_Name",
+        "type": "esriFieldTypeString",
+        "alias": "Developer",
+        "length": 50,
+        "domain": null
+      },
+      {
+        "name": "Type",
+        "type": "esriFieldTypeString",
+        "alias": "Type",
+        "length": 50,
+        "domain": {
+          "type": "codedValue",
+          "name": "EDP_Type",
+          "description": "Economic Dev Project Type",
+          "codedValues": [
+            {
+              "name": "Commercial",
+              "code": "Com"
+            },
+            {
+              "name": "Industrial",
+              "code": "Ind"
+            },
+            {
+              "name": "Mixed Use",
+              "code": "MU"
+            },
+            {
+              "name": "Office/Institutional",
+              "code": "OI"
+            },
+            {
+              "name": "Residential",
+              "code": "Res"
+            }
+          ],
+          "mergePolicy": "esriMPTDefaultValue",
+          "splitPolicy": "esriSPTDefaultValue"
+        }
+      },
+      {
+        "name": "Status",
+        "type": "esriFieldTypeString",
+        "alias": "Status",
+        "length": 50,
+        "domain": {
+          "type": "codedValue",
+          "name": "EDP_Status",
+          "description": "Eco Dev Project Status",
+          "codedValues": [
+            {
+              "name": "Preliminary",
+              "code": "Pre"
+            },
+            {
+              "name": "Approved Plans",
+              "code": "AP"
+            },
+            {
+              "name": "Construction",
+              "code": "Con"
+            },
+            {
+              "name": "Final",
+              "code": "Fin"
+            }
+          ],
+          "mergePolicy": "esriMPTDefaultValue",
+          "splitPolicy": "esriSPTDefaultValue"
+        }
+      },
+      {
+        "name": "PSD",
+        "type": "esriFieldTypeDate",
+        "alias": "Plans Submitted Date",
+        "length": 8,
+        "domain": null
+      },
+      {
+        "name": "Units",
+        "type": "esriFieldTypeSmallInteger",
+        "alias": "Units",
+        "domain": null
+      },
+      {
+        "name": "RU",
+        "type": "esriFieldTypeString",
+        "alias": "Residential Use",
+        "length": 25,
+        "domain": {
+          "type": "codedValue",
+          "name": "Res_Use",
+          "description": "Residential Use Catagories",
+          "codedValues": [
+            {
+              "name": "Single Family",
+              "code": "SF"
+            },
+            {
+              "name": "Townhomes",
+              "code": "TH"
+            },
+            {
+              "name": "Apartments",
+              "code": "A"
+            }
+          ],
+          "mergePolicy": "esriMPTDefaultValue",
+          "splitPolicy": "esriSPTDefaultValue"
+        }
+      },
+      {
+        "name": "Comments",
+        "type": "esriFieldTypeString",
+        "alias": "Comments",
+        "length": 255,
+        "domain": null
+      },
+      {
+        "name": "Per_Num",
+        "type": "esriFieldTypeString",
+        "alias": "Permit Number",
+        "length": 18,
+        "domain": null
+      },
+      {
+        "name": "Per_Date",
+        "type": "esriFieldTypeDate",
+        "alias": "Permit Date",
+        "length": 8,
+        "domain": null
+      },
+      {
+        "name": "GlobalID",
+        "type": "esriFieldTypeGlobalID",
+        "alias": "GlobalID",
+        "length": 38,
+        "domain": null
+      }
+    ]
+  },
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 425,
+        "P_Name": "The Gates at Highland",
+        "D_Name": "Fleetwood & Henline",
+        "Type": "Res",
+        "Status": "Fin",
+        "EDA": "No",
+        "PSD": null,
+        "Acreage": null,
+        "SqFt": null,
+        "Units": 192,
+        "RU": "A",
+        "Pro_Inv": null,
+        "Pro_Jobs": null,
+        "Comments": "$13.2M Investment",
+        "Per_Num": null,
+        "Per_Val": 13200000,
+        "Per_Date": 1521345600000,
+        "T_Value": null,
+        "GlobalID": "{2293DC0B-7308-4E5D-B4D1-5A728BE3C0F5}",
+        "SHAPE.STArea()": 402749.1779517013,
+        "SHAPE.STLength()": 2652.5051191249086
+      },
+      "geometry": {
+        "rings": [
+          [
+            [
+              -81.31223488023826,
+              35.751116504080024
+            ],
+            [
+              -81.31118345464606,
+              35.75102072604767
+            ],
+            [
+              -81.31100106454812,
+              35.7492705725935
+            ],
+            [
+              -81.31404805338128,
+              35.74972335217533
+            ],
+            [
+              -81.31262111801756,
+              35.751133918330474
+            ],
+            [
+              -81.31223488023826,
+              35.751116504080024
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 427,
+        "P_Name": "Sweetwater Townhomes",
+        "D_Name": "Gary Dellinger",
+        "Type": "Res",
+        "Status": "Con",
+        "EDA": "No",
+        "PSD": null,
+        "Acreage": null,
+        "SqFt": null,
+        "Units": 50,
+        "RU": "TH",
+        "Pro_Inv": null,
+        "Pro_Jobs": null,
+        "Comments": "$714K Investment in Phase 1",
+        "Per_Num": null,
+        "Per_Val": null,
+        "Per_Date": null,
+        "T_Value": null,
+        "GlobalID": "{C539A717-0F7E-45A6-9744-BC575E9DCEC0}",
+        "SHAPE.STArea()": 315835.1513960691,
+        "SHAPE.STLength()": 2406.2950864396885
+      },
+      "geometry": {
+        "rings": [
+          [
+            [
+              -81.27776849429752,
+              35.70390120099026
+            ],
+            [
+              -81.27540815040695,
+              35.70412772018157
+            ],
+            [
+              -81.2753652352548,
+              35.704145144585326
+            ],
+            [
+              -81.27515065819173,
+              35.7029602688815
+            ],
+            [
+              -81.27510774356466,
+              35.702890569560914
+            ],
+            [
+              -81.27800452862353,
+              35.70292541907381
+            ],
+            [
+              -81.27776849429752,
+              35.70390120099026
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 428,
+        "P_Name": "One North Center",
+        "D_Name": "DEL Co.",
+        "Type": "MU",
+        "Status": "Fin",
+        "EDA": "Yes",
+        "PSD": 1569902400000,
+        "Acreage": 2.0,
+        "SqFt": 110871.0,
+        "Units": 95,
+        "RU": "A",
+        "Pro_Inv": 11100000,
+        "Pro_Jobs": null,
+        "Comments": "$11.1M Investment",
+        "Per_Num": null,
+        "Per_Val": 11100000,
+        "Per_Date": 1578286800000,
+        "T_Value": 9774800,
+        "GlobalID": "{511861F2-FB6E-48CF-B3CF-125F1C962269}",
+        "SHAPE.STArea()": 106719.02673494842,
+        "SHAPE.STLength()": 1360.0808388596126
+      },
+      "geometry": {
+        "rings": [
+          [
+            [
+              -81.33882629997235,
+              35.7332993003576
+            ],
+            [
+              -81.33794653617987,
+              35.7332688182361
+            ],
+            [
+              -81.3380270024616,
+              35.73208002082897
+            ],
+            [
+              -81.33880484297998,
+              35.73210614832042
+            ],
+            [
+              -81.33882629997235,
+              35.7332993003576
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 429,
+        "P_Name": "Preston Ridge Phase 1",
+        "D_Name": "Lat Purser / Neill Grading",
+        "Type": "MU",
+        "Status": "Con",
+        "EDA": "No",
+        "PSD": 1563336000000,
+        "Acreage": 15.62,
+        "SqFt": 247206.0,
+        "Units": 172,
+        "RU": "A",
+        "Pro_Inv": null,
+        "Pro_Jobs": null,
+        "Comments": "$14.8M Investment in Phase 1. Approval of previously submitted plans have lapsed. New plans and permits must be submitted and approved prior to development.",
+        "Per_Num": null,
+        "Per_Val": 14800000,
+        "Per_Date": 1561953600000,
+        "T_Value": null,
+        "GlobalID": "{D4ED799E-5DCF-43F8-B6FE-AF3B0E6B35D9}",
+        "SHAPE.STArea()": 499229.6687894482,
+        "SHAPE.STLength()": 3317.06321891193
+      },
+      "geometry": {
+        "rings": [
+          [
+            [
+              -81.2916562439949,
+              35.69533981531081
+            ],
+            [
+              -81.29119490312492,
+              35.695060991765764
+            ],
+            [
+              -81.29035805425524,
+              35.6958277542986
+            ],
+            [
+              -81.28989671444086,
+              35.695487940253265
+            ],
+            [
+              -81.29091595432224,
+              35.69383241454993
+            ],
+            [
+              -81.2916777010585,
+              35.69260381715319
+            ],
+            [
+              -81.29334067095604,
+              35.693780133683305
+            ],
+            [
+              -81.29283641603038,
+              35.694137382333956
+            ],
+            [
+              -81.29241799115631,
+              35.69452076857133
+            ],
+            [
+              -81.2916562439949,
+              35.69533981531081
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
