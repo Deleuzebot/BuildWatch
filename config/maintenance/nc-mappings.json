@@ -1,0 +1,1290 @@
+[
+  {
+    "sourceId": "source-1c6f73fbb3ee88e206f3af0c2931e0",
+    "url": "https://gis.ashevillenc.gov/server/rest/services/Permits/AccelaPlanningView/FeatureServer/1",
+    "verifiedAt": "2026-10-28",
+    "metadataURL": "https://gis.ashevillenc.gov/server/rest/services/Permits/AccelaPlanningView/FeatureServer/1?f=pjson",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "fields": {
+        "name": "record_name",
+        "status": "record_status",
+        "category": "record_type",
+        "description": "description",
+        "address": "address"
+      },
+      "dateFields": {
+        "applicationOpenedAt": "date_opened",
+        "applicationStatusAt": "record_status_date"
+      },
+      "factFields": {
+        "recordNumber": "record_id",
+        "recordType": "record_type",
+        "recordTypeCategory": "record_type_category"
+      },
+      "statusValues": {
+        "Plan Check": "In review",
+        "Master Plan Approved": "Approved",
+        "Hold for Revision": "In review"
+      },
+      "statusScope": "application",
+      "scopeVerified": false,
+      "notes": [
+        "Closed, Finaled, Issued and Revoked describe applications; no whole-development completion/cancellation inferred."
+      ],
+      "supportingRecordTypes": [
+        "Planning - Historical"
+      ],
+      "requiredFields": [
+        "objectid",
+        "record_name",
+        "record_status",
+        "record_type",
+        "description",
+        "address",
+        "date_opened",
+        "record_status_date",
+        "record_id",
+        "record_type_category"
+      ],
+      "idField": "objectid",
+      "orderByFields": "record_status_date DESC, objectid ASC"
+    }
+  },
+  {
+    "sourceId": "source-5dd5ebe3bc2a7e5b814cabf05757de",
+    "url": "https://gis.charlottenc.gov/arcgis/rest/services/CATS/TransitStationDevelopmentPublic/MapServer/0",
+    "verifiedAt": "2026-10-28",
+    "metadataURL": "https://gis.charlottenc.gov/arcgis/rest/services/CATS/TransitStationDevelopmentPublic/MapServer/0?f=pjson",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "fields": {
+        "name": "ProjectName",
+        "status": "Status",
+        "category": "LandUse",
+        "description": "Notes",
+        "address": "ProjectAddress",
+        "developer": "Developer"
+      },
+      "dateFields": {
+        "reportedCompletionAt": "DateCompleted"
+      },
+      "factFields": {
+        "residentialUnits": "ResidentialUnits",
+        "officeSquareFeet": "OfficeSqFeet",
+        "retailSquareFeet": "RetailSqFeet",
+        "reportedCompletionYear": "Completed",
+        "recordType": "ProjectType"
+      },
+      "statusValues": {
+        "Complete": "Completed"
+      },
+      "statusScope": "application",
+      "scopeVerified": false,
+      "categoryValues": {
+        "RET": "Commercial",
+        "MF": "Residential",
+        "OFF": "Commercial"
+      },
+      "notes": [
+        "Transit-station-area inventory, not complete Charlotte coverage; completion requires administrator confirmation."
+      ],
+      "requiredFields": [
+        "OBJECTID",
+        "ProjectName",
+        "Status",
+        "LandUse",
+        "Notes",
+        "ProjectAddress",
+        "Developer",
+        "DateCompleted",
+        "ResidentialUnits",
+        "OfficeSqFeet",
+        "RetailSqFeet",
+        "Completed",
+        "ProjectType"
+      ],
+      "idField": "OBJECTID",
+      "orderByFields": "DateCompleted DESC, OBJECTID ASC"
+    }
+  },
+  {
+    "sourceId": "source-72e4264c594347cf5a7dff43931106",
+    "url": "https://cogserver.gastonianc.gov/serverweb/rest/services/Planning/ResidentialDevelopments/MapServer/1",
+    "verifiedAt": "2026-10-28",
+    "metadataURL": "https://cogserver.gastonianc.gov/serverweb/rest/services/Planning/ResidentialDevelopments/MapServer/1?f=pjson",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "fields": {
+        "name": "NAME",
+        "status": "STATUS",
+        "category": "TYPE_FULLN"
+      },
+      "dateFields": {
+        "approvedAt": "APPRDATE"
+      },
+      "factFields": {
+        "developmentSubtype": "BULD_TYPE",
+        "units": "TOT_UNITS",
+        "agendaURL": "AGENDA_LINK",
+        "documentURL": "LINK"
+      },
+      "statusValues": {
+        "A": "Approved",
+        "P": "Proposed"
+      },
+      "statusScope": "application",
+      "scopeVerified": false,
+      "statusLabels": {
+        "A": "Approved",
+        "P": "Proposed",
+        "W": "Withdrawn"
+      },
+      "expectedDomains": {
+        "STATUS": {
+          "A": "Approved",
+          "P": "Proposed",
+          "W": "Withdrawn"
+        }
+      },
+      "notes": [
+        "Withdrawn is not automatically whole-development cancellation; GIS edited dates do not reset approval expiration."
+      ],
+      "requiredFields": [
+        "OBJECTID",
+        "NAME",
+        "STATUS",
+        "TYPE_FULLN",
+        "APPRDATE",
+        "BULD_TYPE",
+        "TOT_UNITS",
+        "AGENDA_LINK",
+        "LINK"
+      ],
+      "idField": "OBJECTID",
+      "orderByFields": "APPRDATE DESC, OBJECTID ASC"
+    }
+  },
+  {
+    "sourceId": "source-c80c893f7cc5ab813941518fd0f0cb",
+    "url": "https://cogserver.gastonianc.gov/serverweb/rest/services/Planning/ResidentialDevelopments/MapServer/0",
+    "verifiedAt": "2026-10-28",
+    "metadataURL": "https://cogserver.gastonianc.gov/serverweb/rest/services/Planning/ResidentialDevelopments/MapServer/0?f=pjson",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "fields": {
+        "name": "NAME",
+        "status": "STATUS",
+        "category": "TYPE_FULLN"
+      },
+      "dateFields": {
+        "approvedAt": "APPRDATE"
+      },
+      "factFields": {
+        "developmentSubtype": "BULD_TYPE",
+        "units": "TOT_UNITS",
+        "agendaURL": "AGENDA_LINK",
+        "documentURL": "LINK"
+      },
+      "statusValues": {
+        "A": "Approved",
+        "P": "Proposed"
+      },
+      "statusScope": "application",
+      "scopeVerified": false,
+      "statusLabels": {
+        "A": "Approved",
+        "P": "Proposed",
+        "W": "Withdrawn"
+      },
+      "expectedDomains": {
+        "STATUS": {
+          "A": "Approved",
+          "P": "Proposed",
+          "W": "Withdrawn"
+        }
+      },
+      "notes": [
+        "Withdrawn is not automatically whole-development cancellation; GIS edited dates do not reset approval expiration."
+      ],
+      "requiredFields": [
+        "OBJECTID",
+        "NAME",
+        "STATUS",
+        "TYPE_FULLN",
+        "APPRDATE",
+        "BULD_TYPE",
+        "TOT_UNITS",
+        "AGENDA_LINK",
+        "LINK"
+      ],
+      "idField": "OBJECTID",
+      "orderByFields": "APPRDATE DESC, OBJECTID ASC"
+    }
+  },
+  {
+    "sourceId": "source-4c7a08d8cbc50c48fe4a5e2a5c28f6",
+    "url": "https://gis.greensboro-nc.gov/arcgis/rest/services/EngineeringInspections/BuildingPermits_MS/MapServer/1",
+    "verifiedAt": "2026-10-28",
+    "metadataURL": "https://gis.greensboro-nc.gov/arcgis/rest/services/EngineeringInspections/BuildingPermits_MS/MapServer/1?f=pjson",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "fields": {
+        "status": "StatusCurrent",
+        "category": "OccupancyDesc",
+        "description": "Description",
+        "address": "FullAddress"
+      },
+      "dateFields": {
+        "permitIssuedAt": "IssuedDate",
+        "certificateOfOccupancyAt": "FinalCODate",
+        "permitCancelledAt": "CancelDate"
+      },
+      "factFields": {
+        "permitNumber": "PermitNum",
+        "recordType": "ApplicationType",
+        "units": "NumUnits"
+      },
+      "statusValues": {},
+      "statusScope": "application",
+      "scopeVerified": false,
+      "sourceRole": "supporting_only",
+      "notes": [
+        "No project-title field. Permit labels are not invented development names.",
+        "Final inspection and permit cancellation are not whole-development completion/cancellation."
+      ],
+      "requiredFields": [
+        "OBJECTID",
+        "StatusCurrent",
+        "OccupancyDesc",
+        "Description",
+        "FullAddress",
+        "IssuedDate",
+        "FinalCODate",
+        "CancelDate",
+        "PermitNum",
+        "ApplicationType",
+        "NumUnits"
+      ],
+      "idField": "OBJECTID",
+      "orderByFields": "CancelDate DESC, OBJECTID ASC"
+    }
+  },
+  {
+    "sourceId": "source-419edfdbabc085f5a6a20e5e1b2552",
+    "url": "https://gisonline.greenvillenc.gov/arcgis/rest/services/GreenvilleLink/MapServer/3",
+    "verifiedAt": "2026-10-28",
+    "metadataURL": "https://gisonline.greenvillenc.gov/arcgis/rest/services/GreenvilleLink/MapServer/3?f=pjson",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "fields": {},
+      "dateFields": {},
+      "factFields": {},
+      "statusValues": {},
+      "statusScope": "application",
+      "scopeVerified": false,
+      "sourceRole": "location_reference",
+      "notes": [
+        "Parcel/tax data only; disabled for discovery. No records or public visibility changed."
+      ],
+      "requiredFields": [
+        "OBJECTID"
+      ],
+      "idField": "OBJECTID"
+    }
+  },
+  {
+    "sourceId": "source-3ba855a941647b39209d2f2404196e",
+    "url": "https://gis.harnett.org/arcgis/rest/services/Planning/Projects/MapServer/0",
+    "verifiedAt": "2026-10-28",
+    "metadataURL": "https://gis.harnett.org/arcgis/rest/services/Planning/Projects/MapServer/0?f=pjson",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "fields": {
+        "name": "PROJECT_NAME",
+        "status": "STATUS",
+        "category": "PROJECTTYPE",
+        "description": "DESCRIPTION",
+        "address": "PROJECT_LOC",
+        "developer": "DEVELOPER_NAME"
+      },
+      "dateFields": {
+        "applicationApprovedAt": "APPROVED",
+        "applicationStatusAt": "STATUS_DATE"
+      },
+      "factFields": {
+        "recordNumber": "PROJECT_NO",
+        "recordType": "PROJECTTYPE",
+        "recordSubtype": "PROJECTSUBTYPE",
+        "parentProjectNumber": "PARENT_PROJECT_NO"
+      },
+      "statusValues": {},
+      "statusScope": "application",
+      "scopeVerified": false,
+      "supportingRecordTypes": [
+        "BOARD OF ADJUSTMENT",
+        "HISTORICAL PROJECT",
+        "MOBILE HOME PARK CERTIFICATION"
+      ],
+      "notes": [
+        "Appeals, historical records and certifications cannot independently establish qualifying development."
+      ],
+      "requiredFields": [
+        "OBJECTID",
+        "PROJECT_NAME",
+        "STATUS",
+        "PROJECTTYPE",
+        "DESCRIPTION",
+        "PROJECT_LOC",
+        "DEVELOPER_NAME",
+        "APPROVED",
+        "STATUS_DATE",
+        "PROJECT_NO",
+        "PROJECTSUBTYPE",
+        "PARENT_PROJECT_NO"
+      ],
+      "idField": "OBJECTID",
+      "orderByFields": "STATUS_DATE DESC, OBJECTID ASC"
+    }
+  },
+  {
+    "sourceId": "source-728007135911a041cb34b75303d07a",
+    "url": "https://giswa02.highpointnc.gov/server/rest/services/LandDevelopment/MapServer/0",
+    "verifiedAt": "2026-10-28",
+    "metadataURL": "https://giswa02.highpointnc.gov/server/rest/services/LandDevelopment/MapServer/0?f=pjson",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "fields": {
+        "name": "ProjectName",
+        "status": "RecordStatus",
+        "category": "ProposedUse",
+        "description": "Description",
+        "address": "Address"
+      },
+      "dateFields": {
+        "applicationCreatedAt": "DateCreated",
+        "planApprovedAt": "ApprovalDate"
+      },
+      "factFields": {
+        "recordNumber": "RecordID",
+        "recordType": "RecordTypeAlias"
+      },
+      "statusValues": {
+        "Closed - Plan Approved": "Approved",
+        "Closed - Approved": "Approved"
+      },
+      "statusScope": "application",
+      "scopeVerified": false,
+      "notes": [
+        "Closed plan approvals are not completed physical construction."
+      ],
+      "requiredFields": [
+        "OBJECTID",
+        "ProjectName",
+        "RecordStatus",
+        "ProposedUse",
+        "Description",
+        "Address",
+        "DateCreated",
+        "ApprovalDate",
+        "RecordID",
+        "RecordTypeAlias"
+      ],
+      "idField": "OBJECTID",
+      "orderByFields": "ApprovalDate DESC, OBJECTID ASC"
+    }
+  },
+  {
+    "sourceId": "source-1e0b31a7b636c64cd4d43d4b4281dd",
+    "url": "https://gis.hollyspringsnc.us/ths_arcserver/rest/services/Planning/InteractiveDevelopment/FeatureServer/0",
+    "verifiedAt": "2026-10-28",
+    "metadataURL": "https://gis.hollyspringsnc.us/ths_arcserver/rest/services/Planning/InteractiveDevelopment/FeatureServer/0?f=pjson",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "fields": {
+        "name": "Name",
+        "status": "Status",
+        "description": "Description"
+      },
+      "dateFields": {
+        "reportedStatusAt": "Status_Date"
+      },
+      "factFields": {
+        "recordNumber": "Project_Number",
+        "publicHearingRequired": "Public_Hearing",
+        "documentURL": "Documentation"
+      },
+      "statusValues": {},
+      "statusScope": "application",
+      "scopeVerified": false,
+      "notes": [
+        "Public_Hearing is Yes/No; it is not a scheduled meeting date.",
+        "Reported status date is retained separately; historic timestamps are not fresh activity."
+      ],
+      "requiredFields": [
+        "OBJECTID",
+        "Name",
+        "Status",
+        "Description",
+        "Status_Date",
+        "Project_Number",
+        "Public_Hearing",
+        "Documentation"
+      ],
+      "idField": "OBJECTID",
+      "orderByFields": "Status_Date DESC, OBJECTID ASC"
+    }
+  },
+  {
+    "sourceId": "source-bb3ff9a936be8799ce8dbff3741e12",
+    "url": "https://gis.mooresvillenc.gov/gisadmin/rest/services/Planning/active_projects/MapServer/0",
+    "verifiedAt": "2026-10-28",
+    "metadataURL": "https://gis.mooresvillenc.gov/gisadmin/rest/services/Planning/active_projects/MapServer/0?f=pjson",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "fields": {
+        "name": "name",
+        "status": "Status",
+        "category": "type",
+        "description": "notes"
+      },
+      "dateFields": {},
+      "factFields": {
+        "recordNumber": "project_id",
+        "residentialUnits": "mf_units",
+        "singleFamilyUnits": "sf_units",
+        "plansApprovedText": "plans_approved"
+      },
+      "statusValues": {
+        "Active Board Application": "In review"
+      },
+      "statusScope": "application",
+      "scopeVerified": false,
+      "notes": [
+        "GIS last_edited_date is not substantive development activity."
+      ],
+      "requiredFields": [
+        "OBJECTID",
+        "name",
+        "Status",
+        "type",
+        "notes",
+        "project_id",
+        "mf_units",
+        "sf_units",
+        "plans_approved"
+      ],
+      "idField": "OBJECTID"
+    }
+  },
+  {
+    "sourceId": "source-76f889f9a4b34e167e03b6c7803626",
+    "url": "https://gis11.services.ncdot.gov/arcgis/rest/services/NCDOT_STIP/MapServer/1",
+    "verifiedAt": "2026-10-28",
+    "metadataURL": "https://gis11.services.ncdot.gov/arcgis/rest/services/NCDOT_STIP/MapServer/1?f=pjson",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "fields": {
+        "name": "TIP",
+        "description": "Description",
+        "category": "Mode"
+      },
+      "dateFields": {},
+      "factFields": {
+        "transportationId": "TIP",
+        "route": "Route",
+        "programCategory": "Category",
+        "scheduledConstructionYear": "ConstructionYear",
+        "scheduledRightOfWayYear": "RightOfWayYear",
+        "projectCost": "ProjectCost",
+        "counties": "Counties"
+      },
+      "statusValues": {},
+      "statusScope": "transportation-program",
+      "scopeVerified": false,
+      "categoryValues": {
+        "Highway": "Transportation",
+        "Aviation": "Transportation",
+        "Bike & Ped": "Transportation"
+      },
+      "notes": [
+        "TIP is the official project identifier used as its display label.",
+        "Future funding/construction years are not verified construction-start milestones; retain road significance screening."
+      ],
+      "requiredFields": [
+        "OBJECTID",
+        "TIP",
+        "Description",
+        "Mode",
+        "Route",
+        "Category",
+        "ConstructionYear",
+        "RightOfWayYear",
+        "ProjectCost",
+        "Counties"
+      ],
+      "idField": "OBJECTID"
+    }
+  },
+  {
+    "sourceId": "source-f2f340751573ae0e23dcd5083d0c91",
+    "url": "https://gis11.services.ncdot.gov/arcgis/rest/services/NCDOT_STIP/MapServer/0",
+    "verifiedAt": "2026-10-28",
+    "metadataURL": "https://gis11.services.ncdot.gov/arcgis/rest/services/NCDOT_STIP/MapServer/0?f=pjson",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "fields": {
+        "name": "TIP",
+        "description": "Description",
+        "category": "Mode"
+      },
+      "dateFields": {},
+      "factFields": {
+        "transportationId": "TIP",
+        "route": "Route",
+        "programCategory": "Category",
+        "scheduledConstructionYear": "ConstructionYear",
+        "scheduledRightOfWayYear": "RightOfWayYear",
+        "projectCost": "ProjectCost",
+        "counties": "Counties"
+      },
+      "statusValues": {},
+      "statusScope": "transportation-program",
+      "scopeVerified": false,
+      "categoryValues": {
+        "Highway": "Transportation",
+        "Aviation": "Transportation",
+        "Bike & Ped": "Transportation"
+      },
+      "notes": [
+        "TIP is the official project identifier used as its display label.",
+        "Future funding/construction years are not verified construction-start milestones; retain road significance screening."
+      ],
+      "requiredFields": [
+        "OBJECTID",
+        "TIP",
+        "Description",
+        "Mode",
+        "Route",
+        "Category",
+        "ConstructionYear",
+        "RightOfWayYear",
+        "ProjectCost",
+        "Counties"
+      ],
+      "idField": "OBJECTID"
+    }
+  },
+  {
+    "sourceId": "source-9d85e9d2a0dacbd1948f99ae590e8d",
+    "url": "https://gis.pendercountync.gov/arcgis/rest/services/Development_Activity/MapServer/3",
+    "metadataURL": "https://gis.pendercountync.gov/arcgis/rest/services/Development_Activity/MapServer/3?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "OBJECTID",
+      "fields": {
+        "name": "SUBDIVISION_NAME",
+        "status": "STATUS",
+        "address": "LOCATION",
+        "category": "HOUSING_TYPE"
+      },
+      "statusScope": "application",
+      "scopeVerified": false,
+      "dateFields": {
+        "sourceReportedUpdateAt": "LAST_UPDATED"
+      },
+      "factFields": {
+        "recordNumber": "CASE_NUMBER",
+        "documentURL": "MORE_INFORMATION"
+      },
+      "statusValues": {
+        "Pending": "In review",
+        "Pending (Authorization to Clear and Grade)": "In review",
+        "Approved with Conditions": "Approved"
+      },
+      "notes": [
+        "LAST_UPDATED is not necessarily an approval date. Withdrawn is not automatically a cancelled development."
+      ],
+      "requiredFields": [
+        "OBJECTID",
+        "SUBDIVISION_NAME",
+        "STATUS",
+        "LOCATION",
+        "HOUSING_TYPE",
+        "LAST_UPDATED",
+        "CASE_NUMBER",
+        "MORE_INFORMATION"
+      ],
+      "orderByFields": "LAST_UPDATED DESC, OBJECTID ASC"
+    }
+  },
+  {
+    "sourceId": "source-ba325e3a44fd419b623c8faf8bfb1e",
+    "url": "https://gis.pendercountync.gov/arcgis/rest/services/Development_Activity/MapServer/1",
+    "metadataURL": "https://gis.pendercountync.gov/arcgis/rest/services/Development_Activity/MapServer/1?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "OBJECTID",
+      "fields": {
+        "name": "PROJECT_NAME",
+        "status": "STATUS",
+        "address": "LOCATION",
+        "description": "DESCRIPTION"
+      },
+      "statusScope": "application",
+      "scopeVerified": false,
+      "dateFields": {
+        "sourceReportedUpdateAt": "LAST_UPDATED"
+      },
+      "factFields": {
+        "recordNumber": "CASE_NUMBER",
+        "documentURL": "MORE_INFORMATION"
+      },
+      "statusValues": {
+        "Pending": "In review",
+        "Pending (Authorization to Clear and Grade)": "In review",
+        "Approved with Conditions": "Approved"
+      },
+      "notes": [
+        "LAST_UPDATED is not necessarily an approval date. Withdrawn is not automatically a cancelled development."
+      ],
+      "requiredFields": [
+        "OBJECTID",
+        "PROJECT_NAME",
+        "STATUS",
+        "LOCATION",
+        "DESCRIPTION",
+        "LAST_UPDATED",
+        "CASE_NUMBER",
+        "MORE_INFORMATION"
+      ],
+      "orderByFields": "LAST_UPDATED DESC, OBJECTID ASC"
+    }
+  },
+  {
+    "sourceId": "source-dc6f9807f85c526e083193069b2758",
+    "url": "https://gis.pendercountync.gov/arcgis/rest/services/Development_Activity/MapServer/4",
+    "metadataURL": "https://gis.pendercountync.gov/arcgis/rest/services/Development_Activity/MapServer/4?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "OBJECTID",
+      "fields": {
+        "name": "PROJECT_NAME",
+        "status": "STATUS",
+        "address": "LOCATION",
+        "description": "DESCRIPTION"
+      },
+      "statusScope": "application",
+      "scopeVerified": false,
+      "dateFields": {
+        "sourceReportedUpdateAt": "LAST_UPDATED"
+      },
+      "factFields": {
+        "recordNumber": "CASE_NUMBER",
+        "documentURL": "MORE_INFORMATION"
+      },
+      "statusValues": {
+        "Pending": "In review",
+        "Pending (Authorization to Clear and Grade)": "In review",
+        "Approved with Conditions": "Approved"
+      },
+      "notes": [
+        "LAST_UPDATED is not necessarily an approval date. Withdrawn is not automatically a cancelled development."
+      ],
+      "requiredFields": [
+        "OBJECTID",
+        "PROJECT_NAME",
+        "STATUS",
+        "LOCATION",
+        "DESCRIPTION",
+        "LAST_UPDATED",
+        "CASE_NUMBER",
+        "MORE_INFORMATION"
+      ],
+      "orderByFields": "LAST_UPDATED DESC, OBJECTID ASC"
+    }
+  },
+  {
+    "sourceId": "source-8ad50df7b7918cceaf0e16245fd827",
+    "url": "https://services1.arcgis.com/nry3yyvaEfskMEXA/arcgis/rest/services/Development/FeatureServer/0",
+    "metadataURL": "https://services1.arcgis.com/nry3yyvaEfskMEXA/arcgis/rest/services/Development/FeatureServer/0?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "FID",
+      "fields": {
+        "name": "Name",
+        "category": "Type",
+        "status": "Status"
+      },
+      "dateFields": {
+        "submittedAt": "Submittal_Date",
+        "applicationActionAt": "Action_Date"
+      },
+      "factFields": {
+        "documentURL": "More_Info",
+        "applicationAction": "Action_Taken"
+      },
+      "statusValues": {},
+      "statusScope": "application",
+      "scopeVerified": false,
+      "requiredFields": [
+        "FID",
+        "Name",
+        "Type",
+        "Status",
+        "Submittal_Date",
+        "Action_Date",
+        "More_Info",
+        "Action_Taken"
+      ],
+      "orderByFields": "Action_Date DESC, FID ASC",
+      "notes": [
+        "Source dates retain their specific meanings; no GIS edit date resets expiration.",
+        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+      ]
+    }
+  },
+  {
+    "sourceId": "source-84e7a3a53c591fabd79b075e74f04d",
+    "url": "https://services1.arcgis.com/W6gamXPYQeLXrdAd/arcgis/rest/services/Commercial_Development/FeatureServer/82",
+    "metadataURL": "https://services1.arcgis.com/W6gamXPYQeLXrdAd/arcgis/rest/services/Commercial_Development/FeatureServer/82?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "FID",
+      "fields": {
+        "name": "Name",
+        "description": "Descrip",
+        "category": "Type",
+        "status": "Status"
+      },
+      "dateFields": {
+        "sourceRecordDate": "Date"
+      },
+      "factFields": {
+        "developmentSubtype": "SubType"
+      },
+      "statusValues": {
+        "Step 1: Under Planning Review": "In review",
+        "Step 2: Site Plan Approved (Pre-Construction)": "Approved",
+        "Step 3: Zoning Permit Issued (Pre-Construction)": "Approved",
+        "Step 4: All Permits Issued (Approved for Construction)": "Approved",
+        "Step 5: Project Complete": "Completed"
+      },
+      "statusScope": "application",
+      "scopeVerified": false,
+      "requiredFields": [
+        "FID",
+        "Name",
+        "Descrip",
+        "Type",
+        "Status",
+        "Date",
+        "SubType"
+      ],
+      "orderByFields": "Date DESC, FID ASC",
+      "expectedDomains": {
+        "Status": {
+          "Step 1: Under Planning Review": "Step 1: Under Planning Review",
+          "Step 2: Site Plan Approved (Pre-Construction)": "Step 2: Site Plan Approved (Pre-Construction)",
+          "Step 3: Zoning Permit Issued (Pre-Construction)": "Step 3: Zoning Permit Issued (Pre-Construction)",
+          "Step 4: All Permits Issued (Approved for Construction)": "Step 4: All Permits Issued (Approved for Construction)",
+          "Step 5: Project Complete": "Step 5: Project Complete"
+        }
+      },
+      "notes": [
+        "Source dates retain their specific meanings; no GIS edit date resets expiration.",
+        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+      ]
+    }
+  },
+  {
+    "sourceId": "source-efb420da53468a1e15e9c1252bf667",
+    "url": "https://services1.arcgis.com/W6gamXPYQeLXrdAd/arcgis/rest/services/ApprovedDev_poly/FeatureServer/0",
+    "metadataURL": "https://services1.arcgis.com/W6gamXPYQeLXrdAd/arcgis/rest/services/ApprovedDev_poly/FeatureServer/0?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "FID",
+      "fields": {
+        "name": "Developmen",
+        "category": "Type"
+      },
+      "dateFields": {
+        "approvedAt": "Approved"
+      },
+      "factFields": {
+        "recordNumber": "File_Numb",
+        "units": "Units",
+        "builtUnits": "Unit_Count",
+        "underConstructionUnits": "Units_Con",
+        "buildoutPercent": "Buildout"
+      },
+      "statusValues": {},
+      "statusScope": "application",
+      "scopeVerified": false,
+      "requiredFields": [
+        "FID",
+        "Developmen",
+        "Type",
+        "Approved",
+        "File_Numb",
+        "Units",
+        "Unit_Count",
+        "Units_Con",
+        "Buildout"
+      ],
+      "orderByFields": "Approved DESC, FID ASC",
+      "notes": [
+        "Source dates retain their specific meanings; no GIS edit date resets expiration.",
+        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+      ]
+    }
+  },
+  {
+    "sourceId": "source-74f19404d8c4320776a77c98970b38",
+    "url": "https://services1.arcgis.com/XuFUQlKbcaxhKrdd/arcgis/rest/services/Development_Map__October_2026__WFL1/FeatureServer/1",
+    "metadataURL": "https://services1.arcgis.com/XuFUQlKbcaxhKrdd/arcgis/rest/services/Development_Map__October_2026__WFL1/FeatureServer/1?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "OBJECTID",
+      "fields": {
+        "name": "Name",
+        "description": "Descriptio",
+        "status": "Status",
+        "category": "Type"
+      },
+      "dateFields": {},
+      "factFields": {
+        "recordNumber": "Project_Nu",
+        "documentURL": "More_Info",
+        "units": "Units",
+        "jurisdiction": "Jurisdicti"
+      },
+      "statusValues": {},
+      "statusScope": "application",
+      "scopeVerified": false,
+      "requiredFields": [
+        "OBJECTID",
+        "Name",
+        "Descriptio",
+        "Status",
+        "Type",
+        "Project_Nu",
+        "More_Info",
+        "Units",
+        "Jurisdicti"
+      ],
+      "notes": [
+        "Source dates retain their specific meanings; no GIS edit date resets expiration.",
+        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+      ]
+    }
+  },
+  {
+    "sourceId": "source-111a21ca95a17e40f57f2d9c483685",
+    "url": "https://services2.arcgis.com/G5vR3cOjh6g2Ed8E/arcgis/rest/services/Planning/FeatureServer/17",
+    "metadataURL": "https://services2.arcgis.com/G5vR3cOjh6g2Ed8E/arcgis/rest/services/Planning/FeatureServer/17?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "OBJECTID",
+      "fields": {
+        "name": "A_PROJECT_NAME",
+        "description": "A_DESCRIPTION",
+        "category": "AppType",
+        "status": "AppStatus"
+      },
+      "dateFields": {
+        "applicationOpenedAt": "A_DATE",
+        "applicationStatusAt": "A_STATUS_DATE"
+      },
+      "factFields": {
+        "recordNumber": "A_NUMBER",
+        "rawStatusCode": "A_STATUS",
+        "rawCaseType": "A_TYPE"
+      },
+      "statusValues": {},
+      "statusScope": "application",
+      "scopeVerified": false,
+      "requiredFields": [
+        "OBJECTID",
+        "A_PROJECT_NAME",
+        "A_DESCRIPTION",
+        "AppType",
+        "AppStatus",
+        "A_DATE",
+        "A_STATUS_DATE",
+        "A_NUMBER",
+        "A_STATUS",
+        "A_TYPE"
+      ],
+      "orderByFields": "A_STATUS_DATE DESC, OBJECTID ASC",
+      "notes": [
+        "Source dates retain their specific meanings; no GIS edit date resets expiration.",
+        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+      ]
+    }
+  },
+  {
+    "sourceId": "source-4a2e94a962f08742bc434c6b9fd72b",
+    "url": "https://services.arcgis.com/j3zNT485kmwrBtMJ/arcgis/rest/services/InfrastructureProjects_allfundedprojects_c26055940a844acf9834f8717d3fe712/FeatureServer/0",
+    "metadataURL": "https://services.arcgis.com/j3zNT485kmwrBtMJ/arcgis/rest/services/InfrastructureProjects_allfundedprojects_c26055940a844acf9834f8717d3fe712/FeatureServer/0?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "OBJECTID",
+      "fields": {
+        "name": "projname",
+        "description": "projdesc",
+        "category": "projtype",
+        "status": "projphase"
+      },
+      "dateFields": {
+        "actualProjectStartAt": "actstart",
+        "actualProjectEndAt": "actend",
+        "plannedStartAt": "planstart",
+        "plannedEndAt": "planend"
+      },
+      "factFields": {
+        "recordNumber": "projid",
+        "repairMaintenance": "repair",
+        "expansion": "expand",
+        "replacement": "replace",
+        "administrativeStatus": "projstatus",
+        "estimatedCost": "estcost",
+        "documentURL": "docpath"
+      },
+      "statusValues": {
+        "PreDesign": "Proposed",
+        "Design": "Proposed",
+        "Construction": "Under construction",
+        "Complete": "Completed"
+      },
+      "statusScope": "application",
+      "scopeVerified": false,
+      "requiredFields": [
+        "OBJECTID",
+        "projname",
+        "projdesc",
+        "projtype",
+        "projphase",
+        "actstart",
+        "actend",
+        "planstart",
+        "planend",
+        "projid",
+        "repair",
+        "expand",
+        "replace",
+        "projstatus",
+        "estcost",
+        "docpath"
+      ],
+      "orderByFields": "planend DESC, OBJECTID ASC",
+      "expectedDomains": {
+        "projtype": {
+          "Bridge": "Bridge",
+          "Dam": "Dam",
+          "Sidewalk": "Sidewalk",
+          "Stormwater Drainage": "Stormwater Drainage",
+          "Capital Project": "Capital Project",
+          "Roadway": "Roadway",
+          "Other": "Other",
+          "Public Safety": "Public Safety",
+          "Parks and Recreation": "Parks and Recreation"
+        },
+        "projphase": {
+          "PreDesign": "PreDesign",
+          "Design": "Design",
+          "Construction": "Construction",
+          "Closeout": "Closeout",
+          "Complete": "Complete"
+        }
+      },
+      "notes": [
+        "Source dates retain their specific meanings; no GIS edit date resets expiration.",
+        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+      ]
+    }
+  },
+  {
+    "sourceId": "source-8a1ca71d74c881f8067e635dc36d64",
+    "url": "https://services3.arcgis.com/u6Nvh8zpOQRNNRJi/arcgis/rest/services/Gaston_County___GCLMPO___Developments_2025/FeatureServer/26",
+    "metadataURL": "https://services3.arcgis.com/u6Nvh8zpOQRNNRJi/arcgis/rest/services/Gaston_County___GCLMPO___Developments_2025/FeatureServer/26?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "FID",
+      "fields": {
+        "name": "NAME",
+        "status": "Status",
+        "category": "TYPE_FULLN",
+        "developer": "DEVELOPER"
+      },
+      "dateFields": {
+        "approvedAt": "APPRDATE"
+      },
+      "factFields": {
+        "rawDevelopmentStatus": "Devp_sta",
+        "subtype": "BULD_TYPE",
+        "units": "TOT_UNITS",
+        "agendaURL": "AGENDALINK",
+        "documentURL": "LINK",
+        "buildoutEvidence": "BUILTOUT"
+      },
+      "statusValues": {},
+      "statusScope": "application",
+      "scopeVerified": false,
+      "requiredFields": [
+        "FID",
+        "NAME",
+        "Status",
+        "TYPE_FULLN",
+        "DEVELOPER",
+        "APPRDATE",
+        "Devp_sta",
+        "BULD_TYPE",
+        "TOT_UNITS",
+        "AGENDALINK",
+        "LINK",
+        "BUILTOUT"
+      ],
+      "orderByFields": "APPRDATE DESC, FID ASC",
+      "notes": [
+        "Source dates retain their specific meanings; no GIS edit date resets expiration.",
+        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+      ]
+    }
+  },
+  {
+    "sourceId": "source-cced580bef87ae08ecb3cfeeb97ed6",
+    "url": "https://services7.arcgis.com/CADYoH7VVBN3BQHU/arcgis/rest/services/Development_Projects/FeatureServer/0",
+    "metadataURL": "https://services7.arcgis.com/CADYoH7VVBN3BQHU/arcgis/rest/services/Development_Projects/FeatureServer/0?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "FID",
+      "fields": {
+        "name": "Name",
+        "status": "Status_1",
+        "category": "Pln_Typ"
+      },
+      "dateFields": {},
+      "factFields": {
+        "documentURL": "Add_Info"
+      },
+      "statusValues": {},
+      "statusScope": "application",
+      "scopeVerified": false,
+      "requiredFields": [
+        "FID",
+        "Name",
+        "Status_1",
+        "Pln_Typ",
+        "Add_Info"
+      ],
+      "notes": [
+        "Source dates retain their specific meanings; no GIS edit date resets expiration.",
+        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+      ]
+    }
+  },
+  {
+    "sourceId": "source-5b0ff4068df1d33930f9db05b07751",
+    "url": "https://services1.arcgis.com/gqTCvanrwF2z2HEu/arcgis/rest/services/Active_Developments_2026/FeatureServer/0",
+    "metadataURL": "https://services1.arcgis.com/gqTCvanrwF2z2HEu/arcgis/rest/services/Active_Developments_2026/FeatureServer/0?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "OBJECTID",
+      "fields": {
+        "name": "development_name",
+        "description": "description",
+        "status": "status",
+        "category": "development_type",
+        "address": "location"
+      },
+      "dateFields": {},
+      "factFields": {
+        "recordNumber": "case_number",
+        "documentURL": "geocivix_link",
+        "comments": "comments"
+      },
+      "statusValues": {},
+      "statusScope": "application",
+      "scopeVerified": false,
+      "requiredFields": [
+        "OBJECTID",
+        "development_name",
+        "description",
+        "status",
+        "development_type",
+        "location",
+        "case_number",
+        "geocivix_link",
+        "comments"
+      ],
+      "expectedDomains": {
+        "status": {
+          "Under Review": "Under Review",
+          "Active": "Active",
+          "Closed": "Closed"
+        },
+        "development_type": {
+          "Under Review Developments": "Under Review Developments",
+          "Under Review Residential Developments": "Under Review Residential Developments",
+          "Under Review Commercial Developments": "Under Review Commercial Developments",
+          "Under Review Mixed-Use Developments": "Under Review Mixed-Use Developments",
+          "Under Review Institutional Developments": "Under Review Institutional Developments",
+          "Under Review Public Developments ": "Under Review Public Developments ",
+          "Approved Residential Developments": "Approved Residential Developments",
+          "Approved Commercial Developments": "Approved Commercial Developments",
+          "Approved Mixed-Use Developments": "Approved Mixed-Use Developments",
+          "Approved Institutional Developments": "Approved Institutional Developments",
+          "Approved Public Developments ": "Approved Public Developments"
+        }
+      },
+      "notes": [
+        "Source dates retain their specific meanings; no GIS edit date resets expiration.",
+        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+      ]
+    }
+  },
+  {
+    "sourceId": "source-beaa9697115294d6292c81ac09e07e",
+    "url": "https://services1.arcgis.com/GwaLJVJq0Y6voqEc/arcgis/rest/services/CIPACE_2026Updates/FeatureServer/25",
+    "metadataURL": "https://services1.arcgis.com/GwaLJVJq0Y6voqEc/arcgis/rest/services/CIPACE_2026Updates/FeatureServer/25?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "OBJECTID",
+      "fields": {
+        "name": "ProjectName",
+        "description": "ProjectDescription",
+        "status": "ProjectPhase",
+        "category": "ProjectType",
+        "address": "ProjectLocation"
+      },
+      "dateFields": {},
+      "factFields": {
+        "recordNumber": "MUNISID",
+        "administrativeStatus": "ProjectStatus",
+        "program": "Program",
+        "subprogram": "Subprogram"
+      },
+      "statusValues": {},
+      "statusScope": "application",
+      "scopeVerified": false,
+      "requiredFields": [
+        "OBJECTID",
+        "ProjectName",
+        "ProjectDescription",
+        "ProjectPhase",
+        "ProjectType",
+        "ProjectLocation",
+        "MUNISID",
+        "ProjectStatus",
+        "Program",
+        "Subprogram"
+      ],
+      "notes": [
+        "Source dates retain their specific meanings; no GIS edit date resets expiration.",
+        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+      ]
+    }
+  },
+  {
+    "sourceId": "source-5dceffa9311b289179dc980a0aea63",
+    "url": "https://services.arcgis.com/XAnuVx6VEMybNvyd/ArcGIS/rest/services/Development/FeatureServer/7",
+    "metadataURL": "https://services.arcgis.com/XAnuVx6VEMybNvyd/ArcGIS/rest/services/Development/FeatureServer/7?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "OBJECTID",
+      "fields": {
+        "name": "Docket",
+        "status": "Planning_Board_Action",
+        "description": "UseRequest",
+        "address": "Location"
+      },
+      "dateFields": {
+        "planningBoardDate": "Planning_Board_Date"
+      },
+      "factFields": {
+        "recordNumber": "Docket",
+        "documentURL": "Documentation",
+        "continuedTo": "ContinuedTo",
+        "continuedFrom": "ContinuedFrom"
+      },
+      "statusValues": {},
+      "statusScope": "application",
+      "scopeVerified": false,
+      "requiredFields": [
+        "OBJECTID",
+        "Docket",
+        "Planning_Board_Action",
+        "UseRequest",
+        "Location",
+        "Planning_Board_Date",
+        "Documentation",
+        "ContinuedTo",
+        "ContinuedFrom"
+      ],
+      "orderByFields": "Planning_Board_Date DESC, OBJECTID ASC",
+      "notes": [
+        "Source dates retain their specific meanings; no GIS edit date resets expiration.",
+        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+      ]
+    }
+  },
+  {
+    "sourceId": "source-49989286711c6cf616f344ee2ba9b8",
+    "url": "https://services.arcgis.com/XAnuVx6VEMybNvyd/ArcGIS/rest/services/Development/FeatureServer/8",
+    "metadataURL": "https://services.arcgis.com/XAnuVx6VEMybNvyd/ArcGIS/rest/services/Development/FeatureServer/8?f=pjson",
+    "verifiedAt": "2026-10-28",
+    "config": {
+      "mappingVersion": "nc-2026-10-28-v2",
+      "idField": "OBJECTID",
+      "fields": {
+        "name": "Docket",
+        "status": "Planning_Board_Action",
+        "description": "Request",
+        "address": "Location"
+      },
+      "dateFields": {
+        "planningBoardDate": "Planning_Board_Date"
+      },
+      "factFields": {
+        "recordNumber": "Docket",
+        "documentURL": "Documentation",
+        "continuedTo": "ContinuedTo",
+        "continuedFrom": "ContinuedFrom"
+      },
+      "statusValues": {},
+      "statusScope": "application",
+      "scopeVerified": false,
+      "requiredFields": [
+        "OBJECTID",
+        "Docket",
+        "Planning_Board_Action",
+        "Request",
+        "Location",
+        "Planning_Board_Date",
+        "Documentation",
+        "ContinuedTo",
+        "ContinuedFrom"
+      ],
+      "orderByFields": "Planning_Board_Date DESC, OBJECTID ASC",
+      "notes": [
+        "Source dates retain their specific meanings; no GIS edit date resets expiration.",
+        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+      ]
+    }
+  }
+]

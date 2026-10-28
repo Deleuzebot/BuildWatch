@@ -23,12 +23,14 @@ export function nextRun(weekday:number,now=new Date()){
  throw Error('No next execution time found.');
 }
 export type Source={id:string;state:string;jurisdiction:string;url:string;adapter:'arcgis'|'cary'|'document';enabled:boolean;authority:'official'|'supplementary';autopublish:boolean;config:Record<string,any>};
-export type Finding={mappingVersion?:string;statusLabel?:string;rawCategory?:string;sourceDates?:Record<string,string>;sourceFacts?:Record<string,string|number>;locationEvidence?:{type:'point'|'polygon'|'unavailable';bounds?:{west:number;south:number;east:number;north:number};url:string};reviewNotes?:string[];externalId:string;name:string;description:string;address:string;latitude:number|null;longitude:number|null;rawStatus:string;status?:Status;eventDate?:string;publishedAt?:string;category:string;developer:string;url:string;quote:string;principalUseVerified:boolean;locationVerified:boolean;wholeDevelopment:boolean;meeting?:{id:string;title:string;startsAt:string;venue:string;agenda:string}};
+export type Finding={mappingVersion?:string;statusLabel?:string;rawCategory?:string;sourceDates?:Record<string,string>;sourceFacts?:Record<string,string|number>;locationEvidence?:{type:'point'|'polygon'|'polyline'|'unavailable';bounds?:{west:number;south:number;east:number;north:number};url:string};reviewNotes?:string[];externalId:string;name:string;description:string;address:string;latitude:number|null;longitude:number|null;rawStatus:string;status?:Status;eventDate?:string;publishedAt?:string;category:string;developer:string;url:string;quote:string;principalUseVerified:boolean;locationVerified:boolean;wholeDevelopment:boolean;meeting?:{id:string;title:string;startsAt:string;venue:string;agenda:string}};
 export function mappedStatus(raw:string):Status|undefined{
  const v=raw.trim().toLowerCase();return({'proposed':'Proposed','under review':'In review','in review':'In review','approved':'Approved','under construction':'Under construction','construction started':'Under construction','completed':'Completed','cancelled':'Cancelled','canceled':'Cancelled','on hold':'On hold'} as Record<string,Status>)[v];
 }
 export function evaluateFinding(f:Finding,s:Source,existing:Project|null,now=Date.now()){
  const reasons:string[]=[...(f.reviewNotes||[])];const dated=f.eventDate&&exactDate(f.eventDate)!==undefined&&exactDate(f.eventDate)!<=now;
+ if(s.config.sourceRole==='supporting_only'||s.config.sourceRole==='location_reference')reasons.push('Source is supporting evidence, not independent development discovery');
+ if((s.config.supportingRecordTypes||[]).includes(f.sourceFacts?.recordType))reasons.push('Administrative or historical record requires association with a qualifying development');
  if(!f.externalId||!f.name||!f.quote||!f.url.startsWith('https:'))reasons.push('Missing stable identity or traceable source evidence');
  if(s.authority!=='official')reasons.push('Supplementary evidence requires review');
  if(!f.status||!f.wholeDevelopment)reasons.push('Status may describe an application or permit rather than the whole development');

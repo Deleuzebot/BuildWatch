@@ -5,7 +5,7 @@ import{exactDate}from'../archives/policy';
 const clean=(v:any)=>String(v??'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim().slice(0,8000);
 const first=(a:any,names:string[])=>{for(const k of names)if(a[k]!==null&&a[k]!==undefined&&clean(a[k]))return clean(a[k]);return '';};
 export function isoDate(v:any){
- if(typeof v==='number'&&Number.isFinite(v)&&v>0&&v<8640000000000000)return new Date(v).toISOString();
+ if(typeof v==='number'&&Number.isFinite(v)&&v>=100000000000&&v<8640000000000000)return new Date(v).toISOString();
  if(typeof v==='string'&&exactDate(v)!==undefined)return v;
  return undefined;
 }
@@ -14,6 +14,7 @@ export function validateSourceSchema(s:Source,metadata:any){
  if(metadata.error||!Array.isArray(metadata.fields))throw Error('Official source metadata is unavailable');
  const fields=new Map<string,any>(metadata.fields.map((v:any)=>[v.name,v]));
  for(const name of s.config.requiredFields||[])if(!fields.has(name))throw Error('Official source schema changed: missing '+name);
+ for(const term of (s.config.orderByFields||'').split(',').filter(Boolean)){const m=term.trim().match(/^([A-Za-z_][A-Za-z0-9_]*)(?: (ASC|DESC))?$/);if(!m||!fields.has(m[1]))throw Error('Invalid official source ordering field');}
  for(const[field,expected]of Object.entries(s.config.expectedDomains||{})){
   const domain=fields.get(field)?.domain?.codedValues;
   if(!Array.isArray(domain))throw Error('Official source schema changed: missing coded domain '+field);
@@ -21,13 +22,13 @@ export function validateSourceSchema(s:Source,metadata:any){
  }
 }
 export function sourcePage(s:Source,cursor:number){
- const u=new URL(s.url);if(s.adapter==='arcgis'){u.pathname+='/query';u.search=new URLSearchParams({f:'json',where:'1=1',outFields:'*',outSR:'4326',returnGeometry:'true',orderByFields:s.config.idField||'OBJECTID',resultOffset:String(cursor),resultRecordCount:'50'}).toString();}
+ const u=new URL(s.url);if(s.adapter==='arcgis'){u.pathname+='/query';u.search=new URLSearchParams({f:'json',where:'1=1',outFields:s.config.requiredFields?.length?[...new Set([s.config.idField||'OBJECTID',s.config.originalIdentityField,...s.config.requiredFields].filter(Boolean))].join(','):'*',outSR:'4326',returnGeometry:'true',orderByFields:s.config.orderByFields||s.config.idField||'OBJECTID',resultOffset:String(cursor),resultRecordCount:'50'}).toString();}
  else if(s.adapter==='cary')u.search=new URLSearchParams({limit:'50',offset:String(cursor),order_by:'applicationnumber ASC'}).toString();
  return u.href;
 }
-function polygonBounds(geometry:any){
- if(!Array.isArray(geometry?.rings))return undefined;
- const points=geometry.rings.flat().filter((v:any)=>Array.isArray(v)&&v.length>=2&&Number.isFinite(v[0])&&Math.abs(v[0])<=180&&Number.isFinite(v[1])&&Math.abs(v[1])<=90);
+function geometryBounds(geometry:any){
+ const parts=geometry?.rings||geometry?.paths;if(!Array.isArray(parts))return undefined;
+ const points=parts.flat().filter((v:any)=>Array.isArray(v)&&v.length>=2&&Number.isFinite(v[0])&&Math.abs(v[0])<=180&&Number.isFinite(v[1])&&Math.abs(v[1])<=90);
  if(!points.length)return undefined;
  return points.reduce((b:any,p:number[])=>({west:Math.min(b.west,p[0]),south:Math.min(b.south,p[1]),east:Math.max(b.east,p[0]),north:Math.max(b.north,p[1])}),{west:180,south:90,east:-180,north:-90});
 }
@@ -55,7 +56,7 @@ export function parsePage(s:Source,body:string):{findings:Finding[];more:boolean
   if(sourceFacts.residentialUse&&s.config.subtypeValues?.[sourceFacts.residentialUse])sourceFacts.residentialUseLabel=s.config.subtypeValues[sourceFacts.residentialUse];
   const query=new URL(s.url);if(s.adapter==='arcgis'){query.pathname+='/query';query.search=new URLSearchParams({f:'json',objectIds:String(a[s.config.idField||'OBJECTID']??id),outFields:'*',outSR:'4326'}).toString();}else query.search=new URLSearchParams({where:'applicationnumber="'+id.replaceAll('"','')+'"'}).toString();
   const point=geometry&&Number.isFinite(geometry.x)&&Number.isFinite(geometry.y)&&Math.abs(geometry.x)<=180&&Math.abs(geometry.y)<=90;
-  const bounds=polygonBounds(geometry),locationEvidence:Finding['locationEvidence']={type:point?'point':bounds?'polygon':'unavailable',...(bounds?{bounds}:{}),url:query.href};
+  const bounds=geometryBounds(geometry),locationEvidence:Finding['locationEvidence']={type:point?'point':bounds?(geometry.paths?'polyline':'polygon'):'unavailable',...(bounds?{bounds}:{}),url:query.href};
   const reviewNotes=(s.config.reviewPhrases||[]).filter((phrase:string)=>description.toLowerCase().includes(phrase.toLowerCase())).map((phrase:string)=>'Official comments require review: '+phrase);
   const evidenceFields:Record<string,unknown>={};
   for(const field of new Set<string>([...Object.values(fields),...Object.values(s.config.dateFields||{}),...Object.values(s.config.factFields||{})] as string[]))if(a[field]!==undefined)evidenceFields[field]=a[field];

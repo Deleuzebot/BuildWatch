@@ -21,18 +21,28 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
   const robots=new Map<string,string>();
   for(const source of sources){
    if(cp.done.includes(source.id))continue;
+   if(source.config.sourceRole==='location_reference'){
+    stats.referenceSourcesSkipped=(stats.referenceSourcesSkipped||0)+1;cp.done.push(source.id);
+    await call('checkpoint',{checkpoint:cp,stats:{...stats,...snapshot()}});continue;
+   }
    try{
-    const origin=new URL(source.url).origin,http=new SourceHTTP(budget,origin,transport);
-    if(!robots.has(origin)){
-     try{const result=await http.get(origin+'/robots.txt');robots.set(origin,result.body);}catch(e:any){if(e instanceof LimitReached)throw e;if(/HTTP 404/.test(e.message))robots.set(origin,'');else throw Error('Unable to verify source access policy: '+e.message);}
+    const origin=new URL(source.url).origin,http=new SourceHTTP(budget,origin,transport),policyKey=origin+':'+(source.adapter==='arcgis'&&source.authority==='official'?'official-arcgis':'other');
+    if(!robots.has(policyKey)){
+     try{const result=await http.get(origin+'/robots.txt');robots.set(policyKey,result.body);}catch(e:any){if(e instanceof LimitReached)throw e;
+      // RFC 9309 §2.3.1.3: unavailable robots.txt is distinct from an explicit
+      // Disallow rule. Limit 403 fallback to registered official ArcGIS APIs;
+      // actual API 401/403 and all server/network failures still stop retrieval.
+      if(robotsUnavailableAllows(source,e.message)){robots.set(policyKey,'');stats.robotsUnavailable=(stats.robotsUnavailable||0)+1;}
+      else throw Error('Unable to verify source access policy: '+e.message);}
     }
-    const policy=robots.get(origin)!;
+    const policy=robots.get(policyKey)!;
     if(!robotsAllows(policy,new URL(source.url).pathname))throw Error('robots.txt restricts automatic retrieval for this source.');
     const crawlDelay=Math.max(1,...[...policy.matchAll(/^crawl-delay:\s*(\d+(?:\.\d+)?)/gim)].map(v=>Number(v[1])));
     if(crawlDelay>60)throw Error('Source crawl delay exceeds the bounded worker; defer for access review.');
     http.minimumInterval=crawlDelay*1000;
-    if(source.adapter==='arcgis'&&(!source.config.idField||source.config.requiredFields?.length)){
+    if(source.adapter==='arcgis'&&(options.onlySource||!source.config.idField||source.config.requiredFields?.length)){
      const meta=JSON.parse((await http.get(source.url+'?f=json')).body);
+     if(options.onlySource)stats.sourceSchema={name:meta.name,geometryType:meta.geometryType,fields:(meta.fields||[]).slice(0,150).map((f:any)=>({name:f.name,alias:f.alias,type:f.type,...(f.domain?.codedValues&&/status|type|phase|category|mode/i.test(f.name)?{codes:f.domain.codedValues.slice(0,30)}:{})}))};
      if(source.config.requiredFields?.length)validateSourceSchema(source,meta);
      const oid=meta.objectIdField||meta.fields?.find((v:any)=>v.type==='esriFieldTypeOID')?.name;
      if(!oid||!Array.isArray(meta.fields))throw Error('Stable source object identifier unavailable');
@@ -63,6 +73,7 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
        const quality=stats.mappingQuality??={named:0,statusDecoded:0,statusRequiresReview:0,polygonFootprints:0,verifiedPoints:0,planDates:0,permitDates:0,conflictingNotes:0};
        if(finding.name)quality.named++;if(finding.status)quality.statusDecoded++;else quality.statusRequiresReview++;
        if(finding.locationEvidence?.type==='polygon')quality.polygonFootprints++;if(finding.locationVerified)quality.verifiedPoints++;
+       if(finding.locationEvidence?.type==='polyline')quality.polylineFootprints=(quality.polylineFootprints||0)+1;
        if(finding.sourceDates?.plansSubmittedAt)quality.planDates++;if(finding.sourceDates?.permitIssuedAt)quality.permitDates++;
        if(finding.reviewNotes?.length)quality.conflictingNotes++;
        const match=await call('match',{sourceId:source.id,externalId:finding.externalId});stats.projectsChecked+=match.ids.length===1?1:0;
@@ -90,7 +101,7 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
    for(const p of await call('expirations')){if(Date.now()-budget.started>=budget.seconds*1000-1000)throw new LimitReached('Archive checkpoint deferred at runtime ceiling');const value=await call('expire',{projectId:p.id});if(value.outcome==='archived')stats.archived++;if(value.outcome==='would_archive')stats.wouldArchive++;}
   }
   if(errors.length)status='partially_completed';else if(stats.unverified||stats.aiUnresolved)status='awaiting_review';
-  if(options.onlySource)stats.pilotSelection=true;
+  if(options.onlySource){stats.pilotSelection=true;const selected=sources.find(s=>s.id===options.onlySource);stats.pilotSource=selected?{id:selected.id,jurisdiction:selected.jurisdiction,url:selected.url,role:selected.config.sourceRole||'development_review',mappingVersion:selected.config.mappingVersion||null}:null;}
   if(options.onlySource)stats.coverage='Selected-source pilot only; not statewide verification';
   else stats.coverage='Enabled source adapters only; not verification of every jurisdiction or project';
  }catch(e:any){status=e instanceof LimitReached?'partially_completed':'failed';errors.push(e.message);}
@@ -98,6 +109,10 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
  const result={...stats,...snapshot(),error:errors.join(' | ').slice(0,1000),status,dryRun:options.dryRun,runId:run.id,sourceCoverage:{completed:cp.done.length,enabled:sources.length}};
  await call('finish',{status,checkpoint:cp,stats:result,error:result.error||null});
  return result;
+}
+export function robotsUnavailableAllows(source:Source,message:string){
+ if(/HTTP (404|410)$/.test(message))return true;
+ return /HTTP 403$/.test(message)&&source.authority==='official'&&source.adapter==='arcgis'&&/\/(?:MapServer|FeatureServer)\/\d+$/i.test(new URL(source.url).pathname);
 }
 export function robotsAllows(body:string,path:string){
  const groups:{agents:string[];rules:{allow:boolean;path:string}[]}[]=[];let group={agents:[] as string[],rules:[] as {allow:boolean;path:string}[]};
