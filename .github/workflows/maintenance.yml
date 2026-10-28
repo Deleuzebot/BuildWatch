@@ -2,6 +2,10 @@ name: BuildWatch state research and maintenance
 on:
   workflow_dispatch:
     inputs:
+      nc_source_audit:
+        description: Run every registered NC source as a bounded review-only pilot (always dry-run)
+        type: boolean
+        default: false
       mode:
         type: choice
         options: [weekly, initial]
@@ -50,6 +54,7 @@ jobs:
       BW_DRY_RUN: ${{ github.event_name == 'schedule' || inputs.dry_run }}
       BW_QUEUE: ${{ inputs.queued_requests || false }}
       BW_PILOT_SOURCE: ${{ inputs.pilot_source || '' }}
+      BW_NC_SOURCE_AUDIT: ${{ inputs.nc_source_audit || false }}
     steps:
       - uses: actions/checkout@v6
       - uses: pnpm/action-setup@v4
@@ -69,7 +74,11 @@ jobs:
             echo "PGSSLROOTCERT=$RUNNER_TEMP/buildwatch-ca.pem" >> "$GITHUB_ENV"
           fi
       - name: Run bounded worker
+        if: env.BW_NC_SOURCE_AUDIT != 'true'
         run: pnpm exec tsx scripts/maintenance.mts "--mode=$BW_MODE" "--states=$BW_STATES" "--dry-run=$BW_DRY_RUN" "--queue=$BW_QUEUE" "--source=$BW_PILOT_SOURCE"
+      - name: Run NC source-readiness pilot (dry-run only)
+        if: env.BW_NC_SOURCE_AUDIT == 'true'
+        run: pnpm exec tsx scripts/nc-source-pilot.mts
       - name: Report failure
         if: failure()
         run: echo "::error::BuildWatch maintenance did not finish. Check the run summary and persistent Supabase checkpoints. Projects were not marked verified merely because this workflow ran."
