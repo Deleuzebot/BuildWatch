@@ -14,7 +14,7 @@ try{
  const selected=args.states==='rotation'||!args.states?scheduledStates():args.states.split(',').map(s=>s.trim().toUpperCase());
  if(selected.some(s=>!allStates.includes(s as any)))throw Error('Unknown state code');
  const requests=args.queue==='true'?await rpc('requests'):[];
- const tasks=requests.length?requests:selected.map(state=>({state,mode,dry_run:dryRun,request_key:(args.key||(mode==='weekly'?localDay():'initial-'+localDay()))+':'+state+':'+mode+':'+(dryRun?'dry':'live')}));
+ const tasks=requests.length?requests:selected.map(state=>({state,mode,dry_run:dryRun,request_key:(args.key||(mode==='weekly'?localDay():'initial-'+(process.env.GITHUB_RUN_ID||new Date().toISOString())))+(args.source?':source:'+args.source:'')+':'+state+':'+mode+':'+(dryRun?'dry':'live')}));
  for(const task of tasks){
   if(Date.now()-started>840000){results.push({state:task.state,status:'partially_completed',error:'Global 15-minute run ceiling; state remains pending'});continue;}
   try{
