@@ -34,7 +34,7 @@ Node.js/TypeScript runs in GitHub Actions and connects directly to the existing 
 - Cary access policy denied automatic API retrieval. The run was marked partially completed, and the source failure is visible. Do not interpret this as a successful Cary scan.
 - 97 unit/integration tests passed at implementation time.
 - Transactional fixtures test restricted worker/admin access, password-only denial, inactive states, overlapping leases, idempotent insertion/history, undo, archived reimport exclusion, expiration, future schedule protection, in-review protection, existing archive recovery and checkpoint retries. Fixture changes are rolled back.
-- GitHub pilot status and runtime are recorded separately in reports/maintenance/latest.json and the Actions execution history. Local results alone do not establish GitHub connectivity.
+- The GitHub-hosted pilot passed: https://github.com/Deleuzebot/BuildWatch/actions/runs/40776777405 . It processed all 120 Hickory source records, matched 24 existing projects, used 4 source requests / 171,632 downloaded bytes, and took 21 worker seconds / 39 runner seconds. It ended awaiting_review, not verified-publication success. No public records changed; persistent Supabase run/checkpoint metadata confirms GitHub-to-Supabase authentication and writes. General app CI initially exposed patch-level Expo drift; the SDK-recommended patches were aligned and checks rerun.
 
 ## Administrator interface
 
@@ -84,7 +84,7 @@ AI is disabled. An optional OpenAI-compatible extraction adapter accepts retriev
 
 ## Remaining limits
 
-- GitHub repository/workflow deployment and a real GitHub pilot must be verified in Actions before calling unattended execution operational.
+- The GitHub manual runner is verified. Live weekly scheduling is still disabled and requires explicit approval after source/publication validation. The pilot covers one structured source, not all North Carolina.
 - The 31 registered structured endpoints do not cover every NC jurisdiction. Other states have no source inventory yet and stay inactive.
 - General web search has no configured unattended search API. Existing Codex-assisted search remains separate; news/developer documents can be added as registered supplementary document sources, with review required. No paid or unofficial search scraping is introduced.
 - Unstructured agenda/PDF extraction, broad meeting coverage, verified polygon/address geocoding, source-specific status interpretation and difficult contextual classification require additional adapters and/or human review. Missing fields are not invented.
