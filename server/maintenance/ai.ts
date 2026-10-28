@@ -17,7 +17,7 @@ export async function extractDocument(text:string,url:string,budget:Budget){
  if(!response.ok)return{status:'provider_unavailable',findings:[]};
  const data=await response.json();// Token reservation is conservative and charged before the request, including failed requests.
  const result=JSON.parse(data.choices?.[0]?.message?.content||'{}');
- const findings=(Array.isArray(result.findings)?result.findings:[]).slice(0,10).filter((f:any)=>typeof f.name==='string'&&typeof f.quote==='string'&&f.quote.length>=20&&text.includes(f.quote)&&(!f.date||text.includes(f.date))).map((f:any)=>({id:hash([url,f.quote]),name:f.name.slice(0,200),quote:f.quote.slice(0,4000),date:f.date||null,description:String(f.description||'').slice(0,2000),url,requiresReview:true}));
+ const findings=(Array.isArray(result.findings)?result.findings:[]).slice(0,10).filter((f:any)=>typeof f.name==='string'&&text.toLowerCase().includes(f.name.toLowerCase())&&typeof f.quote==='string'&&f.quote.length>=20&&text.includes(f.quote)&&(!f.date||text.includes(f.date))).map((f:any)=>({id:hash([url,f.quote]),name:f.name.slice(0,200),quote:f.quote.slice(0,4000),date:f.date||null,description:f.quote.slice(0,700),url,requiresReview:true}));
  return{status:'extracted',findings};
  }catch{return{status:'provider_unavailable',findings:[]};}
 }

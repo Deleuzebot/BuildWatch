@@ -17,8 +17,6 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
  const sources:Source[]=claimed.sources.filter((s:Source)=>!options.onlySource||s.id===options.onlySource);
  const errors:string[]=[];let status='completed';
  try{
-  // Expiration reads only evidence-backed approval policies, never fetch failure.
-  for(const p of await call('expirations')){budget.check();const value=await call('expire',{projectId:p.id});if(value.outcome==='archived')stats.archived++;if(value.outcome==='would_archive')stats.wouldArchive++;}
   if(!sources.length){status='partially_completed';errors.push('No enabled source adapters cover this selection.');}
   const robots=new Map<string,boolean>();
   for(const source of sources){
@@ -73,6 +71,11 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
     if(e instanceof LimitReached)throw e;
     stats.sourceFailures++;errors.push(source.jurisdiction+': '+e.message);await call('source',{sourceId:source.id,error:e.message});
    }
+  }
+  // Discover substantive movement first. A source outage or selected-source pilot
+  // must never trigger state-wide expiration. Reserve no extra HTTP calls here.
+  if(!options.onlySource&&sources.length&&errors.length===0&&Date.now()-budget.started<budget.seconds*1000-1000){
+   for(const p of await call('expirations')){if(Date.now()-budget.started>=budget.seconds*1000-1000)throw new LimitReached('Archive checkpoint deferred at runtime ceiling');const value=await call('expire',{projectId:p.id});if(value.outcome==='archived')stats.archived++;if(value.outcome==='would_archive')stats.wouldArchive++;}
   }
   if(errors.length)status='partially_completed';else if(stats.unverified||stats.aiUnresolved)status='awaiting_review';
   if(options.onlySource)stats.pilotSelection=true;
