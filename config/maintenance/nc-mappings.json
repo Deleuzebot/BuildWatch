@@ -851,7 +851,7 @@
     "metadataURL": "https://services1.arcgis.com/XuFUQlKbcaxhKrdd/arcgis/rest/services/Development_Map__October_2026__WFL1/FeatureServer/1?f=pjson",
     "verifiedAt": "2026-10-28",
     "config": {
-      "mappingVersion": "nc-2026-10-28-v2",
+      "mappingVersion": "nc-2026-10-28-v3",
       "idField": "OBJECTID",
       "fields": {
         "name": "Name",
@@ -866,7 +866,10 @@
         "units": "Units",
         "jurisdiction": "Jurisdicti"
       },
-      "statusValues": {},
+      "statusValues": {
+        "Preliminary Plat Approved": "Approved",
+        "Rezoning Approved": "Approved"
+      },
       "statusScope": "application",
       "scopeVerified": false,
       "requiredFields": [
@@ -882,7 +885,8 @@
       ],
       "notes": [
         "Source dates retain their specific meanings; no GIS edit date resets expiration.",
-        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review.",
+        "Preliminary plat and rezoning approval are application-stage approvals; no physical completion is inferred."
       ]
     }
   },
@@ -1162,7 +1166,7 @@
     "metadataURL": "https://services1.arcgis.com/GwaLJVJq0Y6voqEc/arcgis/rest/services/CIPACE_2026Updates/FeatureServer/25?f=pjson",
     "verifiedAt": "2026-10-28",
     "config": {
-      "mappingVersion": "nc-2026-10-28-v2",
+      "mappingVersion": "nc-2026-10-28-v3",
       "idField": "OBJECTID",
       "fields": {
         "name": "ProjectName",
@@ -1178,7 +1182,11 @@
         "program": "Program",
         "subprogram": "Subprogram"
       },
-      "statusValues": {},
+      "statusValues": {
+        "Construction": "Under construction",
+        "Design": "Proposed",
+        "Planning": "Proposed"
+      },
       "statusScope": "application",
       "scopeVerified": false,
       "requiredFields": [
@@ -1195,7 +1203,8 @@
       ],
       "notes": [
         "Source dates retain their specific meanings; no GIS edit date resets expiration.",
-        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+        "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review.",
+        "Right of Way is a pre-construction activity, not evidence construction has begun; retain unresolved."
       ]
     }
   },

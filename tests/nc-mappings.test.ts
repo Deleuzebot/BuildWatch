@@ -24,6 +24,10 @@ test('Wake Forest active/closed and Winston-Salem board dates do not invent comp
  for(const status of['Active','Closed'])assert.equal(parsePage(wf,JSON.stringify({features:[{attributes:{OBJECTID:1,development_name:'Example apartments',status}}]})).findings[0].status,undefined);
  const ws=source(mappings.find((v:any)=>v.url.includes('XAnuVx6VEMybNvyd')));const f=parsePage(ws,JSON.stringify({features:[{attributes:{OBJECTID:1,Docket:'P-123',Planning_Board_Date:1790812800000}}]})).findings[0];assert.equal(f.name,'P-123');assert.ok(f.sourceDates?.planningBoardDate);assert.equal(f.meeting,undefined);
 });
+test('Wilmington construction is physical phase while Sanford approvals remain application scope',()=>{
+ const wi=source(mappings.find((v:any)=>v.url.includes('CIPACE_2026Updates')));assert.equal(parsePage(wi,JSON.stringify({features:[{attributes:{OBJECTID:1,ProjectName:'Public facility',ProjectPhase:'Construction'}}]})).findings[0].status,'Under construction');
+ const sa=source(mappings.find((v:any)=>v.url.includes('Development_Map__October_2026')));const f=parsePage(sa,JSON.stringify({features:[{attributes:{OBJECTID:1,Name:'Example subdivision',Status:'Preliminary Plat Approved'}}]})).findings[0];assert.equal(f.status,'Approved');assert.equal(f.wholeDevelopment,false);assert.equal(f.eventDate,undefined);
+});
 test('Greensboro permits and historical Harnett records cannot become independent developments',()=>{
  for(const s of mappings.map(source).filter((v:any)=>v.config.sourceRole==='supporting_only'||v.config.supportingRecordTypes?.length)){
   const f=fixtures.find((v:any)=>v.sourceId===s.id);const finding=parsePage(s,JSON.stringify(f.page)).findings[0];const result=evaluateFinding({...finding,name:'Example apartments',status:'Approved',eventDate:'2026-10-01',principalUseVerified:true,wholeDevelopment:true,locationVerified:true,latitude:35,longitude:-80},{...s,autopublish:true},null);assert.equal(result.eligible,false);assert.ok(result.reasons.some(v=>/supporting evidence|Administrative or historical/.test(v)));}
