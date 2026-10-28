@@ -1,0 +1,112 @@
+[
+  {
+    "sourceId": "source-111a21ca95a17e40f57f2d9c483685",
+    "requestKey": "nc-source-repair:40788582824:source-111a21ca95a17e40f57f2d9c483685",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-1c6f73fbb3ee88e206f3af0c2931e0",
+    "requestKey": "nc-source-repair:40788582824:source-1c6f73fbb3ee88e206f3af0c2931e0",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-1e0b31a7b636c64cd4d43d4b4281dd",
+    "requestKey": "nc-source-repair:40788582824:source-1e0b31a7b636c64cd4d43d4b4281dd",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-3ba855a941647b39209d2f2404196e",
+    "requestKey": "nc-source-repair:40788582824:source-3ba855a941647b39209d2f2404196e",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-4a2e94a962f08742bc434c6b9fd72b",
+    "requestKey": "nc-source-repair:40788582824:source-4a2e94a962f08742bc434c6b9fd72b",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-4c7a08d8cbc50c48fe4a5e2a5c28f6",
+    "requestKey": "nc-source-repair:40788582824:source-4c7a08d8cbc50c48fe4a5e2a5c28f6",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-5b0ff4068df1d33930f9db05b07751",
+    "requestKey": "nc-source-repair:40788582824:source-5b0ff4068df1d33930f9db05b07751",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-5dd5ebe3bc2a7e5b814cabf05757de",
+    "requestKey": "nc-source-repair:40788582824:source-5dd5ebe3bc2a7e5b814cabf05757de",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-728007135911a041cb34b75303d07a",
+    "requestKey": "nc-source-repair:40788582824:source-728007135911a041cb34b75303d07a",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-74f19404d8c4320776a77c98970b38",
+    "requestKey": "nc-source-repair:40789871130:source-74f19404d8c4320776a77c98970b38",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-76f889f9a4b34e167e03b6c7803626",
+    "requestKey": "nc-source-repair:40788582824:source-76f889f9a4b34e167e03b6c7803626",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-84e7a3a53c591fabd79b075e74f04d",
+    "requestKey": "nc-source-repair:40788582824:source-84e7a3a53c591fabd79b075e74f04d",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-8a1ca71d74c881f8067e635dc36d64",
+    "requestKey": "nc-source-repair:40788582824:source-8a1ca71d74c881f8067e635dc36d64",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-8ad50df7b7918cceaf0e16245fd827",
+    "requestKey": "nc-source-repair:40788582824:source-8ad50df7b7918cceaf0e16245fd827",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-ba325e3a44fd419b623c8faf8bfb1e",
+    "requestKey": "nc-source-repair:40788582824:source-ba325e3a44fd419b623c8faf8bfb1e",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-bb3ff9a936be8799ce8dbff3741e12",
+    "requestKey": "nc-source-repair:40788582824:source-bb3ff9a936be8799ce8dbff3741e12",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-c80c893f7cc5ab813941518fd0f0cb",
+    "requestKey": "nc-source-repair:40788582824:source-c80c893f7cc5ab813941518fd0f0cb",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-cced580bef87ae08ecb3cfeeb97ed6",
+    "requestKey": "nc-source-repair:40788582824:source-cced580bef87ae08ecb3cfeeb97ed6",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-dc6f9807f85c526e083193069b2758",
+    "requestKey": "nc-source-repair:40788582824:source-dc6f9807f85c526e083193069b2758",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-eb945f0d43d269a3824983773bc797",
+    "requestKey": "nc-source-repair:40788582824:source-eb945f0d43d269a3824983773bc797",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-efb420da53468a1e15e9c1252bf667",
+    "requestKey": "nc-source-repair:40788582824:source-efb420da53468a1e15e9c1252bf667",
+    "expectedOffset": 50
+  },
+  {
+    "sourceId": "source-f2f340751573ae0e23dcd5083d0c91",
+    "requestKey": "nc-source-repair:40788582824:source-f2f340751573ae0e23dcd5083d0c91",
+    "expectedOffset": 50
+  }
+]
