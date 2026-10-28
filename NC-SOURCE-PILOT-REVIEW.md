@@ -1,5 +1,7 @@
 # North Carolina source-readiness pilot — October 28, 2026
 
+Follow-up: [corrected mappings and GitHub dry-run results](NC-SOURCE-REPAIR-RESULTS.md). The access failures and missing mappings below describe the initial audit.
+
 ## Outcome
 
 All 30 registered sources other than the previously tested Hickory source were attempted in dry-run mode. This is a **source readiness sample**, not a completed North Carolina maintenance cycle or research of every jurisdiction.
