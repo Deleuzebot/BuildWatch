@@ -18,15 +18,19 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
  const errors:string[]=[];let status='completed';
  try{
   if(!sources.length){status='partially_completed';errors.push('No enabled source adapters cover this selection.');}
-  const robots=new Map<string,boolean>();
+  const robots=new Map<string,string>();
   for(const source of sources){
    if(cp.done.includes(source.id))continue;
    try{
     const origin=new URL(source.url).origin,http=new SourceHTTP(budget,origin,transport);
     if(!robots.has(origin)){
-     try{const result=await http.get(origin+'/robots.txt');robots.set(origin,robotsAllows(result.body,new URL(source.url).pathname));}catch(e:any){if(e instanceof LimitReached)throw e;if(/HTTP 404/.test(e.message))robots.set(origin,true);else throw Error('Unable to verify source access policy: '+e.message);}
+     try{const result=await http.get(origin+'/robots.txt');robots.set(origin,result.body);}catch(e:any){if(e instanceof LimitReached)throw e;if(/HTTP 404/.test(e.message))robots.set(origin,'');else throw Error('Unable to verify source access policy: '+e.message);}
     }
-    if(!robots.get(origin))throw Error('robots.txt restricts automatic retrieval for this source.');
+    const policy=robots.get(origin)!;
+    if(!robotsAllows(policy,new URL(source.url).pathname))throw Error('robots.txt restricts automatic retrieval for this source.');
+    const crawlDelay=Math.max(1,...[...policy.matchAll(/^crawl-delay:\s*(\d+(?:\.\d+)?)/gim)].map(v=>Number(v[1])));
+    if(crawlDelay>60)throw Error('Source crawl delay exceeds the bounded worker; defer for access review.');
+    http.minimumInterval=crawlDelay*1000;
     if(source.adapter==='arcgis'&&!source.config.idField){
      const meta=JSON.parse((await http.get(source.url+'?f=json')).body);
      const oid=meta.objectIdField||meta.fields?.find((v:any)=>v.type==='esriFieldTypeOID')?.name;
@@ -88,8 +92,9 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
  return result;
 }
 export function robotsAllows(body:string,path:string){
- let selected=false,rules:{allow:boolean;path:string}[]=[];
- for(const raw of body.split(/\r?\n/)){const line=raw.split('#')[0].trim(),split=line.indexOf(':');if(split<0)continue;const key=line.slice(0,split).trim().toLowerCase(),value=line.slice(split+1).trim();if(key==='user-agent')selected=value==='*'||/buildwatch/i.test(value);if(selected&&(key==='disallow'||key==='allow')&&value)rules.push({allow:key==='allow',path:value});}
+ const groups:{agents:string[];rules:{allow:boolean;path:string}[]}[]=[];let group={agents:[] as string[],rules:[] as {allow:boolean;path:string}[]};
+ for(const raw of body.split(/\r?\n/)){const line=raw.split('#')[0].trim(),split=line.indexOf(':');if(split<0)continue;const key=line.slice(0,split).trim().toLowerCase(),value=line.slice(split+1).trim();if(key==='user-agent'){if(group.rules.length){groups.push(group);group={agents:[],rules:[]};}group.agents.push(value.toLowerCase());}else if((key==='disallow'||key==='allow')&&value)group.rules.push({allow:key==='allow',path:value});}
+ groups.push(group);const specific=groups.filter(g=>g.agents.some(v=>v.includes('buildwatch'))),selected=specific.length?specific:groups.filter(g=>g.agents.includes('*')),rules=selected.flatMap(g=>g.rules);
  // Conservative wildcard handling: unsupported expressions block instead of evading a restriction.
  const matched=rules.filter(v=>path.startsWith(v.path.replace(/\*.*$/,'')));matched.sort((a,b)=>b.path.length-a.path.length||Number(b.allow)-Number(a.allow));
  return !matched.length||matched[0].allow;
