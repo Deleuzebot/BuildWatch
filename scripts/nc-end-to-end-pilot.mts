@@ -55,6 +55,15 @@ try{
   report.jurisdictions.push({city:cache.city,sourceId:source.id,cacheTime:cache.cachedAt,packetPages:cache.document.totalPages,extractedPages:cache.pages.length,limitation:cache.limitation,records});
  }
  const structured=report.jurisdictions.slice(0,3).flatMap((r:any)=>r.records),documents=report.jurisdictions.slice(3).flatMap((r:any)=>r.records);
+ report.reviewGroups=[];
+ for(const jurisdiction of report.jurisdictions){
+  const addresses=new Map<string,string[]>(),components=new Map<string,string[]>();
+  for(const record of jurisdiction.records){for(const address of record.addresses||[])addresses.set(address,[...(addresses.get(address)||[]),record.caseId]);
+   if(record.projectId&&/\s(?:Grading|Infrastructure)$/i.test(record.name||'')){const base=record.name.replace(/\s(?:Grading|Infrastructure)$/i,'');components.set(base,[...(components.get(base)||[]),record.projectId]);}
+  }
+  for(const[address,ids]of addresses)if(new Set(ids).size>1)report.reviewGroups.push({city:jurisdiction.city,kind:'related_case_review',address,caseIds:[...new Set(ids)],action:'Review distinct case histories; do not merge automatically'});
+  for(const[name,ids]of components)if(new Set(ids).size>1)report.reviewGroups.push({city:jurisdiction.city,kind:'supporting_component_review',name,projectIds:[...new Set(ids)],action:'Review parent/component relationship; no automatic merge or link'});
+ }
  report.summary={structuredRecords:structured.length,exactIdentityMatches:structured.filter((r:any)=>r.identity.verified).length,unmatchedStructured:structured.filter((r:any)=>!r.identity.verified).length,
   pinsInsideOfficialFootprints:structured.filter((r:any)=>r.location.inside===true).length,pinsOutsideOfficialFootprints:structured.filter((r:any)=>r.location.inside===false).length,
   footprintUnavailable:structured.filter((r:any)=>r.location.inside===undefined).length,datedApplicationMilestones:structured.filter((r:any)=>r.proposed.scopedMilestone).length,
@@ -66,7 +75,7 @@ try{
  const summary='## Five-jurisdiction end-to-end pilot — dry-run only\n\n| Jurisdiction | Source items | Exact project matches | Official footprint checks |\n| --- | ---: | ---: | ---: |\n'+report.jurisdictions.map((r:any)=>'| '+r.city+' | '+r.records.length+' | '+r.records.filter((x:any)=>x.identity.verified).length+' | '+r.records.filter((x:any)=>x.location?.inside===true).length+' |').join('\n')+'\n\n```json\n'+JSON.stringify(report.summary,null,2)+'\n```\n\nExecution contract passed: '+report.executionPassed+'. Readiness: **partial; administrator review required**. No public writes, approval clock changes, merges, or new markers. Agenda date evidence is not a confirmed decision. Only cached page portions are represented.\n';
  mkdirSync('reports/maintenance',{recursive:true});writeFileSync('reports/maintenance/nc-e2e-results.json',JSON.stringify(report,null,2));writeFileSync('reports/maintenance/nc-e2e-summary.md',summary);if(process.env.GITHUB_STEP_SUMMARY)appendFileSync(process.env.GITHUB_STEP_SUMMARY,summary);
  console.log(JSON.stringify({executionPassed:report.executionPassed,status:report.status,summary:report.summary,jurisdictions:report.jurisdictions.map((r:any)=>({city:r.city,geometryError:r.geometryError,records:r.records.length}))}));
- if(!offline)await call('finish',{status:'partially_completed',stats:{...report.summary,projectsChecked:report.summary.exactIdentityMatches,sourceRecords:report.summary.structuredRecords+report.summary.agendaCases,unverified:report.summary.reviewRecords,coverage:'24 sampled GIS records and 3 agenda cases in five jurisdictions; private review proposals only',readyForAutomaticPublication:false},checkpoint:{pilot:'five-jurisdiction',executionPassed:report.executionPassed},error:'Evidence gaps and unmatched records remain; see private end_to_end_validation findings. Proposed milestones were not applied.'});
+ if(!offline)await call('finish',{status:'partially_completed',stats:{...report.summary,reviewGroups:report.reviewGroups,projectsChecked:report.summary.exactIdentityMatches,sourceRecords:report.summary.structuredRecords+report.summary.agendaCases,unverified:report.summary.reviewRecords,coverage:'24 sampled GIS records and 3 agenda cases in five jurisdictions; private review proposals only',readyForAutomaticPublication:false},checkpoint:{pilot:'five-jurisdiction',executionPassed:report.executionPassed},error:'Evidence gaps and unmatched records remain; see private end_to_end_validation findings. Proposed milestones were not applied.'});
  if(!report.executionPassed)process.exitCode=1;
 }catch(e:any){if(run)await call('finish',{status:'failed',error:e.message,stats:budget.snapshot(),checkpoint:{pilot:'five-jurisdiction'}}).catch(()=>{});throw e;}
 finally{await db?.close();}

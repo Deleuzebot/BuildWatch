@@ -1,6 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
 import {verifyIdentity,pointInOfficialPolygon,extractAgendaItems,agendaMeeting,proposeStructured} from '../server/maintenance/end-to-end';
 import {parsePage,validateSourceSchema} from '../server/maintenance/adapters';
+import {robotsSourceContext} from '../server/maintenance/research-reader';import {robotsUnavailableAllows} from '../server/maintenance/worker';
 const evidence=JSON.parse(readFileSync('tests/fixtures/nc-e2e-evidence.json','utf8'));
 const plan=JSON.parse(readFileSync('config/maintenance/nc-five-jurisdiction-plan.json','utf8'));
 const findings=(city:string)=>{const c=evidence.structured.find((s:any)=>s.city===city),s=plan.find((p:any)=>p.name===city).source;validateSourceSchema(s,c.metadata);return parsePage(s,JSON.stringify(c.data),8).findings;};
@@ -36,4 +37,10 @@ test('a dated component approval can propose a scoped milestone, never reset the
 });
 test('documented municipal mixed-use wording is recognized without rewriting its source description',()=>{
  const f=findings('Cary')[3],r=proposeStructured(f,'Cary',{ids:[],project:null},{source:f.url});assert.equal(r.category,'Mixed-Use');assert.equal(r.description,f.description);
+});
+test('public ArcGIS queries use the registered layer context for unavailable robots; other paths stay blocked',()=>{
+ const url='https://services1.arcgis.com/official/arcgis/rest/services/Development/FeatureServer/0/query?f=json';
+ const context=robotsSourceContext(url);assert.equal(context.url,'https://services1.arcgis.com/official/arcgis/rest/services/Development/FeatureServer/0');assert.equal(robotsUnavailableAllows(context,'Official source HTTP 403'),true);
+ assert.equal(robotsUnavailableAllows(robotsSourceContext(url.replace('/query?','/private?')),'Official source HTTP 403'),false);
+ assert.equal(robotsUnavailableAllows(robotsSourceContext('https://government.example/planning'),'Official source HTTP 403'),false);
 });

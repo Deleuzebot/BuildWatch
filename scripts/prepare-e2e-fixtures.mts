@@ -14,6 +14,6 @@ const structured=scout.map((sample:any)=>{const p=plan.find((p:any)=>p.source.id
 });
 const documents=db.documents.map((d:any)=>({city:plan.find((p:any)=>p.source.id===d.source_id).name,sourceId:d.source_id,cachedAt:d.created,document:d.data.document,pages:d.data.previewPages,
  limitation:'Only the cached first 12 pages are available to this extraction pilot; whole-packet completeness is not asserted.'}));
-const geometry=JSON.parse(readFileSync(dir+'/geometry.json','utf8')).rows.filter((r:any)=>r.data).map((r:any)=>({...r,data:{...r.data,features:r.data.features.map((f:any)=>({geometry:f.geometry,attributes:Object.fromEntries(Object.entries(f.attributes).filter(([k])=>['OBJECTID','ApplicationNumber','ApplicationName'].includes(k)))}))}}));
+const geometry=JSON.parse(readFileSync(dir+'/geometry.json','utf8')).rows.filter((r:any)=>r.data).map((r:any)=>{const s=plan.find((p:any)=>p.source.id===r.sourceId).source;return{...r,data:{...r.data,features:r.data.features.map((f:any)=>({geometry:f.geometry,attributes:Object.fromEntries(Object.entries(f.attributes).filter(([k])=>[s.config.idField,s.config.fields.name].includes(k)))}))}};});
 mkdirSync('tests/fixtures',{recursive:true});writeFileSync('tests/fixtures/nc-e2e-evidence.json',JSON.stringify({structured,documents,geometry},null,2)+'\n');
 console.log(JSON.stringify({structured:structured.map((s:any)=>({city:s.city,records:s.data.features.length})),documents:documents.map((s:any)=>({city:s.city,pages:s.pages.length}))}));

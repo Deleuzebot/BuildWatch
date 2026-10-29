@@ -1,4 +1,9 @@
 import {SourceHTTP} from './http';import {Budget,hash} from './policy';import {robotsAllows,robotsUnavailableAllows} from './worker';
+/** Query URLs retain their registered layer namespace when evaluating robots availability. */
+export function robotsSourceContext(url:string){
+ const u=new URL(url),layer=u.pathname.match(/^(.*\/(?:FeatureServer|MapServer)\/\d+)(?:\/query)?$/i);
+ return{authority:'official',adapter:layer?'arcgis':'document',url:layer?u.origin+layer[1]:url} as any;
+}
 /** Manual research reader: policies checked at every origin and redirect target. */
 export class ResearchReader{
  private policies=new Map<string,Promise<string>>();private cache=new Map<string,Promise<any>>();
@@ -15,7 +20,7 @@ export class ResearchReader{
   const transport:typeof fetch=async(input,options)=>{const response=await fetch(input,options);if(response.status>=300&&response.status<400)redirected=response.headers.get('location')||'';return response;};
   const http=new SourceHTTP(this.budget,original.origin,transport);
   try{
-   if(!this.policies.has(original.origin))this.policies.set(original.origin,(async()=>{try{return(await http.get(original.origin+'/robots.txt')).body;}catch(e:any){if(robotsUnavailableAllows({authority:'official',adapter:/\/(?:FeatureServer|MapServer)\/\d+/.test(url)?'arcgis':'document',url} as any,e.message))return'';throw e;}})());
+   if(!this.policies.has(original.origin))this.policies.set(original.origin,(async()=>{try{return(await http.get(original.origin+'/robots.txt')).body;}catch(e:any){if(robotsUnavailableAllows(robotsSourceContext(url),e.message))return'';throw e;}})());
    const policy=await this.policies.get(original.origin)!;http.accessPolicy=u=>robotsAllows(policy,u.pathname+u.search);
    http.minimumInterval=Math.max(1,...[...policy.matchAll(/^crawl-delay:\s*(\d+(?:\.\d+)?)/gim)].map(v=>Number(v[1])))*1000;if(http.minimumInterval>60000)throw Error('Crawl delay requires a separate bounded run');
    http.redirectPolicy=u=>!/(?:login|signin|authenticate)/i.test(u.pathname);const response=await http.get(url);this.onRead?.(url,response);return{...response,url};
