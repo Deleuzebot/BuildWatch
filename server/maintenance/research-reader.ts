@@ -8,7 +8,14 @@ export function robotsSourceContext(url:string){
 export class ResearchReader{
  private policies=new Map<string,Promise<string>>();private cache=new Map<string,Promise<any>>();
  snapshotHits=0;private snapshots=new Set<string>();
- constructor(private budget:Budget,private onRead?:(url:string,response:any)=>void){}
+ constructor(private budget:Budget,private onRead?:(url:string,response:any)=>void,private fetcher:typeof fetch=fetch){}
+ /** Reuse a same-session robots result for at most one hour, including the existing narrowly scoped unavailable-policy rules. */
+ seedAccessPolicy(contextURL:string,record:{url:string;status:number;body?:string;checkedAt:string},now=Date.now()){
+  const u=new URL(contextURL),age=now-Date.parse(record.checkedAt);if(u.protocol!=='https:'||record.url!==u.origin+'/robots.txt'||!Number.isFinite(age)||age<0||age>3600000)return false;
+  if(record.status===200){if(typeof record.body!=='string'||Buffer.byteLength(record.body)>2_000_000)return false;this.policies.set(u.origin,Promise.resolve(record.body));return true;}
+  if(!robotsUnavailableAllows(robotsSourceContext(contextURL),'Official source HTTP '+record.status))return false;
+  this.policies.set(u.origin,Promise.resolve(''));return true;
+ }
  /** Snapshot time stays distinct from a new successful network verification. */
  seed(snapshot:{url:string;body:string;checkedAt:string;hash:string},now=Date.now()){
   const age=now-Date.parse(snapshot.checkedAt),u=new URL(snapshot.url);if(u.protocol!=='https:'||u.username||u.password||!Number.isFinite(age)||age<0||age>86400000||Buffer.byteLength(snapshot.body)>2_000_000||hash(snapshot.body)!==snapshot.hash)return false;
@@ -17,10 +24,10 @@ export class ResearchReader{
  get(url:string):Promise<{body:string;rawBody:Buffer;url:string;snapshotAt?:string;fromSnapshot?:boolean}>{if(this.snapshots.has(url))this.snapshotHits++;if(!this.cache.has(url))this.cache.set(url,this.read(url));return this.cache.get(url)!;}
  private async read(url:string,depth=0):Promise<any>{
   if(depth>2)throw Error('Canonical redirect ceiling reached');const original=new URL(url);let redirected='';
-  const transport:typeof fetch=async(input,options)=>{const response=await fetch(input,options);if(response.status>=300&&response.status<400)redirected=response.headers.get('location')||'';return response;};
+  const transport:typeof fetch=async(input,options)=>{const response=await this.fetcher(input,options);if(response.status>=300&&response.status<400)redirected=response.headers.get('location')||'';return response;};
   const http=new SourceHTTP(this.budget,original.origin,transport);
   try{
-   if(!this.policies.has(original.origin))this.policies.set(original.origin,(async()=>{try{return(await http.get(original.origin+'/robots.txt')).body;}catch(e:any){if(robotsUnavailableAllows(robotsSourceContext(url),e.message))return'';throw e;}})());
+   if(!this.policies.has(original.origin))this.policies.set(original.origin,(async()=>{try{const robotsURL=original.origin+'/robots.txt',response=await http.get(robotsURL);this.onRead?.(robotsURL,response);return response.body;}catch(e:any){if(robotsUnavailableAllows(robotsSourceContext(url),e.message))return'';throw e;}})());
    const policy=await this.policies.get(original.origin)!;http.accessPolicy=u=>robotsAllows(policy,u.pathname+u.search);
    http.minimumInterval=Math.max(1,...[...policy.matchAll(/^crawl-delay:\s*(\d+(?:\.\d+)?)/gim)].map(v=>Number(v[1])))*1000;if(http.minimumInterval>60000)throw Error('Crawl delay requires a separate bounded run');
    http.redirectPolicy=u=>!/(?:login|signin|authenticate)/i.test(u.pathname);const response=await http.get(url);this.onRead?.(url,response);return{...response,url};
