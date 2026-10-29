@@ -27,7 +27,7 @@ for index, page in enumerate(reader.pages):
     if index >= max_pages or remaining <= 0:
         break
     contents = page.get_contents()
-    if contents:
+    if contents is not None:
         # Decompression is also protected by the process memory and CPU caps.
         stream_size = len(contents.get_data())
         expanded += stream_size
