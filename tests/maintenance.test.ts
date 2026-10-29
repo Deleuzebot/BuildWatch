@@ -1,9 +1,23 @@
 import test from'node:test';import assert from'node:assert/strict';
 import{rotation,allStates,scheduledStates,nextRun,mappedStatus,evaluateFinding,Budget,LimitReached}from'../server/maintenance/policy';
-import{parsePage}from'../server/maintenance/adapters';
+import{parsePage,sourcePage}from'../server/maintenance/adapters';
 import{robotsAllows,runState}from'../server/maintenance/worker';
 const source:any={id:'fixture',state:'NC',jurisdiction:'Test city',url:'https://data.townofcary.org/example',adapter:'arcgis',authority:'official',enabled:true,autopublish:true,config:{idField:'OBJECTID',statusScope:'development',scopeVerified:true,fields:{eventDate:'decision_date'}}};
 const finding:any={externalId:'1',name:'Oak Apartments',description:'A 200-unit multifamily housing development.',address:'100 Main St',latitude:35.7,longitude:-78.8,rawStatus:'Approved',status:'Approved',eventDate:'2026-10-01',category:'Residential',developer:'Example developer',url:source.url,quote:'Approved 2026-10-01: Oak Apartments',principalUseVerified:true,locationVerified:true,wholeDevelopment:true};
+test('bounded pilot pages preserve source offsets and cannot exceed 500 records',()=>{
+ assert.equal(new URL(sourcePage(source,150,500)).searchParams.get('resultRecordCount'),'500');
+ assert.equal(new URL(sourcePage(source,150,9000)).searchParams.get('resultOffset'),'150');
+ const body=JSON.stringify({features:Array.from({length:75},(_,i)=>({attributes:{OBJECTID:i}})),exceededTransferLimit:true});
+ assert.throws(()=>parsePage(source,body));assert.equal(parsePage(source,body,500).count,75);
+ const budget=new Budget(30,1,100);budget.requests=1;assert.doesNotThrow(()=>budget.check(false));assert.throws(()=>budget.check());budget.records=100;assert.throws(()=>budget.check(false));
+});
+test('review-only batching processes the last permitted response and advances by actual returned rows',async()=>{
+ const selected={...source,autopublish:false};let saved:any,batched=0;
+ const rpc:any=async(action:string,input:any)=>{if(action==='claim')return{run:{id:'r',lease:'l',checkpoint:{}},state:{max_seconds:30,max_requests:3,max_records:1000},sources:[selected]};if(action==='checkpoint')saved=structuredClone(input.checkpoint);return{};};
+ rpc.batch=async(action:string,inputs:any[])=>{batched++;assert.ok(inputs.every(v=>v.runId==='r'&&v.lease==='l'));return inputs.map(()=>action==='match'?{ids:[],project:null}:{outcome:'awaiting_review'});};
+ const result=await runState(rpc,{state:'NC',mode:'initial',dryRun:true,key:'fixture',onlySource:'fixture',pageSize:500},async(url:any)=>new Response(JSON.stringify(String(url).includes('robots.txt')?'':String(url).includes('/query')?{features:[{attributes:{OBJECTID:1,Name:'Oak Apartments'}}],exceededTransferLimit:true}:{objectIdField:'OBJECTID',fields:[]}),{status:200}));
+ assert.equal(batched,2);assert.equal(result.sourceRecords,1);assert.equal(saved.cursors.fixture,1);assert.equal(result.status,'partially_completed');
+});
 test('rotation has all fifty states exactly once and uses New York local weekday',()=>{assert.equal(allStates.length,50);assert.equal(new Set(allStates).size,50);assert.equal(rotation[4].includes('NC'),true);assert.deepEqual(scheduledStates(new Date('2026-10-30T09:17:00Z')),rotation[4]);assert.equal(nextRun(5,new Date('2026-10-31T00:00:00Z')),'2026-11-06T10:17:00.000Z');});
 test('publication gates reject application status, unverified geometry, missing date and consequential changes',()=>{assert.equal(evaluateFinding(finding,source,null,Date.parse('2026-10-28')).eligible,true);for(const change of[{wholeDevelopment:false},{locationVerified:false},{eventDate:undefined},{status:'Completed'},{category:'Stormwater',name:'Stormwater permit',description:'Routine erosion control'}])assert.equal(evaluateFinding({...finding,...change},source,null).eligible,false);assert.equal(evaluateFinding(finding,{...source,authority:'supplementary'},null).eligible,false);assert.equal(evaluateFinding(finding,{...source,autopublish:false},null).eligible,false);assert.equal(mappedStatus('closed'),undefined);assert.equal(mappedStatus('permit expired'),undefined);});
 test('official geometry and date extraction never invents polygon centroids or dates',()=>{const p=parsePage(source,JSON.stringify({features:[{attributes:{OBJECTID:1,Name:'Oak Apartments',Status:'approved',decision_date:'2026-10-01'},geometry:{rings:[]}}]}));assert.equal(p.findings[0].latitude,null);assert.equal(p.findings[0].eventDate,'2026-10-01');assert.equal(p.more,false);});

@@ -1,0 +1,133 @@
+{
+  "checkedAt": "2026-10-29T14:14:28.077Z",
+  "requests": 25,
+  "reservation": 32,
+  "sources": [
+    {
+      "sourceId": "source-111a21ca95a17e40f57f2d9c483685",
+      "jurisdiction": "Durham",
+      "url": "https://services2.arcgis.com/G5vR3cOjh6g2Ed8E/arcgis/rest/services/Planning/FeatureServer/17",
+      "countURL": "https://services2.arcgis.com/G5vR3cOjh6g2Ed8E/arcgis/rest/services/Planning/FeatureServer/17/query?f=json&where=1%3D1&returnCountOnly=true",
+      "total": 22780,
+      "offset": 150,
+      "role": "development_review"
+    },
+    {
+      "sourceId": "source-1c6f73fbb3ee88e206f3af0c2931e0",
+      "jurisdiction": "Asheville planning jurisdiction",
+      "url": "https://gis.ashevillenc.gov/server/rest/services/Permits/AccelaPlanningView/FeatureServer/1",
+      "countURL": "https://gis.ashevillenc.gov/server/rest/services/Permits/AccelaPlanningView/FeatureServer/1/query?f=json&where=1%3D1&returnCountOnly=true",
+      "total": 12178,
+      "offset": 150,
+      "role": "development_review"
+    },
+    {
+      "sourceId": "source-3ba855a941647b39209d2f2404196e",
+      "jurisdiction": "Harnett County planning inventory",
+      "url": "https://gis.harnett.org/arcgis/rest/services/Planning/Projects/MapServer/0",
+      "countURL": "https://gis.harnett.org/arcgis/rest/services/Planning/Projects/MapServer/0/query?f=json&where=1%3D1&returnCountOnly=true",
+      "total": 2266,
+      "offset": 150,
+      "role": "development_review"
+    },
+    {
+      "sourceId": "source-4c7a08d8cbc50c48fe4a5e2a5c28f6",
+      "jurisdiction": "Greensboro",
+      "url": "https://gis.greensboro-nc.gov/arcgis/rest/services/EngineeringInspections/BuildingPermits_MS/MapServer/1",
+      "countURL": "https://gis.greensboro-nc.gov/arcgis/rest/services/EngineeringInspections/BuildingPermits_MS/MapServer/1/query?f=json&where=1%3D1&returnCountOnly=true",
+      "total": 59000,
+      "offset": 150,
+      "role": "supporting_only"
+    },
+    {
+      "sourceId": "source-5dd5ebe3bc2a7e5b814cabf05757de",
+      "jurisdiction": "Charlotte transit-area development inventory",
+      "url": "https://gis.charlottenc.gov/arcgis/rest/services/CATS/TransitStationDevelopmentPublic/MapServer/0",
+      "countURL": "https://gis.charlottenc.gov/arcgis/rest/services/CATS/TransitStationDevelopmentPublic/MapServer/0/query?f=json&where=1%3D1&returnCountOnly=true",
+      "total": 561,
+      "offset": 150,
+      "role": "development_review"
+    },
+    {
+      "sourceId": "source-682be2f330dca1be45edbd5dcf27a7",
+      "jurisdiction": "Cary active development GIS",
+      "url": "https://maps-apis.carync.gov/server/rest/services/Development/ActiveDevelopment/FeatureServer/0",
+      "countURL": "https://maps-apis.carync.gov/server/rest/services/Development/ActiveDevelopment/FeatureServer/0/query?f=json&where=1%3D1&returnCountOnly=true",
+      "total": 53,
+      "offset": 50,
+      "role": "development_review"
+    },
+    {
+      "sourceId": "source-728007135911a041cb34b75303d07a",
+      "jurisdiction": "High Point",
+      "url": "https://giswa02.highpointnc.gov/server/rest/services/LandDevelopment/MapServer/0",
+      "countURL": "https://giswa02.highpointnc.gov/server/rest/services/LandDevelopment/MapServer/0/query?f=json&where=1%3D1&returnCountOnly=true",
+      "total": 939,
+      "offset": 150,
+      "role": "development_review"
+    },
+    {
+      "sourceId": "source-76f889f9a4b34e167e03b6c7803626",
+      "jurisdiction": "NCDOT future transportation program",
+      "url": "https://gis11.services.ncdot.gov/arcgis/rest/services/NCDOT_STIP/MapServer/1",
+      "countURL": "https://gis11.services.ncdot.gov/arcgis/rest/services/NCDOT_STIP/MapServer/1/query?f=json&where=1%3D1&returnCountOnly=true",
+      "total": 1943,
+      "offset": 150,
+      "role": "development_review"
+    },
+    {
+      "sourceId": "source-84e7a3a53c591fabd79b075e74f04d",
+      "jurisdiction": "Brunswick County planning inventory",
+      "url": "https://services1.arcgis.com/W6gamXPYQeLXrdAd/arcgis/rest/services/Commercial_Development/FeatureServer/82",
+      "countURL": "https://services1.arcgis.com/W6gamXPYQeLXrdAd/arcgis/rest/services/Commercial_Development/FeatureServer/82/query?f=json&where=1%3D1&returnCountOnly=true",
+      "total": 186,
+      "offset": 150,
+      "role": "development_review"
+    },
+    {
+      "sourceId": "source-8ad50df7b7918cceaf0e16245fd827",
+      "jurisdiction": "Apex",
+      "url": "https://services1.arcgis.com/nry3yyvaEfskMEXA/arcgis/rest/services/Development/FeatureServer/0",
+      "countURL": "https://services1.arcgis.com/nry3yyvaEfskMEXA/arcgis/rest/services/Development/FeatureServer/0/query?f=json&where=1%3D1&returnCountOnly=true",
+      "total": 195,
+      "offset": 150,
+      "role": "development_review"
+    },
+    {
+      "sourceId": "source-bb3ff9a936be8799ce8dbff3741e12",
+      "jurisdiction": "Mooresville",
+      "url": "https://gis.mooresvillenc.gov/gisadmin/rest/services/Planning/active_projects/MapServer/0",
+      "countURL": "https://gis.mooresvillenc.gov/gisadmin/rest/services/Planning/active_projects/MapServer/0/query?f=json&where=1%3D1&returnCountOnly=true",
+      "total": 164,
+      "offset": 150,
+      "role": "development_review"
+    },
+    {
+      "sourceId": "source-cced580bef87ae08ecb3cfeeb97ed6",
+      "jurisdiction": "Huntersville",
+      "url": "https://services7.arcgis.com/CADYoH7VVBN3BQHU/arcgis/rest/services/Development_Projects/FeatureServer/0",
+      "countURL": "https://services7.arcgis.com/CADYoH7VVBN3BQHU/arcgis/rest/services/Development_Projects/FeatureServer/0/query?f=json&where=1%3D1&returnCountOnly=true",
+      "total": 162,
+      "offset": 150,
+      "role": "development_review"
+    },
+    {
+      "sourceId": "source-efb420da53468a1e15e9c1252bf667",
+      "jurisdiction": "Brunswick County planning inventory",
+      "url": "https://services1.arcgis.com/W6gamXPYQeLXrdAd/arcgis/rest/services/ApprovedDev_poly/FeatureServer/0",
+      "countURL": "https://services1.arcgis.com/W6gamXPYQeLXrdAd/arcgis/rest/services/ApprovedDev_poly/FeatureServer/0/query?f=json&where=1%3D1&returnCountOnly=true",
+      "total": 155,
+      "offset": 150,
+      "role": "development_review"
+    },
+    {
+      "sourceId": "source-f2f340751573ae0e23dcd5083d0c91",
+      "jurisdiction": "NCDOT future transportation program",
+      "url": "https://gis11.services.ncdot.gov/arcgis/rest/services/NCDOT_STIP/MapServer/0",
+      "countURL": "https://gis11.services.ncdot.gov/arcgis/rest/services/NCDOT_STIP/MapServer/0/query?f=json&where=1%3D1&returnCountOnly=true",
+      "total": 1120,
+      "offset": 150,
+      "role": "development_review"
+    }
+  ]
+}

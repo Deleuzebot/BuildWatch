@@ -21,9 +21,10 @@ export function validateSourceSchema(s:Source,metadata:any){
   for(const[code,label]of Object.entries(expected as Record<string,string>))if(!domain.some((v:any)=>String(v.code)===code&&v.name===label))throw Error('Official source coded meaning changed: '+field+' '+code);
  }
 }
-export function sourcePage(s:Source,cursor:number){
- const u=new URL(s.url);if(s.adapter==='arcgis'){u.pathname+='/query';u.search=new URLSearchParams({f:'json',where:'1=1',outFields:s.config.requiredFields?.length?[...new Set([s.config.idField||'OBJECTID',s.config.originalIdentityField,...s.config.requiredFields].filter(Boolean))].join(','):'*',outSR:'4326',returnGeometry:'true',orderByFields:s.config.orderByFields||s.config.idField||'OBJECTID',resultOffset:String(cursor),resultRecordCount:'50'}).toString();}
- else if(s.adapter==='cary')u.search=new URLSearchParams({limit:'50',offset:String(cursor),order_by:'applicationnumber ASC'}).toString();
+export function sourcePage(s:Source,cursor:number,size=50){
+ const limit=Math.max(1,Math.min(500,Math.floor(size)||50));
+ const u=new URL(s.url);if(s.adapter==='arcgis'){u.pathname+='/query';u.search=new URLSearchParams({f:'json',where:'1=1',outFields:s.config.requiredFields?.length?[...new Set([s.config.idField||'OBJECTID',s.config.originalIdentityField,...s.config.requiredFields].filter(Boolean))].join(','):'*',outSR:'4326',returnGeometry:'true',orderByFields:s.config.orderByFields||s.config.idField||'OBJECTID',resultOffset:String(cursor),resultRecordCount:String(limit)}).toString();}
+ else if(s.adapter==='cary')u.search=new URLSearchParams({limit:String(limit),offset:String(cursor),order_by:'applicationnumber ASC'}).toString();
  return u.href;
 }
 function geometryBounds(geometry:any){
@@ -32,9 +33,9 @@ function geometryBounds(geometry:any){
  if(!points.length)return undefined;
  return points.reduce((b:any,p:number[])=>({west:Math.min(b.west,p[0]),south:Math.min(b.south,p[1]),east:Math.max(b.east,p[0]),north:Math.max(b.north,p[1])}),{west:180,south:90,east:-180,north:-90});
 }
-export function parsePage(s:Source,body:string):{findings:Finding[];more:boolean;count:number}{
+export function parsePage(s:Source,body:string,size=50):{findings:Finding[];more:boolean;count:number}{
  const json=JSON.parse(body);if(json.error)throw Error('Government API error: '+clean(json.error.message));
- const rows=s.adapter==='arcgis'?json.features:json.results;if(!Array.isArray(rows)||rows.length>50)throw Error('Source page shape or size changed');
+ const rows=s.adapter==='arcgis'?json.features:json.results;if(!Array.isArray(rows)||rows.length>Math.max(1,Math.min(500,Math.floor(size)||50)))throw Error('Source page shape or size changed');
  const fields=s.config.fields||{};
  const findings=rows.map((row:any):Finding=>{
   const a=row.attributes||row,id=first(a,[s.config.originalIdentityField||s.config.idField||'OBJECTID','FID','applicationnumber']),geometry=s.adapter==='cary'?{x:a.geo_point_2d?.lon,y:a.geo_point_2d?.lat}:row.geometry;
@@ -62,5 +63,5 @@ export function parsePage(s:Source,body:string):{findings:Finding[];more:boolean
   for(const field of new Set<string>([...Object.values(fields),...Object.values(s.config.dateFields||{}),...Object.values(s.config.factFields||{})] as string[]))if(a[field]!==undefined)evidenceFields[field]=a[field];
   return{externalId:id,name,description,address:value('address',['Address','ADDRESS','address','MainAddress']),latitude:point?geometry.y:null,longitude:point?geometry.x:null,rawStatus,status,statusLabel,eventDate,publishedAt:fields.publishedAt?isoDate(a[fields.publishedAt]):undefined,category,rawCategory,developer:value('developer',['Developer','developer','Applicant']),url:query.href,quote:JSON.stringify({id,name,status:rawStatus,statusLabel,eventDate,description,fields:evidenceFields}).slice(0,4000),principalUseVerified:s.config.scopeVerified===true,locationVerified:!!point,wholeDevelopment:s.config.statusScope==='development',mappingVersion:s.config.mappingVersion,sourceDates,sourceFacts,locationEvidence,reviewNotes};
  });
- return{findings,more:s.adapter==='arcgis'?json.exceededTransferLimit===true:rows.length===50,count:rows.length};
+ return{findings,more:s.adapter==='arcgis'?json.exceededTransferLimit===true:rows.length===size,count:rows.length};
 }

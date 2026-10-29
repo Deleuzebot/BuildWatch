@@ -4,8 +4,8 @@ import{parsePage,sourcePage,validateSourceSchema}from'./adapters';
 import{deriveProject}from'../supabase/derive';
 import{extractDocument}from'./ai';
 import{noticeLinks}from'./notices';
-export type WorkerRPC=(action:string,input?:Record<string,any>)=>Promise<any>;
-type Options={state:string;mode:'weekly'|'initial';dryRun:boolean;key:string;scheduled?:boolean;githubURL?:string;maxSeconds?:number;maxRequests?:number;maxRecords?:number;onlySource?:string};
+export type WorkerRPC=((action:string,input?:Record<string,any>)=>Promise<any>) & {batch?:(action:string,inputs:Record<string,any>[])=>Promise<any[]>};
+type Options={state:string;mode:'weekly'|'initial';dryRun:boolean;key:string;scheduled?:boolean;githubURL?:string;maxSeconds?:number;maxRequests?:number;maxRecords?:number;onlySource?:string;pageSize?:number};
 export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fetch=fetch){
  const claimed=await rpc('claim',{state:options.state,mode:options.mode,dryRun:options.dryRun,key:options.key,scheduled:!!options.scheduled,githubURL:options.githubURL});
  if(claimed.status==='skipped')return claimed;
@@ -52,21 +52,22 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
      if(!source.config.idField){source.config={...source.config,idField:oid};await call('source',{sourceId:source.id,config:{idField:oid}});}
     }
     let cursor=cp.cursors[source.id]||0,more=true;
+    const pageSize=options.dryRun?Math.max(1,Math.min(500,Math.floor(options.pageSize||50))):50;
     while(more){
-     budget.check();const url=sourcePage(source,cursor);
+     budget.check();const url=sourcePage(source,cursor,Math.min(pageSize,budget.maxRecords-budget.records));
      const cacheURL=source.config.mappingVersion?url+'#mapping='+encodeURIComponent(source.config.mappingVersion):url;
      const cache=await call('document',{sourceId:source.id,url:cacheURL});
-     const reusable=options.mode==='weekly'&&cache.applied===!options.dryRun;
+     const reusable=pageSize===50&&options.mode==='weekly'&&cache.applied===!options.dryRun;
      const result=await http.get(url,reusable?{...(cache.etag?{'If-None-Match':cache.etag}:{}),...(cache.modified?{'If-Modified-Since':cache.modified}:{})}:{});
      if(result.status===304){stats.unchangedDocuments++; // Page cardinality is retained, not guessed from HTTP 304.
       if(cache.more){cursor+=50;cp.cursors[source.id]=cursor;await call('checkpoint',{checkpoint:cp,stats:{...stats,...snapshot()}});continue;}more=false;break;
      }
-     const digest=hash(result.body);
+     const digest=hash(result.body);let advance=50;
      if(digest===cache.hash&&reusable){stats.unchangedDocuments++;more=!!cache.more;}
      else if(source.adapter==='document'){
       if(source.config.noticePathPattern){
        const links=noticeLinks(source,result.body);if(!links.length)throw Error('Official document index layout changed or no matching document links are available');
-       for(const link of links){budget.check();budget.records++;const lead={externalId:hash(link.url),name:link.title,description:'Official document link; project and meeting contents require review.',address:'',latitude:null,longitude:null,rawStatus:'',category:'',developer:'',url:link.url,quote:link.title+' — '+link.url,principalUseVerified:false,locationVerified:false,wholeDevelopment:false,recordKind:'document_index_entry'};
+       for(const link of links){budget.check(false);budget.records++;const lead={externalId:hash(link.url),name:link.title,description:'Official document link; project and meeting contents require review.',address:'',latitude:null,longitude:null,rawStatus:'',category:'',developer:'',url:link.url,quote:link.title+' — '+link.url,principalUseVerified:false,locationVerified:false,wholeDevelopment:false,recordKind:'document_index_entry'};
         await call('finding',{id:hash([source.id,link,options.dryRun]),sourceId:source.id,finding:lead,project:{id:'lead-'+hash(link.url).slice(0,30),state:source.state},eligible:false,reason:'Official agenda/document pointer only. No project status, meeting date or coordinates inferred.',confidence:{method:'requires_review'}});stats.documentLeads=(stats.documentLeads||0)+1;stats.unverified++;
        }
        more=false;
@@ -78,25 +79,32 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
       more=false;
       }
      }else{
-      const page=parsePage(source,result.body);more=page.more;
+      const page=parsePage(source,result.body,Math.min(pageSize,budget.maxRecords-budget.records));more=page.more;
+      const matches=options.dryRun&&!source.autopublish&&rpc.batch?await rpc.batch('match',page.findings.map(f=>({runId:run.id,lease:run.lease,sourceId:source.id,externalId:f.externalId}))):null;
+      const queued:Record<string,any>[]=[];let index=0;
       for(const finding of page.findings){
-       budget.check();budget.records++;stats.sourceRecords++;
+       budget.check(false);budget.records++;stats.sourceRecords++;
        const quality=stats.mappingQuality??={named:0,statusDecoded:0,statusRequiresReview:0,polygonFootprints:0,verifiedPoints:0,planDates:0,permitDates:0,conflictingNotes:0};
        if(finding.name)quality.named++;if(finding.status)quality.statusDecoded++;else quality.statusRequiresReview++;
        if(finding.locationEvidence?.type==='polygon')quality.polygonFootprints++;if(finding.locationVerified)quality.verifiedPoints++;
        if(finding.locationEvidence?.type==='polyline')quality.polylineFootprints=(quality.polylineFootprints||0)+1;
        if(finding.sourceDates?.plansSubmittedAt)quality.planDates++;if(finding.sourceDates?.permitIssuedAt)quality.permitDates++;
        if(finding.reviewNotes?.length)quality.conflictingNotes++;
-       const match=await call('match',{sourceId:source.id,externalId:finding.externalId});stats.projectsChecked+=match.ids.length===1?1:0;
+       const match=matches?matches[index++]:await call('match',{sourceId:source.id,externalId:finding.externalId});stats.projectsChecked+=match.ids.length===1?1:0;
        const evaluation=evaluateFinding(finding,source,match.project);
        if(match.ids.length>1)evaluation.reasons.push('Shared source identifier maps to multiple records; duplicate review required');
-       const res=await call('finding',{id:hash([source.id,finding.externalId,finding,options.dryRun]),sourceId:source.id,finding,project:evaluation.project,eligible:evaluation.eligible&&match.ids.length<=1,confidence:evaluation.confidence,reason:evaluation.reasons.join('; ')||'Exact official evidence and deterministic validation gates passed.',derived:evaluation.eligible?await deriveProject(evaluation.project):null});
+       const input={id:hash([source.id,finding.externalId,finding,options.dryRun]),sourceId:source.id,finding,project:evaluation.project,eligible:evaluation.eligible&&match.ids.length<=1,confidence:evaluation.confidence,reason:evaluation.reasons.join('; ')||'Exact official evidence and deterministic validation gates passed.',derived:evaluation.eligible?await deriveProject(evaluation.project):null};
+       if(matches){queued.push({runId:run.id,lease:run.lease,...input});continue;}
+       const res=await call('finding',input);
        if(res.previousOutcome==='awaiting_review')stats.unverified++;
        if(res.outcome==='potential_duplicate')stats.duplicateCandidates++;else if(res.outcome==='awaiting_review')stats.unverified++;else if(res.outcome==='excluded_archive')stats.archivedExcluded++;else if(res.outcome==='published'){if(!match.project)stats.newFindings++;else if(match.project.status!==finding.status)stats.statusChanges++;stats.milestones+=finding.eventDate?1:0;}
       }
+      if(matches&&queued.length){const outcomes=await rpc.batch!('finding',queued);for(const res of outcomes){if(res.outcome==='awaiting_review'||res.previousOutcome==='awaiting_review')stats.unverified++;if(res.outcome==='potential_duplicate')stats.duplicateCandidates++;if(res.outcome==='excluded_archive')stats.archivedExcluded++;}}
+      advance=page.count;
+      if(more&&!advance)throw Error('Source pagination returned an empty continuation page');
      }
      await call('cache',{sourceId:source.id,url:cacheURL,hash:digest,etag:result.etag,modified:result.modified,more,applied:!options.dryRun});
-     cursor+=50;cp.cursors[source.id]=cursor;
+     cursor+=advance;cp.cursors[source.id]=cursor;
      await call('checkpoint',{checkpoint:cp,stats:{...stats,...snapshot()}});
     }
     cp.done.push(source.id);delete cp.cursors[source.id];await call('source',{sourceId:source.id});

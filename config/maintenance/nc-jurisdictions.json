@@ -1,0 +1,539 @@
+{
+  "populationVintage": 2025,
+  "threshold": 50000,
+  "source": "NC OSBM Standard Population Estimates, Vintage 2025",
+  "entities": [
+    {
+      "type": "county",
+      "name": "Alamance",
+      "population": 187982,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Brunswick",
+      "population": 176619,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Buncombe",
+      "population": 278235,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Burke",
+      "population": 90346,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Cabarrus",
+      "population": 251342,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Caldwell",
+      "population": 82192,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Carteret",
+      "population": 71659,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Catawba",
+      "population": 171604,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Chatham",
+      "population": 84505,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Cleveland",
+      "population": 102115,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Columbus",
+      "population": 50341,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Craven",
+      "population": 108175,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Cumberland",
+      "population": 341048,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Davidson",
+      "population": 181248,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Duplin",
+      "population": 50548,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Durham",
+      "population": 345085,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Forsyth",
+      "population": 400766,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Franklin",
+      "population": 82732,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Gaston",
+      "population": 249916,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Granville",
+      "population": 61020,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Guilford",
+      "population": 557963,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Harnett",
+      "population": 149841,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Haywood",
+      "population": 64522,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Henderson",
+      "population": 123440,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Hoke",
+      "population": 56642,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Iredell",
+      "population": 214151,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Johnston",
+      "population": 257598,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Lee",
+      "population": 70161,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Lenoir",
+      "population": 54904,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Lincoln",
+      "population": 98409,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Mecklenburg",
+      "population": 1224717,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Moore",
+      "population": 112063,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Nash",
+      "population": 100148,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "New Hanover",
+      "population": 245917,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Onslow",
+      "population": 217827,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Orange",
+      "population": 151404,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Pender",
+      "population": 71328,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Pitt",
+      "population": 182281,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Randolph",
+      "population": 148941,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Robeson",
+      "population": 118295,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Rockingham",
+      "population": 94004,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Rowan",
+      "population": 155298,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Rutherford",
+      "population": 65089,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Sampson",
+      "population": 61009,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Stanly",
+      "population": 68617,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Surry",
+      "population": 72264,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Union",
+      "population": 271383,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Wake",
+      "population": 1259530,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Watauga",
+      "population": 55213,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Wayne",
+      "population": 120861,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Wilkes",
+      "population": 65995,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "county",
+      "name": "Wilson",
+      "population": 81209,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population"
+    },
+    {
+      "type": "city",
+      "name": "Apex",
+      "population": 77453,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Asheville",
+      "population": 97700,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Burlington",
+      "population": 62377,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Cary",
+      "population": 190336,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Chapel Hill",
+      "population": 63483,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Charlotte",
+      "population": 959079,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Concord",
+      "population": 116941,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Durham",
+      "population": 306475,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Fayetteville",
+      "population": 211282,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Gastonia",
+      "population": 87621,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Greensboro",
+      "population": 307952,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Greenville",
+      "population": 97120,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "High Point",
+      "population": 118208,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Holly Springs",
+      "population": 50499,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Huntersville",
+      "population": 67842,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Jacksonville",
+      "population": 71101,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Kannapolis",
+      "population": 59965,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Mooresville",
+      "population": 60297,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Raleigh",
+      "population": 504445,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Rocky Mount",
+      "population": 55966,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Wake Forest",
+      "population": 60658,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Wilmington",
+      "population": 126247,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Wilson",
+      "population": 50691,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    },
+    {
+      "type": "city",
+      "name": "Winston-Salem",
+      "population": 260060,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change"
+    }
+  ]
+}

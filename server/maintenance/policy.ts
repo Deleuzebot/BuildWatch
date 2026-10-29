@@ -55,6 +55,6 @@ export class LimitReached extends Error{}
 export class Budget{
  started=Date.now();requests=0;records=0;bytes=0;aiRequests=0;aiTokens=0;
  constructor(public seconds=240,public maxRequests=80,public maxRecords=1000,public maxBytes=20_000_000){}
- check(){if(Date.now()-this.started>=this.seconds*1000-5000)throw new LimitReached('Runtime ceiling reached');if(this.requests>=this.maxRequests)throw new LimitReached('Request ceiling reached');if(this.records>=this.maxRecords)throw new LimitReached('Record ceiling reached');if(this.bytes>=this.maxBytes)throw new LimitReached('Download ceiling reached');}
+ check(includeRequests=true){if(Date.now()-this.started>=this.seconds*1000-5000)throw new LimitReached('Runtime ceiling reached');if(includeRequests&&this.requests>=this.maxRequests)throw new LimitReached('Request ceiling reached');if(this.records>=this.maxRecords)throw new LimitReached('Record ceiling reached');if(this.bytes>=this.maxBytes)throw new LimitReached('Download ceiling reached');}
  snapshot(){return{seconds:Math.round((Date.now()-this.started)/1000),requests:this.requests,records:this.records,downloadBytes:this.bytes,aiRequests:this.aiRequests,aiTokens:this.aiTokens};}
 }
