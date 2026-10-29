@@ -47,9 +47,9 @@ export function officialPoint(geometry:any,spatialReference:any){
 /** Official project-page facts; scheduled hearings never become decisions. */
 export function projectPageEvidence(html:string){
  const text=html.replace(/<script[\s\S]*?<\/script>/gi,' ').replace(/<style[\s\S]*?<\/style>/gi,' ').replace(/<[^>]*>/g,' ').replace(/&nbsp;|&#160;/g,' ').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();
- const description=text.match(/Project Description:\s*(.*?)\s*Project Status:/i)?.[1]||null,status=text.match(/Project Status:\s*(.*?)\s*Public Meeting Schedule/i)?.[1]||null;
+ const description=text.match(/Project Description:\s*(.*?)\s*(?:Project\s+)?Status:/i)?.[1]||null,status=text.match(/\b(?:Project\s+)?Status:\s*(.*?)\s*Public Meeting Schedule/i)?.[1]||null;
  const applicationIdentifiers=[...new Set(text.match(/\b(?:CP|CZD|ZCP)-\d{2}-\d+\b/g)||[])],meetingSection=text.split('Public Meeting Schedule')[1]?.split('Application Materials')[0]||'';
  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
  const meetings=[...meetingSection.matchAll(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),\s*(\d{4})(?:\s+at\s+(\d{1,2}(?::\d{2})?\s*[AP]M))?/gi)].map(m=>({date:m[3]+'-'+String(months.findIndex(v=>v.toLowerCase()===m[1].toLowerCase())+1).padStart(2,'0')+'-'+m[2].padStart(2,'0'),timeLabel:m[4]||null,quote:m[0],scope:'scheduled_meeting_only',decisionConfirmed:false})).filter(m=>exactDate(m.date)!==undefined);
- const start=text.indexOf('Project Address:');return{description,status,applicationIdentifiers,meetings,quote:text.slice(Math.max(0,start),Math.max(0,start)+2200),descriptionPublishedAt:null,wholeProjectDecisionConfirmed:false};
+ const start=text.indexOf('Project Address:')>=0?text.indexOf('Project Address:'):text.indexOf('Project Description:');return{description,status,applicationIdentifiers,meetings,quote:text.slice(Math.max(0,start),Math.max(0,start)+2200),descriptionPublishedAt:null,wholeProjectDecisionConfirmed:false};
 }
