@@ -5,7 +5,7 @@ on:
       validation_mode:
         description: Manual reliability validation (always dry-run; no publication)
         type: choice
-        options: [none, pdf50-benchmark, five-jurisdiction]
+        options: [none, pdf50-benchmark]
         default: none
       nc_adapter_pilot:
         description: Test disabled NC source candidates on Linux (always dry-run)
