@@ -92,10 +92,20 @@ try{
   const policy=expiredPolicy(),p=base('outage','Approved',policy.approval_date),original=await seed(p,policy);await sql("INSERT INTO buildwatch_audit.maintenance_lifecycle(project_id) VALUES($1)",[p.id]);await sql("SELECT buildwatch_audit.bw_refresh($1)",[p.id]);const work=await worker('outage',p,'Approved',policy.approval_date,{outage:true}),observed=await record(p.id);assert.equal(work.result.sourceFailures,1);assert.equal(observed.archive,null);assert.equal(observed.visible,1);
   return{original,detected:work.result,observed,functionality:'implemented_for_managed_lifecycle',notes:['Worker archival is skipped on source failure.','Managed lifecycle remains visible until a successful verified check; legacy visibility is intentionally unchanged.']};
  });
+ await scenario('5c-resumed-checkpoint-needs-fresh-project-verification',async()=>{
+  const policy=expiredPolicy(),p=base('resumed-expiration','Approved',policy.approval_date);await seed(p,policy);await configure('resumed-expiration');
+  const claim=await rpc('claim',{state:'NC',mode:'weekly',dryRun:false,key:'resumed-expiration'});
+  await sql("UPDATE buildwatch_audit.maintenance_sources SET last_success=now() WHERE id='resumed-expiration'");
+  await sql("INSERT INTO buildwatch_audit.maintenance_lifecycle(project_id,checked_run,source_id,checked_at,checked_lease) VALUES($1,$2,'resumed-expiration',now(),gen_random_uuid())",[p.id,claim.run.id]);await sql('SELECT buildwatch_audit.bw_refresh($1)',[p.id]);
+  const input={runId:claim.run.id,lease:claim.run.lease};assert.deepEqual(await rpc('expirations',input),[]);assert.equal((await rpc('expire',{...input,projectId:p.id})).outcome,'protected_unverified');const observed=await record(p.id);assert.equal(observed.visible,1);assert.equal(observed.archive,null);
+  return{observed,desiredBehaviorPassed:true,functionality:'implemented_verification_bound_to_current_lease',notes:['A previous attempt with the same run ID cannot authorize expiration.']};
+ });
  await scenario('6-timeline-and-meaningful-information-update',async()=>{
   const p=base('information','Approved',day(-100)),at=Date.parse(p.sourceStatusDate),policy={approval_date:p.sourceStatusDate,approval_at:at,approval_evidence:JSON.stringify({date:p.sourceStatusDate,url:sourceURL,quote:'SIMULATED prior approval'}),schedules:'[]',expires_at:at+365*86400000,due_at:at+365*86400000};const original=await seed(p,policy);
   const work=await worker('information',p,'Approved',p.sourceStatusDate,{description:'Controlled new government evidence: approved housing count increased from 200 to 240.'}),descriptionResult=await record(p.id);
   const proposal=await one("SELECT id FROM buildwatch_audit.research_proposals WHERE project_id=$1 AND kind='information'",[p.id]);assert.ok(proposal);
+  await sql("INSERT INTO buildwatch_audit.research_proposals(id,batch_id,kind,project_id,data,updated) SELECT repeat('a',64),batch_id,'uncertain',project_id,data,updated FROM buildwatch_audit.research_proposals WHERE id=$1",[proposal.id]);
+  const filtered=(await one("SELECT buildwatch_audit.bw_research_api('{\"id\":\"audit-admin\"}'::jsonb,'GET','/api/admin/research','{}'::jsonb,'{\"kind\":\"information\"}'::jsonb) value")).value;assert.equal(filtered.total,1);assert.equal(filtered.items[0].kind,'information');
   await sql('SAVEPOINT information_confirmation');
   const preview=(await one('SELECT buildwatch_audit.bw_research_preview($1,$2) value',[proposal.id,'audit-admin'])).value;assert.ok(preview.after.description.includes('240'));
   await sql('SELECT buildwatch_audit.bw_research_api($1::jsonb,\'POST\',\'/api/admin/research/commit\',$2::jsonb,\'{}\'::jsonb)',[JSON.stringify({id:'audit-admin'}),JSON.stringify({token:preview.token,_project:preview.after,_derived:await deriveProject(preview.after,descriptionResult.approval)})]);

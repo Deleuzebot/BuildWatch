@@ -9,11 +9,13 @@ Production publication and scheduling remain disabled. This is validation of the
 | New approval | Controlled official-API fixture updates status, records approval and notification, appends milestone | Explicitly verified whole-development source mappings |
 | Timeline preservation | Previous approval remains after a new decision; matching dates deduplicate | Append-only decision history; meeting reconciliation remains separate |
 | Subsequent movement | A newer verified approval extends the due date without replacing the original approval date | Substantive dated decisions, never import/edit timestamps |
+| Review filters | Requested proposal kind filters correctly, including information updates | Database variable/column ambiguity removed |
 | Description changes | Changed 200-to-240-home description creates private information proposal; confirmation preview and isolated application tested | Administrator confirmation required; no silent editorial replacement |
 | Construction | Explicit construction-start evidence changes status and appends milestone | A scheduled date or old approval date does not establish construction starting |
 | Cancellation | Verified whole-development cancellation archives and hides the project; application withdrawal leaves the development alone | Requires explicit registry attestation and dated decision evidence |
 | Completion | Verified completion archives and hides the project; exact-reference rediscovery cannot republish it | Original project, followers, sources and history remain |
 | Approved expiration | 366-day approval archives after successful authoritative verification in the same run | Managed lifecycle only; review-stage projects are exempt |
+| Resumed checkpoint | Prior attempt verification cannot authorize expiration under a new worker lease | Fresh project verification is required in the current attempt |
 | Source outage | Failed source does not archive; managed overdue project stays visible | Successful download alone does not constitute project verification |
 | Future construction | Existing and newly retrieved explicit future construction schedules protect approval expiration | Only specifically verified schedule fields; cited schedule retained separately |
 | New development | Verified structured record inserted once; repeat and unchanged records do not create duplicate projects/history | Existing identity, geographic and significance gates remain |
@@ -31,9 +33,9 @@ This demonstrates one real scoped government change. Approval, construction, can
 
 Run `scripts/maintenance-behavior-audit.mts` with the existing least-privilege maintenance credential, or manually dispatch the maintenance workflow with `validation_mode=behavior-audit`. The GitHub job requires no interactive Codex reasoning, AI API or live government HTTP. Source parsing, comparison, evidence gates and SQL writes run unattended.
 
-The audit checks that production and isolated SQL bodies match, executes 12 scenarios, verifies production project/approval hashes and safety gates before and after, and rolls back all fixture data. Its JSON and full observations appear in the GitHub step summary. Desired behavior failures now fail the job, rather than merely being reported as observations.
+The audit checks that production and isolated SQL bodies match, executes 13 scenarios, verifies production project/approval hashes and safety gates before and after, and rolls back all fixture data. Its JSON and full observations appear in the GitHub step summary. Desired behavior failures now fail the job, rather than merely being reported as observations.
 
-Local verification: 12/12 isolated scenarios passed; TypeScript and public static export passed. Full unit suite: 144 tests, 143 passed and one Linux-only test skipped on macOS. The Linux cloud job provides the independent execution check.
+Local verification: 13/13 isolated scenarios passed; TypeScript and public static export passed. Full unit suite: 144 tests, 143 passed and one Linux-only test skipped on macOS. The Linux cloud job provides the independent execution check.
 
 ## Remaining limitations
 
