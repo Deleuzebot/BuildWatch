@@ -3,6 +3,15 @@ import {mappedStatus,type Finding} from './policy';
 import {classifyProject} from '../../src/lib/categories';
 
 const norm=(s:unknown)=>String(s??'').trim().replace(/\s+/g,' ').toLowerCase();
+/** Different ArcGIS response formats/field selections can still cite the exact same record. */
+export function equivalentCitation(first:string,second:string){
+ if(first===second)return true;
+ try{const a=new URL(first),b=new URL(second);if(a.protocol!=='https:'||b.protocol!=='https:'||a.origin!==b.origin||a.pathname!==b.pathname||!/\/(?:FeatureServer|MapServer)\/\d+\/query$/i.test(a.pathname))return false;
+  const id=(u:URL)=>{const object=u.searchParams.get('objectIds');if(object&&/^\d+$/.test(object))return object;
+   const where=u.searchParams.get('where')?.match(/^\s*(?:FID|OBJECTID)\s*=\s*'?(\d+)'?\s*$/i);return where?.[1];};
+  const left=id(a),right=id(b);return !!left&&left===right;
+ }catch{return false;}
+}
 /** Identity is source-scoped AND checked against the current canonical project. */
 export function verifyIdentity(f:Pick<Finding,'externalId'|'name'>,city:string,match:{ids:string[];project:any}){
  const ids=[...new Set(match.ids)];
@@ -74,24 +83,30 @@ export function agendaMeeting(pages:PageEvidence[],item:AgendaItem,now=Date.now(
 }
 
 /** Proposals are private review objects; no approval clock or canonical status writes. */
-export function proposeStructured(f:Finding,city:string,match:{ids:string[];project:any},location:{inside?:boolean;source:string}){
+export function proposeStructured(f:Finding,city:string,match:{ids:string[];project:any;activity?:any[];activityComplete?:boolean},location:{inside?:boolean;source:string}){
  const identity=verifyIdentity(f,city,match),p=match.project;
  // Non-residential is a broad exclusion, not evidence of housing.
  const category=classifyProject({id:'pilot',name:f.name,description:f.description.replace(/\bmixed used development\b/gi,'mixed-use development'),category:/^non[- ]residential$/i.test(f.category)?'':f.category} as any);
  const rawDate=f.sourceDates?.applicationActionAt,action=String(f.sourceFacts?.applicationAction||'');
  const milestone=rawDate&&Number.isFinite(Date.parse(rawDate))&&Date.parse(rawDate)<=Date.now()&&/^TRC Approved$/i.test(action)?{kind:'application_approval',date:rawDate,description:'Technical Review Committee approved this application/component; not proof of construction or whole-project completion',source:f.url}:null;
+ const sameDate=milestone?(match.activity||[]).filter(a=>a.event_date===milestone.date.slice(0,10)&&/approval/i.test(a.type)):[];
+ const alreadyRecorded=sameDate.some(a=>equivalentCitation(a.source_url||'',f.url));
+ const milestoneDeduplication=!milestone?'not_applicable':match.activityComplete!==true?'unavailable':alreadyRecorded?'already_recorded':sameDate.length?'same_day_conflict':'new';
  const sourceStatus=mappedStatus(f.rawStatus),statusConflict=!!p&&!!sourceStatus&&sourceStatus!==p.status;
  const reasons:string[]=[];
  if(!identity.verified)reasons.push(identity.reason);
  if(location.inside!==true)reasons.push(location.inside===false?'Existing map pin lies outside official footprint':'Official footprint verification unavailable');
  if(!sourceStatus)reasons.push('Administrative status does not establish a development milestone');
  if(!milestone)reasons.push('No dated substantive milestone; GIS edit/import dates cannot reset approval');
+ if(milestone&&milestoneDeduplication==='unavailable')reasons.push('Complete timeline context unavailable; do not append an event');
+ if(milestoneDeduplication==='same_day_conflict')reasons.push('An approval event already exists on this date with different evidence; manual timeline review required');
  if(statusConflict)reasons.push('Source and canonical statuses differ; application scope requires review');
  if(!category.primaryCategory)reasons.push('Principal use unresolved');
  if(/\bgrading\b|\binfrastructure\b/i.test(f.name))reasons.push('Possible component/supporting record; inspect parent development before creating a marker');
  return{externalId:f.externalId,name:f.name,identity,projectId:identity.verified?p.id:null,existingStatus:p?.status||null,sourceStatus:f.rawStatus,location,category:category.primaryCategory,
-  proposed:{sourceCitation:identity.verified&&!p.sources?.some((s:any)=>s.url===f.url)?{title:city+' official application '+f.externalId,url:f.url}:null,
-   scopedMilestone:identity.verified?milestone:null,statusChange:statusConflict?{from:p.status,to:sourceStatus,requiresAdministratorReview:true}:null,
+  observedMilestone:milestone,milestoneDeduplication,
+  proposed:{sourceCitation:identity.verified&&!p.sources?.some((s:any)=>equivalentCitation(s.url,f.url))?{title:city+' official application '+f.externalId,url:f.url}:null,
+   scopedMilestone:identity.verified&&milestoneDeduplication==='new'?milestone:null,statusChange:statusConflict?{from:p.status,to:sourceStatus,requiresAdministratorReview:true}:null,
    approvalDateChange:null,pinChange:null,insertProject:false},
   sourceDates:f.sourceDates,description:f.description,evidence:{url:f.url,quote:f.quote},reasons,automaticPublication:false};
 }

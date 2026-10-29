@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
-import {verifyIdentity,pointInOfficialPolygon,extractAgendaItems,agendaMeeting,proposeStructured} from '../server/maintenance/end-to-end';
+import {verifyIdentity,pointInOfficialPolygon,extractAgendaItems,agendaMeeting,proposeStructured,equivalentCitation} from '../server/maintenance/end-to-end';
 import {parsePage,validateSourceSchema} from '../server/maintenance/adapters';
 import {robotsSourceContext} from '../server/maintenance/research-reader';import {robotsUnavailableAllows} from '../server/maintenance/worker';
 const evidence=JSON.parse(readFileSync('tests/fixtures/nc-e2e-evidence.json','utf8'));
@@ -33,7 +33,15 @@ test('separate cases in one page cannot leak units into another project',()=>{
 });
 test('a dated component approval can propose a scoped milestone, never reset the approval clock or insert a project',()=>{
  const f=findings('Apex')[0],p={id:'p',name:f.name,jurisdiction:'Apex',status:'Proposed',sourceStatusDate:'2025-01-01',sources:[]};
- const result=proposeStructured(f,'Apex',{ids:['p'],project:p},{inside:true,source:f.url});assert.equal(result.proposed.scopedMilestone?.date,'2026-10-22T00:00:00.000Z');assert.equal(result.proposed.scopedMilestone?.kind,'application_approval');assert.equal(result.proposed.approvalDateChange,null);assert.equal(result.proposed.pinChange,null);assert.equal(result.proposed.insertProject,false);assert.equal(result.automaticPublication,false);assert.equal(result.category,null);assert.equal(result.proposed.statusChange?.requiresAdministratorReview,true);
+ const result=proposeStructured(f,'Apex',{ids:['p'],project:p,activity:[],activityComplete:true},{inside:true,source:f.url});assert.equal(result.proposed.scopedMilestone?.date,'2026-10-22T00:00:00.000Z');assert.equal(result.proposed.scopedMilestone?.kind,'application_approval');assert.equal(result.proposed.approvalDateChange,null);assert.equal(result.proposed.pinChange,null);assert.equal(result.proposed.insertProject,false);assert.equal(result.automaticPublication,false);assert.equal(result.category,null);assert.equal(result.proposed.statusChange?.requiresAdministratorReview,true);
+});
+test('same source record/date suppresses duplicate timeline entries and equivalent citations',()=>{
+ const f=findings('Apex')[0],previous=f.url.replace(/\?.*$/,'')+'?where=FID%3D712&outFields=Name&f=pjson';
+ const p={id:'p',name:f.name,jurisdiction:'Apex',status:'Approved',sources:[{url:previous}]};
+ assert.equal(equivalentCitation(previous,f.url),true);assert.equal(equivalentCitation(previous.replace('712','713'),f.url),false);assert.equal(equivalentCitation(previous.replace('arcgis.com','other.example'),f.url),false);
+ const m={ids:['p'],project:p,activity:[{type:'Approval',event_date:'2026-10-22',source_url:previous}],activityComplete:true};
+ const result=proposeStructured(f,'Apex',m,{inside:true,source:f.url});assert.equal(result.milestoneDeduplication,'already_recorded');assert.equal(result.proposed.scopedMilestone,null);assert.equal(result.proposed.sourceCitation,null);
+ assert.equal(proposeStructured(f,'Apex',{...m,activityComplete:false},{source:f.url}).proposed.scopedMilestone,null);
 });
 test('documented municipal mixed-use wording is recognized without rewriting its source description',()=>{
  const f=findings('Cary')[3],r=proposeStructured(f,'Cary',{ids:[],project:null},{source:f.url});assert.equal(r.category,'Mixed-Use');assert.equal(r.description,f.description);

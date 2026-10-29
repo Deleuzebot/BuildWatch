@@ -17,8 +17,9 @@ try{
   const documents=await db.rows(`SELECT DISTINCT ON(source_id) source_id,data,created FROM buildwatch.maintenance_findings
    WHERE source_id=ANY($1::text[]) AND data::jsonb->>'recordKind'='pdf_benchmark_evidence' ORDER BY source_id,created DESC`,[plan.filter((s:any)=>s.source.adapter==='document').map((s:any)=>s.source.id)]);
   const candidates=await db.rows(`SELECT id,data::jsonb project FROM buildwatch.projects WHERE data::jsonb->>'jurisdiction'=ANY($1::text[]) ORDER BY id LIMIT 500`,[['Burlington','Kannapolis']]);
+  const activity=await db.rows('SELECT project_id,type,event_date,description,source_url FROM buildwatch.project_activity WHERE project_id=ANY($1::text[])',[refs.map(r=>r.canonical_id)]);
   const baseline=await db.one("SELECT (SELECT count(*) FROM buildwatch.projects) projects,(SELECT md5(string_agg(id||md5(data::text),',' ORDER BY id)) FROM buildwatch.projects) projects_hash,(SELECT md5(string_agg(project_id||md5(to_jsonb(a)::text),',' ORDER BY project_id)) FROM buildwatch.approval_policy a) approval_hash,(SELECT count(*) FROM buildwatch.history) history,(SELECT count(*) FROM buildwatch.maintenance_mutations) mutations");
-  return{capturedAt:new Date().toISOString(),control,refs,documents,candidates,baseline};
+  return{capturedAt:new Date().toISOString(),control,refs,documents,candidates,activity,baseline};
  },true);
  writeFileSync('../../work/nc-e2e/database-snapshot.json',JSON.stringify(result,null,2));
  console.log(JSON.stringify({references:result.refs.length,documents:result.documents.map((d:any)=>({source:d.source_id,pages:d.data.previewPages.length,title:d.data.name})),candidateProjects:result.candidates.length,baseline:result.baseline}));

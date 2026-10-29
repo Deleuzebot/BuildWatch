@@ -15,8 +15,8 @@ const rpc=async(action:string,input:any={})=>(await db!.one('SELECT public.build
 let run:any;const report:any={createdAt:new Date().toISOString(),dryRun:true,automaticPublication:false,aiRequests:0,mode:offline?'offline_replay':'cloud_validation',jurisdictions:[],limitations:['Eight GIS records per jurisdiction; first 12 cached pages per agenda packet. Not statewide verification.','Case requests and application decisions do not establish whole-development construction milestones.']};
 const call=(action:string,input:any={})=>rpc(action,{runId:run.id,lease:run.lease,...input});
 async function match(sourceId:string,externalId:string){
- if(!offline)return call('match',{sourceId,externalId});
- const refs=snapshot.refs.filter((r:any)=>r.source_id===sourceId&&r.external_id===externalId),ids=[...new Set(refs.map((r:any)=>r.canonical_id))];return{ids,project:ids.length===1?refs[0].project:null};
+ if(!offline)return(await db!.one('SELECT public.buildwatch_maintenance_context($1::jsonb) value',[JSON.stringify({runId:run.id,lease:run.lease,sourceId,externalId})])).value;
+ const refs=snapshot.refs.filter((r:any)=>r.source_id===sourceId&&r.external_id===externalId),ids=[...new Set(refs.map((r:any)=>r.canonical_id))];return{ids,project:ids.length===1?refs[0].project:null,activity:(snapshot.activity||[]).filter((a:any)=>a.project_id===ids[0]),activityComplete:Array.isArray(snapshot.activity)};
 }
 try{
  if(!offline){const s=await rpc('states');if(s.control.schedule_enabled||s.control.writes_enabled||s.control.pilot_approved)throw Error('Pilot requires all publication gates off');
@@ -38,7 +38,7 @@ try{
    const inside=m.project&&footprintIdentity?pointInOfficialPolygon(m.project.latitude,m.project.longitude,feature.geometry,geometry.data.spatialReference?.latestWkid||geometry.data.spatialReference?.wkid):undefined;
    const proposal=proposeStructured(f,cache.city,m,{inside,source:geometry?.url||f.url});
    row.records.push(proposal);budget.records++;
-   if(!offline){await call('finding',{id:hash(['five-e2e-v1',source.id,f.externalId,cache.sourceHash,proposal]),sourceId:source.id,
+   if(!offline){await call('finding',{id:hash(['five-e2e-v2',source.id,f.externalId,cache.sourceHash,proposal]),sourceId:source.id,
     finding:{...f,recordKind:'end_to_end_validation',cachedAt:cache.cachedAt,proposal,reviewRequired:true},project:m.project||{id:'pilot-'+hash([source.id,f.externalId]).slice(0,30),state:'NC'},eligible:false,reason:proposal.reasons.join('; ')||'Evidence-only proposal; administrator review required',confidence:{method:'source-scoped-identity-and-evidence-v1',identityVerified:proposal.identity.verified,automaticPublication:false}});}
   }
   report.jurisdictions.push(row);
@@ -66,7 +66,8 @@ try{
  }
  report.summary={structuredRecords:structured.length,exactIdentityMatches:structured.filter((r:any)=>r.identity.verified).length,unmatchedStructured:structured.filter((r:any)=>!r.identity.verified).length,
   pinsInsideOfficialFootprints:structured.filter((r:any)=>r.location.inside===true).length,pinsOutsideOfficialFootprints:structured.filter((r:any)=>r.location.inside===false).length,
-  footprintUnavailable:structured.filter((r:any)=>r.location.inside===undefined).length,datedApplicationMilestones:structured.filter((r:any)=>r.proposed.scopedMilestone).length,
+  footprintUnavailable:structured.filter((r:any)=>r.location.inside===undefined).length,datedApplicationMilestones:structured.filter((r:any)=>r.observedMilestone).length,
+  existingMilestonesSuppressed:structured.filter((r:any)=>r.milestoneDeduplication==='already_recorded').length,newMilestonesProposed:structured.filter((r:any)=>r.proposed.scopedMilestone).length,
   proposedSourceCitations:structured.filter((r:any)=>r.proposed.sourceCitation).length,statusConflictsRequiringReview:structured.filter((r:any)=>r.proposed.statusChange).length,
   agendaCases:documents.length,agendaCasesWithConfirmedDecisions:documents.filter((r:any)=>r.confirmedDecision).length,verifiedUpcomingMeetings:documents.filter((r:any)=>r.identity.verified&&r.meeting&&!r.meeting.past&&r.meeting.venue).length,
   reviewRecords:structured.length+documents.length,publicMutations:0,approvalDatesChanged:0,sourceFailures:report.jurisdictions.filter((r:any)=>r.geometryError).length,...budget.snapshot()};
