@@ -18,6 +18,10 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check --no-cache-dir -r requirements-maintenance.txt
       - run: pnpm check
       - run: pnpm dlx expo-doctor
       - run: pnpm export

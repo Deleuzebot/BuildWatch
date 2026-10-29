@@ -2,6 +2,14 @@ name: BuildWatch state research and maintenance
 on:
   workflow_dispatch:
     inputs:
+      nc_adapter_pilot:
+        description: Test disabled NC source candidates on Linux (always dry-run)
+        type: boolean
+        default: false
+      nc_agenda_pdf_pilot:
+        description: Test bounded official agenda PDF extraction (always dry-run)
+        type: boolean
+        default: false
       nc_continue_pilot:
         description: Resume the saved NC source samples (always dry-run)
         type: boolean
@@ -60,6 +68,8 @@ jobs:
       BW_PILOT_SOURCE: ${{ inputs.pilot_source || '' }}
       BW_NC_SOURCE_AUDIT: ${{ inputs.nc_source_audit || false }}
       BW_NC_CONTINUE: ${{ inputs.nc_continue_pilot || false }}
+      BW_NC_ADAPTER: ${{ inputs.nc_adapter_pilot || false }}
+      BW_NC_AGENDA: ${{ inputs.nc_agenda_pdf_pilot || false }}
     steps:
       - uses: actions/checkout@v6
       - uses: pnpm/action-setup@v4
@@ -70,6 +80,11 @@ jobs:
           node-version: 24
           # No Actions package cache or artifacts: avoid storage charges.
       - run: pnpm install --frozen-lockfile
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install bounded agenda text reader
+        run: python -m pip install --disable-pip-version-check --no-cache-dir -r requirements-maintenance.txt
       - name: Verify database TLS
         env:
           BW_WORKER_CA: ${{ secrets.BW_WORKER_CA }}
@@ -79,7 +94,7 @@ jobs:
             echo "PGSSLROOTCERT=$RUNNER_TEMP/buildwatch-ca.pem" >> "$GITHUB_ENV"
           fi
       - name: Run bounded worker
-        if: env.BW_NC_SOURCE_AUDIT != 'true' && env.BW_NC_CONTINUE != 'true'
+        if: env.BW_NC_SOURCE_AUDIT != 'true' && env.BW_NC_CONTINUE != 'true' && env.BW_NC_ADAPTER != 'true' && env.BW_NC_AGENDA != 'true'
         run: pnpm exec tsx scripts/maintenance.mts "--mode=$BW_MODE" "--states=$BW_STATES" "--dry-run=$BW_DRY_RUN" "--queue=$BW_QUEUE" "--source=$BW_PILOT_SOURCE"
       - name: Run NC source-readiness pilot (dry-run only)
         if: env.BW_NC_SOURCE_AUDIT == 'true' && env.BW_NC_CONTINUE != 'true'
@@ -87,6 +102,12 @@ jobs:
       - name: Continue NC dry-run checkpoints
         if: env.BW_NC_CONTINUE == 'true'
         run: pnpm exec tsx scripts/nc-resume-pilot.mts
+      - name: Test disabled NC source adapters
+        if: env.BW_NC_ADAPTER == 'true'
+        run: pnpm exec tsx scripts/nc-adapter-pilot.mts
+      - name: Test NC agenda PDFs
+        if: env.BW_NC_AGENDA == 'true'
+        run: pnpm exec tsx scripts/nc-agenda-pilot.mts
       - name: Report failure
         if: failure()
         run: echo "::error::BuildWatch maintenance did not finish. Check the run summary and persistent Supabase checkpoints. Projects were not marked verified merely because this workflow ran."

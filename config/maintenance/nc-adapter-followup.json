@@ -1,0 +1,2736 @@
+{
+  "checkedAt": "2026-10-29T15:25:32.668Z",
+  "dryRun": true,
+  "reserved": 100,
+  "requests": 100,
+  "results": [
+    {
+      "name": "Buncombe",
+      "type": "county",
+      "url": "https://www.buncombenc.gov/307/Planning-Development",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Official source HTTP 403"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Chatham",
+      "type": "county",
+      "url": "https://www.chathamcountync.gov/government/departments-programs-i-z/planning/boards-committees/appearance-commission-information/appearance-commission-submittals/2026-submittals",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Official source HTTP 404"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Cabarrus",
+      "type": "county",
+      "url": "https://www.cabarruscounty.us/Government/Boards-and-Committees/Planning-and-Zoning-Commission-Meetings/2026-Past-Planning-and-Zoning-Meetings",
+      "resources": [
+        {
+          "url": "https://www.cabarruscounty.us/Government/Boards-and-Committees/Planning-and-Zoning-Commission",
+          "title": "Planning and Zoning Commission",
+          "kind": "agenda",
+          "parent": "https://www.cabarruscounty.us/Government/Boards-and-Committees/Harrisburg-Planning-and-Zoning-Board"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "adapter_still_required"
+    },
+    {
+      "name": "Caldwell",
+      "type": "county",
+      "url": "https://caldwellcountync.org/267/Planning-Department",
+      "resources": [
+        {
+          "url": "https://caldwellcountync.org/DocumentCenter/View/3241/Public-Hearing-Amendment-to-Article-XIII-Section-130-A-Special-Uses-of-the-Caldwell-County-Zoning-Ordinance",
+          "title": "Public Hearing: Amendment to Article XIII, Section 130 A., Special Uses, of the Caldwell County Zoning Ordinance.",
+          "kind": "document",
+          "parent": "https://caldwellcountync.org/267/Planning-Department"
+        },
+        {
+          "url": "https://caldwellcountync.org/DocumentCenter/View/3113/72826-Agenda",
+          "title": "7.28.26 Agenda",
+          "kind": "document",
+          "parent": "https://caldwellcountync.org/267/Planning-Department"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "document_links_verified"
+    },
+    {
+      "name": "Franklin",
+      "type": "county",
+      "url": "https://www.franklincountync.gov/226/Planning-Inspections",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Official source HTTP 403"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Durham",
+      "type": "county",
+      "url": "https://dconc.gov/Clerk-to-the-Board/Boards-and-Commissions/Minutes-and-Meeting-Information/Durham-Planning-Commission",
+      "resources": [],
+      "feeds": [],
+      "errors": [],
+      "status": "adapter_still_required"
+    },
+    {
+      "name": "Craven",
+      "type": "county",
+      "url": "https://www.cravencountync.gov/1559/Planning-Board",
+      "resources": [],
+      "feeds": [],
+      "errors": [],
+      "status": "adapter_still_required"
+    },
+    {
+      "name": "Duplin",
+      "type": "county",
+      "url": "https://duplinnc.gov/239/Planning-Board",
+      "resources": [
+        {
+          "url": "https://duplinnc.gov/129/Agendas-Minutes",
+          "title": "View Most Recent Agendas and Minutes",
+          "kind": "agenda",
+          "parent": "https://duplinnc.gov/239/Planning-Board"
+        },
+        {
+          "url": "https://duplinnc.gov/DocumentCenter/View/395/Application-for-Appointment-Duplin-County-Planning-Board-PDF",
+          "title": "Application for Appointment: Duplin County Planning Board (PDF)",
+          "kind": "document",
+          "parent": "https://duplinnc.gov/239/Planning-Board"
+        },
+        {
+          "url": "https://duplinnc.gov/DocumentCenter/View/485/Planning-Board-Information-PDF",
+          "title": "Planning Board Information (PDF)",
+          "kind": "document",
+          "parent": "https://duplinnc.gov/239/Planning-Board"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "document_links_verified"
+    },
+    {
+      "name": "Granville",
+      "type": "county",
+      "url": "https://www.granvillecounty.org/391/Planning-Board",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Official source HTTP 403"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Guilford",
+      "type": "county",
+      "url": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board",
+      "resources": [
+        {
+          "url": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions",
+          "title": "Boards and Commissions",
+          "kind": "agenda",
+          "parent": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        },
+        {
+          "url": "https://www.guilfordcountync.gov/pb-agenda-january-14-2026/download?attachment",
+          "title": "Agenda 01/14/2026",
+          "kind": "document",
+          "parent": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        },
+        {
+          "url": "https://www.guilfordcountync.gov/pb-agenda-feb-11-2026/download?attachment",
+          "title": "Agenda 02/11/2026",
+          "kind": "document",
+          "parent": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        },
+        {
+          "url": "https://www.guilfordcountync.gov/pb-meeting-agenda-march-25-2026/download?attachment",
+          "title": "Agenda 03/25/2026",
+          "kind": "document",
+          "parent": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        },
+        {
+          "url": "https://www.guilfordcountync.gov/pb-agenda-april-8-2026/download?attachment",
+          "title": "Agenda 04/08/2026",
+          "kind": "document",
+          "parent": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        },
+        {
+          "url": "https://www.guilfordcountync.gov/pb-agenda-may-13-2026/download?attachment",
+          "title": "Agenda 05/13/2026",
+          "kind": "document",
+          "parent": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        },
+        {
+          "url": "https://www.guilfordcountync.gov/pb-agenda-june-10-2026/download?attachment",
+          "title": "Agenda 06/10/2026",
+          "kind": "document",
+          "parent": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        },
+        {
+          "url": "https://www.guilfordcountync.gov/pb-agenda-july-8-2026/download?attachment",
+          "title": "Agenda 07/08/2026",
+          "kind": "document",
+          "parent": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        },
+        {
+          "url": "https://www.guilfordcountync.gov/pb-meeting-agenda-august-12-2026/download?attachment",
+          "title": "Agenda 08/12/2026",
+          "kind": "document",
+          "parent": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        },
+        {
+          "url": "https://www.guilfordcountync.gov/pb-agenda-september-9-2026/download?attachment",
+          "title": "Agenda 09/09/2026",
+          "kind": "document",
+          "parent": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        },
+        {
+          "url": "https://www.guilfordcountync.gov/pb-agenda-october-14-2026/download?attachment",
+          "title": "Agenda 10/14/2026",
+          "kind": "document",
+          "parent": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        },
+        {
+          "url": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/board-adjustment",
+          "title": "Board of Adjustment",
+          "kind": "agenda",
+          "parent": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        },
+        {
+          "url": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/historic-preservation-commission",
+          "title": "Historic Preservation Commission",
+          "kind": "agenda",
+          "parent": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        },
+        {
+          "url": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/technical-review-committee",
+          "title": "Technical Review Committee",
+          "kind": "agenda",
+          "parent": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "document_links_verified"
+    },
+    {
+      "name": "Henderson",
+      "type": "county",
+      "url": "https://www.hendersoncountync.gov/planning/page/meeting-materials",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Official source HTTP 520"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Gaston",
+      "type": "county",
+      "url": "https://gastongov.com/382/Planning-and-Zoning-Board",
+      "resources": [
+        {
+          "url": "https://egov.gastongov.com/disclaimer/Default.aspx?destination=appointed-boards-minutes",
+          "title": "View Most Recent Agendas and Minutes",
+          "kind": "agenda",
+          "parent": "https://gastongov.com/382/Planning-and-Zoning-Board"
+        },
+        {
+          "url": "https://gaston.granicus.com/boards/forms/186/apply?board_name=Planning+Board",
+          "title": "Apply",
+          "kind": "agenda",
+          "parent": "https://gastongov.com/382/Planning-and-Zoning-Board"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "adapter_still_required"
+    },
+    {
+      "name": "Lenoir",
+      "type": "county",
+      "url": "https://lenoircountync.gov/government/planning-board/2026-planning-board-meetings/",
+      "resources": [
+        {
+          "url": "https://lenoirnc.portal.opengov.com/",
+          "title": "Apply for Permits",
+          "kind": "portal",
+          "parent": "https://lenoircountync.gov/government/planning-board/"
+        },
+        {
+          "url": "https://lenoircountync.gov/government/planning-board/2025-planning-board-meetings/",
+          "title": "2025 Meetings",
+          "kind": "agenda",
+          "parent": "https://lenoircountync.gov/government/planning-board/"
+        },
+        {
+          "url": "https://lenoircountync.gov/government/planning-board/2024-planning-board-meetings/",
+          "title": "2024 Meetings",
+          "kind": "agenda",
+          "parent": "https://lenoircountync.gov/government/planning-board/"
+        },
+        {
+          "url": "https://lenoircountync.gov/government/planning-board/2023-planning-board-meetings/",
+          "title": "2023 Meetings",
+          "kind": "agenda",
+          "parent": "https://lenoircountync.gov/government/planning-board/"
+        },
+        {
+          "url": "https://lenoircountync.gov/government/planning-board/2022-planning-board-meetings/",
+          "title": "2022 Meetings",
+          "kind": "agenda",
+          "parent": "https://lenoircountync.gov/government/planning-board/"
+        },
+        {
+          "url": "https://lenoircountync.gov/government/planning-board/2021-planning-board-meetings/",
+          "title": "2021 Meetings",
+          "kind": "agenda",
+          "parent": "https://lenoircountync.gov/government/planning-board/"
+        },
+        {
+          "url": "https://www.arcgis.com/apps/webappviewer/index.html?id=68c0618065d04f1182fb86cb5b6647de",
+          "title": "GIS Online Mapping / Property Records",
+          "kind": "arcgis",
+          "parent": "https://lenoircountync.gov/government/planning-board/"
+        },
+        {
+          "url": "https://lenoircountync.gov/government/2025-board-of-commissioners-meetings/",
+          "title": "Commissioner Meeting Agendas and Minutes",
+          "kind": "agenda",
+          "parent": "https://lenoircountync.gov/government/planning-board/"
+        },
+        {
+          "url": "https://lenoircountync.gov/government/planning-board/2026-planning-board-meetings/",
+          "title": "2026 Meetings",
+          "kind": "agenda",
+          "parent": "https://lenoircountync.gov/government/planning-board/"
+        }
+      ],
+      "feeds": [
+        {
+          "url": "https://services3.arcgis.com/bDx73HOFAO3oSeDq/arcgis/rest/services/Parcels_Zoning_Addressing/FeatureServer/1",
+          "name": "Lenoir_Roads",
+          "geometryType": "esriGeometryPolyline",
+          "config": {
+            "mappingVersion": "nc-candidate-2026-10-29-v1",
+            "idField": "OBJECTID_1",
+            "fields": {
+              "name": "NAME",
+              "category": "TYPE"
+            },
+            "requiredFields": [
+              "OBJECTID_1",
+              "NAME",
+              "TYPE"
+            ],
+            "statusScope": "application",
+            "scopeVerified": false,
+            "statusDomains": [],
+            "readiness": "schema_mapping_candidate",
+            "notes": [
+              "Metadata-based field proposal only; coded statuses require source-specific validation.",
+              "GIS edit dates are not approval or substantive event dates.",
+              "No polygon centroids or coordinates are invented."
+            ]
+          },
+          "parent": "https://lenoircountync.gov/government/planning-board/2026-planning-board-meetings/"
+        },
+        {
+          "url": "https://services3.arcgis.com/bDx73HOFAO3oSeDq/arcgis/rest/services/Parcels_Zoning_Addressing/FeatureServer/8",
+          "name": "NULL_VALUE_PARCEL",
+          "geometryType": "esriGeometryPolygon",
+          "config": {
+            "mappingVersion": "nc-candidate-2026-10-29-v1",
+            "idField": "OBJECTID_12",
+            "fields": {},
+            "requiredFields": [
+              "OBJECTID_12"
+            ],
+            "statusScope": "application",
+            "scopeVerified": false,
+            "statusDomains": [],
+            "readiness": "missing_stable_id_or_project_name",
+            "notes": [
+              "Metadata-based field proposal only; coded statuses require source-specific validation.",
+              "GIS edit dates are not approval or substantive event dates.",
+              "No polygon centroids or coordinates are invented."
+            ]
+          },
+          "parent": "https://lenoircountync.gov/government/planning-board/2026-planning-board-meetings/"
+        }
+      ],
+      "errors": [],
+      "status": "schema_candidate_requires_sample"
+    },
+    {
+      "name": "Hoke",
+      "type": "county",
+      "url": "https://www.hokecounty.net/241/Planning-Zoning",
+      "resources": [
+        {
+          "url": "https://www.hokecounty.net/agendacenter",
+          "title": "Agendas & Minutes",
+          "kind": "agenda",
+          "parent": "https://www.hokecounty.net/356/Rezoning"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "adapter_still_required"
+    },
+    {
+      "name": "Haywood",
+      "type": "county",
+      "url": "https://haywoodcountync.gov/712/Agendas-Minutes-Videos",
+      "resources": [
+        {
+          "url": "https://haywoodcountync.gov/256/Clyde-Planning-Board",
+          "title": "Clyde Planning Board",
+          "kind": "agenda",
+          "parent": "https://haywoodcountync.gov/758/Canton-Planning-and-Zoning-Board"
+        },
+        {
+          "url": "https://haywoodcountync.gov/259/Haywood-County-Planning-Board",
+          "title": "Haywood County Planning Board",
+          "kind": "agenda",
+          "parent": "https://haywoodcountync.gov/758/Canton-Planning-and-Zoning-Board"
+        },
+        {
+          "url": "https://haywoodcountync.gov/712/Agendas-Minutes-Videos",
+          "title": "Agendas & Minutes",
+          "kind": "agenda",
+          "parent": "https://haywoodcountync.gov/758/Canton-Planning-and-Zoning-Board"
+        },
+        {
+          "url": "https://co-haywood-nc.smartgovcommunity.com/Public/Home",
+          "title": "Development Services & Environmental Health Permitting Portal",
+          "kind": "portal",
+          "parent": "https://haywoodcountync.gov/758/Canton-Planning-and-Zoning-Board"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "adapter_still_required"
+    },
+    {
+      "name": "Lee",
+      "type": "county",
+      "url": "https://www.sanfordnc.net/869/Development-Tracking-Interactive-Map",
+      "resources": [
+        {
+          "url": "https://www.sanfordnc.net/882/Zoning-Map-Amendments-Rezoning-Requests",
+          "title": "Zoning Map Amendments (Rezoning Requests)",
+          "kind": "agenda",
+          "parent": "https://www.sanfordnc.net/867/Neighborhood-Meetings-for-Conditional-Re"
+        },
+        {
+          "url": "https://www.sanfordnc.net/agendacenter",
+          "title": "Agendas",
+          "kind": "agenda",
+          "parent": "https://www.sanfordnc.net/867/Neighborhood-Meetings-for-Conditional-Re"
+        },
+        {
+          "url": "https://sanfordnc-energovpub.tylerhost.net/apps/selfservice",
+          "title": "Apply for a Permit",
+          "kind": "portal",
+          "parent": "https://www.sanfordnc.net/867/Neighborhood-Meetings-for-Conditional-Re"
+        }
+      ],
+      "feeds": [
+        {
+          "url": "https://services1.arcgis.com/XuFUQlKbcaxhKrdd/arcgis/rest/services/DevelopmentMap_WFL1/FeatureServer/7",
+          "name": "CountyBoundary",
+          "geometryType": "esriGeometryPolygon",
+          "config": {
+            "mappingVersion": "nc-candidate-2026-10-29-v1",
+            "idField": "OBJECTID",
+            "fields": {},
+            "requiredFields": [
+              "OBJECTID"
+            ],
+            "statusScope": "application",
+            "scopeVerified": false,
+            "statusDomains": [],
+            "readiness": "missing_stable_id_or_project_name",
+            "notes": [
+              "Metadata-based field proposal only; coded statuses require source-specific validation.",
+              "GIS edit dates are not approval or substantive event dates.",
+              "No polygon centroids or coordinates are invented."
+            ]
+          },
+          "parent": "https://www.sanfordnc.net/869/Development-Tracking-Interactive-Map"
+        },
+        {
+          "url": "https://services1.arcgis.com/XuFUQlKbcaxhKrdd/arcgis/rest/services/DevelopmentMap_WFL1/FeatureServer/6",
+          "name": "BroadwayETJ",
+          "geometryType": "esriGeometryPolygon",
+          "config": {
+            "mappingVersion": "nc-candidate-2026-10-29-v1",
+            "idField": "OBJECTID_1",
+            "fields": {},
+            "requiredFields": [
+              "OBJECTID_1"
+            ],
+            "statusScope": "application",
+            "scopeVerified": false,
+            "statusDomains": [],
+            "readiness": "missing_stable_id_or_project_name",
+            "notes": [
+              "Metadata-based field proposal only; coded statuses require source-specific validation.",
+              "GIS edit dates are not approval or substantive event dates.",
+              "No polygon centroids or coordinates are invented."
+            ]
+          },
+          "parent": "https://www.sanfordnc.net/869/Development-Tracking-Interactive-Map"
+        }
+      ],
+      "errors": [],
+      "status": "schema_candidate_requires_sample"
+    },
+    {
+      "name": "Moore",
+      "type": "county",
+      "url": "https://moorecountync.gov/287/Planning-Board",
+      "resources": [
+        {
+          "url": "https://moorecountync.gov/DocumentCenter/View/474/Planning-Board-Meeting-Public-Comment-Period-Procedures-PDF",
+          "title": "Planning Board Meeting Public Comment Period Procedures",
+          "kind": "document",
+          "parent": "https://moorecountync.gov/287/Planning-Board"
+        },
+        {
+          "url": "https://moorecountync.gov/DocumentCenter/View/475/Planning-Board-Meeting-Public-Hearing-Comment-Procedures-PDF",
+          "title": "Planning Board Meeting Public Hearing Comment Procedures",
+          "kind": "document",
+          "parent": "https://moorecountync.gov/287/Planning-Board"
+        },
+        {
+          "url": "https://moorecountync.gov/480/Planning-Board-Agendas-Minutes",
+          "title": "Agendas and Minutes",
+          "kind": "agenda",
+          "parent": "https://moorecountync.gov/287/Planning-Board"
+        },
+        {
+          "url": "https://moorecountync.gov/129/Agendas-Minutes",
+          "title": "Agendas & Minutes",
+          "kind": "agenda",
+          "parent": "https://moorecountync.gov/287/Planning-Board"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "document_links_verified"
+    },
+    {
+      "name": "Nash",
+      "type": "county",
+      "url": "https://nashcountync.gov/310/Planning-Board",
+      "resources": [
+        {
+          "url": "https://nashcountync.gov/DocumentCenter/View/4962/2019-Planning-Board-Schedule",
+          "title": "2026 Nash County Planning Board Submittal Deadline & Meeting Schedule",
+          "kind": "document",
+          "parent": "https://nashcountync.gov/310/Planning-Board"
+        },
+        {
+          "url": "https://nashcountync.gov/AgendaCenter/MostRecent/Nash-County-Planning-Board-15-15",
+          "title": "Most Recent Agenda",
+          "kind": "agenda",
+          "parent": "https://nashcountync.gov/310/Planning-Board"
+        },
+        {
+          "url": "https://nashcountync.gov/AgendaCenter/Nash-County-Planning-Board-15-15",
+          "title": "View All Agendas and Minutes",
+          "kind": "agenda",
+          "parent": "https://nashcountync.gov/310/Planning-Board"
+        },
+        {
+          "url": "https://nashcountync.gov/agendacenter",
+          "title": "Agendas & Minutes",
+          "kind": "agenda",
+          "parent": "https://nashcountync.gov/310/Planning-Board"
+        },
+        {
+          "url": "https://countyofnashnc.portal.opengov.com/",
+          "title": "Permit Portal",
+          "kind": "portal",
+          "parent": "https://nashcountync.gov/310/Planning-Board"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "document_links_verified"
+    },
+    {
+      "name": "New Hanover",
+      "type": "county",
+      "url": "https://www.nhcgov.com/543/Development-Activity",
+      "resources": [
+        {
+          "url": "https://www.nhcgov.com/543/Development-Activity",
+          "title": "Development Activity",
+          "kind": "portal",
+          "parent": "https://www.nhcgov.com/709/Rezonings"
+        }
+      ],
+      "feeds": [
+        {
+          "url": "https://gis.nhcgov.com/server/rest/services/Layers/PropertyOwners/FeatureServer/0",
+          "name": "PropertyOwners",
+          "geometryType": "esriGeometryPoint",
+          "config": {
+            "mappingVersion": "nc-candidate-2026-10-29-v1",
+            "idField": "OBJECTID",
+            "fields": {},
+            "requiredFields": [
+              "OBJECTID"
+            ],
+            "statusScope": "application",
+            "scopeVerified": false,
+            "statusDomains": [],
+            "readiness": "missing_stable_id_or_project_name",
+            "notes": [
+              "Metadata-based field proposal only; coded statuses require source-specific validation.",
+              "GIS edit dates are not approval or substantive event dates.",
+              "No polygon centroids or coordinates are invented."
+            ]
+          },
+          "parent": "https://www.nhcgov.com/543/Development-Activity"
+        },
+        {
+          "url": "https://gis.nhcgov.com/server/rest/services/Layers/Zoning_base/FeatureServer/3",
+          "name": "Zoning",
+          "geometryType": "esriGeometryPolygon",
+          "config": {
+            "mappingVersion": "nc-candidate-2026-10-29-v1",
+            "idField": "OBJECTID",
+            "fields": {},
+            "requiredFields": [
+              "OBJECTID"
+            ],
+            "statusScope": "application",
+            "scopeVerified": false,
+            "statusDomains": [],
+            "readiness": "missing_stable_id_or_project_name",
+            "notes": [
+              "Metadata-based field proposal only; coded statuses require source-specific validation.",
+              "GIS edit dates are not approval or substantive event dates.",
+              "No polygon centroids or coordinates are invented."
+            ]
+          },
+          "parent": "https://www.nhcgov.com/543/Development-Activity"
+        }
+      ],
+      "errors": [],
+      "status": "schema_candidate_requires_sample"
+    },
+    {
+      "name": "Lincoln",
+      "type": "county",
+      "url": "https://lincolncountync.gov/371/Pending-Applications",
+      "resources": [
+        {
+          "url": "https://lincolncountync.gov/2729/OpenGov-Permitting-Licensing",
+          "title": "Forms",
+          "kind": "portal",
+          "parent": "https://lincolncountync.gov/1454/Public-Hearings"
+        },
+        {
+          "url": "https://lincolncountync.gov/371/Pending-Applications",
+          "title": "Pending Applications",
+          "kind": "portal",
+          "parent": "https://lincolncountync.gov/1454/Public-Hearings"
+        },
+        {
+          "url": "https://lincolncountync.gov/agendacenter",
+          "title": "Agendas & Minutes",
+          "kind": "agenda",
+          "parent": "https://lincolncountync.gov/1454/Public-Hearings"
+        }
+      ],
+      "feeds": [
+        {
+          "url": "https://services8.arcgis.com/TaX0xkzgvxdv4n56/arcgis/rest/services/ZoningCaseLog_AllCases_Feb2018/FeatureServer/0",
+          "name": "Zoning Case Log",
+          "geometryType": "esriGeometryPolygon",
+          "config": {
+            "mappingVersion": "nc-candidate-2026-10-29-v1",
+            "idField": "OBJECTID",
+            "fields": {},
+            "requiredFields": [
+              "OBJECTID"
+            ],
+            "statusScope": "application",
+            "scopeVerified": false,
+            "statusDomains": [
+              {
+                "field": "CASETYPE",
+                "domain": {
+                  "type": "codedValue",
+                  "name": "CaseType",
+                  "mergePolicy": "esriMPTDefaultValue",
+                  "splitPolicy": "esriSPTDefaultValue",
+                  "codedValues": [
+                    {
+                      "name": "Annexation",
+                      "code": "Annexation"
+                    },
+                    {
+                      "name": "Appeal",
+                      "code": "APP"
+                    },
+                    {
+                      "name": "Board of Appeals Review",
+                      "code": "Board of Appeals Review"
+                    },
+                    {
+                      "name": "Condominium Plan",
+                      "code": "Condominium Plan"
+                    },
+                    {
+                      "name": "Council Review",
+                      "code": "Council Review"
+                    },
+                    {
+                      "name": "Conditional Use Permit",
+                      "code": "CUP"
+                    },
+                    {
+                      "name": "Conditional Zoning",
+                      "code": "CZ"
+                    },
+                    {
+                      "name": "Legal Review",
+                      "code": "Legal Review"
+                    },
+                    {
+                      "name": "Multiple Agenda Cases",
+                      "code": "Multiple Cases"
+                    },
+                    {
+                      "name": "Other",
+                      "code": "Other"
+                    },
+                    {
+                      "name": "Plat Approval",
+                      "code": "PA"
+                    },
+                    {
+                      "name": "Parallel Conditional Use Rezoning",
+                      "code": "PCUR"
+                    },
+                    {
+                      "name": "Planned Development Amendment",
+                      "code": "PD-A"
+                    },
+                    {
+                      "name": "Planned Development Commercial",
+                      "code": "PD-C"
+                    },
+                    {
+                      "name": "Planned Development Industrial",
+                      "code": "PD-I"
+                    },
+                    {
+                      "name": "Planned Development Mixed-Use",
+                      "code": "PD-M"
+                    },
+                    {
+                      "name": "Planned Development Residential",
+                      "code": "PD-R"
+                    },
+                    {
+                      "name": "Plan Commission Review",
+                      "code": "Plan Commission Review"
+                    },
+                    {
+                      "name": "PUD",
+                      "code": "PUD"
+                    },
+                    {
+                      "name": "Regulatory Change",
+                      "code": "Regulatory Change"
+                    },
+                    {
+                      "name": "Rezoning",
+                      "code": "Rezoning"
+                    },
+                    {
+                      "name": "Site Plan",
+                      "code": "Site Plan"
+                    },
+                    {
+                      "name": "Special Use Permit",
+                      "code": "Special Use Permit"
+                    },
+                    {
+                      "name": "Staff Review",
+                      "code": "Staff Review"
+                    },
+                    {
+                      "name": "Subdivision Plan",
+                      "code": "Subdivision Plan"
+                    },
+                    {
+                      "name": "Subdivision Relief",
+                      "code": "Subdivision Relief"
+                    },
+                    {
+                      "name": "Variance",
+                      "code": "VAR"
+                    },
+                    {
+                      "name": "Vested Rights",
+                      "code": "VR"
+                    },
+                    {
+                      "name": "Watershed Special Use Permit",
+                      "code": "Watershed Special Use Permit"
+                    },
+                    {
+                      "name": "Watershed Conditional Use Permit",
+                      "code": "WSCUP"
+                    },
+                    {
+                      "name": "Zoning Map Amendment",
+                      "code": "ZMA"
+                    },
+                    {
+                      "name": "Zoning Variance",
+                      "code": "Zoning Variance"
+                    }
+                  ]
+                }
+              },
+              {
+                "field": "CASESTATUS",
+                "domain": {
+                  "type": "codedValue",
+                  "name": "CaseStatus",
+                  "mergePolicy": "esriMPTDefaultValue",
+                  "splitPolicy": "esriSPTDefaultValue",
+                  "codedValues": [
+                    {
+                      "name": "Staff Review",
+                      "code": "Staff Review"
+                    },
+                    {
+                      "name": "Plan Commission Review",
+                      "code": "Plan Commission Review"
+                    },
+                    {
+                      "name": "Board of Appeals Review",
+                      "code": "Board of Appeals Review"
+                    },
+                    {
+                      "name": "Council Review",
+                      "code": "Council Review"
+                    },
+                    {
+                      "name": "Legal Review",
+                      "code": "Legal Review"
+                    },
+                    {
+                      "name": "Other",
+                      "code": "Other"
+                    },
+                    {
+                      "name": "Approved",
+                      "code": "Approved"
+                    },
+                    {
+                      "name": "Denied",
+                      "code": "Denied"
+                    },
+                    {
+                      "name": "Withdrawn",
+                      "code": "Withdrawn"
+                    },
+                    {
+                      "name": "Pending",
+                      "code": "Pending\nPending"
+                    },
+                    {
+                      "name": "Tabled",
+                      "code": "Tabled"
+                    }
+                  ]
+                }
+              },
+              {
+                "field": "CaseOverlap",
+                "domain": {
+                  "type": "codedValue",
+                  "name": "CaseOverlap",
+                  "mergePolicy": "esriMPTDefaultValue",
+                  "splitPolicy": "esriSPTDefaultValue",
+                  "description": "Do case features overlap (Yes or No)?",
+                  "codedValues": [
+                    {
+                      "name": "No",
+                      "code": "No"
+                    },
+                    {
+                      "name": "Yes",
+                      "code": "Yes"
+                    }
+                  ]
+                }
+              }
+            ],
+            "readiness": "missing_stable_id_or_project_name",
+            "notes": [
+              "Metadata-based field proposal only; coded statuses require source-specific validation.",
+              "GIS edit dates are not approval or substantive event dates.",
+              "No polygon centroids or coordinates are invented."
+            ]
+          },
+          "parent": "https://lincolncountync.gov/371/Pending-Applications"
+        }
+      ],
+      "errors": [
+        "Source network retries exhausted"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Onslow",
+      "type": "county",
+      "url": "https://www.onslowcountync.gov/AgendaCenter/Planning-Board-3",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Official source HTTP 403"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Orange",
+      "type": "county",
+      "url": "https://www.co.orange.nc.us/planning",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Official source HTTP 301"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Randolph",
+      "type": "county",
+      "url": "https://randolphcountync.gov/241/Public-Hearing-Information",
+      "resources": [
+        {
+          "url": "https://randolphcountync.gov/DocumentCenter/View/974/Randolph-County-Planning-Board-PDF",
+          "title": "Randolph County Planning Board (PDF)",
+          "kind": "document",
+          "parent": "https://randolphcountync.gov/241/Public-Hearing-Information"
+        },
+        {
+          "url": "https://randolphcountync.gov/DocumentCenter/View/975/Rezoning-Information-PDF",
+          "title": "Rezoning Information (PDF)",
+          "kind": "document",
+          "parent": "https://randolphcountync.gov/241/Public-Hearing-Information"
+        },
+        {
+          "url": "https://www.randolphcountync.gov/129/Agendas-Minutes",
+          "title": "Agendas and Minutes",
+          "kind": "agenda",
+          "parent": "https://randolphcountync.gov/241/Public-Hearing-Information"
+        },
+        {
+          "url": "https://randolphcountync.gov/242/Planning-Board",
+          "title": "Planning Board",
+          "kind": "agenda",
+          "parent": "https://randolphcountync.gov/241/Public-Hearing-Information"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "document_links_verified"
+    },
+    {
+      "name": "Pitt",
+      "type": "county",
+      "url": "https://www.pittcountync.gov/303/Planning-Board",
+      "resources": [
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_06232026-1298",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_03242026-1297",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_03242026-1297",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_02242026-1296",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_02242026-1296",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11022026-1330",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_10192026-1329",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_10052026-1328",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_10052026-1328",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_10052026-1328",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_09142026-1327",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_09142026-1327",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_09142026-1327",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_08172026-1326",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_08172026-1326",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_08172026-1326",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_08032026-1325",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_08032026-1325",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_08032026-1325",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_07132026-1288",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_07132026-1288",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_07132026-1288",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_06152026-1274",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_06152026-1274",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_06152026-1274",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_06022026-1276",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_06022026-1276",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_06022026-1276",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_06012026-1286",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_06012026-1286",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_06012026-1286",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_05192026-1278",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_05192026-1278",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_05192026-1278",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_05182026-1285",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_05182026-1285",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_05182026-1285",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_05072026-1277",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_05072026-1277",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_05072026-1277",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_05042026-1284",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_05042026-1284",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_05042026-1284",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_04132026-1283",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_04132026-1283",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_04132026-1283",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_03262026-1275",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_03262026-1275",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_03262026-1275",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_03162026-1282",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_03162026-1282",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_03162026-1282",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_03022026-1281",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_03022026-1281",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_03022026-1281",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_02162026-1280",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_02162026-1280",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_02162026-1280",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_01122026-1279",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Minutes/_01122026-1279",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/PreviousVersions/_01122026-1279",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_12172025-1260?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_12172025-1260",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_12172025-1260?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11202025-1257?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11202025-1257",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11202025-1257?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11142025-1256?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11142025-1256",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11142025-1256?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11072025-1255?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11072025-1255",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11072025-1255?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11052025-1254?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11052025-1254",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11052025-1254?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11042025-1253?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11042025-1253",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11042025-1253?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11032025-1252?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11032025-1252",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_11032025-1252?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_10282025-1242?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_10282025-1242",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_10282025-1242?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_10212025-1241?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_10212025-1241",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_10212025-1241?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_10072025-1240?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_10072025-1240",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_10072025-1240?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_09172025-1239?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_09172025-1239",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_09172025-1239?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_08192025-1243?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_08192025-1243",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_08192025-1243?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_08122025-1245?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_08122025-1245",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        },
+        {
+          "url": "https://www.pittcountync.gov/AgendaCenter/ViewFile/Agenda/_08122025-1245?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.pittcountync.gov/AgendaCenter"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "document_links_verified"
+    },
+    {
+      "name": "Rutherford",
+      "type": "county",
+      "url": "https://www.rutherfordcountync.gov/departments/planning/index.php",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Official source HTTP 302"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Rockingham",
+      "type": "county",
+      "url": "https://www.rockinghamcountync.gov/21287/Planning-Board",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Official source HTTP 403"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Surry",
+      "type": "county",
+      "url": "https://www.co.surry.nc.us/departments/planning.php",
+      "resources": [
+        {
+          "url": "https://www.co.surry.nc.us/departments/(a_through_j)/development_services/p_board_agendas.php",
+          "title": "Planning Board Agendas",
+          "kind": "agenda",
+          "parent": "https://www.co.surry.nc.us/departments/planning_board.php"
+        },
+        {
+          "url": "https://www.co.surry.nc.us/departments/(a_through_j)/development_services/planning_board_minutes.php",
+          "title": "Planning Board Meeting Minutes",
+          "kind": "agenda",
+          "parent": "https://www.co.surry.nc.us/departments/planning_board.php"
+        },
+        {
+          "url": "https://www.reddit.com/submit?url=http://www.co.surry.nc.us/departments/planning_board.php",
+          "title": "Reddit",
+          "kind": "agenda",
+          "parent": "https://www.co.surry.nc.us/departments/planning_board.php"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "adapter_still_required"
+    },
+    {
+      "name": "Rowan",
+      "type": "county",
+      "url": "https://www.rowancountync.gov/1272/Planning-Board",
+      "resources": [
+        {
+          "url": "https://www.rowancountync.gov/Calendar.aspx?EID=7522",
+          "title": "Planning Board Monthly Meeting",
+          "kind": "agenda",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/55312/January-26-2026-Planning-Board-Agenda-PDF",
+          "title": "January 26, 2026 Planning Board Agenda (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/55667/February-23-2026-Planning-Board-Agenda-PDF",
+          "title": "February 23, 2026 Planning Board Agenda (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/55663/Z-01-26-and-SNIA-01-26-Planning-Board-Packet-PDF",
+          "title": "Z 01-26 and SNIA 01-26 Planning Board Packet (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/55665/Z-02-26-Planning-Board-Report-PDF",
+          "title": "Z 02-26 Planning Board Report (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/55987/March-23-2026-Planning-Board-Meeting-Cancelled",
+          "title": "March 23, 2026 Planning Board Meeting Cancelled",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/57108/April-27-2026-Planning-Board-Agenda-PDF",
+          "title": "April 27, 2026 Planning Board Agenda (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/57106/Z-03-26-Planning-Board-Report-Morgan-Land-Development-PDF",
+          "title": "Z 03-26 Planning Board Report Morgan Land Development (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/57105/Z-03-26-GIS-Map-Morgan-Land-Development-PDF",
+          "title": "Z 03-26 GIS Map Morgan Land Development (PDF)",
+          "kind": "portal",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/57107/ZTA-01-26-Planning-Board-Report-James-Newton-PDF",
+          "title": "ZTA 01-26 Planning Board Report James Newton (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/57480/June-8-2026-Planning-Board-Agenda-PDF",
+          "title": "June 8, 2026 Planning Board Agenda (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/57477/ZTA-02-26-Planning-Board-Packet-PDF",
+          "title": "ZTA 02-26 Planning Board Packet (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/57475/SNIA-02-26-Planning-Board-Packet-PDF",
+          "title": "SNIA 02-26 Planning Board Packet (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/58426/July-27-2026-Planning-Board-Agenda-PDF",
+          "title": "July 27, 2026 Planning Board Agenda (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/58427/Memo-to-Planning-Board-Land-Development-Code-Process-PDF",
+          "title": "Memo to Planning Board Land Development Code Process (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/58738/August-24-2026-Planning-Board-Agenda-PDF",
+          "title": "August 24, 2026 Planning Board Agenda (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/58736/ZTA-04-26-Planning-Board-Packet-PDF",
+          "title": "ZTA 04-26 Planning Board Packet (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/58737/Z-05-26-Planning-Board-Packet-PDF",
+          "title": "Z 05-26 Planning Board Packet (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/58994/September-28-2026-Planning-Board-Agenda-PDF",
+          "title": "September 28, 2026 Planning Board Agenda (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/58991/Z-06-26-Planning-Board-Packet-PDF",
+          "title": "Z 06-26 Planning Board Packet (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/58990/Z-06-26-Rezoning-Plat-PDF",
+          "title": "Z 06-26 Rezoning Plat (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/58992/Z-07-26-Planning-Board-Packet-PDF",
+          "title": "Z 07-26 Planning Board Packet (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/58993/ZTA-05-26-Planning-Board-Packet-PDF",
+          "title": "ZTA 05-26 Planning Board Packet (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/59352/October-26-2026-Planning-Board-Agenda-PDF",
+          "title": "October 26, 2026 Planning Board Agenda (PDF)",
+          "kind": "document",
+          "parent": "https://www.rowancountync.gov/1272/Planning-Board"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "document_links_verified"
+    },
+    {
+      "name": "Union",
+      "type": "county",
+      "url": "https://it.unioncountync.gov/government/departments-f-p/planning-development",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Official source HTTP 403"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Stanly",
+      "type": "county",
+      "url": "https://www.stanlycountync.gov/161/Planning-Board",
+      "resources": [
+        {
+          "url": "https://www.stanlycountync.gov/DocumentCenter/View/1476/Planning-Board-Agenda-8-10-2026",
+          "title": "Planning Board Agenda 8-10-2026",
+          "kind": "document",
+          "parent": "https://www.stanlycountync.gov/161/Planning-Board"
+        },
+        {
+          "url": "https://www.stanlycountync.gov/DocumentCenter/View/1533/Planning-Board-Minutes-8-10-2026",
+          "title": "Planning Board Minutes 8-10-2026",
+          "kind": "document",
+          "parent": "https://www.stanlycountync.gov/161/Planning-Board"
+        },
+        {
+          "url": "https://www.stanlycountync.gov/DocumentCenter/View/1475/Planning-Board-Agenda-5-20-2026",
+          "title": "Planning Board Agenda 5-20-2026",
+          "kind": "document",
+          "parent": "https://www.stanlycountync.gov/161/Planning-Board"
+        },
+        {
+          "url": "https://www.stanlycountync.gov/DocumentCenter/View/1477/Planning-Board-Minutes-5-20-2026",
+          "title": "Planning Board Minutes 5-20-2026",
+          "kind": "document",
+          "parent": "https://www.stanlycountync.gov/161/Planning-Board"
+        },
+        {
+          "url": "https://www.stanlycountync.gov/DocumentCenter/View/1474/Planning-Board-Agenda-4-13-2026",
+          "title": "Planning Board Agenda 4-13-2026",
+          "kind": "document",
+          "parent": "https://www.stanlycountync.gov/161/Planning-Board"
+        },
+        {
+          "url": "https://www.stanlycountync.gov/DocumentCenter/View/925/Planning-Board-Agenda-4-14-25",
+          "title": "Planning Board Agenda 4-14-25",
+          "kind": "document",
+          "parent": "https://www.stanlycountync.gov/161/Planning-Board"
+        },
+        {
+          "url": "https://www.stanlycountync.gov/DocumentCenter/View/1161/-Planning-Board-Minutes-4-14-25",
+          "title": "Planning Board Minutes 4-14-25",
+          "kind": "document",
+          "parent": "https://www.stanlycountync.gov/161/Planning-Board"
+        },
+        {
+          "url": "https://www.stanlycountync.gov/DocumentCenter/View/1160/Planning-Board-Minutes-7-14-25",
+          "title": "Planning Board Minutes 7-14-25",
+          "kind": "document",
+          "parent": "https://www.stanlycountync.gov/161/Planning-Board"
+        },
+        {
+          "url": "https://www.stanlycountync.gov/DocumentCenter/View/924/Planning-Board-Agenda--7-14-25",
+          "title": "Planning Board Agenda 7-14-25",
+          "kind": "document",
+          "parent": "https://www.stanlycountync.gov/161/Planning-Board"
+        },
+        {
+          "url": "https://www.stanlycountync.gov/DocumentCenter/View/1162/Planning-Board-Minutes-9-8-25",
+          "title": "Planning Board Minutes 9-8-25",
+          "kind": "document",
+          "parent": "https://www.stanlycountync.gov/161/Planning-Board"
+        },
+        {
+          "url": "https://www.stanlycountync.gov/DocumentCenter/View/1156/Planning-Board-Agenda-9-8-25",
+          "title": "Planning Board Agenda 9-8-25",
+          "kind": "document",
+          "parent": "https://www.stanlycountync.gov/161/Planning-Board"
+        },
+        {
+          "url": "https://www.stanlycountync.gov/DocumentCenter/View/1157/Planning-Board-Agenda-12-8-25",
+          "title": "Planning Board Agenda 12-8-25",
+          "kind": "document",
+          "parent": "https://www.stanlycountync.gov/161/Planning-Board"
+        },
+        {
+          "url": "https://stanlyconc.portal.civicclerk.com/",
+          "title": "Agendas & Minutes",
+          "kind": "agenda",
+          "parent": "https://www.stanlycountync.gov/161/Planning-Board"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "document_links_verified"
+    },
+    {
+      "name": "Wayne",
+      "type": "county",
+      "url": "https://www.waynegov.com/333/Planning-Department",
+      "resources": [
+        {
+          "url": "https://www.waynegov.com/AgendaCenter/Planning-Board-4",
+          "title": "View Most Recent Agendas and Minutes",
+          "kind": "agenda",
+          "parent": "https://www.waynegov.com/522/Planning-Board"
+        },
+        {
+          "url": "https://www.waynegov.com/509/Eureka-Planning-Commission",
+          "title": "Eureka Planning Commission",
+          "kind": "agenda",
+          "parent": "https://www.waynegov.com/522/Planning-Board"
+        },
+        {
+          "url": "https://www.waynegov.com/512/Fremont-Planning-Board",
+          "title": "Fremont Planning Board",
+          "kind": "agenda",
+          "parent": "https://www.waynegov.com/522/Planning-Board"
+        },
+        {
+          "url": "https://www.waynegov.com/516/Goldsboro-Planning-Commission",
+          "title": "Goldsboro Planning Commission",
+          "kind": "agenda",
+          "parent": "https://www.waynegov.com/522/Planning-Board"
+        },
+        {
+          "url": "https://www.waynegov.com/518/Mount-Olive-Planning-Board",
+          "title": "Mount Olive Planning Board",
+          "kind": "agenda",
+          "parent": "https://www.waynegov.com/522/Planning-Board"
+        },
+        {
+          "url": "https://www.waynegov.com/521/Pikeville-Planning-Board",
+          "title": "Pikeville Planning Board",
+          "kind": "agenda",
+          "parent": "https://www.waynegov.com/522/Planning-Board"
+        },
+        {
+          "url": "https://www.waynegov.com/129/Agendas-Minutes",
+          "title": "Agendas & Minutes",
+          "kind": "agenda",
+          "parent": "https://www.waynegov.com/522/Planning-Board"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "adapter_still_required"
+    },
+    {
+      "name": "Wilkes",
+      "type": "county",
+      "url": "https://www.wilkescounty.net/258/Planning",
+      "resources": [
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_11052026-489",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_10202026-488",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_10062026-486",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_10062026-486",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_10062026-486",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_09152026-485",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_09152026-485",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_09152026-485",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_09012026-484",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_09012026-484",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_09012026-484",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_08182026-483",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_08182026-483",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_08182026-483",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_08042026-481",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_08042026-481",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_08042026-481",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_07022026-480",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_07022026-480",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_07022026-480",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_06162026-478",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_06162026-478",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_06162026-478",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_06082026-476",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_06082026-476",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_06082026-476",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_06082026-477",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_06082026-477",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_06082026-477",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_06022026-474",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_06022026-474",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_06022026-474",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_06012026-479",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_06012026-479",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_05192026-471",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_05192026-471",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_05192026-471",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_05182026-475?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_05182026-475",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_05182026-475",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_05182026-475?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_05132026-472",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_05132026-472",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_05052026-470",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_05052026-470",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_05052026-470",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_04212026-468",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_04212026-468",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_04212026-466",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_04212026-466",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_04212026-466",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_04072026-464",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_04072026-464",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_04072026-464",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_03252026-469",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_03252026-469",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_03172026-465?html=true",
+          "title": "HTML",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_03172026-465",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_03172026-465",
+          "title": "PDF",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_03172026-465?packet=true",
+          "title": "Packet",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_03172026-461",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_03172026-461",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_03052026-460",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_03052026-460",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_02192026-462",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_02192026-462",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_02192026-462",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_02172026-459",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_02172026-459",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_02102026-457",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_02102026-457",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_01202026-456",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_01202026-456",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_01062026-455",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_01062026-455",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_01062026-455",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_10122026-487",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_10122026-487",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_10122026-487",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_08102026-482",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_08102026-482",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_08102026-482",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_06222026-473",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_06222026-473",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_06222026-473",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_04132026-467",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_04132026-467",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_04132026-467",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_03162026-463",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_03162026-463",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_03162026-463",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Agenda/_02092026-458",
+          "title": "Agenda",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_02092026-458",
+          "title": "",
+          "kind": "document",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        },
+        {
+          "url": "https://www.wilkescounty.net/AgendaCenter/PreviousVersions/_02092026-458",
+          "title": "Previous Versions",
+          "kind": "agenda",
+          "parent": "https://www.wilkescounty.net/agendacenter"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "document_links_verified"
+    },
+    {
+      "name": "Greenville",
+      "type": "city",
+      "url": "https://www.greenvillenc.gov/522/Planning",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Official source HTTP 403"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Wilson",
+      "type": "county",
+      "url": "https://www.wilsoncountync.gov/departments/development-services",
+      "resources": [
+        {
+          "url": "https://www.wilsoncountync.gov/departments/county-engineering/current-and-completed-projects/current-projects",
+          "title": "Current Projects",
+          "kind": "portal",
+          "parent": "https://www.wilsoncountync.gov/departments/development-services"
+        },
+        {
+          "url": "https://www.wilsoncountync.gov/departments/development-services/community-development-projects-264",
+          "title": "Community Development Projects",
+          "kind": "portal",
+          "parent": "https://www.wilsoncountync.gov/departments/development-services"
+        },
+        {
+          "url": "https://www.wilsoncountync.gov/how-do-i/find/video-agendas-minutes",
+          "title": "Agendas",
+          "kind": "agenda",
+          "parent": "https://www.wilsoncountync.gov/departments/development-services"
+        },
+        {
+          "url": "https://countyofwilsonnc.portal.opengov.com/",
+          "title": "https://countyofwilsonnc.portal.opengov.com/",
+          "kind": "portal",
+          "parent": "https://www.wilsoncountync.gov/departments/development-services"
+        },
+        {
+          "url": "https://www.wilsoncountync.gov/home/showpublisheddocument/7262/638373901681430000",
+          "title": "OpenGov User Guide",
+          "kind": "portal",
+          "parent": "https://www.wilsoncountync.gov/departments/development-services"
+        }
+      ],
+      "feeds": [],
+      "errors": [],
+      "status": "adapter_still_required"
+    },
+    {
+      "name": "Concord",
+      "type": "city",
+      "url": "https://concordnc.gov/Departments/Planning-Development-Services/GIS",
+      "resources": [
+        {
+          "url": "https://concordnc.gov/Government/Documents-Resources/Council-Agenda",
+          "title": "Council Agenda",
+          "kind": "agenda",
+          "parent": "https://concordnc.gov/Departments/Planning-Development-Services/GIS"
+        },
+        {
+          "url": "https://concordnc.gov/Departments/Planning-Development-Services/Board-of-Adjustment",
+          "title": "Board of Adjustment",
+          "kind": "agenda",
+          "parent": "https://concordnc.gov/Departments/Planning-Development-Services/GIS"
+        },
+        {
+          "url": "https://concordnc.gov/Departments/Planning-Development-Services/Planning-Commission",
+          "title": "Planning Commission",
+          "kind": "agenda",
+          "parent": "https://concordnc.gov/Departments/Planning-Development-Services/GIS"
+        },
+        {
+          "url": "https://concordnc.gov/Departments/Transportation/Current-Projects",
+          "title": "Current Projects",
+          "kind": "portal",
+          "parent": "https://concordnc.gov/Departments/Planning-Development-Services/GIS"
+        },
+        {
+          "url": "https://vertigis.concordnc.gov/vertigisstudio/web/?app=f32c3ef99529431c86dc0fbbe36d2414",
+          "title": "Planning and Development Services Department Web Mapping Solution",
+          "kind": "portal",
+          "parent": "https://concordnc.gov/Departments/Planning-Development-Services/GIS"
+        },
+        {
+          "url": "https://apps.concordnc.gov/legacy/planningweb/CaseManager/Cases/ActiveCases_Rezoning.html",
+          "title": "",
+          "kind": "agenda",
+          "parent": "https://concordnc.gov/Departments/Planning-Development-Services/GIS"
+        }
+      ],
+      "feeds": [],
+      "errors": [
+        "Request ceiling reached"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Chapel Hill",
+      "type": "city",
+      "url": "https://www.chapelhillnc.gov/Business-and-Development/Active-Development",
+      "resources": [
+        {
+          "url": "https://www.chapelhillnc.gov/Business-and-Development/Planning-and-Zoning/GIS-Maps",
+          "title": "GIS Maps",
+          "kind": "portal",
+          "parent": "https://www.chapelhillnc.gov/Business-and-Development/Active-Development"
+        },
+        {
+          "url": "https://www.chapelhillnc.gov/Business-and-Development/Planning-and-Zoning/FEMA-Flood-Map",
+          "title": "FEMA Flood Map",
+          "kind": "portal",
+          "parent": "https://www.chapelhillnc.gov/Business-and-Development/Active-Development"
+        },
+        {
+          "url": "https://www.chapelhillnc.gov/Town-Government/Meetings-and-Agendas",
+          "title": "Meetings and Agendas",
+          "kind": "agenda",
+          "parent": "https://www.chapelhillnc.gov/Business-and-Development/Active-Development"
+        },
+        {
+          "url": "https://www.chapelhillnc.gov/Town-Government/Meetings-and-Agendas/Upcoming-Council-Meetings",
+          "title": "Upcoming Council Meetings",
+          "kind": "agenda",
+          "parent": "https://www.chapelhillnc.gov/Business-and-Development/Active-Development"
+        },
+        {
+          "url": "https://www.chapelhillnc.gov/Town-Government/Meetings-and-Agendas/Request-a-Proclamation",
+          "title": "Request a Proclamation",
+          "kind": "agenda",
+          "parent": "https://www.chapelhillnc.gov/Business-and-Development/Active-Development"
+        },
+        {
+          "url": "https://www.chapelhillnc.gov/Town-Government/Meetings-and-Agendas/Participating-at-Council-Meetings",
+          "title": "Participating at Council Meetings",
+          "kind": "agenda",
+          "parent": "https://www.chapelhillnc.gov/Business-and-Development/Active-Development"
+        },
+        {
+          "url": "https://experience.arcgis.com/experience/18ede8fba3b844cc9b2c6cce980e6456/page/Interactive-Map/",
+          "title": "Development Activity Map",
+          "kind": "portal",
+          "parent": "https://www.chapelhillnc.gov/Business-and-Development/Active-Development"
+        },
+        {
+          "url": "https://www.chapelhillnc.gov/Projects/115-Chapel-Point-Road-Carraway-Residential-Phase-III",
+          "title": "115 Chapel Point Road (Carraway Residential Phase III) Multi-family, townhomes, and single-family homes in a project connected to the existing Carraway Village development. This project includes surface parking, a stormwater mitigation pond, and recreation amenities of playground and greenway trail.",
+          "kind": "portal",
+          "parent": "https://www.chapelhillnc.gov/Business-and-Development/Active-Development"
+        },
+        {
+          "url": "https://www.chapelhillnc.gov/Projects/1701-North",
+          "title": "1701 North This is a request for a Conditional Zoning application will allow for the conversation of the long-vacant existing retail space at 1701 North into 6 additional multifamily units. Importantly, the proposed rezoning will not entail any alterations to the current site plan; rather, it seeks ",
+          "kind": "agenda",
+          "parent": "https://www.chapelhillnc.gov/Business-and-Development/Active-Development"
+        }
+      ],
+      "feeds": [],
+      "errors": [
+        "Request ceiling reached"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Greensboro",
+      "type": "city",
+      "url": "https://www.greensboro-nc.gov/departments/planning/view",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Request ceiling reached"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Kannapolis",
+      "type": "city",
+      "url": "https://www.kannapolisnc.gov/Government-Departments/Planning",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Request ceiling reached"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Raleigh",
+      "type": "city",
+      "url": "https://raleighnc.gov/planning/services/current-development-activity",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Request ceiling reached"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Jacksonville",
+      "type": "city",
+      "url": "https://www.jacksonvillenc.gov/733/Permitting-Planning-Zoning",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Request ceiling reached"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Wilson",
+      "type": "city",
+      "url": "https://www.wilsonnc.org/residents/all-departments/development-services/development-activity-map",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Request ceiling reached"
+      ],
+      "status": "blocked_or_unavailable"
+    },
+    {
+      "name": "Rocky Mount",
+      "type": "city",
+      "url": "https://www.rockymountnc.gov/187/Planning-Board",
+      "resources": [],
+      "feeds": [],
+      "errors": [
+        "Request ceiling reached"
+      ],
+      "status": "blocked_or_unavailable"
+    }
+  ]
+}

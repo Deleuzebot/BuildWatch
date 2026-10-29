@@ -4,6 +4,7 @@ import{parsePage,sourcePage,validateSourceSchema}from'./adapters';
 import{deriveProject}from'../supabase/derive';
 import{extractDocument}from'./ai';
 import{noticeLinks}from'./notices';
+import{extractAgendaPDF,agendaReferences}from'./agendas';
 export type WorkerRPC=((action:string,input?:Record<string,any>)=>Promise<any>) & {batch?:(action:string,inputs:Record<string,any>[])=>Promise<any[]>};
 type Options={state:string;mode:'weekly'|'initial';dryRun:boolean;key:string;scheduled?:boolean;githubURL?:string;maxSeconds?:number;maxRequests?:number;maxRecords?:number;onlySource?:string;pageSize?:number};
 export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fetch=fetch){
@@ -40,6 +41,7 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
     const policy=robots.get(policyKey)!;
     if(!robotsAllows(policy,new URL(source.url).pathname))throw Error('robots.txt restricts automatic retrieval for this source.');
     http.accessPolicy=url=>robotsAllows(policy,url.pathname+url.search);
+    if(source.adapter==='document'&&source.config.agendaRedirectPathPattern){const permitted=new RegExp(source.config.agendaRedirectPathPattern);http.redirectPolicy=url=>permitted.test(url.pathname+url.search);}
     const crawlDelay=Math.max(1,...[...policy.matchAll(/^crawl-delay:\s*(\d+(?:\.\d+)?)/gim)].map(v=>Number(v[1])));
     if(crawlDelay>60)throw Error('Source crawl delay exceeds the bounded worker; defer for access review.');
     http.minimumInterval=crawlDelay*1000;
@@ -69,6 +71,21 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
        const links=noticeLinks(source,result.body);if(!links.length)throw Error('Official document index layout changed or no matching document links are available');
        for(const link of links){budget.check(false);budget.records++;const lead={externalId:hash(link.url),name:link.title,description:'Official document link; project and meeting contents require review.',address:'',latitude:null,longitude:null,rawStatus:'',category:'',developer:'',url:link.url,quote:link.title+' — '+link.url,principalUseVerified:false,locationVerified:false,wholeDevelopment:false,recordKind:'document_index_entry'};
         await call('finding',{id:hash([source.id,link,options.dryRun]),sourceId:source.id,finding:lead,project:{id:'lead-'+hash(link.url).slice(0,30),state:source.state},eligible:false,reason:'Official agenda/document pointer only. No project status, meeting date or coordinates inferred.',confidence:{method:'requires_review'}});stats.documentLeads=(stats.documentLeads||0)+1;stats.unverified++;
+       }
+       if(options.dryRun&&source.config.agendaPDFReview===true){
+        const limit=Math.max(1,Math.min(3,source.config.agendaPDFLimit||1));stats.documentCoverage='Official index plus bounded PDF sample only; other packets and project/meeting associations still require review';
+        stats.agendaDocumentsDeferred=(stats.agendaDocumentsDeferred||0)+Math.max(0,links.length-limit);
+        for(const link of links.slice(0,limit)){
+         budget.check();
+         try{const document=await http.get(link.url);const extracted=await extractAgendaPDF(document.rawBody);stats.agendaPDFs=(stats.agendaPDFs||0)+1;
+          if(extracted.truncated)stats.agendaTruncated=(stats.agendaTruncated||0)+1;
+          const refs=agendaReferences(extracted,link.url);stats.agendaReferences=(stats.agendaReferences||0)+refs.length;
+          if(!refs.length)stats.agendaWithoutCaseReferences=(stats.agendaWithoutCaseReferences||0)+1;
+          for(const ref of refs){budget.check(false);budget.records++;const lead={externalId:ref.id,name:ref.sourceIdentifier,description:ref.quote,address:'',latitude:null,longitude:null,rawStatus:'',category:'',developer:'',url:link.url,quote:ref.quote,principalUseVerified:false,locationVerified:false,wholeDevelopment:false,recordKind:'agenda_case_reference',documentPage:ref.page,documentHash:hash(document.rawBody),extractionTruncated:extracted.truncated};
+           await call('finding',{id:hash([source.id,ref,options.dryRun]),sourceId:source.id,finding:lead,project:{id:'lead-'+ref.id.slice(0,30),state:source.state},eligible:false,reason:'Exact official agenda text and page citation. No project identity, decision, meeting association or coordinates automatically verified.',confidence:{method:'document_excerpt_requires_review'}});stats.unverified++;
+          }
+         }catch(e:any){if(e instanceof LimitReached)throw e;stats.agendaFailures=(stats.agendaFailures||0)+1;errors.push(source.jurisdiction+' document: '+e.message);}
+        }
        }
        more=false;
       }else{

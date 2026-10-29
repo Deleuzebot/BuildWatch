@@ -1,0 +1,1577 @@
+{
+  "checkedAt": "2026-10-29T15:27:03.934Z",
+  "dryRun": true,
+  "entries": [
+    {
+      "name": "Buncombe",
+      "type": "county",
+      "sourceId": "source-005df3ee91912d1ec9efdda786e38c",
+      "officialURL": "https://www.buncombenc.gov/307/Planning-Development",
+      "accessStatus": "blocked_or_unavailable",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Official source HTTP 403",
+        "Official source HTTP 403"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Alamance",
+      "type": "county",
+      "sourceId": "source-f408f72d731355c314c4c33f8b43a6",
+      "officialURL": "https://www.alamancecountync.gov/property_records/planning/planning_board/planning_board_calendars_and_agendas.php",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": null,
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-f408f72d731355c314c4c33f8b43a6",
+        "state": "NC",
+        "jurisdiction": "Alamance County — disabled source candidate",
+        "url": "https://www.alamancecountync.gov/property_records/planning/planning_board/planning_board_calendars_and_agendas.php",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Alamance",
+              "type": "county",
+              "population": 187982
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 2
+    },
+    {
+      "name": "Cabarrus",
+      "type": "county",
+      "sourceId": "source-4efd17cfa3ca494f4e535a5a3800a7",
+      "officialURL": "https://www.cabarruscounty.us/Government/Boards-and-Committees/Planning-and-Zoning-Commission-Meetings/2026-Past-Planning-and-Zoning-Meetings",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "adapter_still_required",
+      "errors": [],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Burke",
+      "type": "county",
+      "sourceId": "source-5d389d0c6f0ed5d21eac05acdd3bcd",
+      "officialURL": "https://www.burkenc.org/AgendaCenter/Planning-Board-4",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": null,
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-5d389d0c6f0ed5d21eac05acdd3bcd",
+        "state": "NC",
+        "jurisdiction": "Burke County — disabled source candidate",
+        "url": "https://www.burkenc.org/AgendaCenter/Planning-Board-4",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Burke",
+              "type": "county",
+              "population": 90346
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 27
+    },
+    {
+      "name": "Catawba",
+      "type": "county",
+      "sourceId": "source-c9ba369316f96e55f6fee81377f61d",
+      "officialURL": "https://www.catawbacountync.gov/county-services/planning/board-agendas-and-projects/",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": null,
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-c9ba369316f96e55f6fee81377f61d",
+        "state": "NC",
+        "jurisdiction": "Catawba County — disabled source candidate",
+        "url": "https://www.catawbacountync.gov/county-services/planning/board-agendas-and-projects/",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Catawba",
+              "type": "county",
+              "population": 171604
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 21
+    },
+    {
+      "name": "Chatham",
+      "type": "county",
+      "sourceId": "source-f80aae6cc14dfd8eaca985f0cf6391",
+      "officialURL": "https://www.chathamcountync.gov/government/departments-programs-i-z/planning/boards-committees/appearance-commission-information/appearance-commission-submittals/2026-submittals",
+      "accessStatus": "blocked_or_unavailable",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Official source HTTP 404",
+        "Official source HTTP 404"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Carteret",
+      "type": "county",
+      "sourceId": "source-b32ead546a38f39532b0c6bf5272fd",
+      "officialURL": "https://carteretcountync.gov/AgendaCenter/Planning-Commission-1/",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": null,
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-b32ead546a38f39532b0c6bf5272fd",
+        "state": "NC",
+        "jurisdiction": "Carteret County — disabled source candidate",
+        "url": "https://carteretcountync.gov/AgendaCenter/Planning-Commission-1/",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Carteret",
+              "type": "county",
+              "population": 71659
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 11
+    },
+    {
+      "name": "Caldwell",
+      "type": "county",
+      "sourceId": "source-268c6f90ba3e0bf77caad21efb9fce",
+      "officialURL": "https://caldwellcountync.org/267/Planning-Department",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "document_links_verified",
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-268c6f90ba3e0bf77caad21efb9fce",
+        "state": "NC",
+        "jurisdiction": "Caldwell County — disabled source candidate",
+        "url": "https://caldwellcountync.org/267/Planning-Department",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Caldwell",
+              "type": "county",
+              "population": 82192
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 2
+    },
+    {
+      "name": "Cleveland",
+      "type": "county",
+      "sourceId": "source-95d9889770928289a4228634df3344",
+      "officialURL": "https://www.clevelandcounty.com/main/departments/planning___zoning/zoning_services.php",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": null,
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-95d9889770928289a4228634df3344",
+        "state": "NC",
+        "jurisdiction": "Cleveland County — disabled source candidate",
+        "url": "https://www.clevelandcounty.com/main/departments/planning___zoning/zoning_services.php",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Cleveland",
+              "type": "county",
+              "population": 102115
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 1
+    },
+    {
+      "name": "Columbus",
+      "type": "county",
+      "sourceId": "source-b5b39ca7a85fc2b5e7c3046c1ab01f",
+      "officialURL": "https://www.columbusco.org/planning-department",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": null,
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-b5b39ca7a85fc2b5e7c3046c1ab01f",
+        "state": "NC",
+        "jurisdiction": "Columbus County — disabled source candidate",
+        "url": "https://www.columbusco.org/planning-department",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Columbus",
+              "type": "county",
+              "population": 50341
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 2
+    },
+    {
+      "name": "Cumberland",
+      "type": "county",
+      "sourceId": "source-5d468d8691a475e0f40980ced00edc",
+      "officialURL": "https://www.cumberlandcountync.gov/departments/planning-group/planning-and-inspections/boards/planning-board",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": null,
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-5d468d8691a475e0f40980ced00edc",
+        "state": "NC",
+        "jurisdiction": "Cumberland County — disabled source candidate",
+        "url": "https://www.cumberlandcountync.gov/departments/planning-group/planning-and-inspections/boards/planning-board",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Cumberland",
+              "type": "county",
+              "population": 341048
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 1
+    },
+    {
+      "name": "Craven",
+      "type": "county",
+      "sourceId": "source-508085ce7e834f2b237ba223c73838",
+      "officialURL": "https://www.cravencountync.gov/1559/Planning-Board",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "adapter_still_required",
+      "errors": [],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Durham",
+      "type": "county",
+      "sourceId": "source-663b2e3d7504a8f30a6f6d9bdfb837",
+      "officialURL": "https://dconc.gov/Clerk-to-the-Board/Boards-and-Commissions/Minutes-and-Meeting-Information/Durham-Planning-Commission",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "adapter_still_required",
+      "errors": [],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Forsyth",
+      "type": "county",
+      "sourceId": "source-3f8bf7954a4036847885d5fcd2bfbd",
+      "officialURL": "https://maps.co.forsyth.nc.us/arcgis/rest/services/Planning_Inspection/Development_And_Permits/FeatureServer",
+      "accessStatus": "portal_adapter_required",
+      "followupStatus": null,
+      "errors": [],
+      "status": "structured_mapping_needs_validation",
+      "structuredCandidates": [
+        {
+          "url": "https://maps.co.forsyth.nc.us/arcgis/rest/services/Planning_Inspection/Development_And_Permits/FeatureServer/1",
+          "parent": "https://maps.co.forsyth.nc.us/arcgis/rest/services/Planning_Inspection/Development_And_Permits/FeatureServer",
+          "name": "Residential Development Approvals",
+          "geometryType": "esriGeometryPoint",
+          "config": {
+            "mappingVersion": "nc-candidate-2026-10-29-v1",
+            "idField": "OBJECTID",
+            "fields": {},
+            "requiredFields": [
+              "OBJECTID"
+            ],
+            "statusScope": "application",
+            "scopeVerified": false,
+            "statusDomains": [],
+            "readiness": "missing_stable_id_or_project_name",
+            "notes": [
+              "Metadata-based field proposal only; coded statuses require source-specific validation.",
+              "GIS edit dates are not approval or substantive event dates.",
+              "No polygon centroids or coordinates are invented."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Duplin",
+      "type": "county",
+      "sourceId": "source-2e3f335ab75bad43385c298a3bfa10",
+      "officialURL": "https://duplinnc.gov/239/Planning-Board",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "document_links_verified",
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-2e3f335ab75bad43385c298a3bfa10",
+        "state": "NC",
+        "jurisdiction": "Duplin County — disabled source candidate",
+        "url": "https://duplinnc.gov/239/Planning-Board",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Duplin",
+              "type": "county",
+              "population": 50548
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 2
+    },
+    {
+      "name": "Davidson",
+      "type": "county",
+      "sourceId": "source-14b8d84874c35f8a94e87b9dfdeee3",
+      "officialURL": "https://www.co.davidson.nc.us/AgendaCenter/Planning-Board-8/",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": null,
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-14b8d84874c35f8a94e87b9dfdeee3",
+        "state": "NC",
+        "jurisdiction": "Davidson County — disabled source candidate",
+        "url": "https://www.co.davidson.nc.us/AgendaCenter/Planning-Board-8/",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Davidson",
+              "type": "county",
+              "population": 181248
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 20
+    },
+    {
+      "name": "Franklin",
+      "type": "county",
+      "sourceId": "source-6c8d5e148094ccbc480e754c4ea116",
+      "officialURL": "https://www.franklincountync.gov/226/Planning-Inspections",
+      "accessStatus": "blocked_or_unavailable",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Official source HTTP 403",
+        "Official source HTTP 403"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Granville",
+      "type": "county",
+      "sourceId": "source-74ff389a8069174847be23ccfacb71",
+      "officialURL": "https://www.granvillecounty.org/391/Planning-Board",
+      "accessStatus": "blocked_or_unavailable",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Official source HTTP 403",
+        "Official source HTTP 403"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Guilford",
+      "type": "county",
+      "sourceId": "source-00adeccbaae64382569a1034d0babf",
+      "officialURL": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "document_links_verified",
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-00adeccbaae64382569a1034d0babf",
+        "state": "NC",
+        "jurisdiction": "Guilford County — disabled source candidate",
+        "url": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Guilford",
+              "type": "county",
+              "population": 557963
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 10
+    },
+    {
+      "name": "Gaston",
+      "type": "county",
+      "sourceId": "source-f7fb3652105a33d576e88f790608fb",
+      "officialURL": "https://gastongov.com/382/Planning-and-Zoning-Board",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "adapter_still_required",
+      "errors": [],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Henderson",
+      "type": "county",
+      "sourceId": "source-57ff35b0d5aa7d2afd8555feff067e",
+      "officialURL": "https://www.hendersoncountync.gov/planning/page/meeting-materials",
+      "accessStatus": "blocked_or_unavailable",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Official source HTTP 520",
+        "Official source HTTP 520"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Hoke",
+      "type": "county",
+      "sourceId": "source-0f1a034664c0ada435a7653a65235c",
+      "officialURL": "https://www.hokecounty.net/241/Planning-Zoning",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "adapter_still_required",
+      "errors": [],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Haywood",
+      "type": "county",
+      "sourceId": "source-bccb79de01337e1bab3c542c99896a",
+      "officialURL": "https://haywoodcountync.gov/712/Agendas-Minutes-Videos",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "adapter_still_required",
+      "errors": [],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Iredell",
+      "type": "county",
+      "sourceId": "source-80db8a2efa6290c0ea70de5bf1a3ab",
+      "officialURL": "https://www.iredellcountync.gov/AgendaCenter/Planning-Board-5",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": null,
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-80db8a2efa6290c0ea70de5bf1a3ab",
+        "state": "NC",
+        "jurisdiction": "Iredell County — disabled source candidate",
+        "url": "https://www.iredellcountync.gov/AgendaCenter/Planning-Board-5",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Iredell",
+              "type": "county",
+              "population": 214151
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 31
+    },
+    {
+      "name": "Lenoir",
+      "type": "county",
+      "sourceId": "source-3590f26f1f8930f7825f3dce7b2795",
+      "officialURL": "https://lenoircountync.gov/government/planning-board/2026-planning-board-meetings/",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "schema_candidate_requires_sample",
+      "errors": [
+        "Embedded ArcGIS application needs its service configuration resolved: https://www.arcgis.com/apps/webappviewer/index.html?id=68c0618065d04f1182fb86cb5b6647de"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Johnston",
+      "type": "county",
+      "sourceId": "source-2fd3e8779402dabf2c984380a9d112",
+      "officialURL": "https://www.johnstonnc.gov/planning/content.cfm?pageid=36",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": null,
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-2fd3e8779402dabf2c984380a9d112",
+        "state": "NC",
+        "jurisdiction": "Johnston County — disabled source candidate",
+        "url": "https://www.johnstonnc.gov/planning/content.cfm?pageid=36",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Johnston",
+              "type": "county",
+              "population": 257598
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 13
+    },
+    {
+      "name": "Lee",
+      "type": "county",
+      "sourceId": "source-352fa6d95178f5478d5dfe6cd5bfdf",
+      "officialURL": "https://www.sanfordnc.net/869/Development-Tracking-Interactive-Map",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "schema_candidate_requires_sample",
+      "errors": [
+        "Embedded ArcGIS application needs its service configuration resolved: https://experience.arcgis.com/experience/6c6fd3657b5c47e1aa48fb2b55f5f816"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Lincoln",
+      "type": "county",
+      "sourceId": "source-d23e91a81c28683888dc38b1ebb902",
+      "officialURL": "https://lincolncountync.gov/371/Pending-Applications",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Embedded ArcGIS application needs its service configuration resolved: https://lincolncountync.maps.arcgis.com/apps/webappviewer/index.html?id=2e01b3030fb640fbbef0d431613e9204&center=-9041971.4705009554,4235931.1717584403,102100&scale=4514",
+        "Embedded ArcGIS application needs its service configuration resolved: https://lincolncountync.maps.arcgis.com/apps/webappviewer/index.html?id=2e01b3030fb640fbbef0d431613e9204&center=-9017603.1076374073,4233535.350137,102100&scale=4514",
+        "Source network retries exhausted"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Mecklenburg",
+      "type": "county",
+      "sourceId": "source-5ad81d1b1da38a23807fc6b059c55e",
+      "officialURL": "https://www.mecknc.gov/service/land-use-and-environmental-services",
+      "accessStatus": "portal_adapter_required",
+      "followupStatus": null,
+      "errors": [],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Moore",
+      "type": "county",
+      "sourceId": "source-75a100bc242482400a1ce99edbfd25",
+      "officialURL": "https://moorecountync.gov/287/Planning-Board",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "document_links_verified",
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-75a100bc242482400a1ce99edbfd25",
+        "state": "NC",
+        "jurisdiction": "Moore County — disabled source candidate",
+        "url": "https://moorecountync.gov/287/Planning-Board",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Moore",
+              "type": "county",
+              "population": 112063
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 2
+    },
+    {
+      "name": "Nash",
+      "type": "county",
+      "sourceId": "source-94797b52e9f25a5e49ec7740fe9f35",
+      "officialURL": "https://nashcountync.gov/310/Planning-Board",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "document_links_verified",
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-94797b52e9f25a5e49ec7740fe9f35",
+        "state": "NC",
+        "jurisdiction": "Nash County — disabled source candidate",
+        "url": "https://nashcountync.gov/310/Planning-Board",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Nash",
+              "type": "county",
+              "population": 100148
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 1
+    },
+    {
+      "name": "New Hanover",
+      "type": "county",
+      "sourceId": "source-3aeb3cac7756f63e2b140cb8360d33",
+      "officialURL": "https://www.nhcgov.com/543/Development-Activity",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "schema_candidate_requires_sample",
+      "errors": [],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Onslow",
+      "type": "county",
+      "sourceId": "source-82a4e8f5ac30b84f3c28bbc3d88fe1",
+      "officialURL": "https://www.onslowcountync.gov/AgendaCenter/Planning-Board-3",
+      "accessStatus": "blocked_or_unavailable",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Official source HTTP 403",
+        "Official source HTTP 403"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Orange",
+      "type": "county",
+      "sourceId": "source-a40581f07ebe175cd18bdb3acec664",
+      "officialURL": "https://www.co.orange.nc.us/planning",
+      "accessStatus": "blocked_or_unavailable",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Official source HTTP 301",
+        "Official source HTTP 301"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Pitt",
+      "type": "county",
+      "sourceId": "source-2c9bdc47b6d522fcddf2fc7262e667",
+      "officialURL": "https://www.pittcountync.gov/303/Planning-Board",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "document_links_verified",
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-2c9bdc47b6d522fcddf2fc7262e667",
+        "state": "NC",
+        "jurisdiction": "Pitt County — disabled source candidate",
+        "url": "https://www.pittcountync.gov/AgendaCenter",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Pitt",
+              "type": "county",
+              "population": 182281
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 82
+    },
+    {
+      "name": "Randolph",
+      "type": "county",
+      "sourceId": "source-dce7182df63613d32e417212943989",
+      "officialURL": "https://randolphcountync.gov/241/Public-Hearing-Information",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "document_links_verified",
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-dce7182df63613d32e417212943989",
+        "state": "NC",
+        "jurisdiction": "Randolph County — disabled source candidate",
+        "url": "https://randolphcountync.gov/241/Public-Hearing-Information",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Randolph",
+              "type": "county",
+              "population": 148941
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 2
+    },
+    {
+      "name": "Rutherford",
+      "type": "county",
+      "sourceId": "source-29589561d1b675de03cbc2cd834700",
+      "officialURL": "https://www.rutherfordcountync.gov/departments/planning/index.php",
+      "accessStatus": "blocked_or_unavailable",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Official source HTTP 302",
+        "Official source HTTP 302"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Rockingham",
+      "type": "county",
+      "sourceId": "source-bfa24f79ae362a1a97f8baf86563fc",
+      "officialURL": "https://www.rockinghamcountync.gov/21287/Planning-Board",
+      "accessStatus": "blocked_or_unavailable",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Official source HTTP 403",
+        "Official source HTTP 403"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Robeson",
+      "type": "county",
+      "sourceId": "source-8f352860ba9d8ad4a319e624d96ec0",
+      "officialURL": "https://www.robesoncountync.gov/boc-agenda",
+      "accessStatus": "no_project_resources_found",
+      "followupStatus": null,
+      "errors": [],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Rowan",
+      "type": "county",
+      "sourceId": "source-c306451d6b2943a9c914c473c94dcf",
+      "officialURL": "https://www.rowancountync.gov/1272/Planning-Board",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "document_links_verified",
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-c306451d6b2943a9c914c473c94dcf",
+        "state": "NC",
+        "jurisdiction": "Rowan County — disabled source candidate",
+        "url": "https://www.rowancountync.gov/1272/Planning-Board",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Rowan",
+              "type": "county",
+              "population": 155298
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 22
+    },
+    {
+      "name": "Surry",
+      "type": "county",
+      "sourceId": "source-83b5eb4477d32db7350caa3dcbaaec",
+      "officialURL": "https://www.co.surry.nc.us/departments/planning.php",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "adapter_still_required",
+      "errors": [],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Union",
+      "type": "county",
+      "sourceId": "source-07e8c44d857fd49dc3491f0a7e281d",
+      "officialURL": "https://it.unioncountync.gov/government/departments-f-p/planning-development",
+      "accessStatus": "blocked_or_unavailable",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Official source HTTP 403",
+        "Official source HTTP 403"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Sampson",
+      "type": "county",
+      "sourceId": "source-7629ca44c9de1df1938c10829ea652",
+      "officialURL": "https://www.sampsoncountync.gov/Government/Board-of-Commissioners/Agendas-and-Minutes",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": null,
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-7629ca44c9de1df1938c10829ea652",
+        "state": "NC",
+        "jurisdiction": "Sampson County — disabled source candidate",
+        "url": "https://www.sampsoncountync.gov/Government/Board-of-Commissioners/Agendas-and-Minutes",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Sampson",
+              "type": "county",
+              "population": 61009
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 100
+    },
+    {
+      "name": "Stanly",
+      "type": "county",
+      "sourceId": "source-c8a60b1147e1c7d8d0ce213137b852",
+      "officialURL": "https://www.stanlycountync.gov/161/Planning-Board",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "document_links_verified",
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-c8a60b1147e1c7d8d0ce213137b852",
+        "state": "NC",
+        "jurisdiction": "Stanly County — disabled source candidate",
+        "url": "https://www.stanlycountync.gov/161/Planning-Board",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Stanly",
+              "type": "county",
+              "population": 68617
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 12
+    },
+    {
+      "name": "Watauga",
+      "type": "county",
+      "sourceId": "source-f2b4593af99585de0152ce889ea83b",
+      "officialURL": "https://www.wataugacounty.org/App_Pages/Dept/Planning/planningagendas.aspx",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": null,
+      "errors": [
+        "Embedded ArcGIS application needs its service configuration resolved: https://unca.maps.arcgis.com/apps/webappviewer/index.html?id=e9f79de934f24e40a71bab8db8050612/"
+      ],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-f2b4593af99585de0152ce889ea83b",
+        "state": "NC",
+        "jurisdiction": "Watauga County — disabled source candidate",
+        "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/planningagendas.aspx",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Watauga",
+              "type": "county",
+              "population": 55213
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 7
+    },
+    {
+      "name": "Wake",
+      "type": "county",
+      "sourceId": "source-31236bbabd5dd0645b2ab11f8b8621",
+      "officialURL": "https://www.wake.gov/doing-business/find-planning-zoning-info",
+      "accessStatus": "no_project_resources_found",
+      "followupStatus": null,
+      "errors": [],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Wilkes",
+      "type": "county",
+      "sourceId": "source-c0adde72bfc51f7755b43cb28519ca",
+      "officialURL": "https://www.wilkescounty.net/258/Planning",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "document_links_verified",
+      "errors": [],
+      "status": "document_index_adapter_built",
+      "structuredCandidates": [],
+      "adapter": {
+        "id": "source-c0adde72bfc51f7755b43cb28519ca",
+        "state": "NC",
+        "jurisdiction": "Wilkes County — disabled source candidate",
+        "url": "https://www.wilkescounty.net/agendacenter",
+        "adapter": "document",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "notes": [
+            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+          ],
+          "readiness": "source_candidate_adapter_pending",
+          "sourceRole": "document_review",
+          "approvalPending": true,
+          "registryVersion": "nc-50k-2026-10-29",
+          "coverageEntities": [
+            {
+              "name": "Wilkes",
+              "type": "county",
+              "population": 65995
+            }
+          ],
+          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+          "mappingVersion": "nc-document-index-v1-2026-10-29",
+          "statusScope": "agenda-index",
+          "scopeVerified": false,
+          "noticeDiscovery": true,
+          "noticePathPattern": "^/",
+          "noticeLimit": 20
+        },
+        "last_success": null,
+        "last_error": null,
+        "successes": 0,
+        "failures": 0
+      },
+      "documentLinks": 72
+    },
+    {
+      "name": "Wayne",
+      "type": "county",
+      "sourceId": "source-0385efb7e4de0741891718889d3ef1",
+      "officialURL": "https://www.waynegov.com/333/Planning-Department",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "adapter_still_required",
+      "errors": [],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Concord",
+      "type": "city",
+      "sourceId": "source-009dc1a68b96ca06f2ed4c587dc7ca",
+      "officialURL": "https://concordnc.gov/Departments/Planning-Development-Services/GIS",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Request ceiling reached"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Chapel Hill",
+      "type": "city",
+      "sourceId": "source-d7eb377b90bf4eb07a4fc614154b68",
+      "officialURL": "https://www.chapelhillnc.gov/Business-and-Development/Active-Development",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Request ceiling reached"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Wilson",
+      "type": "county",
+      "sourceId": "source-da90cfddf91f4307adec91b894000e",
+      "officialURL": "https://www.wilsoncountync.gov/departments/development-services",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "adapter_still_required",
+      "errors": [],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Burlington",
+      "type": "city",
+      "sourceId": "source-fc9632a022b5a8e6d7cf4920cb9e19",
+      "officialURL": "https://www.burlingtonnc.gov/2208",
+      "accessStatus": "no_project_resources_found",
+      "followupStatus": null,
+      "errors": [],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Greenville",
+      "type": "city",
+      "sourceId": "source-7a3509cb044be829b1a95e410cbacd",
+      "officialURL": "https://www.greenvillenc.gov/522/Planning",
+      "accessStatus": "blocked_or_unavailable",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Official source HTTP 403",
+        "Official source HTTP 403"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Kannapolis",
+      "type": "city",
+      "sourceId": "source-e4337f8d99264592676ef53888a59d",
+      "officialURL": "https://www.kannapolisnc.gov/Government-Departments/Planning",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Request ceiling reached"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Greensboro",
+      "type": "city",
+      "sourceId": "source-1b6362e1a8bcb78c23f8aad7ac56dd",
+      "officialURL": "https://www.greensboro-nc.gov/departments/planning/view",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Request ceiling reached"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Jacksonville",
+      "type": "city",
+      "sourceId": "source-c9dba4d542a8c0a6390c4586ac5856",
+      "officialURL": "https://www.jacksonvillenc.gov/733/Permitting-Planning-Zoning",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Request ceiling reached"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Raleigh",
+      "type": "city",
+      "sourceId": "source-8e9a22e853898bb8a5152d8dc51918",
+      "officialURL": "https://raleighnc.gov/planning/services/current-development-activity",
+      "accessStatus": "blocked_or_unavailable",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Official source HTTP 403",
+        "Request ceiling reached"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Rocky Mount",
+      "type": "city",
+      "sourceId": "source-c097dd348b752921bea443eb7b7c0f",
+      "officialURL": "https://www.rockymountnc.gov/187/Planning-Board",
+      "accessStatus": "blocked_or_unavailable",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Official source HTTP 403",
+        "Request ceiling reached"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    },
+    {
+      "name": "Wilson",
+      "type": "city",
+      "sourceId": "source-0a32fe57a76422488f9e41c09118a8",
+      "officialURL": "https://www.wilsonnc.org/residents/all-departments/development-services/development-activity-map",
+      "accessStatus": "document_adapter_candidate",
+      "followupStatus": "blocked_or_unavailable",
+      "errors": [
+        "Embedded ArcGIS application needs its service configuration resolved: https://experience.arcgis.com/experience/26ec7b3691e04933a370fe3b6150bb94",
+        "Request ceiling reached"
+      ],
+      "status": "adapter_still_required",
+      "structuredCandidates": []
+    }
+  ]
+}

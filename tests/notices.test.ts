@@ -3,3 +3,7 @@ test('official notice indexes retain same-origin document links, deduplicate and
  const source:any={url:'https://www.burlingtonnc.gov/Archive.aspx?AMID=46',config:{noticePathPattern:'^/Archive\\.aspx\\?ADID=\\d+'}};
  const links=noticeLinks(source,'<a href="/Archive.aspx?ADID=123&amp;packet=true">October <b>meeting packet</b></a><a href="/Archive.aspx?ADID=123&amp;packet=true">duplicate</a><a href="https://evil.example/Archive.aspx?ADID=2">external</a><a href="javascript:alert(1)">bad</a>');assert.deepEqual(links,[{title:'October meeting packet',url:'https://www.burlingtonnc.gov/Archive.aspx?ADID=123&packet=true'}]);assert.equal((links[0] as any).startsAt,undefined);
 });
+test('dynamic document adapter excludes navigation, forms, cancelled meetings and external documents',()=>{
+ const s:any={url:'https://government.example/planning',config:{noticeDiscovery:true,noticePathPattern:'^/',noticeLimit:20}};
+ const links=noticeLinks(s,'<a href="#main">Skip to main content</a><a href="/DocumentCenter/View/1/Rezoning-Applicationpdf">Rezoning Application.pdf</a><a href="/DocumentCenter/View/2/Agenda">Planning agenda</a><a href="/DocumentCenter/View/3/Agenda">Cancelled meeting</a><a href="https://elsewhere.example/agenda.pdf">Planning agenda</a>');assert.deepEqual(links,[{title:'Planning agenda',url:'https://government.example/DocumentCenter/View/2/Agenda'}]);
+});
