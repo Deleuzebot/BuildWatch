@@ -48,6 +48,13 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Check research scope before reserving budget or contacting sources
         run: pnpm exec tsx scripts/nc-shadow-plan.mts "--check-profile=$BW_SHADOW_PROFILE"
+      - uses: actions/setup-python@v5
+        if: inputs.research_profile == 'evidence-research'
+        with:
+          python-version: '3.12'
+      - name: Install existing bounded document reader
+        if: inputs.research_profile == 'evidence-research'
+        run: python -m pip install --disable-pip-version-check --no-cache-dir -r requirements-maintenance.txt
       - name: Verify database TLS
         env:
           BW_WORKER_CA: ${{ secrets.BW_WORKER_CA }}
@@ -56,4 +63,9 @@ jobs:
             printf '%s' "$BW_WORKER_CA" > "$RUNNER_TEMP/buildwatch-ca.pem"
             echo "PGSSLROOTCERT=$RUNNER_TEMP/buildwatch-ca.pem" >> "$GITHUB_ENV"
           fi
-      - run: pnpm exec tsx scripts/nc-shadow.mts
+      - name: Run structured-feed shadow checks
+        if: inputs.research_profile != 'evidence-research'
+        run: pnpm exec tsx scripts/nc-shadow.mts
+      - name: Run manual government-document and secondary-feed trial
+        if: inputs.research_profile == 'evidence-research' && github.event_name == 'workflow_dispatch'
+        run: pnpm exec tsx scripts/nc-evidence-shadow.mts

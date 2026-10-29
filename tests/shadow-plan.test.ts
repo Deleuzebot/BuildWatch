@@ -4,5 +4,5 @@ test('NC shadow plan remains inactive and refuses unaffordable four-run claims',
 });
 test('planned local time survives daylight saving and full research cannot be mislabeled',()=>{
  assert.equal(shadowPlan(23,new Date('2026-10-31T12:00:00Z')).proposedSchedule.nextUnactivatedSlot,'2026-11-06T10:17:00.000Z');requireShadowProfile('structured-feeds');assert.throws(()=>requireShadowProfile('evidence-research'),/not ready/);assert.throws(()=>requireShadowProfile('nationwide'),/Unknown/);
- const workflow=readFileSync('.github/workflows/nc-shadow.yml','utf8');assert.doesNotMatch(workflow,/^\s*schedule:/m);assert.match(workflow,/BW_ALLOW_LIVE_WRITES: 'false'/);assert.match(workflow,/BW_AI_ENABLED: 'false'/);
+ requireShadowProfile('evidence-research',true);const workflow=readFileSync('.github/workflows/nc-shadow.yml','utf8');assert.doesNotMatch(workflow,/^\s*schedule:/m);assert.match(workflow,/BW_ALLOW_LIVE_WRITES: 'false'/);assert.match(workflow,/BW_AI_ENABLED: 'false'/);
 });
