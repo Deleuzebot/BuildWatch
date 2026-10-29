@@ -1,0 +1,38 @@
+[
+  {
+    "key": "kannapolis-december-minutes",
+    "sourceId": "source-8c1eabeb036a4393e890729df7c630",
+    "url": "https://www.kannapolisnc.gov/Portals/0/Kannapolis/Departments/Planning/Documents/Planning%20Commission/Minutes/PZ%2012_16_25%20Meeting%20Minutes.pdf?ver=4pI_0GeAGuDk8KTdABZytQ%3d%3d",
+    "terms": "CZ.2025.05|Wynnefield|Irene|consistency|vote|approve|denied"
+  },
+  {
+    "key": "kannapolis-january-minutes",
+    "sourceId": "source-8c1eabeb036a4393e890729df7c630",
+    "url": "https://www.kannapolisnc.gov/Portals/0/Kannapolis/Departments/Planning/Documents/Planning%20Commission/Minutes/January%202026%20Minutes.pdf?ver=4pI_0GeAGuDk8KTdABZytQ%3d%3d",
+    "terms": "CZ.2025.05|December|minutes|Irene|vote|approve"
+  },
+  {
+    "key": "apex-infrastructure-plan",
+    "sourceId": "source-8ad50df7b7918cceaf0e16245fd827",
+    "url": "https://www.apexnc.org/DocumentCenter/View/54546",
+    "terms": "CHILD|INFRASTRUCTURE|APPROV|PROJECT|SITE|2026"
+  },
+  {
+    "key": "burlington-rezoning-packet",
+    "sourceId": "source-1bb48732857df49b9ee9972bcf0739",
+    "url": "https://www.burlingtonnc.gov/Archive.aspx?ADID=4398",
+    "terms": "26.010|26.007|3383|Wittig"
+  },
+  {
+    "key": "cary-phase-map",
+    "sourceId": "source-682be2f330dca1be45edbd5dcf27a7",
+    "url": "https://www.carync.gov/home/showpublisheddocument/12464/636196454933500000",
+    "terms": "Black Creek|Phase|Dynasty|Parkway"
+  },
+  {
+    "key": "cary-construction-report",
+    "sourceId": "source-682be2f330dca1be45edbd5dcf27a7",
+    "url": "https://www.carync.gov/home/showpublisheddocument/33660/638581074120600000",
+    "terms": "BLACK CREEK"
+  }
+]

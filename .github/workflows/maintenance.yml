@@ -5,7 +5,7 @@ on:
       validation_mode:
         description: Manual reliability validation (always dry-run; no publication)
         type: choice
-        options: [none, pdf50-benchmark, five-jurisdiction]
+        options: [none, pdf50-benchmark, five-jurisdiction, targeted-followups]
         default: none
       nc_adapter_pilot:
         description: Test disabled NC source candidates on Linux (always dry-run)
@@ -131,6 +131,11 @@ jobs:
         env:
           NODE_OPTIONS: --max-old-space-size=768
         run: pnpm exec tsx scripts/nc-end-to-end-pilot.mts
+      - name: Collect targeted official discrepancy evidence
+        if: env.BW_VALIDATION_MODE == 'targeted-followups'
+        env:
+          NODE_OPTIONS: --max-old-space-size=768
+        run: pnpm exec tsx scripts/nc-followup-documents.mts
       - name: Report failure
         if: failure()
         run: echo "::error::BuildWatch maintenance did not finish. Check the run summary and persistent Supabase checkpoints. Projects were not marked verified merely because this workflow ran."
