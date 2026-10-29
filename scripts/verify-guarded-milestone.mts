@@ -1,0 +1,9 @@
+/** Read-only post-confirmation verification; never applies a proposal. */
+import assert from 'node:assert/strict';import {readFileSync,writeFileSync} from 'node:fs';import {PostgresDatabase,loadPostgresEnvironment} from '../server/postgres/connection';
+loadPostgresEnvironment();const db=new PostgresDatabase(),prepared=JSON.parse(readFileSync('reports/maintenance/GUARDED-APPLICATION-MILESTONE.json','utf8'));
+try{const row=await db.one('SELECT status,project_id FROM buildwatch.research_proposals WHERE id=$1',[prepared.proposalId]),project=(await db.one('SELECT buildwatch.bw_project($1) p',[row.project_id])).p,context=(await db.one('SELECT buildwatch.bw_milestone_context($1) v',[row.project_id])).v;
+ const applied=row.status==='applied',expected=applied?prepared.preview.after:prepared.preview.before;assert.deepEqual(project,expected);assert.deepEqual(context.policy,prepared.preview.policyBefore);assert.equal(context.historyCount,applied?prepared.preview.historyAfter:prepared.preview.historyBefore);
+ const matches=context.activities.filter((v:any)=>v.type===prepared.preview.milestone.type&&v.event_date===prepared.preview.milestone.date);assert.equal(matches.length,applied?1:0);
+ const revisionNotificationCount=(await db.one("SELECT count(*) n FROM buildwatch.notifications WHERE project_id=$1 AND event_key=$2",[row.project_id,'update:'+row.project_id+':'+prepared.preview.after.revision])).n;
+ const report={proposalId:prepared.proposalId,applied,status:row.status,projectFieldsVerified:true,policyUnchanged:true,historyCount:context.historyCount,milestoneMatches:matches.length,revisionNotificationCount,notice:applied?'Individually confirmed write verified.':'Awaiting explicit administrator confirmation; no production write performed.'};writeFileSync('reports/maintenance/GUARDED-MILESTONE-VERIFICATION.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));
+}finally{await db.close();}

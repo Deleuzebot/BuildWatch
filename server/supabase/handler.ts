@@ -67,6 +67,7 @@ export function createCloudHandler(deps:Dependencies){
    let identity:Identity;try{identity=await(deps.verify||((token,cfg)=>verifyBuildWatchToken(token,cfg,deps.rpc)))(bearer!.slice(7),config);}catch(e:any){if(e.status===503)throw e;fail(401,'Your sign-in session is invalid or expired.');}
    const call=(p=path,input:any={},m=method,q:Record<string,string>=query)=>deps.rpc('buildwatch_edge',{identity,method:m,path:p,input,query:q});
    let input:any=method==='GET'?{}:await readInput(req);
+   if(path==='/api/admin/maintenance/shadow-report'&&method==='GET')return Response.json(await deps.rpc('buildwatch_shadow_admin',{identity,input:query}),{headers});
    if(path==='/api/admin/maintenance/sources'&&method==='GET')return Response.json(await deps.rpc('buildwatch_maintenance_admin',{identity,action:'sources',input:query}),{headers});
    if(path==='/api/admin/maintenance'&&method==='GET')return Response.json(await deps.rpc('buildwatch_maintenance_admin',{identity,action:'summary',input:{}}),{headers});
    if(/^\/api\/admin\/maintenance\/(state|queue|undo|pause|resume|retry)$/.test(path)&&method==='POST'){
@@ -127,7 +128,7 @@ export function createCloudHandler(deps:Dependencies){
     const info=await call(path,{},'GET');let policy;try{if(input.communityEvidence)validateSourceEvidence(input.communityEvidence);policy=policyValues(input.approval||null,input.schedules||[]);}catch(e:any){fail(400,e.message);}
     input={...input,_policy:policy,_derived:await deriveProject(info.project,{approval_evidence:input.approval,schedules:input.schedules||[]})};
    }else if(path==='/api/admin/research/commit'&&method==='POST'){
-    const info=await call('__research_info',{token:input.token},'GET'),project=sourceProject(info.result,info.current);checkProject(project);input={token:input.token,_project:project,_derived:await deriveProject(project,info.policy)};
+    const info=await call('__research_info',{token:input.token},'GET'),project=info.milestone?info.current:sourceProject(info.result,info.current);checkProject(project);const derived=await deriveProject(project,info.policy);if(info.milestone)derived.recordEvents=[info.milestone];input={token:input.token,confirmation:input.confirmation,_project:project,_derived:derived};
    }
    let result=await call(path,input);
    if(path==='/api/admin/invitations'&&method==='POST'){

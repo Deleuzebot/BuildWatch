@@ -1,0 +1,19 @@
+# North Carolina shadow mode — prepared, not scheduled
+
+Proposed frequency: Friday, 05:17 America/New_York, once weekly. Neither workflow contains an active schedule. Separate human approval, a workflow change and the private shadow schedule gate are required before scheduling. NC is the only permitted state. Production publication, lifecycle adoption and archiving stay disabled.
+
+The three-source pilot checks Apex applications, Chapel Hill Current Development and Raleigh Building Permits (supporting evidence only). This is not comprehensive statewide coverage. Each source receives a priority page and, when needed, a rotating backlog page, eight records each. Maximum: 48 source records, 16 government HTTP requests including retries, 120 worker seconds, 10 MB downloaded, 512 MB Node heap and six-minute Actions timeout. A retry resumes its saved source checkpoint; unfinished work is reported as partial, not a successful statewide update.
+
+Expected HTTP use: approximately 9–12 requests per weekly run, often fewer with cached metadata and no backlog; hard ceiling 16. Four to five runs would reserve at most 64–80 requests per month against the existing monthly cap. No budget is increased automatically. The current remaining research allowance must be considered before any manual dispatch.
+
+Robots policies are respected. Government schema and response shapes are checked before caching. Robots metadata is reused for 24 hours and API schemas for seven days; data requests use ETag/Last-Modified where supported. Cached responses have SHA-256 integrity checks, a 200 KB entry limit and 5 MB aggregate ceiling. Only reproducible response-cache entries older than 14 days are evicted. Findings and project history are preserved.
+
+Every run stores private evidence, exact identity matches, duplicate suppression, application-scoped milestones, withheld status changes, potential expiration evidence, source errors and rejection reasons. GitHub receives aggregate counts only. The administrator dashboard retrieves detailed findings through an MFA-protected, backend-authorized RPC. No supporting permit can establish whole-project construction or completion. Missing sources cannot justify cancellation or archival. Ambiguous identities are withheld, never automatically merged.
+
+The shadow database API has no publication, merge or archive operation. Its worker credentials cannot update production projects. All public data, approval policies, visibility rules and historical events remain unchanged. The individual administrator-confirmed milestone workflow is separate from shadow mode and requires a preview token bound to the current project, policy, history and activity.
+
+Storage: persistent response cache is capped at 5 MB. Findings are capped at 20 KB each, giving an upper bound near 960 KB of findings for 48 entirely changed records per run, plus indexes/run metadata. Unchanged semantic findings are deduplicated. The existing database-size gate stops new runs before the Free quota; per-run reports estimate serialized finding/cache bytes, not exact PostgreSQL physical growth. Benchmark real recurring runs before assuming nationwide operation fits free limits.
+
+Costs: no additional service, paid OCR, AI provider or paid runner is configured. Existing public GitHub Actions and Supabase Free resources are reused. This bounded pilot does not establish that 50-state maintenance fits free quotas. If limits are reached, checks stop and report unfinished work.
+
+Manual regression validation uses the maintenance workflow's `guarded-shadow-audit` mode. It uses synthetic HTTP responses and the isolated audit schema in a transaction that is rolled back. It makes zero government requests, verifies guarded confirmation/deduplication/stale-policy rejection, cache reuse, outage reporting, forbidden-state/schedule rejection and unchanged production data.

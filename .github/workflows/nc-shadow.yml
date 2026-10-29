@@ -1,0 +1,51 @@
+name: BuildWatch NC shadow checks
+on:
+  workflow_dispatch:
+    inputs:
+      live_checks:
+        description: Authorize bounded live checks only (16 requests maximum; no public writes)
+        type: boolean
+        default: false
+  # PROPOSED ONLY: Friday at 05:17 America/New_York, once weekly.
+  # No schedule stanza is active. Activation also needs the separate private
+  # shadow_control gate and explicit user approval; global publication stays off.
+permissions:
+  contents: read
+concurrency:
+  group: buildwatch-maintenance
+  cancel-in-progress: false
+jobs:
+  shadow:
+    if: inputs.live_checks == true && vars.BUILDWATCH_MAINTENANCE_CONFIGURED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    environment: buildwatch-maintenance
+    env:
+      PGHOST: ${{ secrets.BW_WORKER_PGHOST }}
+      PGPORT: ${{ secrets.BW_WORKER_PGPORT }}
+      PGUSER: ${{ secrets.BW_WORKER_PGUSER }}
+      PGPASSWORD: ${{ secrets.BW_WORKER_PGPASSWORD }}
+      PGDATABASE: postgres
+      PGPOOL_MAX: 1
+      BW_ALLOW_LIVE_WRITES: 'false'
+      BW_AI_ENABLED: 'false'
+      BW_SHADOW_LIVE_CHECKS: 'true'
+      NODE_OPTIONS: --max-old-space-size=512
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.25.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: pnpm install --frozen-lockfile
+      - name: Verify database TLS
+        env:
+          BW_WORKER_CA: ${{ secrets.BW_WORKER_CA }}
+        run: |
+          if [ -n "$BW_WORKER_CA" ]; then
+            printf '%s' "$BW_WORKER_CA" > "$RUNNER_TEMP/buildwatch-ca.pem"
+            echo "PGSSLROOTCERT=$RUNNER_TEMP/buildwatch-ca.pem" >> "$GITHUB_ENV"
+          fi
+      - run: pnpm exec tsx scripts/nc-shadow.mts

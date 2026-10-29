@@ -10,7 +10,7 @@ function scheduled(weekdayNumber:number){
  return '';
 }
 export default function AutomationManagement({onReview,onDuplicates,onArchives}:{onReview:()=>void;onDuplicates:()=>void;onArchives:()=>void}){
- const[registry,setRegistry]=useState<any>(null),[registryPage,setRegistryPage]=useState(0),[limits,setLimits]=useState<Record<string,any>>({});
+ const[registry,setRegistry]=useState<any>(null),[registryPage,setRegistryPage]=useState(0),[limits,setLimits]=useState<Record<string,any>>({}),[shadow,setShadow]=useState<any>(null);
  const[data,setData]=useState<any>(null),[error,setError]=useState(''),[busy,setBusy]=useState(false),[notice,setNotice]=useState(''),[showAll,setShowAll]=useState(false);
  async function load(){try{setData(await api('/api/admin/maintenance'));setError('');}catch(e:any){setError(e.message);}}
  useEffect(()=>{void load();},[]);
@@ -19,6 +19,8 @@ export default function AutomationManagement({onReview,onDuplicates,onArchives}:
  const button=(label:string,fn:()=>void)=><Pressable accessibilityRole="button" disabled={busy} style={s.button} onPress={fn}><Text style={s.white}>{label}</Text></Pressable>;
  return <View style={s.wrap}><Text style={s.heading}>Automation Management</Text>{!!error&&<Text accessibilityRole="alert" style={s.error}>{error}</Text>}{!!notice&&<Text style={s.text}>{notice}</Text>}
  {button('Refresh execution status',()=>void load())}
+ {button('Review private North Carolina shadow findings',()=>{void api('/api/admin/maintenance/shadow-report').then(setShadow).catch((e:any)=>setError(e.message));})}
+ {shadow&&<View style={s.card}><Text style={s.subheading}>North Carolina shadow review</Text><Text style={s.text}>Shadow schedule: {shadow.control?.schedule_enabled?'enabled':'off'}. Publication and archiving remain disabled. Only Apex applications, Chapel Hill current development and Raleigh supporting permits are configured.</Text>{shadow.runs?.length===0&&<Text style={s.text}>No shadow execution has been authorized yet.</Text>}{shadow.runs?.map((r:any)=><View key={r.id}><Text style={s.text}>{r.created} · {r.status} · {r.stats?.requests||0} requests</Text>{button('Inspect private findings',()=>{void api('/api/admin/maintenance/shadow-report?runId='+encodeURIComponent(r.id)).then(setShadow).catch((e:any)=>setError(e.message));})}</View>)}{shadow.findings?.map((f:any)=><Text selectable key={f.id} style={s.text}>{JSON.stringify(f,null,2)}</Text>)}{button('Close shadow report',()=>setShadow(null))}</View>}
  {!data&&!error&&<Text>Loading automation status…</Text>}
  {data&&<>
  <Text style={s.text}>Schedule: {data.control.schedule_enabled?'enabled':'off'} · Project writes: {data.control.writes_enabled?'enabled':'off'} · AI: off unless explicitly configured in the worker</Text>

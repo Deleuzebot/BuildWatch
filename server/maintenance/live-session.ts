@@ -5,18 +5,19 @@ export const LIVE_PILOT_REQUEST_CAP=20;
 export class LiveValidationSession{
  readonly budget:Budget;readonly reader:ResearchReader;readonly state:any;
  private lockHeld=false;
- constructor(readonly directory:string,transport:typeof fetch=fetch){
+ constructor(readonly directory:string,transport:typeof fetch=fetch,readonly requestCap=LIVE_PILOT_REQUEST_CAP){
+  if(!Number.isInteger(requestCap)||requestCap<1||requestCap>LIVE_PILOT_REQUEST_CAP)throw Error('Manual session cap must be between 1 and 20');
   mkdirSync(directory,{recursive:true});const path=join(directory,'ledger.json');
-  this.state=existsSync(path)?JSON.parse(readFileSync(path,'utf8')):{createdAt:new Date().toISOString(),cap:LIVE_PILOT_REQUEST_CAP,reservedRequests:20,requests:[],responses:{},closed:false};
-  if(this.state.cap!==LIVE_PILOT_REQUEST_CAP||this.state.requests.length>LIVE_PILOT_REQUEST_CAP)throw Error('Invalid pilot request ledger');
+  this.state=existsSync(path)?JSON.parse(readFileSync(path,'utf8')):{createdAt:new Date().toISOString(),cap:requestCap,reservedRequests:requestCap,requests:[],responses:{},closed:false};
+  if(this.state.cap!==requestCap||this.state.requests.length>requestCap)throw Error('Invalid pilot request ledger');
   if(!this.state.closed){writeFileSync(join(directory,'capture.lock'),JSON.stringify({pid:process.pid,startedAt:new Date().toISOString()}),{flag:'wx'});this.lockHeld=true;}
-  this.budget=new Budget(240,LIVE_PILOT_REQUEST_CAP,100,10_000_000);this.budget.requests=this.state.requests.length;
+  this.budget=new Budget(240,requestCap,100,10_000_000);this.budget.requests=this.state.requests.length;
   this.budget.bytes=this.state.bytes||0;
   this.reader=new ResearchReader(this.budget,(url,response)=>{
    const file=hash(url)+'.json',entry={url,body:response.body,sha256:hash(response.body),retrievedAt:new Date().toISOString(),status:response.status,etag:response.etag,lastModified:response.modified};
    writeFileSync(join(directory,file),JSON.stringify(entry,null,2));this.state.responses[url]={file,sha256:entry.sha256,retrievedAt:entry.retrievedAt};this.save();
   },async(input,options)=>{
-   if(this.state.closed||this.state.requests.length>=LIVE_PILOT_REQUEST_CAP)throw Error('Live pilot request cap reached or session closed');
+   if(this.state.closed||this.state.requests.length>=requestCap)throw Error('Live pilot request cap reached or session closed');
    const entry:any={ordinal:this.state.requests.length+1,url:String(input),startedAt:new Date().toISOString()};this.state.requests.push(entry);this.save();
    try{const response=await transport(input,options);entry.status=response.status;entry.completedAt=new Date().toISOString();this.save();return response;}catch(e:any){entry.error=e.message;entry.completedAt=new Date().toISOString();this.save();throw e;}
   });this.save();
