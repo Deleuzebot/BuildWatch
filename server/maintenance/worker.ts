@@ -73,6 +73,7 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
         await call('finding',{id:hash([source.id,link,options.dryRun]),sourceId:source.id,finding:lead,project:{id:'lead-'+hash(link.url).slice(0,30),state:source.state},eligible:false,reason:'Official agenda/document pointer only. No project status, meeting date or coordinates inferred.',confidence:{method:'requires_review'}});stats.documentLeads=(stats.documentLeads||0)+1;stats.unverified++;
        }
        if(options.dryRun&&source.config.agendaPDFReview===true){
+        cp.agendaIssues??={};cp.agendaIssues[source.id]=[];
         const limit=Math.max(1,Math.min(3,source.config.agendaPDFLimit||1));stats.documentCoverage='Official index plus bounded PDF sample only; other packets and project/meeting associations still require review';
         stats.agendaDocumentsDeferred=(stats.agendaDocumentsDeferred||0)+Math.max(0,links.length-limit);
         for(const link of links.slice(0,limit)){
@@ -84,7 +85,7 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
           for(const ref of refs){budget.check(false);budget.records++;const lead={externalId:ref.id,name:ref.sourceIdentifier,description:ref.quote,address:'',latitude:null,longitude:null,rawStatus:'',category:'',developer:'',url:link.url,quote:ref.quote,principalUseVerified:false,locationVerified:false,wholeDevelopment:false,recordKind:'agenda_case_reference',documentPage:ref.page,documentHash:hash(document.rawBody),extractionTruncated:extracted.truncated};
            await call('finding',{id:hash([source.id,ref,options.dryRun]),sourceId:source.id,finding:lead,project:{id:'lead-'+ref.id.slice(0,30),state:source.state},eligible:false,reason:'Exact official agenda text and page citation. No project identity, decision, meeting association or coordinates automatically verified.',confidence:{method:'document_excerpt_requires_review'}});stats.unverified++;
           }
-         }catch(e:any){if(e instanceof LimitReached)throw e;stats.agendaFailures=(stats.agendaFailures||0)+1;errors.push(source.jurisdiction+' document: '+e.message);}
+         }catch(e:any){if(e instanceof LimitReached)throw e;stats.agendaFailures=(stats.agendaFailures||0)+1;const issue=source.jurisdiction+' document: '+e.message;errors.push(issue);cp.agendaIssues[source.id].push(issue);}
         }
        }
        more=false;
@@ -136,6 +137,9 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
   if(!options.onlySource&&sources.length&&errors.length===0&&Date.now()-budget.started<budget.seconds*1000-1000){
    for(const p of await call('expirations')){if(Date.now()-budget.started>=budget.seconds*1000-1000)throw new LimitReached('Archive checkpoint deferred at runtime ceiling');const value=await call('expire',{projectId:p.id});if(value.outcome==='archived')stats.archived++;if(value.outcome==='would_archive')stats.wouldArchive++;}
   }
+  // A completed index checkpoint does not resolve failed PDF extraction. Preserve
+  // those blockers on a resumed run instead of silently reporting success.
+  for(const issues of Object.values(cp.agendaIssues||{}))for(const issue of issues as string[])if(!errors.includes(issue))errors.push(issue);
   if(errors.length)status='partially_completed';else if(stats.unverified||stats.aiUnresolved)status='awaiting_review';
   if(options.onlySource)stats.coverage='Selected-source pilot only; not statewide verification';
   else stats.coverage='Enabled source adapters only; not verification of every jurisdiction or project';

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-29T15:27:03.934Z",
+  "checkedAt": "2026-10-29T15:42:47.773Z",
   "dryRun": true,
   "entries": [
     {
@@ -39,7 +39,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -57,11 +57,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 2
     },
@@ -99,7 +95,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -117,11 +113,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 27
     },
@@ -148,7 +140,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -166,11 +158,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 21
     },
@@ -211,7 +199,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -229,11 +217,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 11
     },
@@ -260,7 +244,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -278,11 +262,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 2
     },
@@ -294,46 +274,8 @@
       "accessStatus": "document_adapter_candidate",
       "followupStatus": null,
       "errors": [],
-      "status": "document_index_adapter_built",
-      "structuredCandidates": [],
-      "adapter": {
-        "id": "source-95d9889770928289a4228634df3344",
-        "state": "NC",
-        "jurisdiction": "Cleveland County — disabled source candidate",
-        "url": "https://www.clevelandcounty.com/main/departments/planning___zoning/zoning_services.php",
-        "adapter": "document",
-        "authority": "official",
-        "enabled": false,
-        "autopublish": false,
-        "config": {
-          "notes": [
-            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
-          ],
-          "readiness": "source_candidate_adapter_pending",
-          "sourceRole": "document_review",
-          "approvalPending": true,
-          "registryVersion": "nc-50k-2026-10-29",
-          "coverageEntities": [
-            {
-              "name": "Cleveland",
-              "type": "county",
-              "population": 102115
-            }
-          ],
-          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
-          "mappingVersion": "nc-document-index-v1-2026-10-29",
-          "statusScope": "agenda-index",
-          "scopeVerified": false,
-          "noticeDiscovery": true,
-          "noticePathPattern": "^/",
-          "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
-      },
-      "documentLinks": 1
+      "status": "adapter_still_required",
+      "structuredCandidates": []
     },
     {
       "name": "Columbus",
@@ -343,46 +285,8 @@
       "accessStatus": "document_adapter_candidate",
       "followupStatus": null,
       "errors": [],
-      "status": "document_index_adapter_built",
-      "structuredCandidates": [],
-      "adapter": {
-        "id": "source-b5b39ca7a85fc2b5e7c3046c1ab01f",
-        "state": "NC",
-        "jurisdiction": "Columbus County — disabled source candidate",
-        "url": "https://www.columbusco.org/planning-department",
-        "adapter": "document",
-        "authority": "official",
-        "enabled": false,
-        "autopublish": false,
-        "config": {
-          "notes": [
-            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
-          ],
-          "readiness": "source_candidate_adapter_pending",
-          "sourceRole": "document_review",
-          "approvalPending": true,
-          "registryVersion": "nc-50k-2026-10-29",
-          "coverageEntities": [
-            {
-              "name": "Columbus",
-              "type": "county",
-              "population": 50341
-            }
-          ],
-          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
-          "mappingVersion": "nc-document-index-v1-2026-10-29",
-          "statusScope": "agenda-index",
-          "scopeVerified": false,
-          "noticeDiscovery": true,
-          "noticePathPattern": "^/",
-          "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
-      },
-      "documentLinks": 2
+      "status": "adapter_still_required",
+      "structuredCandidates": []
     },
     {
       "name": "Cumberland",
@@ -392,46 +296,8 @@
       "accessStatus": "document_adapter_candidate",
       "followupStatus": null,
       "errors": [],
-      "status": "document_index_adapter_built",
-      "structuredCandidates": [],
-      "adapter": {
-        "id": "source-5d468d8691a475e0f40980ced00edc",
-        "state": "NC",
-        "jurisdiction": "Cumberland County — disabled source candidate",
-        "url": "https://www.cumberlandcountync.gov/departments/planning-group/planning-and-inspections/boards/planning-board",
-        "adapter": "document",
-        "authority": "official",
-        "enabled": false,
-        "autopublish": false,
-        "config": {
-          "notes": [
-            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
-          ],
-          "readiness": "source_candidate_adapter_pending",
-          "sourceRole": "document_review",
-          "approvalPending": true,
-          "registryVersion": "nc-50k-2026-10-29",
-          "coverageEntities": [
-            {
-              "name": "Cumberland",
-              "type": "county",
-              "population": 341048
-            }
-          ],
-          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
-          "mappingVersion": "nc-document-index-v1-2026-10-29",
-          "statusScope": "agenda-index",
-          "scopeVerified": false,
-          "noticeDiscovery": true,
-          "noticePathPattern": "^/",
-          "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
-      },
-      "documentLinks": 1
+      "status": "adapter_still_required",
+      "structuredCandidates": []
     },
     {
       "name": "Craven",
@@ -513,7 +379,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -531,11 +397,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 2
     },
@@ -562,7 +424,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -580,11 +442,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 20
     },
@@ -639,7 +497,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -657,11 +515,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 10
     },
@@ -735,7 +589,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -753,11 +607,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 31
     },
@@ -797,7 +647,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -815,11 +665,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 13
     },
@@ -885,7 +731,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -903,11 +749,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 2
     },
@@ -919,46 +761,8 @@
       "accessStatus": "document_adapter_candidate",
       "followupStatus": "document_links_verified",
       "errors": [],
-      "status": "document_index_adapter_built",
-      "structuredCandidates": [],
-      "adapter": {
-        "id": "source-94797b52e9f25a5e49ec7740fe9f35",
-        "state": "NC",
-        "jurisdiction": "Nash County — disabled source candidate",
-        "url": "https://nashcountync.gov/310/Planning-Board",
-        "adapter": "document",
-        "authority": "official",
-        "enabled": false,
-        "autopublish": false,
-        "config": {
-          "notes": [
-            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
-          ],
-          "readiness": "source_candidate_adapter_pending",
-          "sourceRole": "document_review",
-          "approvalPending": true,
-          "registryVersion": "nc-50k-2026-10-29",
-          "coverageEntities": [
-            {
-              "name": "Nash",
-              "type": "county",
-              "population": 100148
-            }
-          ],
-          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
-          "mappingVersion": "nc-document-index-v1-2026-10-29",
-          "statusScope": "agenda-index",
-          "scopeVerified": false,
-          "noticeDiscovery": true,
-          "noticePathPattern": "^/",
-          "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
-      },
-      "documentLinks": 1
+      "status": "adapter_still_required",
+      "structuredCandidates": []
     },
     {
       "name": "New Hanover",
@@ -1007,46 +811,8 @@
       "accessStatus": "document_adapter_candidate",
       "followupStatus": "document_links_verified",
       "errors": [],
-      "status": "document_index_adapter_built",
-      "structuredCandidates": [],
-      "adapter": {
-        "id": "source-2c9bdc47b6d522fcddf2fc7262e667",
-        "state": "NC",
-        "jurisdiction": "Pitt County — disabled source candidate",
-        "url": "https://www.pittcountync.gov/AgendaCenter",
-        "adapter": "document",
-        "authority": "official",
-        "enabled": false,
-        "autopublish": false,
-        "config": {
-          "notes": [
-            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
-          ],
-          "readiness": "source_candidate_adapter_pending",
-          "sourceRole": "document_review",
-          "approvalPending": true,
-          "registryVersion": "nc-50k-2026-10-29",
-          "coverageEntities": [
-            {
-              "name": "Pitt",
-              "type": "county",
-              "population": 182281
-            }
-          ],
-          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
-          "mappingVersion": "nc-document-index-v1-2026-10-29",
-          "statusScope": "agenda-index",
-          "scopeVerified": false,
-          "noticeDiscovery": true,
-          "noticePathPattern": "^/",
-          "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
-      },
-      "documentLinks": 82
+      "status": "adapter_still_required",
+      "structuredCandidates": []
     },
     {
       "name": "Randolph",
@@ -1071,7 +837,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -1089,11 +855,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 2
     },
@@ -1159,7 +921,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -1177,11 +939,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 22
     },
@@ -1233,7 +991,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -1251,11 +1009,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 100
     },
@@ -1282,7 +1036,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -1300,11 +1054,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 12
     },
@@ -1333,7 +1083,7 @@
           "notes": [
             "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
           ],
-          "readiness": "source_candidate_adapter_pending",
+          "readiness": "document_index_adapter_built",
           "sourceRole": "document_review",
           "approvalPending": true,
           "registryVersion": "nc-50k-2026-10-29",
@@ -1351,11 +1101,7 @@
           "noticeDiscovery": true,
           "noticePathPattern": "^/",
           "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
+        }
       },
       "documentLinks": 7
     },
@@ -1378,46 +1124,8 @@
       "accessStatus": "document_adapter_candidate",
       "followupStatus": "document_links_verified",
       "errors": [],
-      "status": "document_index_adapter_built",
-      "structuredCandidates": [],
-      "adapter": {
-        "id": "source-c0adde72bfc51f7755b43cb28519ca",
-        "state": "NC",
-        "jurisdiction": "Wilkes County — disabled source candidate",
-        "url": "https://www.wilkescounty.net/agendacenter",
-        "adapter": "document",
-        "authority": "official",
-        "enabled": false,
-        "autopublish": false,
-        "config": {
-          "notes": [
-            "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
-          ],
-          "readiness": "source_candidate_adapter_pending",
-          "sourceRole": "document_review",
-          "approvalPending": true,
-          "registryVersion": "nc-50k-2026-10-29",
-          "coverageEntities": [
-            {
-              "name": "Wilkes",
-              "type": "county",
-              "population": 65995
-            }
-          ],
-          "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
-          "mappingVersion": "nc-document-index-v1-2026-10-29",
-          "statusScope": "agenda-index",
-          "scopeVerified": false,
-          "noticeDiscovery": true,
-          "noticePathPattern": "^/",
-          "noticeLimit": 20
-        },
-        "last_success": null,
-        "last_error": null,
-        "successes": 0,
-        "failures": 0
-      },
-      "documentLinks": 72
+      "status": "adapter_still_required",
+      "structuredCandidates": []
     },
     {
       "name": "Wayne",
@@ -1436,7 +1144,7 @@
       "sourceId": "source-009dc1a68b96ca06f2ed4c587dc7ca",
       "officialURL": "https://concordnc.gov/Departments/Planning-Development-Services/GIS",
       "accessStatus": "document_adapter_candidate",
-      "followupStatus": "blocked_or_unavailable",
+      "followupStatus": "deferred_budget",
       "errors": [
         "Request ceiling reached"
       ],
@@ -1449,7 +1157,7 @@
       "sourceId": "source-d7eb377b90bf4eb07a4fc614154b68",
       "officialURL": "https://www.chapelhillnc.gov/Business-and-Development/Active-Development",
       "accessStatus": "document_adapter_candidate",
-      "followupStatus": "blocked_or_unavailable",
+      "followupStatus": "deferred_budget",
       "errors": [
         "Request ceiling reached"
       ],
@@ -1498,7 +1206,7 @@
       "sourceId": "source-e4337f8d99264592676ef53888a59d",
       "officialURL": "https://www.kannapolisnc.gov/Government-Departments/Planning",
       "accessStatus": "document_adapter_candidate",
-      "followupStatus": "blocked_or_unavailable",
+      "followupStatus": "deferred_budget",
       "errors": [
         "Request ceiling reached"
       ],
@@ -1511,7 +1219,7 @@
       "sourceId": "source-1b6362e1a8bcb78c23f8aad7ac56dd",
       "officialURL": "https://www.greensboro-nc.gov/departments/planning/view",
       "accessStatus": "document_adapter_candidate",
-      "followupStatus": "blocked_or_unavailable",
+      "followupStatus": "deferred_budget",
       "errors": [
         "Request ceiling reached"
       ],
@@ -1524,7 +1232,7 @@
       "sourceId": "source-c9dba4d542a8c0a6390c4586ac5856",
       "officialURL": "https://www.jacksonvillenc.gov/733/Permitting-Planning-Zoning",
       "accessStatus": "document_adapter_candidate",
-      "followupStatus": "blocked_or_unavailable",
+      "followupStatus": "deferred_budget",
       "errors": [
         "Request ceiling reached"
       ],
@@ -1537,7 +1245,7 @@
       "sourceId": "source-8e9a22e853898bb8a5152d8dc51918",
       "officialURL": "https://raleighnc.gov/planning/services/current-development-activity",
       "accessStatus": "blocked_or_unavailable",
-      "followupStatus": "blocked_or_unavailable",
+      "followupStatus": "deferred_budget",
       "errors": [
         "Official source HTTP 403",
         "Request ceiling reached"
@@ -1551,7 +1259,7 @@
       "sourceId": "source-c097dd348b752921bea443eb7b7c0f",
       "officialURL": "https://www.rockymountnc.gov/187/Planning-Board",
       "accessStatus": "blocked_or_unavailable",
-      "followupStatus": "blocked_or_unavailable",
+      "followupStatus": "deferred_budget",
       "errors": [
         "Official source HTTP 403",
         "Request ceiling reached"
@@ -1565,7 +1273,7 @@
       "sourceId": "source-0a32fe57a76422488f9e41c09118a8",
       "officialURL": "https://www.wilsonnc.org/residents/all-departments/development-services/development-activity-map",
       "accessStatus": "document_adapter_candidate",
-      "followupStatus": "blocked_or_unavailable",
+      "followupStatus": "deferred_budget",
       "errors": [
         "Embedded ArcGIS application needs its service configuration resolved: https://experience.arcgis.com/experience/26ec7b3691e04933a370fe3b6150bb94",
         "Request ceiling reached"

@@ -1,0 +1,150 @@
+{
+  "checkedAt": "2026-10-29T15:33:58.944Z",
+  "networkRequests": 0,
+  "results": [
+    {
+      "name": "Alamance",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 2,
+      "url": "https://www.alamancecountync.gov/property_records/planning/planning_board/planning_board_calendars_and_agendas.php",
+      "snapshotAt": "2026-10-29T15:01:23.772Z",
+      "sourceHash": "ea7f60c2c9a1ddacf7947bf9be4ce45fd4e115830016754b36633fa927a3994c"
+    },
+    {
+      "name": "Burke",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 20,
+      "url": "https://www.burkenc.org/AgendaCenter/Planning-Board-4",
+      "snapshotAt": "2026-10-29T15:01:43.378Z",
+      "sourceHash": "f8f38f0df207ae06511c0601045f69b86be4b691e607fb7c7f354c1a24045ff3"
+    },
+    {
+      "name": "Catawba",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 20,
+      "url": "https://www.catawbacountync.gov/county-services/planning/board-agendas-and-projects/",
+      "snapshotAt": "2026-10-29T15:01:44.881Z",
+      "sourceHash": "2d90ec2982e97dd464faf39206d21f20c5414ab7243f1c31a0e3ffc1db69ab2f"
+    },
+    {
+      "name": "Carteret",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 7,
+      "url": "https://carteretcountync.gov/AgendaCenter/Planning-Commission-1/",
+      "snapshotAt": "2026-10-29T15:02:03.941Z",
+      "sourceHash": "ce3fdc7a5a32b3a7255b1804ad96145233cf2fb4e179076ea658014880cee9bf"
+    },
+    {
+      "name": "Caldwell",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 1,
+      "url": "https://caldwellcountync.org/267/Planning-Department",
+      "snapshotAt": "2026-10-29T15:12:44.555Z",
+      "sourceHash": "6be5372040d5a3dd416142548309a42e627cff44b7361f3ba7c7815ca89b3cbc"
+    },
+    {
+      "name": "Duplin",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 2,
+      "url": "https://duplinnc.gov/239/Planning-Board",
+      "snapshotAt": "2026-10-29T15:13:05.175Z",
+      "sourceHash": "55a84f04733a11d1bc8d1bbf61b43ba0544ac4003fb7ed7ffeff9464d3bb6c81"
+    },
+    {
+      "name": "Davidson",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 20,
+      "url": "https://www.co.davidson.nc.us/AgendaCenter/Planning-Board-8/",
+      "snapshotAt": "2026-10-29T15:02:45.416Z",
+      "sourceHash": "c0e0ce0e86897ad0e0418a20bde23a194a588dcac59624e6fe7a682884d91624"
+    },
+    {
+      "name": "Guilford",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 10,
+      "url": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board",
+      "snapshotAt": "2026-10-29T15:13:06.264Z",
+      "sourceHash": "8159fbb4b0f8682a7097d46e2ae04b0c56a2d4a17657d1985974dfe0c40ce8fc"
+    },
+    {
+      "name": "Iredell",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 20,
+      "url": "https://www.iredellcountync.gov/AgendaCenter/Planning-Board-5",
+      "snapshotAt": "2026-10-29T15:03:27.887Z",
+      "sourceHash": "89c1f1383a7914bb87b3db005eb98006452025981e2f019a2ea6771827475c26"
+    },
+    {
+      "name": "Johnston",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 13,
+      "url": "https://www.johnstonnc.gov/planning/content.cfm?pageid=36",
+      "snapshotAt": "2026-10-29T15:03:29.096Z",
+      "sourceHash": "cfa34cb2052350ec4cdd7dfb5a27321cb0c17e16f26d4859cefaa396a1151ca0"
+    },
+    {
+      "name": "Moore",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 2,
+      "url": "https://moorecountync.gov/287/Planning-Board",
+      "snapshotAt": "2026-10-29T15:14:29.662Z",
+      "sourceHash": "145e12d0dc04b386d94807d81e360cc4c7866579f3d56e968a442113f1f88504"
+    },
+    {
+      "name": "Randolph",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 2,
+      "url": "https://randolphcountync.gov/241/Public-Hearing-Information",
+      "snapshotAt": "2026-10-29T15:15:15.359Z",
+      "sourceHash": "792464f4cd08f0013ba21d385b296a7e9457b3eac4c85bfcc6ba402c3aa08bed"
+    },
+    {
+      "name": "Rowan",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 20,
+      "url": "https://www.rowancountync.gov/1272/Planning-Board",
+      "snapshotAt": "2026-10-29T15:24:50.327Z",
+      "sourceHash": "e1680d5a6359155e826ea74b29c4d12eabe3df288712b2e5e4438072d30b82c7"
+    },
+    {
+      "name": "Sampson",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 20,
+      "url": "https://www.sampsoncountync.gov/Government/Board-of-Commissioners/Agendas-and-Minutes",
+      "snapshotAt": "2026-10-29T15:04:55.776Z",
+      "sourceHash": "a34a830491de9f73b6ed1d595f6c97136f3383e65c5c03e4f4d163198ccef2ee"
+    },
+    {
+      "name": "Stanly",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 7,
+      "url": "https://www.stanlycountync.gov/161/Planning-Board",
+      "snapshotAt": "2026-10-29T15:25:10.952Z",
+      "sourceHash": "3a17b12844587ced3c4757dca6ab452cdbe40e7c43a3d24a33009627f66078b9"
+    },
+    {
+      "name": "Watauga",
+      "type": "county",
+      "status": "passed",
+      "documentPointers": 7,
+      "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/planningagendas.aspx",
+      "snapshotAt": "2026-10-29T15:05:15.009Z",
+      "sourceHash": "2f414dd8ae2335c59c4b13a71d35136171aa333d68e16c4dac3438dd3e459dd9"
+    }
+  ]
+}

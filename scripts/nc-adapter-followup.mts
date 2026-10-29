@@ -1,10 +1,10 @@
 /** Resolve explicitly linked resources; canonical host redirects are not access bypasses. */
-import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';import {loadPostgresEnvironment,PostgresDatabase} from '../server/postgres/connection';import {Budget,hash} from '../server/maintenance/policy';import {ResearchReader,linkedArcGISServices} from '../server/maintenance/research-reader';import {officialResources,developmentLayers,mappingProposal} from '../server/maintenance/source-discovery';
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';import {loadPostgresEnvironment,PostgresDatabase} from '../server/postgres/connection';import {Budget,hash,LimitReached} from '../server/maintenance/policy';import {ResearchReader,linkedArcGISServices} from '../server/maintenance/research-reader';import {officialResources,developmentLayers,mappingProposal} from '../server/maintenance/source-discovery';
 loadPostgresEnvironment();const db=new PostgresDatabase(),budget=new Budget(900,100,10000);budget.maxBytes=40_000_000;
 const input=JSON.parse(readFileSync('config/maintenance/nc-adapter-survey.json','utf8')).results,results:any[]=[];
 mkdirSync('../../work/nc-adapters/cache',{recursive:true});
 const reader=new ResearchReader(budget,(url,response)=>writeFileSync('../../work/nc-adapters/cache/'+hash(url)+'.json',JSON.stringify({url,checkedAt:new Date().toISOString(),hash:hash(response.body),body:response.body})));
-const save=()=>writeFileSync('config/maintenance/nc-adapter-followup.json',JSON.stringify({checkedAt:new Date().toISOString(),dryRun:true,reserved:100,requests:budget.requests,results},null,2)+'\n');
+const save=()=>writeFileSync('config/maintenance/nc-adapter-followup.json',JSON.stringify({checkedAt:new Date().toISOString(),dryRun:true,status:results.some(r=>r.status==='deferred_budget')?'partially_completed':'in_progress',reserved:100,requests:budget.requests,results},null,2)+'\n');
 async function inspect(row:any){const result:any={name:row.name,type:row.type,url:row.url,resources:[],feeds:[],errors:[]};try{
  let resources=officialResources(row.url,(await reader.get(row.url)).body);result.resources=resources;
  const services:string[]=[];
@@ -22,7 +22,7 @@ async function inspect(row:any){const result:any={name:row.name,type:row.type,ur
   for(const layer of layers){if(!developmentLayers({layers:[{id:layer.metadata.id,name:layer.metadata.name}]}).length){result.errors.push('Excluded reference/base layer: '+layer.metadata.name);continue;}result.feeds.push({url:layer.url,name:layer.metadata.name,geometryType:layer.metadata.geometryType,config:mappingProposal(layer.metadata),parent:row.url});}
  }
  result.status=result.feeds.length?'schema_candidate_requires_sample':result.resources.some((r:any)=>r.kind==='document')?'document_links_verified':'adapter_still_required';
- }catch(e:any){result.status='blocked_or_unavailable';result.errors.push(e.message);}results.push(result);save();console.log(JSON.stringify({area:result.name,status:result.status,feeds:result.feeds.length,documents:result.resources.filter((r:any)=>r.kind==='document').length,errors:result.errors}));}
+ }catch(e:any){result.status=e instanceof LimitReached?'deferred_budget':'blocked_or_unavailable';result.errors.push(e.message);}results.push(result);save();console.log(JSON.stringify({area:result.name,status:result.status,feeds:result.feeds.length,documents:result.resources.filter((r:any)=>r.kind==='document').length,errors:result.errors}));}
 try{
  const reserved=await db.query("UPDATE buildwatch.maintenance_monthly SET requests_reserved=requests_reserved+100 WHERE month=date_trunc('month',now())::date AND requests_reserved+100<=(SELECT monthly_requests FROM buildwatch.maintenance_control WHERE id=1) AND NOT(SELECT schedule_enabled OR writes_enabled FROM buildwatch.maintenance_control WHERE id=1) RETURNING month");if(!reserved.rowCount)throw Error('Research budget or dry-run gate prevents follow-up');
  // Concentrate on resolvable apps, same-host redirects, and pages needing an index.

@@ -16,7 +16,7 @@
           "Official source reference only. Access policy, current project coverage, field mappings and pilot validation remain required.",
           "Official source HTTP 403"
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "adapter_still_required",
         "sourceRole": "discovery_candidate",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -30,11 +30,7 @@
         "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
         "scopeVerified": false,
         "statusScope": "unverified"
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Access retest only; no development adapter is asserted"
   },
@@ -55,7 +51,7 @@
           "Official source reference only. Access policy, current project coverage, field mappings and pilot validation remain required.",
           "No retrieval error recorded for the official homepage."
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "adapter_still_required",
         "sourceRole": "discovery_candidate",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -69,11 +65,7 @@
         "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
         "scopeVerified": false,
         "statusScope": "unverified"
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Access retest only; no development adapter is asserted"
   },
@@ -94,7 +86,7 @@
           "Official source reference only. Access policy, current project coverage, field mappings and pilot validation remain required.",
           "Official source HTTP 403"
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "adapter_still_required",
         "sourceRole": "discovery_candidate",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -108,11 +100,7 @@
         "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
         "scopeVerified": false,
         "statusScope": "unverified"
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Access retest only; no development adapter is asserted"
   },
@@ -133,7 +121,7 @@
           "Official source reference only. Access policy, current project coverage, field mappings and pilot validation remain required.",
           "Official source HTTP 403"
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "adapter_still_required",
         "sourceRole": "discovery_candidate",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -147,11 +135,7 @@
         "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
         "scopeVerified": false,
         "statusScope": "unverified"
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Access retest only; no development adapter is asserted"
   },
@@ -172,7 +156,7 @@
           "Official source reference only. Access policy, current project coverage, field mappings and pilot validation remain required.",
           "Official source HTTP 520"
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "adapter_still_required",
         "sourceRole": "discovery_candidate",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -186,11 +170,7 @@
         "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
         "scopeVerified": false,
         "statusScope": "unverified"
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Access retest only; no development adapter is asserted"
   },
@@ -211,7 +191,7 @@
           "Official source reference only. Access policy, current project coverage, field mappings and pilot validation remain required.",
           "Official source HTTP 403"
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "adapter_still_required",
         "sourceRole": "discovery_candidate",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -225,11 +205,7 @@
         "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
         "scopeVerified": false,
         "statusScope": "unverified"
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Access retest only; no development adapter is asserted"
   },
@@ -250,7 +226,7 @@
           "Official source reference only. Access policy, current project coverage, field mappings and pilot validation remain required.",
           "No retrieval error recorded for the official homepage."
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "adapter_still_required",
         "sourceRole": "discovery_candidate",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -264,11 +240,7 @@
         "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
         "scopeVerified": false,
         "statusScope": "unverified"
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Access retest only; no development adapter is asserted"
   },
@@ -289,7 +261,7 @@
           "Official source reference only. Access policy, current project coverage, field mappings and pilot validation remain required.",
           "Official source HTTP 302"
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "adapter_still_required",
         "sourceRole": "discovery_candidate",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -303,11 +275,7 @@
         "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
         "scopeVerified": false,
         "statusScope": "unverified"
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Access retest only; no development adapter is asserted"
   },
@@ -328,7 +296,7 @@
           "Official source reference only. Access policy, current project coverage, field mappings and pilot validation remain required.",
           "Official source HTTP 403"
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "adapter_still_required",
         "sourceRole": "discovery_candidate",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -342,11 +310,7 @@
         "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
         "scopeVerified": false,
         "statusScope": "unverified"
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Access retest only; no development adapter is asserted"
   },
@@ -367,7 +331,7 @@
           "Official source reference only. Access policy, current project coverage, field mappings and pilot validation remain required.",
           "No retrieval error recorded for the official homepage."
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "adapter_still_required",
         "sourceRole": "discovery_candidate",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -381,11 +345,7 @@
         "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
         "scopeVerified": false,
         "statusScope": "unverified"
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Access retest only; no development adapter is asserted"
   },
@@ -406,7 +366,7 @@
           "Official source reference only. Access policy, current project coverage, field mappings and pilot validation remain required.",
           "Official source HTTP 403"
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "adapter_still_required",
         "sourceRole": "discovery_candidate",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -420,11 +380,7 @@
         "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
         "scopeVerified": false,
         "statusScope": "unverified"
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Access retest only; no development adapter is asserted"
   },
@@ -445,7 +401,7 @@
           "Official source reference only. Access policy, current project coverage, field mappings and pilot validation remain required.",
           "Official source HTTP 403"
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "adapter_still_required",
         "sourceRole": "discovery_candidate",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -459,11 +415,7 @@
         "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
         "scopeVerified": false,
         "statusScope": "unverified"
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Access retest only; no development adapter is asserted"
   },
@@ -484,7 +436,7 @@
           "Official source reference only. Access policy, current project coverage, field mappings and pilot validation remain required.",
           "Official source HTTP 301"
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "adapter_still_required",
         "sourceRole": "discovery_candidate",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -498,11 +450,7 @@
         "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
         "scopeVerified": false,
         "statusScope": "unverified"
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Access retest only; no development adapter is asserted"
   },
@@ -522,7 +470,7 @@
         "notes": [
           "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "document_index_adapter_built",
         "sourceRole": "document_review",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -540,11 +488,7 @@
         "noticeDiscovery": true,
         "noticePathPattern": "^/",
         "noticeLimit": 20
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Official document pointers only"
   },
@@ -564,7 +508,7 @@
         "notes": [
           "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "document_index_adapter_built",
         "sourceRole": "document_review",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -582,11 +526,7 @@
         "noticeDiscovery": true,
         "noticePathPattern": "^/",
         "noticeLimit": 20
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Official document pointers only"
   },
@@ -606,7 +546,7 @@
         "notes": [
           "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "document_index_adapter_built",
         "sourceRole": "document_review",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -624,11 +564,7 @@
         "noticeDiscovery": true,
         "noticePathPattern": "^/",
         "noticeLimit": 20
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Official document pointers only"
   },
@@ -648,7 +584,7 @@
         "notes": [
           "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "document_index_adapter_built",
         "sourceRole": "document_review",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -666,11 +602,7 @@
         "noticeDiscovery": true,
         "noticePathPattern": "^/",
         "noticeLimit": 20
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Official document pointers only"
   },
@@ -690,7 +622,7 @@
         "notes": [
           "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "document_index_adapter_built",
         "sourceRole": "document_review",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -708,137 +640,7 @@
         "noticeDiscovery": true,
         "noticePathPattern": "^/",
         "noticeLimit": 20
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
-    },
-    "coverage": "Official document pointers only"
-  },
-  {
-    "name": "Cleveland",
-    "type": "county",
-    "source": {
-      "id": "source-95d9889770928289a4228634df3344",
-      "state": "NC",
-      "jurisdiction": "Cleveland County — disabled source candidate",
-      "url": "https://www.clevelandcounty.com/main/departments/planning___zoning/zoning_services.php",
-      "adapter": "document",
-      "authority": "official",
-      "enabled": false,
-      "autopublish": false,
-      "config": {
-        "notes": [
-          "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
-        ],
-        "readiness": "source_candidate_adapter_pending",
-        "sourceRole": "document_review",
-        "approvalPending": true,
-        "registryVersion": "nc-50k-2026-10-29",
-        "coverageEntities": [
-          {
-            "name": "Cleveland",
-            "type": "county",
-            "population": 102115
-          }
-        ],
-        "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
-        "mappingVersion": "nc-document-index-v1-2026-10-29",
-        "statusScope": "agenda-index",
-        "scopeVerified": false,
-        "noticeDiscovery": true,
-        "noticePathPattern": "^/",
-        "noticeLimit": 20
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
-    },
-    "coverage": "Official document pointers only"
-  },
-  {
-    "name": "Columbus",
-    "type": "county",
-    "source": {
-      "id": "source-b5b39ca7a85fc2b5e7c3046c1ab01f",
-      "state": "NC",
-      "jurisdiction": "Columbus County — disabled source candidate",
-      "url": "https://www.columbusco.org/planning-department",
-      "adapter": "document",
-      "authority": "official",
-      "enabled": false,
-      "autopublish": false,
-      "config": {
-        "notes": [
-          "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
-        ],
-        "readiness": "source_candidate_adapter_pending",
-        "sourceRole": "document_review",
-        "approvalPending": true,
-        "registryVersion": "nc-50k-2026-10-29",
-        "coverageEntities": [
-          {
-            "name": "Columbus",
-            "type": "county",
-            "population": 50341
-          }
-        ],
-        "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
-        "mappingVersion": "nc-document-index-v1-2026-10-29",
-        "statusScope": "agenda-index",
-        "scopeVerified": false,
-        "noticeDiscovery": true,
-        "noticePathPattern": "^/",
-        "noticeLimit": 20
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
-    },
-    "coverage": "Official document pointers only"
-  },
-  {
-    "name": "Cumberland",
-    "type": "county",
-    "source": {
-      "id": "source-5d468d8691a475e0f40980ced00edc",
-      "state": "NC",
-      "jurisdiction": "Cumberland County — disabled source candidate",
-      "url": "https://www.cumberlandcountync.gov/departments/planning-group/planning-and-inspections/boards/planning-board",
-      "adapter": "document",
-      "authority": "official",
-      "enabled": false,
-      "autopublish": false,
-      "config": {
-        "notes": [
-          "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
-        ],
-        "readiness": "source_candidate_adapter_pending",
-        "sourceRole": "document_review",
-        "approvalPending": true,
-        "registryVersion": "nc-50k-2026-10-29",
-        "coverageEntities": [
-          {
-            "name": "Cumberland",
-            "type": "county",
-            "population": 341048
-          }
-        ],
-        "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
-        "mappingVersion": "nc-document-index-v1-2026-10-29",
-        "statusScope": "agenda-index",
-        "scopeVerified": false,
-        "noticeDiscovery": true,
-        "noticePathPattern": "^/",
-        "noticeLimit": 20
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Official document pointers only"
   },
@@ -858,7 +660,7 @@
         "notes": [
           "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "document_index_adapter_built",
         "sourceRole": "document_review",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -876,11 +678,7 @@
         "noticeDiscovery": true,
         "noticePathPattern": "^/",
         "noticeLimit": 20
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Official document pointers only"
   },
@@ -900,7 +698,7 @@
         "notes": [
           "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "document_index_adapter_built",
         "sourceRole": "document_review",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -918,11 +716,7 @@
         "noticeDiscovery": true,
         "noticePathPattern": "^/",
         "noticeLimit": 20
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
     },
     "coverage": "Official document pointers only"
   },
@@ -942,7 +736,7 @@
         "notes": [
           "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
         ],
-        "readiness": "source_candidate_adapter_pending",
+        "readiness": "document_index_adapter_built",
         "sourceRole": "document_review",
         "approvalPending": true,
         "registryVersion": "nc-50k-2026-10-29",
@@ -960,11 +754,121 @@
         "noticeDiscovery": true,
         "noticePathPattern": "^/",
         "noticeLimit": 20
-      },
-      "last_success": null,
-      "last_error": null,
-      "successes": 0,
-      "failures": 0
+      }
+    },
+    "coverage": "Official document pointers only"
+  },
+  {
+    "name": "Iredell",
+    "type": "county",
+    "source": {
+      "id": "source-80db8a2efa6290c0ea70de5bf1a3ab",
+      "state": "NC",
+      "jurisdiction": "Iredell County — disabled source candidate",
+      "url": "https://www.iredellcountync.gov/AgendaCenter/Planning-Board-5",
+      "adapter": "document",
+      "authority": "official",
+      "enabled": false,
+      "autopublish": false,
+      "config": {
+        "notes": [
+          "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+        ],
+        "readiness": "document_index_adapter_built",
+        "sourceRole": "document_review",
+        "approvalPending": true,
+        "registryVersion": "nc-50k-2026-10-29",
+        "coverageEntities": [
+          {
+            "name": "Iredell",
+            "type": "county",
+            "population": 214151
+          }
+        ],
+        "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+        "mappingVersion": "nc-document-index-v1-2026-10-29",
+        "statusScope": "agenda-index",
+        "scopeVerified": false,
+        "noticeDiscovery": true,
+        "noticePathPattern": "^/",
+        "noticeLimit": 20
+      }
+    },
+    "coverage": "Official document pointers only"
+  },
+  {
+    "name": "Johnston",
+    "type": "county",
+    "source": {
+      "id": "source-2fd3e8779402dabf2c984380a9d112",
+      "state": "NC",
+      "jurisdiction": "Johnston County — disabled source candidate",
+      "url": "https://www.johnstonnc.gov/planning/content.cfm?pageid=36",
+      "adapter": "document",
+      "authority": "official",
+      "enabled": false,
+      "autopublish": false,
+      "config": {
+        "notes": [
+          "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+        ],
+        "readiness": "document_index_adapter_built",
+        "sourceRole": "document_review",
+        "approvalPending": true,
+        "registryVersion": "nc-50k-2026-10-29",
+        "coverageEntities": [
+          {
+            "name": "Johnston",
+            "type": "county",
+            "population": 257598
+          }
+        ],
+        "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+        "mappingVersion": "nc-document-index-v1-2026-10-29",
+        "statusScope": "agenda-index",
+        "scopeVerified": false,
+        "noticeDiscovery": true,
+        "noticePathPattern": "^/",
+        "noticeLimit": 20
+      }
+    },
+    "coverage": "Official document pointers only"
+  },
+  {
+    "name": "Moore",
+    "type": "county",
+    "source": {
+      "id": "source-75a100bc242482400a1ce99edbfd25",
+      "state": "NC",
+      "jurisdiction": "Moore County — disabled source candidate",
+      "url": "https://moorecountync.gov/287/Planning-Board",
+      "adapter": "document",
+      "authority": "official",
+      "enabled": false,
+      "autopublish": false,
+      "config": {
+        "notes": [
+          "Dynamic links from the verified official index only; no automatic project facts or meeting associations."
+        ],
+        "readiness": "document_index_adapter_built",
+        "sourceRole": "document_review",
+        "approvalPending": true,
+        "registryVersion": "nc-50k-2026-10-29",
+        "coverageEntities": [
+          {
+            "name": "Moore",
+            "type": "county",
+            "population": 112063
+          }
+        ],
+        "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+        "mappingVersion": "nc-document-index-v1-2026-10-29",
+        "statusScope": "agenda-index",
+        "scopeVerified": false,
+        "noticeDiscovery": true,
+        "noticePathPattern": "^/",
+        "noticeLimit": 20
+      }
     },
     "coverage": "Official document pointers only"
   }

@@ -25,3 +25,10 @@ test('source policies and request/record budgets stop work conservatively',()=>{
 test('inactive states do no HTTP work and a source outage is partial, never success',async()=>{const skipped=await runState(async()=>({status:'skipped'}),{state:'VA',mode:'weekly',dryRun:true,key:'test'},async()=>{throw Error('unexpected HTTP');});assert.equal(skipped.status,'skipped');
 const calls:any[]=[];const rpc:any=async(action:string,input:any)=>{calls.push([action,input]);if(action==='claim')return{status:'running',run:{id:'r',lease:'l',checkpoint:{}},state:{max_seconds:30,max_requests:3,max_records:50},sources:[source]};if(action==='expirations')return[];return{};};
 const result=await runState(rpc,{state:'NC',mode:'weekly',dryRun:true,key:'test'},async()=>new Response('unavailable',{status:403}));assert.equal(result.status,'partially_completed');assert.equal(result.sourceFailures,1);assert.ok(calls.some(v=>v[0]==='finish'&&v[1].status==='partially_completed'));});
+test('resuming a completed index preserves unresolved PDF blockers',async()=>{
+ const selected={...source,adapter:'document',config:{noticePathPattern:'^/packet',agendaPDFReview:true,agendaPDFLimit:1}};let saved:any={};
+ const rpc:any=async(action:string,input:any)=>{if(action==='claim')return{run:{id:'r',lease:'l',checkpoint:saved.checkpoint||{},stats:saved.stats||{}},state:{max_seconds:30,max_requests:8,max_records:100},sources:[selected]};if(action==='finish')saved=structuredClone(input);return{};};
+ const first=await runState(rpc,{state:'NC',mode:'initial',dryRun:true,key:'pdf',onlySource:'fixture'},async(url:any)=>new Response(String(url).endsWith('robots.txt')?'':String(url).includes('/packet')?'not a PDF':'<a href="/packet.pdf">Official agenda packet</a>'));
+ assert.equal(first.status,'partially_completed');assert.match(first.error,/Not a bounded PDF/);
+ const second=await runState(rpc,{state:'NC',mode:'initial',dryRun:true,key:'pdf',onlySource:'fixture'},async()=>{throw Error('Index should already be checkpointed');});assert.equal(second.status,'partially_completed');assert.match(second.error,/Not a bounded PDF/);
+});

@@ -1,0 +1,777 @@
+{
+  "checkedAt": "2026-10-29T15:42:49.420Z",
+  "dryRun": true,
+  "githubRun": "https://github.com/Deleuzebot/BuildWatch/actions/runs/40902191918",
+  "rows": [
+    {
+      "name": "Buncombe",
+      "type": "county",
+      "url": "https://www.buncombenc.gov/307/Planning-Development",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "partially_completed",
+      "githubError": "Buncombe County — disabled source candidate: Unable to verify source access policy: Official source HTTP 403",
+      "followup": "blocked_or_unavailable",
+      "issues": [
+        "Official source HTTP 403",
+        "Official source HTTP 403"
+      ]
+    },
+    {
+      "name": "Alamance",
+      "type": "county",
+      "url": "https://www.alamancecountync.gov/property_records/planning/planning_board/planning_board_calendars_and_agendas.php",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 2,
+      "github": "awaiting_review",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Cabarrus",
+      "type": "county",
+      "url": "https://www.cabarruscounty.us/Government/Boards-and-Committees/Planning-and-Zoning-Commission-Meetings/2026-Past-Planning-and-Zoning-Meetings",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "adapter_still_required",
+      "issues": []
+    },
+    {
+      "name": "Burke",
+      "type": "county",
+      "url": "https://www.burkenc.org/AgendaCenter/Planning-Board-4",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 20,
+      "github": "awaiting_review",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Catawba",
+      "type": "county",
+      "url": "https://www.catawbacountync.gov/county-services/planning/board-agendas-and-projects/",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 20,
+      "github": "awaiting_review",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Chatham",
+      "type": "county",
+      "url": "https://www.chathamcountync.gov/government/departments-programs-i-z/planning/boards-committees/appearance-commission-information/appearance-commission-submittals/2026-submittals",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "partially_completed",
+      "githubError": "Chatham County — disabled source candidate: Unable to verify source access policy: Official source HTTP 403",
+      "followup": "blocked_or_unavailable",
+      "issues": [
+        "Official source HTTP 404",
+        "Official source HTTP 404"
+      ]
+    },
+    {
+      "name": "Carteret",
+      "type": "county",
+      "url": "https://carteretcountync.gov/AgendaCenter/Planning-Commission-1/",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 7,
+      "github": "awaiting_review",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Caldwell",
+      "type": "county",
+      "url": "https://caldwellcountync.org/267/Planning-Department",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 1,
+      "github": "awaiting_review",
+      "githubError": "",
+      "followup": "document_links_verified",
+      "issues": []
+    },
+    {
+      "name": "Cleveland",
+      "type": "county",
+      "url": "https://www.clevelandcounty.com/main/departments/planning___zoning/zoning_services.php",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "awaiting_review",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Columbus",
+      "type": "county",
+      "url": "https://www.columbusco.org/planning-department",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "awaiting_review",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Cumberland",
+      "type": "county",
+      "url": "https://www.cumberlandcountync.gov/departments/planning-group/planning-and-inspections/boards/planning-board",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "awaiting_review",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Craven",
+      "type": "county",
+      "url": "https://www.cravencountync.gov/1559/Planning-Board",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "adapter_still_required",
+      "issues": []
+    },
+    {
+      "name": "Durham",
+      "type": "county",
+      "url": "https://dconc.gov/Clerk-to-the-Board/Boards-and-Commissions/Minutes-and-Meeting-Information/Durham-Planning-Commission",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "adapter_still_required",
+      "issues": []
+    },
+    {
+      "name": "Forsyth",
+      "type": "county",
+      "url": "https://maps.co.forsyth.nc.us/arcgis/rest/services/Planning_Inspection/Development_And_Permits/FeatureServer",
+      "build": "structured_mapping_needs_validation",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Duplin",
+      "type": "county",
+      "url": "https://duplinnc.gov/239/Planning-Board",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 2,
+      "github": "awaiting_review",
+      "githubError": "",
+      "followup": "document_links_verified",
+      "issues": []
+    },
+    {
+      "name": "Davidson",
+      "type": "county",
+      "url": "https://www.co.davidson.nc.us/AgendaCenter/Planning-Board-8/",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 20,
+      "github": "awaiting_review",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Franklin",
+      "type": "county",
+      "url": "https://www.franklincountync.gov/226/Planning-Inspections",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "partially_completed",
+      "githubError": "Franklin County — disabled source candidate: Unable to verify source access policy: Official source HTTP 403",
+      "followup": "blocked_or_unavailable",
+      "issues": [
+        "Official source HTTP 403",
+        "Official source HTTP 403"
+      ]
+    },
+    {
+      "name": "Granville",
+      "type": "county",
+      "url": "https://www.granvillecounty.org/391/Planning-Board",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "partially_completed",
+      "githubError": "Granville County — disabled source candidate: Unable to verify source access policy: Official source HTTP 403",
+      "followup": "blocked_or_unavailable",
+      "issues": [
+        "Official source HTTP 403",
+        "Official source HTTP 403"
+      ]
+    },
+    {
+      "name": "Guilford",
+      "type": "county",
+      "url": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 10,
+      "github": "awaiting_review",
+      "githubError": "",
+      "followup": "document_links_verified",
+      "issues": []
+    },
+    {
+      "name": "Gaston",
+      "type": "county",
+      "url": "https://gastongov.com/382/Planning-and-Zoning-Board",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "adapter_still_required",
+      "issues": []
+    },
+    {
+      "name": "Henderson",
+      "type": "county",
+      "url": "https://www.hendersoncountync.gov/planning/page/meeting-materials",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "partially_completed",
+      "githubError": "Henderson County — disabled source candidate: Official source HTTP 520",
+      "followup": "blocked_or_unavailable",
+      "issues": [
+        "Official source HTTP 520",
+        "Official source HTTP 520"
+      ]
+    },
+    {
+      "name": "Hoke",
+      "type": "county",
+      "url": "https://www.hokecounty.net/241/Planning-Zoning",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "adapter_still_required",
+      "issues": []
+    },
+    {
+      "name": "Haywood",
+      "type": "county",
+      "url": "https://haywoodcountync.gov/712/Agendas-Minutes-Videos",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "adapter_still_required",
+      "issues": []
+    },
+    {
+      "name": "Iredell",
+      "type": "county",
+      "url": "https://www.iredellcountync.gov/AgendaCenter/Planning-Board-5",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 20,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Lenoir",
+      "type": "county",
+      "url": "https://lenoircountync.gov/government/planning-board/2026-planning-board-meetings/",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "schema_candidate_requires_sample",
+      "issues": [
+        "Embedded ArcGIS application needs its service configuration resolved: https://www.arcgis.com/apps/webappviewer/index.html?id=68c0618065d04f1182fb86cb5b6647de"
+      ]
+    },
+    {
+      "name": "Johnston",
+      "type": "county",
+      "url": "https://www.johnstonnc.gov/planning/content.cfm?pageid=36",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 13,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Lee",
+      "type": "county",
+      "url": "https://www.sanfordnc.net/869/Development-Tracking-Interactive-Map",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "schema_candidate_requires_sample",
+      "issues": [
+        "Embedded ArcGIS application needs its service configuration resolved: https://experience.arcgis.com/experience/6c6fd3657b5c47e1aa48fb2b55f5f816"
+      ]
+    },
+    {
+      "name": "Lincoln",
+      "type": "county",
+      "url": "https://lincolncountync.gov/371/Pending-Applications",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "blocked_or_unavailable",
+      "issues": [
+        "Embedded ArcGIS application needs its service configuration resolved: https://lincolncountync.maps.arcgis.com/apps/webappviewer/index.html?id=2e01b3030fb640fbbef0d431613e9204&center=-9041971.4705009554,4235931.1717584403,102100&scale=4514",
+        "Embedded ArcGIS application needs its service configuration resolved: https://lincolncountync.maps.arcgis.com/apps/webappviewer/index.html?id=2e01b3030fb640fbbef0d431613e9204&center=-9017603.1076374073,4233535.350137,102100&scale=4514",
+        "Source network retries exhausted"
+      ]
+    },
+    {
+      "name": "Mecklenburg",
+      "type": "county",
+      "url": "https://www.mecknc.gov/service/land-use-and-environmental-services",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Moore",
+      "type": "county",
+      "url": "https://moorecountync.gov/287/Planning-Board",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 2,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "document_links_verified",
+      "issues": []
+    },
+    {
+      "name": "Nash",
+      "type": "county",
+      "url": "https://nashcountync.gov/310/Planning-Board",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "document_links_verified",
+      "issues": []
+    },
+    {
+      "name": "New Hanover",
+      "type": "county",
+      "url": "https://www.nhcgov.com/543/Development-Activity",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "schema_candidate_requires_sample",
+      "issues": []
+    },
+    {
+      "name": "Onslow",
+      "type": "county",
+      "url": "https://www.onslowcountync.gov/AgendaCenter/Planning-Board-3",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "partially_completed",
+      "githubError": "Onslow County — disabled source candidate: Unable to verify source access policy: Official source HTTP 403",
+      "followup": "blocked_or_unavailable",
+      "issues": [
+        "Official source HTTP 403",
+        "Official source HTTP 403"
+      ]
+    },
+    {
+      "name": "Orange",
+      "type": "county",
+      "url": "https://www.co.orange.nc.us/planning",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "partially_completed",
+      "githubError": "Orange County — disabled source candidate: Unable to verify source access policy: Official source HTTP 301",
+      "followup": "blocked_or_unavailable",
+      "issues": [
+        "Official source HTTP 301",
+        "Official source HTTP 301"
+      ]
+    },
+    {
+      "name": "Pitt",
+      "type": "county",
+      "url": "https://www.pittcountync.gov/303/Planning-Board",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "document_links_verified",
+      "issues": []
+    },
+    {
+      "name": "Randolph",
+      "type": "county",
+      "url": "https://randolphcountync.gov/241/Public-Hearing-Information",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 2,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "document_links_verified",
+      "issues": []
+    },
+    {
+      "name": "Rutherford",
+      "type": "county",
+      "url": "https://www.rutherfordcountync.gov/departments/planning/index.php",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "partially_completed",
+      "githubError": "Rutherford County — disabled source candidate: Unable to verify source access policy: Official source HTTP 302",
+      "followup": "blocked_or_unavailable",
+      "issues": [
+        "Official source HTTP 302",
+        "Official source HTTP 302"
+      ]
+    },
+    {
+      "name": "Rockingham",
+      "type": "county",
+      "url": "https://www.rockinghamcountync.gov/21287/Planning-Board",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "partially_completed",
+      "githubError": "Rockingham County — disabled source candidate: Official source HTTP 403",
+      "followup": "blocked_or_unavailable",
+      "issues": [
+        "Official source HTTP 403",
+        "Official source HTTP 403"
+      ]
+    },
+    {
+      "name": "Robeson",
+      "type": "county",
+      "url": "https://www.robesoncountync.gov/boc-agenda",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Rowan",
+      "type": "county",
+      "url": "https://www.rowancountync.gov/1272/Planning-Board",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 20,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "document_links_verified",
+      "issues": []
+    },
+    {
+      "name": "Surry",
+      "type": "county",
+      "url": "https://www.co.surry.nc.us/departments/planning.php",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "adapter_still_required",
+      "issues": []
+    },
+    {
+      "name": "Union",
+      "type": "county",
+      "url": "https://it.unioncountync.gov/government/departments-f-p/planning-development",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "partially_completed",
+      "githubError": "Union County — disabled source candidate: Official source HTTP 403",
+      "followup": "blocked_or_unavailable",
+      "issues": [
+        "Official source HTTP 403",
+        "Official source HTTP 403"
+      ]
+    },
+    {
+      "name": "Sampson",
+      "type": "county",
+      "url": "https://www.sampsoncountync.gov/Government/Board-of-Commissioners/Agendas-and-Minutes",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 20,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Stanly",
+      "type": "county",
+      "url": "https://www.stanlycountync.gov/161/Planning-Board",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 7,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "document_links_verified",
+      "issues": []
+    },
+    {
+      "name": "Watauga",
+      "type": "county",
+      "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/planningagendas.aspx",
+      "build": "document_index_adapter_built",
+      "fixture": "passed",
+      "documentPointers": 7,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": null,
+      "issues": [
+        "Embedded ArcGIS application needs its service configuration resolved: https://unca.maps.arcgis.com/apps/webappviewer/index.html?id=e9f79de934f24e40a71bab8db8050612/"
+      ]
+    },
+    {
+      "name": "Wake",
+      "type": "county",
+      "url": "https://www.wake.gov/doing-business/find-planning-zoning-info",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Wilkes",
+      "type": "county",
+      "url": "https://www.wilkescounty.net/258/Planning",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "document_links_verified",
+      "issues": []
+    },
+    {
+      "name": "Wayne",
+      "type": "county",
+      "url": "https://www.waynegov.com/333/Planning-Department",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "adapter_still_required",
+      "issues": []
+    },
+    {
+      "name": "Concord",
+      "type": "city",
+      "url": "https://concordnc.gov/Departments/Planning-Development-Services/GIS",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "deferred_budget",
+      "issues": [
+        "Request ceiling reached"
+      ]
+    },
+    {
+      "name": "Chapel Hill",
+      "type": "city",
+      "url": "https://www.chapelhillnc.gov/Business-and-Development/Active-Development",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "deferred_budget",
+      "issues": [
+        "Request ceiling reached"
+      ]
+    },
+    {
+      "name": "Wilson",
+      "type": "county",
+      "url": "https://www.wilsoncountync.gov/departments/development-services",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "adapter_still_required",
+      "issues": []
+    },
+    {
+      "name": "Burlington",
+      "type": "city",
+      "url": "https://www.burlingtonnc.gov/2208",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": null,
+      "issues": []
+    },
+    {
+      "name": "Greenville",
+      "type": "city",
+      "url": "https://www.greenvillenc.gov/522/Planning",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "partially_completed",
+      "githubError": "Greenville — disabled source candidate: Unable to verify source access policy: Official source HTTP 403",
+      "followup": "blocked_or_unavailable",
+      "issues": [
+        "Official source HTTP 403",
+        "Official source HTTP 403"
+      ]
+    },
+    {
+      "name": "Kannapolis",
+      "type": "city",
+      "url": "https://www.kannapolisnc.gov/Government-Departments/Planning",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "deferred_budget",
+      "issues": [
+        "Request ceiling reached"
+      ]
+    },
+    {
+      "name": "Greensboro",
+      "type": "city",
+      "url": "https://www.greensboro-nc.gov/departments/planning/view",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "deferred_budget",
+      "issues": [
+        "Request ceiling reached"
+      ]
+    },
+    {
+      "name": "Jacksonville",
+      "type": "city",
+      "url": "https://www.jacksonvillenc.gov/733/Permitting-Planning-Zoning",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "deferred_budget",
+      "issues": [
+        "Request ceiling reached"
+      ]
+    },
+    {
+      "name": "Raleigh",
+      "type": "city",
+      "url": "https://raleighnc.gov/planning/services/current-development-activity",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "partially_completed",
+      "githubError": "Raleigh — disabled source candidate: Unable to verify source access policy: Official source HTTP 403",
+      "followup": "deferred_budget",
+      "issues": [
+        "Official source HTTP 403",
+        "Request ceiling reached"
+      ]
+    },
+    {
+      "name": "Rocky Mount",
+      "type": "city",
+      "url": "https://www.rockymountnc.gov/187/Planning-Board",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "partially_completed",
+      "githubError": "Rocky Mount — disabled source candidate: Unable to verify source access policy: Official source HTTP 403",
+      "followup": "deferred_budget",
+      "issues": [
+        "Official source HTTP 403",
+        "Request ceiling reached"
+      ]
+    },
+    {
+      "name": "Wilson",
+      "type": "city",
+      "url": "https://www.wilsonnc.org/residents/all-departments/development-services/development-activity-map",
+      "build": "adapter_still_required",
+      "fixture": "not_applicable",
+      "documentPointers": 0,
+      "github": "not_in_selected_sample",
+      "githubError": "",
+      "followup": "deferred_budget",
+      "issues": [
+        "Embedded ArcGIS application needs its service configuration resolved: https://experience.arcgis.com/experience/26ec7b3691e04933a370fe3b6150bb94",
+        "Request ceiling reached"
+      ]
+    }
+  ]
+}

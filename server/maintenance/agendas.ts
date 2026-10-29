@@ -8,7 +8,7 @@ export function extractAgendaPDF(data:Buffer):Promise<PDFText>{
   const timer=setTimeout(()=>{child.kill('SIGKILL');finish(Error('PDF extraction time ceiling reached'));},15000);
   child.on('error',e=>finish(e));child.stdin.on('error',()=>{});child.stderr.resume();
   child.stdout.on('data',b=>{bytes+=b.length;if(bytes>1_000_000){child.kill('SIGKILL');finish(Error('PDF text ceiling reached'));}else out.push(b);});
-  child.on('close',code=>{if(code!==0)return finish(Error('PDF extractor unavailable, malformed/encrypted document, or resource limit; manual review required'));try{const value=JSON.parse(Buffer.concat(out).toString());if(!Array.isArray(value.pages)||value.pages.length>50)throw Error('Invalid PDF text');finish(undefined,value);}catch{finish(Error('PDF text could not be validated'));}});
+  child.on('close',code=>{if(code!==0)return finish(Error('PDF extractor unavailable, malformed/encrypted document, or resource limit; manual review required'));try{const value=JSON.parse(Buffer.concat(out).toString());if(!Array.isArray(value.pages)||value.pages.length>50||value.pages.some((p:any)=>typeof p.text!=='string'))throw Error('Invalid PDF text');if(value.pages.reduce((n:number,p:any)=>n+p.text.trim().length,0)<40)return finish(Error('Insufficient PDF text; scanned or empty document requires manual review'));finish(undefined,value);}catch{finish(Error('PDF text could not be validated'));}});
   child.stdin.end(data);
  });
 }

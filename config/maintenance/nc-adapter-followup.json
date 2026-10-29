@@ -2598,7 +2598,7 @@
       "errors": [
         "Request ceiling reached"
       ],
-      "status": "blocked_or_unavailable"
+      "status": "deferred_budget"
     },
     {
       "name": "Chapel Hill",
@@ -2664,7 +2664,7 @@
       "errors": [
         "Request ceiling reached"
       ],
-      "status": "blocked_or_unavailable"
+      "status": "deferred_budget"
     },
     {
       "name": "Greensboro",
@@ -2675,7 +2675,7 @@
       "errors": [
         "Request ceiling reached"
       ],
-      "status": "blocked_or_unavailable"
+      "status": "deferred_budget"
     },
     {
       "name": "Kannapolis",
@@ -2686,7 +2686,7 @@
       "errors": [
         "Request ceiling reached"
       ],
-      "status": "blocked_or_unavailable"
+      "status": "deferred_budget"
     },
     {
       "name": "Raleigh",
@@ -2697,7 +2697,7 @@
       "errors": [
         "Request ceiling reached"
       ],
-      "status": "blocked_or_unavailable"
+      "status": "deferred_budget"
     },
     {
       "name": "Jacksonville",
@@ -2708,7 +2708,7 @@
       "errors": [
         "Request ceiling reached"
       ],
-      "status": "blocked_or_unavailable"
+      "status": "deferred_budget"
     },
     {
       "name": "Wilson",
@@ -2719,7 +2719,7 @@
       "errors": [
         "Request ceiling reached"
       ],
-      "status": "blocked_or_unavailable"
+      "status": "deferred_budget"
     },
     {
       "name": "Rocky Mount",
@@ -2730,7 +2730,9 @@
       "errors": [
         "Request ceiling reached"
       ],
-      "status": "blocked_or_unavailable"
+      "status": "deferred_budget"
     }
-  ]
+  ],
+  "status": "partially_completed",
+  "deferredAreas": 8
 }

@@ -6,4 +6,5 @@ test('official notice indexes retain same-origin document links, deduplicate and
 test('dynamic document adapter excludes navigation, forms, cancelled meetings and external documents',()=>{
  const s:any={url:'https://government.example/planning',config:{noticeDiscovery:true,noticePathPattern:'^/',noticeLimit:20}};
  const links=noticeLinks(s,'<a href="#main">Skip to main content</a><a href="/DocumentCenter/View/1/Rezoning-Applicationpdf">Rezoning Application.pdf</a><a href="/DocumentCenter/View/2/Agenda">Planning agenda</a><a href="/DocumentCenter/View/3/Agenda">Cancelled meeting</a><a href="https://elsewhere.example/agenda.pdf">Planning agenda</a>');assert.deepEqual(links,[{title:'Planning agenda',url:'https://government.example/DocumentCenter/View/2/Agenda'}]);
+ assert.deepEqual(noticeLinks(s,'<a href="/DocumentCenter/View/4/Planning-Board-Schedule">2026 Meeting Schedule</a><a href="/DocumentCenter/View/5/Planning-Board-Bylaws">Planning Board Bylaws</a>'),[]);
 });
