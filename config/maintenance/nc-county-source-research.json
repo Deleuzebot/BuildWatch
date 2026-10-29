@@ -1,0 +1,1358 @@
+{
+  "discoveryOnly": true,
+  "warning": "Search results are source candidates. None are approved for automatic ingestion or publication.",
+  "entries": [
+    {
+      "name": "Alamance",
+      "type": "county",
+      "homepage": "https://alamancecountync.gov/",
+      "query": "site:alamancecountync.gov \"Alamance\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:10.011Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Alamance County, NC",
+          "url": "https://www.alamancecountync.gov/property_records/planning/planning_board/planning_board_calendars_and_agendas.php"
+        },
+        {
+          "title": "Alamance County, NC",
+          "url": "https://www.alamancecountync.gov/property_records/planning/development/technical_review_committee.php"
+        },
+        {
+          "title": "Alamance County, NC",
+          "url": "https://www.alamancecountync.gov/property_records/planning/planning_board/index.php"
+        },
+        {
+          "title": "Alamance County, NC",
+          "url": "https://www.alamancecountync.gov/property_records/planning/planning_board/planning_board_meeting_archive.php"
+        }
+      ]
+    },
+    {
+      "name": "Brunswick",
+      "type": "county",
+      "homepage": "https://www.brunswickcountync.gov/",
+      "query": "site:brunswickcountync.gov \"Brunswick\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:09.087Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Planning Board | Brunswick County, NC",
+          "url": "https://www.brunswickcountync.gov/587/Planning-Board"
+        },
+        {
+          "title": "Archived Planning Board Agendas & Minutes | Brunswick County, NC",
+          "url": "https://www.brunswickcountync.gov/910/Archived-Planning-Board-Agendas-Minutes"
+        },
+        {
+          "title": "Development Dashboards & Maps | Brunswick County, NC",
+          "url": "https://brunswickcountync.gov/1008/Development-Dashboards-Maps"
+        },
+        {
+          "title": "GIS, Maps, & Data | Brunswick County, NC",
+          "url": "https://www.brunswickcountync.gov/876/GIS-Maps-Data"
+        }
+      ]
+    },
+    {
+      "name": "Buncombe",
+      "type": "county",
+      "homepage": "https://www.buncombenc.gov/",
+      "query": "site:buncombenc.gov \"Buncombe\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:09.373Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Development Projects | Buncombe County, NC",
+          "url": "https://www.buncombenc.gov/810/Development-Projects"
+        },
+        {
+          "title": "Development Projects - Buncombe County, NC",
+          "url": "https://developmentprojects.buncombenc.gov/"
+        },
+        {
+          "title": "Planning & Development | Buncombe County, NC",
+          "url": "https://www.buncombenc.gov/307/Planning-Development"
+        },
+        {
+          "title": "Development Projects - Buncombe County, NC",
+          "url": "https://developmentprojects.buncombenc.gov/default.aspx"
+        }
+      ]
+    },
+    {
+      "name": "Burke",
+      "type": "county",
+      "homepage": "https://www.burkenc.org/",
+      "query": "site:burkenc.org \"Burke\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:09.151Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Agenda Center • Burke County, NC • CivicEngage",
+          "url": "https://burkenc.org/agendacenter"
+        },
+        {
+          "title": "Agenda Center • Burke County, NC • CivicEngage",
+          "url": "https://www.burkenc.org/agendacenter"
+        },
+        {
+          "title": "Agenda Center • Burke County, NC • CivicEngage",
+          "url": "https://www.burkenc.org/AgendaCenter/Planning-Board-4"
+        },
+        {
+          "title": "Agenda Center • Burke County, NC • CivicEngage",
+          "url": "https://www.burkenc.org/AgendaCenter"
+        }
+      ]
+    },
+    {
+      "name": "Cabarrus",
+      "type": "county",
+      "homepage": "https://www.cabarruscounty.us/",
+      "query": "site:cabarruscounty.us \"Cabarrus\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:13.608Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "2026 Past Planning and Zoning Meetings Cabarrus County",
+          "url": "https://www.cabarruscounty.us/Government/Boards-and-Committees/Planning-and-Zoning-Commission-Meetings/2026-Past-Planning-and-Zoning-Meetings"
+        },
+        {
+          "title": "Planning and Zoning Commission Cabarrus County",
+          "url": "https://www.cabarruscounty.us/Government/Boards-and-Committees/Planning-and-Zoning-Commission"
+        },
+        {
+          "title": "Commissioner Meetings Cabarrus County",
+          "url": "https://www.cabarruscounty.us/Government/Departments/Board-of-Commissioners/Commissioner-Meetings"
+        },
+        {
+          "title": "Planning Cabarrus County",
+          "url": "https://www.cabarruscounty.us/Government/Departments/Planning"
+        }
+      ]
+    },
+    {
+      "name": "Caldwell",
+      "type": "county",
+      "homepage": "https://www.caldwellcountync.org/",
+      "query": "site:caldwellcountync.org \"Caldwell\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:11.432Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Planning Department | Caldwell County, NC",
+          "url": "https://caldwellcountync.org/267/Planning-Department"
+        },
+        {
+          "title": "Board of Commissioners | Caldwell County, NC",
+          "url": "https://www.caldwellcountync.org/351/Board-of-Commissioners"
+        },
+        {
+          "title": "Planning Board & Board of Adjustment | Caldwell County, NC",
+          "url": "https://www.caldwellcountync.org/349/Planning-Board-Board-of-Adjustment"
+        },
+        {
+          "title": "Government | Caldwell County, NC",
+          "url": "https://www.caldwellcountync.org/27/Government"
+        }
+      ]
+    },
+    {
+      "name": "Carteret",
+      "type": "county",
+      "homepage": "https://www.carteretcountync.gov/",
+      "query": "site:carteretcountync.gov \"Carteret\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:11.589Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Agenda Center • Carteret County, NC • CivicEngage",
+          "url": "https://carteretcountync.gov/AgendaCenter/Planning-Commission-1/"
+        },
+        {
+          "title": "Agenda Center • Carteret County, NC • CivicEngage",
+          "url": "https://www.carteretcountync.gov/AgendaCenter/Planning-Commission-1"
+        },
+        {
+          "title": "Agenda Center • Carteret County, NC • CivicEngage",
+          "url": "https://www.carteretcountync.gov/AgendaCenter"
+        },
+        {
+          "title": "Agenda Center • Carteret County, NC • CivicEngage",
+          "url": "https://www.carteretcountync.gov/agendacenter"
+        }
+      ]
+    },
+    {
+      "name": "Catawba",
+      "type": "county",
+      "homepage": "https://www.catawbacountync.gov/",
+      "query": "site:catawbacountync.gov \"Catawba\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:11.021Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Catawba County, North Carolina",
+          "url": "https://www.catawbacountync.gov/county-services/planning/board-agendas-and-projects/"
+        },
+        {
+          "title": "Catawba County, North Carolina",
+          "url": "https://catawbacountync.gov/county-services/planning/board-agendas-and-projects/"
+        },
+        {
+          "title": "Catawba County, North Carolina",
+          "url": "https://catawbacountync.gov/county-services/planning/"
+        },
+        {
+          "title": "Catawba County, North Carolina",
+          "url": "https://catawbacountync.gov/county-government/board-of-commissioners/agendas-minutes/"
+        }
+      ]
+    },
+    {
+      "name": "Chatham",
+      "type": "county",
+      "homepage": "https://www.chathamcountync.gov/",
+      "query": "site:chathamcountync.gov \"Chatham\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:14.731Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "2026 Submittals | Chatham County, NC",
+          "url": "https://www.chathamcountync.gov/government/departments-programs-i-z/planning/boards-committees/appearance-commission-information/appearance-commission-submittals/2026-submittals"
+        },
+        {
+          "title": "Town Hall and Planning Board Agendas and Minutes | Chatham County, NC",
+          "url": "https://www.chathamcountync.gov/government/departments-programs-i-z/planning/town-of-goldston/agendas-and-minutes"
+        },
+        {
+          "title": "Planning | Chatham County, NC",
+          "url": "https://www.chathamcountync.gov/government/departments-programs-i-z/planning?locale=en"
+        },
+        {
+          "title": "Planning Board Meetings | Chatham County, NC",
+          "url": "https://www.chathamcountync.gov/government/departments-programs-i-z/planning/boards-committees/planning-board/planning-board-meetings/-toggle-allupcoming"
+        }
+      ]
+    },
+    {
+      "name": "Cleveland",
+      "type": "county",
+      "homepage": "https://www.clevelandcounty.com/",
+      "query": "site:clevelandcounty.com \"Cleveland\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:14.977Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Cleveland County Board of Commissioners",
+          "url": "https://www.clevelandcounty.com/main/Document%20Center/Agendas%20and%20Minutes/BOARD%20OF%20COUNTY%20COMMISSIONERS/2024/11142024%20KM%20PH%20Meeting.pdf"
+        },
+        {
+          "title": "Cleveland County, NC",
+          "url": "https://www.clevelandcounty.com/main/government/board_of_county_commissioners/boards___committees/planning_boards.php"
+        },
+        {
+          "title": "Cleveland County, NC",
+          "url": "https://www.clevelandcounty.com/main/sitemap.php"
+        },
+        {
+          "title": "Cleveland County Seeking Applicants for Advisory Boards and Commissions",
+          "url": "https://www.clevelandcounty.com/main/news_detail_T23_R125.php"
+        }
+      ]
+    },
+    {
+      "name": "Columbus",
+      "type": "county",
+      "homepage": "https://www.columbusco.org/",
+      "query": "site:columbusco.org \"Columbus\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:14.621Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "COLUMBUS COUNTY BOARD OF COMMISSIONERS",
+          "url": "https://www.columbusco.org/sites/default/files/uploads/agendas/1jan-6-25-agenda.pdf"
+        },
+        {
+          "title": "Planning Department | Columbus County, NC",
+          "url": "https://www.columbusco.org/planning-department"
+        },
+        {
+          "title": "COLUMBUS COUNTY BOARD OF COMMISSIONERS",
+          "url": "https://www.columbusco.org/sites/default/files/uploads/agendas/2025-01-21.pdf"
+        },
+        {
+          "title": "Agendas and Minutes | Columbus County, NC",
+          "url": "https://www.columbusco.org/agendas-and-minutes"
+        }
+      ]
+    },
+    {
+      "name": "Craven",
+      "type": "county",
+      "homepage": "https://www.cravencountync.gov/",
+      "query": "site:cravencountync.gov \"Craven\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:14.819Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Agenda Center • Craven County • CivicEngage",
+          "url": "https://www.cravencountync.gov/AgendaCenter"
+        },
+        {
+          "title": "RE",
+          "url": "https://www.cravencountync.gov/AgendaCenter/ViewFile/Minutes/_04062026-383"
+        },
+        {
+          "title": "Projects | Craven County",
+          "url": "https://cravencountync.gov/2590/Projects"
+        },
+        {
+          "title": "Planning Board | Craven County",
+          "url": "https://www.cravencountync.gov/1559/Planning-Board"
+        }
+      ]
+    },
+    {
+      "name": "Cumberland",
+      "type": "county",
+      "homepage": "https://www.cumberlandcountync.gov/",
+      "query": "site:cumberlandcountync.gov \"Cumberland\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:16.137Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Comprehensive Planning",
+          "url": "https://www.cumberlandcountync.gov/departments/planning-group/planning-and-inspections/planning/comprehensive-planning"
+        },
+        {
+          "title": "Joint Planning Board",
+          "url": "https://www.cumberlandcountync.gov/departments/planning-group/planning-and-inspections/boards/planning-board"
+        },
+        {
+          "title": "Citizen Connect & Decision Engine",
+          "url": "https://www.cumberlandcountync.gov/departments/is-technology-group/innovation-and-technology-services/cumberlandone-program/citizen-connect-decision-engine"
+        },
+        {
+          "title": "Planning & Inspections Rolls Out Online Permitting Tools",
+          "url": "https://www.cumberlandcountync.gov/departments/public-information-group/public-information/news-releases/news-release-full-story/2026/07/02/planning-inspections-rolls-out-online-permitting-tools"
+        }
+      ]
+    },
+    {
+      "name": "Davidson",
+      "type": "county",
+      "homepage": "https://www.co.davidson.nc.us/",
+      "query": "site:co.davidson.nc.us \"Davidson\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:16.798Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Agenda Center • Davidson County, NC • CivicEngage",
+          "url": "https://www.co.davidson.nc.us/AgendaCenter/Planning-Board-8/"
+        },
+        {
+          "title": "Planning Board | Davidson County, NC",
+          "url": "https://www.co.davidson.nc.us/335/Planning"
+        },
+        {
+          "title": "Agenda Center • Davidson County, NC • CivicEngage",
+          "url": "https://www.co.davidson.nc.us/AgendaCenter/PreviousVersions/_10062026-272"
+        },
+        {
+          "title": "Agenda Center • Davidson County, NC • CivicEngage",
+          "url": "https://www.co.davidson.nc.us/AgendaCenter"
+        }
+      ]
+    },
+    {
+      "name": "Duplin",
+      "type": "county",
+      "homepage": "https://www.duplinnc.gov/",
+      "query": "site:duplinnc.gov \"Duplin\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:16.220Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Planning Board | Duplin County, NC",
+          "url": "https://duplinnc.gov/239/Planning-Board"
+        },
+        {
+          "title": "Agenda Center • Duplin County, NC • CivicEngage",
+          "url": "https://duplinnc.gov/AgendaCenter"
+        },
+        {
+          "title": "Planning | Duplin County, NC",
+          "url": "https://www.duplinnc.gov/206/Planning"
+        },
+        {
+          "title": "Find | Duplin County, NC",
+          "url": "https://www.duplinnc.gov/144/Find"
+        }
+      ]
+    },
+    {
+      "name": "Durham",
+      "type": "county",
+      "homepage": "https://dconc.gov/",
+      "query": "site:dconc.gov \"Durham\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:16.969Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Durham County | Durham Planning Commission",
+          "url": "https://dconc.gov/Clerk-to-the-Board/Boards-and-Commissions/Minutes-and-Meeting-Information/Durham-Planning-Commission"
+        },
+        {
+          "title": "Durham County",
+          "url": "https://dconc.gov/Board-of-Commissioners1/Archived-Agendas--Minutes/20250Copy/2.2.2026-WS1.pdf"
+        },
+        {
+          "title": "Durham County | Durham Planning & Development",
+          "url": "https://dconc.gov/PublicSite/Departments/CityCounty-Planning"
+        },
+        {
+          "title": "Durham County | BOCC Agendas & Video Library",
+          "url": "https://dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library"
+        }
+      ]
+    },
+    {
+      "name": "Forsyth",
+      "type": "county",
+      "homepage": "https://www.co.forsyth.nc.us/",
+      "query": "site:co.forsyth.nc.us \"Forsyth\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:18.091Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "BRIEFING DRAFT",
+          "url": "https://www.co.forsyth.nc.us/Admin/Uploads/Agendas/132629698801591445.pdf"
+        },
+        {
+          "title": "FORSYTH COUNTY",
+          "url": "https://www.co.forsyth.nc.us/Admin/Uploads/Agendas/132628752700480452.pdf"
+        },
+        {
+          "title": "FORSYTH COUNTY",
+          "url": "https://www.co.forsyth.nc.us/Admin/Uploads/Agendas/132604663979008710.pdf"
+        },
+        {
+          "title": "Planning_Inspection/Development_And_Permits (FeatureServer)",
+          "url": "https://maps.co.forsyth.nc.us/arcgis/rest/services/Planning_Inspection/Development_And_Permits/FeatureServer"
+        }
+      ]
+    },
+    {
+      "name": "Franklin",
+      "type": "county",
+      "homepage": "https://www.franklincountync.gov/",
+      "query": "site:franklincountync.gov \"Franklin\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:18.141Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Agenda Center • Franklin County, NC • CivicEngage",
+          "url": "https://www.franklincountync.gov/AgendaCenter/Planning-Board-3/"
+        },
+        {
+          "title": "Agenda Center • Franklin County, NC • CivicEngage",
+          "url": "https://www.franklincountync.gov/agendacenter"
+        },
+        {
+          "title": "Planning & Inspections | Franklin County, NC",
+          "url": "https://www.franklincountync.gov/226/Planning-Inspections"
+        },
+        {
+          "title": "Project Management Office | Franklin County, NC",
+          "url": "https://www.franklincountync.gov/529/Project-Management-Office"
+        }
+      ]
+    },
+    {
+      "name": "Gaston",
+      "type": "county",
+      "homepage": "https://www.gastongov.com/",
+      "query": "site:gastongov.com \"Gaston\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:18.095Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Gaston County and Municipal Planners (GCaMP) | Gaston County, NC",
+          "url": "https://www.gastongov.com/1325/Gaston-County-and-Municipal-Planners-GCa"
+        },
+        {
+          "title": "Planning and Zoning Board | Gaston County, NC",
+          "url": "https://gastongov.com/382/Planning-and-Zoning-Board"
+        },
+        {
+          "title": "AGENDA",
+          "url": "https://www.gastongov.com/DocumentCenter/View/7721/GCLPMO-Board-Agenda-May-22-2025-PDF?bidId="
+        },
+        {
+          "title": "Meeting Information Help | Gaston County, NC",
+          "url": "https://www.gastongov.com/193/Meeting-Information-Help"
+        }
+      ]
+    },
+    {
+      "name": "Granville",
+      "type": "county",
+      "homepage": "https://www.granvillecounty.org/",
+      "query": "site:granvillecounty.org \"Granville\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:18.296Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Planning Board | Granville County, NC",
+          "url": "https://www.granvillecounty.org/391/Planning-Board"
+        },
+        {
+          "title": "Capital Improvement Plan | Granville County, NC",
+          "url": "https://www.granvillecounty.org/919/Capital-Improvement-Plan"
+        },
+        {
+          "title": "Agenda Center • Granville County, NC • CivicEngage",
+          "url": "https://www.granvillecounty.org/agendacenter"
+        },
+        {
+          "title": "Granville County Animal Shelter",
+          "url": "https://www.granvillecounty.org/DocumentCenter/View/4693/Granville-County-Animal-Shelter-Foster-Care-Handbook-PDF"
+        }
+      ]
+    },
+    {
+      "name": "Guilford",
+      "type": "county",
+      "homepage": "https://www.guilfordcountync.gov/",
+      "query": "site:guilfordcountync.gov \"Guilford\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:19.338Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Notices for Guilford",
+          "url": "https://legalnotices.guilfordcountync.gov/"
+        },
+        {
+          "title": "Planning Board | Guilford County",
+          "url": "https://www.guilfordcountync.gov/government/departments-and-agencies/planning-and-development/boards-and-commissions/planning-board"
+        },
+        {
+          "title": "Civic Access Public Portal Guidance | Guilford County",
+          "url": "https://www.guilfordcountync.gov/government/departments-and-agencies/inspections/civic-access-public-portal-guidance"
+        },
+        {
+          "title": "Notices for Guilford",
+          "url": "https://legalnotices.guilfordcountync.gov/Default.aspx/Default.aspx"
+        }
+      ]
+    },
+    {
+      "name": "Harnett",
+      "type": "county",
+      "homepage": "https://harnett.org/",
+      "query": "site:harnett.org \"Harnett\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:20.001Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Harnett County Current Projects and Applications",
+          "url": "https://www.harnett.org/planning/current-projects-and-applications-.asp"
+        },
+        {
+          "title": "Harnett County Current Projects and Applications",
+          "url": "https://beta.harnett.org/planning/current-projects-and-applications-.asp"
+        },
+        {
+          "title": "Harnett County Development Review Board",
+          "url": "https://www.harnett.org/planning/development-review-board.asp"
+        },
+        {
+          "title": "Harnett County Planning Services: Welcome",
+          "url": "https://harnett.org/planning/"
+        }
+      ]
+    },
+    {
+      "name": "Haywood",
+      "type": "county",
+      "homepage": "https://www.haywoodcountync.gov/",
+      "query": "site:haywoodcountync.gov \"Haywood\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:19.748Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Agendas, Minutes, & Videos | Haywood County, NC",
+          "url": "https://haywoodcountync.gov/712/Agendas-Minutes-Videos"
+        },
+        {
+          "title": "Haywood County, NC | Official Website",
+          "url": "https://haywoodcountync.gov/"
+        },
+        {
+          "title": "Site Map • Haywood County, NC • CivicEngage",
+          "url": "https://www.haywoodcountync.gov/sitemap"
+        },
+        {
+          "title": "Notify Me • Haywood County, NC • CivicEngage",
+          "url": "https://haywoodcountync.gov/List.aspx"
+        }
+      ]
+    },
+    {
+      "name": "Henderson",
+      "type": "county",
+      "homepage": "https://www.hendersoncountync.gov/",
+      "query": "site:hendersoncountync.gov \"Henderson\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:19.549Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Meetings | Henderson County North Carolina",
+          "url": "https://www.hendersoncountync.gov/recent_meetings"
+        },
+        {
+          "title": "Meeting Materials | Henderson County North Carolina",
+          "url": "https://www.hendersoncountync.gov/planning/page/meeting-materials"
+        },
+        {
+          "title": "Meetings | Henderson County North Carolina",
+          "url": "https://www.hendersoncountync.gov/meetings"
+        },
+        {
+          "title": "1",
+          "url": "https://www.hendersoncountync.gov/sites/default/files/fileattachments/board_of_commissioners/meeting/138624/03.18.2026_agenda_f.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Hoke",
+      "type": "county",
+      "homepage": "https://www.hokecounty.net/",
+      "query": "site:hokecounty.net \"Hoke\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:21.150Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Planning / Zoning | Hoke County, NC - Official Website",
+          "url": "https://www.hokecounty.net/241/Planning-Zoning"
+        },
+        {
+          "title": "Applications | Hoke County, NC - Official Website",
+          "url": "https://www.hokecounty.net/263/Applications"
+        },
+        {
+          "title": "Central Permitting | Hoke County, NC - Official Website",
+          "url": "https://www.hokecounty.net/240/Permits"
+        },
+        {
+          "title": "View | Hoke County, NC - Official Website",
+          "url": "https://www.hokecounty.net/136/View"
+        }
+      ]
+    },
+    {
+      "name": "Iredell",
+      "type": "county",
+      "homepage": "https://www.iredellcountync.gov/",
+      "query": "site:iredellcountync.gov \"Iredell\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:21.046Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Agenda Center • Iredell County, NC • CivicEngage",
+          "url": "https://www.iredellcountync.gov/AgendaCenter/Planning-Board-5"
+        },
+        {
+          "title": "Agenda Center • Iredell County, NC • CivicEngage",
+          "url": "https://www.iredellcountync.gov/agendacenter"
+        },
+        {
+          "title": "Agenda Center • Iredell County, NC • CivicEngage",
+          "url": "https://iredellcountync.gov/AgendaCenter"
+        },
+        {
+          "title": "Agenda Center • Iredell County, NC • CivicEngage",
+          "url": "https://www.iredellcountync.gov/AgendaCenter"
+        }
+      ]
+    },
+    {
+      "name": "Johnston",
+      "type": "county",
+      "homepage": "https://www.johnstonnc.gov/",
+      "query": "site:johnstonnc.gov \"Johnston\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:21.360Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Johnston County Warns Public of Planning Board Email Scam | Johnston County Government | Johnston County, North Carolina",
+          "url": "https://www.johnstonnc.gov/content.cfm?id=1971"
+        },
+        {
+          "title": "Johnston County, Planning and Zoning Department",
+          "url": "https://www.johnstonnc.gov/planning/"
+        },
+        {
+          "title": "Boards | Planning and Zoning | Johnston County, North Carolina",
+          "url": "https://www.johnstonnc.gov/planning/content.cfm?pageid=36"
+        },
+        {
+          "title": "2026 Board Meeting Minutes | Johnston County Government | Johnston County, North Carolina",
+          "url": "https://www.johnstonnc.gov/content.cfm?id=1976"
+        }
+      ]
+    },
+    {
+      "name": "Lee",
+      "type": "county",
+      "homepage": "https://leecountync.gov/",
+      "query": "site:leecountync.gov \"Lee\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:21.287Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Mo",
+          "url": "https://leecountync.gov/Document%20Center/Department/Planning%20Board/2025-02-17%20LCPB%20Agenda-BINDER.pdf"
+        },
+        {
+          "title": "Mo",
+          "url": "https://leecountync.gov/Document%20Center/Department/Planning%20Board/2024-07-15%20LCPB%20Agenda%20Packet%20-%20BINDER.pdf"
+        },
+        {
+          "title": "Mond",
+          "url": "https://leecountync.gov/Document%20Center/Department/Planning%20Board/2025-04-21%20LCPB%20Agenda-Full-BINDER.pdf"
+        },
+        {
+          "title": "Mond",
+          "url": "https://leecountync.gov/Document%20Center/Department/Planning%20Board/000-2025-05-19%20LCPB%20Mtg%20Agenda-BINDER.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Lenoir",
+      "type": "county",
+      "homepage": "https://lenoircountync.gov/",
+      "query": "site:lenoircountync.gov \"Lenoir\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:22.703Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "2026 Planning Board Meetings – Lenoir County, North Carolina | Official Website",
+          "url": "https://lenoircountync.gov/government/planning-board/2026-planning-board-meetings/"
+        },
+        {
+          "title": "Planning Board – Lenoir County, North Carolina | Official Website",
+          "url": "https://lenoircountync.gov/government/planning-board/"
+        },
+        {
+          "title": "Planning & Inspections Department – Lenoir County, North Carolina | Official Website",
+          "url": "https://lenoircountync.gov/planning-inspections-department/"
+        },
+        {
+          "title": "County Commissioners – Lenoir County, North Carolina | Official Website",
+          "url": "https://lenoircountync.gov/government/county-commissioners/"
+        }
+      ]
+    },
+    {
+      "name": "Lincoln",
+      "type": "county",
+      "homepage": "https://www.lincolncountync.gov/",
+      "query": "site:lincolncountync.gov \"Lincoln\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:22.955Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Pending Applications | County of Lincoln, NC - Official Website",
+          "url": "https://lincolncountync.gov/371/Pending-Applications"
+        },
+        {
+          "title": "Lincoln County Board of Commissioner’s Agenda Item Cover Sheet",
+          "url": "https://www.lincolncountync.gov/DocumentCenter/View/25801/20260615-BOC-Packet-for-PB-recommendations"
+        },
+        {
+          "title": "Agenda Center • Lincoln County • CivicEngage",
+          "url": "https://lincolncountync.gov/AgendaCenter"
+        },
+        {
+          "title": "2026 Closed Applications | County of Lincoln, NC - Official Website",
+          "url": "https://www.lincolncountync.gov/2697/2026-Closed-Applications"
+        }
+      ]
+    },
+    {
+      "name": "Mecklenburg",
+      "type": "county",
+      "homepage": "https://www.charlottenc.gov/",
+      "query": "site:charlottenc.gov \"Mecklenburg\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:23.291Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Agendas, Past and Present - City of Charlotte",
+          "url": "https://www.charlottenc.gov/City-Government/Council-Meetings/Agendas-Past-Present"
+        },
+        {
+          "title": "Search Projects and Permits - City of Charlotte",
+          "url": "https://www.charlottenc.gov/Growth-and-Development/Getting-Started-on-Your-Project/Search-Projects-and-Permits"
+        },
+        {
+          "title": "Data Analytics and Visualization - City of Charlotte",
+          "url": "https://www.charlottenc.gov/Growth-and-Development/Planning-and-Development/Planning/Data-Analytics-and-Visualization"
+        },
+        {
+          "title": "HDC Agendas - City of Charlotte",
+          "url": "https://www.charlottenc.gov/Growth-and-Development/Planning-and-Development/Historic-District/HDC-Agendas?lang_update=639171105889012092"
+        }
+      ]
+    },
+    {
+      "name": "Moore",
+      "type": "county",
+      "homepage": "https://www.moorecountync.gov/",
+      "query": "site:moorecountync.gov \"Moore\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:22.481Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Planning Board | Moore County, NC",
+          "url": "https://moorecountync.gov/287/Planning-Board"
+        },
+        {
+          "title": "Planning Board Agenda's & Minutes | Moore County, NC",
+          "url": "https://www.moorecountync.gov/480/Planning-Board-Agendas-Minutes"
+        },
+        {
+          "title": "Planning & Inspections | Moore County, NC",
+          "url": "https://moorecountync.gov/243/Planning-Inspections"
+        },
+        {
+          "title": "Planning | Moore County, NC",
+          "url": "https://moorecountync.gov/271/Planning"
+        }
+      ]
+    },
+    {
+      "name": "Nash",
+      "type": "county",
+      "homepage": "https://nashcountync.gov/",
+      "query": "site:nashcountync.gov \"Nash\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:25.377Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Agenda Center • Nash County, NC • CivicEngage",
+          "url": "https://nashcountync.gov/AgendaCenter"
+        },
+        {
+          "title": "Planning Board | Nash County, NC - Official Website",
+          "url": "https://nashcountync.gov/310/Planning-Board"
+        },
+        {
+          "title": "Agenda Center • Nash County, NC • CivicEngage",
+          "url": "https://nashcountync.gov/agendacenter"
+        },
+        {
+          "title": "Nash County Board of Commissioners",
+          "url": "https://nashcountync.gov/AgendaCenter/ViewFile/Agenda/_02162026-710"
+        }
+      ]
+    },
+    {
+      "name": "New Hanover",
+      "type": "county",
+      "homepage": "https://www.nhcgov.com/",
+      "query": "site:nhcgov.com \"New Hanover\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:24.614Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Development Activity | New Hanover County, NC",
+          "url": "https://www.nhcgov.com/543/Development-Activity"
+        },
+        {
+          "title": "Boards & Meetings | New Hanover County, NC",
+          "url": "https://strategy.nhcgov.com/1103/Boards-Meetings"
+        },
+        {
+          "title": "Boards & Meetings | New Hanover County, NC",
+          "url": "https://planning.nhcgov.com/1103/Boards-Meetings"
+        },
+        {
+          "title": "Residential Projects | New Hanover County, NC",
+          "url": "https://www.nhcgov.com/595/Residential-Projects"
+        }
+      ]
+    },
+    {
+      "name": "Onslow",
+      "type": "county",
+      "homepage": "https://www.onslowcountync.gov/",
+      "query": "site:onslowcountync.gov \"Onslow\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:24.658Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Agenda Center • Onslow County, NC • CivicEngage",
+          "url": "https://www.onslowcountync.gov/AgendaCenter/Planning-Board-3"
+        },
+        {
+          "title": "Planning Board | Onslow County, NC",
+          "url": "https://www.onslowcountync.gov/651/Planning-Board"
+        },
+        {
+          "title": "Project Tracker | Onslow County, NC",
+          "url": "https://www.onslowcountync.gov/1128/Project-Tracker"
+        },
+        {
+          "title": "Agenda Center • Onslow County, NC • CivicEngage",
+          "url": "https://www.onslowcountync.gov/agendacenter"
+        }
+      ]
+    },
+    {
+      "name": "Orange",
+      "type": "county",
+      "homepage": "https://www.orangecountync.gov/",
+      "query": "site:orangecountync.gov \"Orange\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:24.277Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Orange County Planning and Inspections Newsletter - August 5, 2026",
+          "url": "https://www.orangecountync.gov/CivicSend/ViewMessage/message/296229"
+        },
+        {
+          "title": "Orange County Planning and Inspections Newsletter - February 26, 2026",
+          "url": "https://www.orangecountync.gov/CivicSend/ViewMessage/message/283559"
+        },
+        {
+          "title": "Orange County Planning and Inspections Newsletter - August 27, 2026",
+          "url": "https://www.orangecountync.gov/CivicSend/ViewMessage/message/298500"
+        },
+        {
+          "title": "Orange County Planning and Inspections Newsletter - May 29, 2025",
+          "url": "https://www.orangecountync.gov/CivicSend/ViewMessage/message/261443"
+        }
+      ]
+    },
+    {
+      "name": "Pender",
+      "type": "county",
+      "homepage": "https://www.pendercountync.gov/",
+      "query": "site:pendercountync.gov \"Pender\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:27.266Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Planning Board | Pender County, NC",
+          "url": "https://pendercountync.gov/441/Planning-Board"
+        },
+        {
+          "title": "Pending & Approved Projects | Pender County, NC",
+          "url": "https://pendercountync.gov/310/Pending-Approved-Projects"
+        },
+        {
+          "title": "Online Services | Pender County, NC",
+          "url": "https://pendercountync.gov/474/Online-Services"
+        },
+        {
+          "title": "Projects in Process | Pender County, NC",
+          "url": "https://pendercountync.gov/2024/Projects-in-Process"
+        }
+      ]
+    },
+    {
+      "name": "Pitt",
+      "type": "county",
+      "homepage": "https://www.pittcountync.gov/",
+      "query": "site:pittcountync.gov \"Pitt\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:26.478Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Planning Board | Pitt County, NC",
+          "url": "https://www.pittcountync.gov/303/Planning-Board"
+        },
+        {
+          "title": "Agenda Center • Pitt County, NC • CivicEngage",
+          "url": "https://www.pittcountync.gov/AgendaCenter/Planning-Board-7"
+        },
+        {
+          "title": "Technical Review Committee | Pitt County, NC",
+          "url": "https://www.pittcountync.gov/317/Technical-Review-Committee"
+        },
+        {
+          "title": "Planning & Development | Pitt County, NC",
+          "url": "https://www.pittcountync.gov/192/Planning-and-Development"
+        }
+      ]
+    },
+    {
+      "name": "Randolph",
+      "type": "county",
+      "homepage": "https://www.randolphcountync.gov/",
+      "query": "site:randolphcountync.gov \"Randolph\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:26.602Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Public Hearing Information | Randolph County, NC",
+          "url": "https://randolphcountync.gov/241/Public-Hearing-Information"
+        },
+        {
+          "title": "Boards | Randolph County, NC",
+          "url": "https://www.randolphcountync.gov/244/Boards"
+        },
+        {
+          "title": "Agenda Center • Randolph County, NC • CivicEngage",
+          "url": "https://www.randolphcountync.gov/AgendaCenter/Planning-and-Zoning-4/"
+        },
+        {
+          "title": "Agenda Center • Randolph County, NC • CivicEngage",
+          "url": "https://www.randolphcountync.gov/AgendaCenter"
+        }
+      ]
+    },
+    {
+      "name": "Robeson",
+      "type": "county",
+      "homepage": "https://www.robesoncountync.gov/",
+      "query": "site:robesoncountync.gov \"Robeson\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:26.493Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Community Mission | Robeson County Administration",
+          "url": "https://www.robesoncountync.gov/communitydev"
+        },
+        {
+          "title": "Robeson County Administration & Commissioners | Robeson County Administration",
+          "url": "https://www.robesoncountync.gov/robeson-county-administration-commissioners"
+        },
+        {
+          "title": "Robeson County Board Meeting Agenda| North Carolina",
+          "url": "https://www.robesoncountync.gov/boc-agenda"
+        },
+        {
+          "title": "Robeson County News, Government Services & Community | Robeson County Administration",
+          "url": "https://www.robesoncountync.gov/"
+        }
+      ]
+    },
+    {
+      "name": "Rockingham",
+      "type": "county",
+      "homepage": "https://www.rockinghamcountync.gov/",
+      "query": "site:rockinghamcountync.gov \"Rockingham\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:28.455Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "September 14, 2026 Planning Board Meeting - Rockingham County NC",
+          "url": "https://www.rockinghamcountync.gov/apps/boards/meetings/details.aspx?meetingid=9432"
+        },
+        {
+          "title": "Planning Board - Rockingham County NC",
+          "url": "https://www.rockinghamcountync.gov/21287/Planning-Board"
+        },
+        {
+          "title": "Planning & Zoning - Rockingham County NC",
+          "url": "https://www.rockinghamcountync.gov/21140/Planning-and-Zoning"
+        },
+        {
+          "title": "Board of Commissioners Meetings - Rockingham County NC",
+          "url": "https://www.rockinghamcountync.gov/apps/boards/meetings/default.aspx?boardid=24&year=2026"
+        }
+      ]
+    },
+    {
+      "name": "Rowan",
+      "type": "county",
+      "homepage": "https://www.rowancountync.gov/",
+      "query": "site:rowancountync.gov \"Rowan\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:28.259Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Planning Board | Rowan County",
+          "url": "https://www.rowancountync.gov/1272/Planning-Board"
+        },
+        {
+          "title": "REQUEST FOR QUALIFICATIONS",
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/54506/RFQ-2026-003-DNP-Master-Site-Plan-Re-postPDF?bidId="
+        },
+        {
+          "title": "REQUEST FOR QUALIFICATIONS",
+          "url": "https://www.rowancountync.gov/DocumentCenter/View/56771"
+        },
+        {
+          "title": "Planning & Development | Rowan County",
+          "url": "https://www.rowancountync.gov/337/Planning-Development"
+        }
+      ]
+    },
+    {
+      "name": "Rutherford",
+      "type": "county",
+      "homepage": "https://www.rutherfordcountync.gov/",
+      "query": "site:rutherfordcountync.gov \"Rutherford\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:28.521Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "…showcasing activities and accomplishments of departments and offices within Rutherford County Government.",
+          "url": "https://www.rutherfordcountync.gov/document_center/County%20Manager/2022%20Year%20End%20Highlights.pdf"
+        },
+        {
+          "title": "RUTHERFORD COUNTY",
+          "url": "https://www.rutherfordcountync.gov/document_center/Finance/2023%20Rutherford%20TDA%20Audit.pdf"
+        },
+        {
+          "title": "Rutherford County",
+          "url": "https://www.rutherfordcountync.gov/document_center/Airport/2025.05.05%20Agenda.pdf"
+        },
+        {
+          "title": "…showcasing activities and accomplishments of departments and offices within Rutherford County Government.",
+          "url": "https://www.rutherfordcountync.gov/document_center/County%20Manager/2024%20Year%20End%20Highlights.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Sampson",
+      "type": "county",
+      "homepage": "https://www.sampsoncountync.gov/",
+      "query": "site:sampsoncountync.gov \"Sampson\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:28.455Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Agendas and Minutes - Sampson County Government",
+          "url": "https://www.sampsoncountync.gov/Government/Board-of-Commissioners/Agendas-and-Minutes"
+        },
+        {
+          "title": "Additional Resources - Sampson County Government",
+          "url": "https://www.sampsoncountync.gov/Business/Development-Services/Additional-Resources"
+        },
+        {
+          "title": "Online Services - Sampson County Government",
+          "url": "https://www.sampsoncountync.gov/Services/Online-Services"
+        },
+        {
+          "title": "Administration - Sampson County Government",
+          "url": "https://www.sampsoncountync.gov/Government/Departments-A-Z/Administration"
+        }
+      ]
+    },
+    {
+      "name": "Stanly",
+      "type": "county",
+      "homepage": "https://www.stanlycountync.gov/",
+      "query": "site:stanlycountync.gov \"Stanly\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:29.885Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Planning Board | Stanly County, NC",
+          "url": "https://www.stanlycountync.gov/161/Planning-Board"
+        },
+        {
+          "title": "Agenda Center • Stanly County, NC • CivicEngage",
+          "url": "https://www.stanlycountync.gov/agendacenter"
+        },
+        {
+          "title": "Board of Adjustment | Stanly County, NC",
+          "url": "https://stanlycountync.gov/425/Board-of-Adjustment"
+        },
+        {
+          "title": "Planning & Zoning | Stanly County, NC",
+          "url": "https://www.stanlycountync.gov/269/Planning-Zoning"
+        }
+      ]
+    },
+    {
+      "name": "Surry",
+      "type": "county",
+      "homepage": "https://www.co.surry.nc.us/",
+      "query": "site:co.surry.nc.us \"Surry\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:29.702Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Land Use Plan 2020",
+          "url": "https://www.co.surry.nc.us/document_center/Planning/Land_Use_Plan_2020__adopted_09_05_2012.pdf"
+        },
+        {
+          "title": "All Layers and Tables (InternalUse/SurryLayers)",
+          "url": "https://gis.co.surry.nc.us/arcgis/rest/services/InternalUse/SurryLayers/MapServer/layers"
+        },
+        {
+          "title": "Meeting o",
+          "url": "https://co.surry.nc.us/document_center/Commissioners/Minutes/2005.pdf"
+        },
+        {
+          "title": "Real Estate Search",
+          "url": "https://gis.co.surry.nc.us/ITSPublic/RealEstateSearch"
+        }
+      ]
+    },
+    {
+      "name": "Union",
+      "type": "county",
+      "homepage": "https://www.unioncountync.gov/",
+      "query": "site:unioncountync.gov \"Union\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:29.822Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Scam Alert: Fake Invoices Issued for County Permits and Projects | News List | Union County, NC",
+          "url": "https://www.unioncountync.gov/Home/Components/News/News/3444/14"
+        },
+        {
+          "title": "Pianificazione e sviluppo | Contea di Union, Carolina del Nord",
+          "url": "https://it.unioncountync.gov/government/departments-f-p/planning-development"
+        },
+        {
+          "title": "Development Data Now Available in Online Map | News List | Union County, NC",
+          "url": "https://www.unioncountync.gov/Home/Components/News/News/1904/"
+        },
+        {
+          "title": "Rural Union County",
+          "url": "https://www.unioncountync.gov/home/showpublisheddocument/10860/638957045143679068"
+        }
+      ]
+    },
+    {
+      "name": "Wake",
+      "type": "county",
+      "homepage": "https://www.wake.gov/",
+      "query": "site:wake.gov \"Wake\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:29.737Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Agenda Items - Citizen Comment",
+          "url": "https://boccomment.wake.gov/AgendaItems/6235"
+        },
+        {
+          "title": "Wake County Open Data",
+          "url": "https://data.wake.gov/"
+        },
+        {
+          "title": "Home Permit Database Search",
+          "url": "https://permitsearch.wake.gov/"
+        },
+        {
+          "title": "wake | Search Results | Wake County Public Libraries",
+          "url": "https://catalog.wake.gov/Union/Search?lookfor=wake&view=list"
+        }
+      ]
+    },
+    {
+      "name": "Watauga",
+      "type": "county",
+      "homepage": "https://www.wataugacounty.org/",
+      "query": "site:wataugacounty.org \"Watauga\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:30.965Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Watauga County, NC",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/planningagendas.aspx"
+        },
+        {
+          "title": "Watauga County, NC",
+          "url": "https://wataugacounty.org/App_Pages/Dept/Planning/planningagendas.aspx"
+        },
+        {
+          "title": "Watauga County, NC",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/BOC/agendas.aspx"
+        },
+        {
+          "title": "TENTATIVE AGENDA & MEETING NOTICE",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/BOC/viewboardpacket.aspx?id=Forms%2FPublicBoardPacket%2F081517BoardPacket.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Wayne",
+      "type": "county",
+      "homepage": "https://www.waynegov.com/",
+      "query": "site:waynegov.com \"Wayne\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:31.066Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Planning Department | Wayne County, NC",
+          "url": "https://www.waynegov.com/333/Planning-Department"
+        },
+        {
+          "title": "Wayne County Planning Board | Wayne County, NC",
+          "url": "https://www.waynegov.com/522/Planning-Board"
+        },
+        {
+          "title": "Notify Me • Wayne County, NC • CivicEngage",
+          "url": "https://www.waynegov.com/list.aspx"
+        },
+        {
+          "title": "Agenda Center • Wayne County, NC • CivicEngage",
+          "url": "https://www.waynegov.com/AgendaCenter"
+        }
+      ]
+    },
+    {
+      "name": "Wilkes",
+      "type": "county",
+      "homepage": "https://www.wilkescounty.net/",
+      "query": "site:wilkescounty.net \"Wilkes\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:31.542Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Transparency / Public Records | Wilkes County, NC",
+          "url": "https://wilkescounty.net/488/Transparency-Public-Records"
+        },
+        {
+          "title": "Planning | Wilkes County, NC",
+          "url": "https://www.wilkescounty.net/258/Planning"
+        },
+        {
+          "title": "MINUTES",
+          "url": "https://www.wilkescounty.net/AgendaCenter/ViewFile/Minutes/_01062026-455"
+        },
+        {
+          "title": "Agenda Center • Wilkes County, NC • CivicEngage",
+          "url": "https://www.wilkescounty.net/agendacenter?PREVIEW=YES"
+        }
+      ]
+    },
+    {
+      "name": "Wilson",
+      "type": "county",
+      "homepage": "https://www.wilsoncountync.gov/",
+      "query": "site:wilsoncountync.gov \"Wilson\" planning development projects agendas",
+      "checkedAt": "2026-10-29T14:36:31.262Z",
+      "verification": "Official-domain search discovery; retrieval policy, target contents and adapter validation remain required",
+      "links": [
+        {
+          "title": "Public Meetings Schedule | Wilson County",
+          "url": "https://www.wilsoncountync.gov/departments/development-services/planning-division/public-meeting-and-fee-schedules"
+        },
+        {
+          "title": "Development Services | Wilson County",
+          "url": "https://www.wilsoncountync.gov/departments/development-services"
+        },
+        {
+          "title": "Applications & Fee Schedule | Wilson County",
+          "url": "https://www.wilsoncountync.gov/departments/forms"
+        },
+        {
+          "title": "2045 Comprehensive Plan | Wilson County",
+          "url": "https://www.wilsoncountync.gov/departments/development-services/planning/2045-comprehensive-plan"
+        }
+      ]
+    }
+  ]
+}

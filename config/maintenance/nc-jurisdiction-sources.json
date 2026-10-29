@@ -1,0 +1,2796 @@
+{
+  "checkedAt": "2026-10-29T14:38:48.267Z",
+  "dryRun": true,
+  "requestReservation": 160,
+  "requests": 140,
+  "coverageWarning": "Official links are research leads, not working ingestion or proof of complete jurisdiction coverage.",
+  "entries": [
+    {
+      "type": "county",
+      "name": "Alamance",
+      "population": 187982,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://alamancecountync.gov/",
+      "checkedAt": "2026-10-29T14:27:12.853Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 301"
+    },
+    {
+      "type": "county",
+      "name": "Brunswick",
+      "population": 176619,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.brunswickcountync.gov/",
+      "checkedAt": "2026-10-29T14:27:13.309Z",
+      "sources": [
+        {
+          "title": "Permits & Development",
+          "url": "https://www.brunswickcountync.gov/808/Permits-Development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Agendas & Minutes Portal",
+          "url": "https://www.brunswickcountync.gov/129/Agendas-Minutes",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "New Emergency Planning Zones for Brunswick Nuclear Plant Go Into Effect This November",
+          "url": "https://www.brunswickcountync.gov/CivicAlerts.aspx?AID=930",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "NCDOT to Hold Public Hearings for the Proposed Replacement of the Cape Fear Memorial Bridge",
+          "url": "https://www.brunswickcountync.gov/CivicAlerts.aspx?AID=860",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": [
+        {
+          "id": "source-84e7a3a53c591fabd79b075e74f04d",
+          "url": "https://services1.arcgis.com/W6gamXPYQeLXrdAd/arcgis/rest/services/Commercial_Development/FeatureServer/82",
+          "scope": "Brunswick County planning inventory",
+          "role": "development_review"
+        },
+        {
+          "id": "source-efb420da53468a1e15e9c1252bf667",
+          "url": "https://services1.arcgis.com/W6gamXPYQeLXrdAd/arcgis/rest/services/ApprovedDev_poly/FeatureServer/0",
+          "scope": "Brunswick County planning inventory",
+          "role": "development_review"
+        }
+      ]
+    },
+    {
+      "type": "county",
+      "name": "Buncombe",
+      "population": 278235,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.buncombenc.gov/",
+      "checkedAt": "2026-10-29T14:27:34.062Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 403"
+    },
+    {
+      "type": "county",
+      "name": "Burke",
+      "population": 90346,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.burkenc.org/",
+      "checkedAt": "2026-10-29T14:27:34.262Z",
+      "sources": [
+        {
+          "title": "Notice of Public Meeting - Planning Board",
+          "url": "https://www.burkenc.org/CivicAlerts.aspx?AID=1770",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Board of Commissioners Pre-Agenda Meeting",
+          "url": "https://www.burkenc.org/Calendar.aspx?EID=999",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Cabarrus",
+      "population": 251342,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.cabarruscounty.us/",
+      "checkedAt": "2026-10-29T14:27:55.075Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 302"
+    },
+    {
+      "type": "county",
+      "name": "Caldwell",
+      "population": 82192,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.caldwellcountync.org/",
+      "checkedAt": "2026-10-29T14:27:56.243Z",
+      "sources": [],
+      "status": "official_homepage_only",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Carteret",
+      "population": 71659,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.carteretcountync.gov/",
+      "checkedAt": "2026-10-29T14:28:16.931Z",
+      "sources": [
+        {
+          "title": "Agenda Center",
+          "url": "https://www.carteretcountync.gov/agendacenter",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning Commission | Regular Meeting Read On...",
+          "url": "https://www.carteretcountync.gov/Calendar.aspx?EID=2680",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Zoning Board of Adjustment | Regular Meeting Read On...",
+          "url": "https://www.carteretcountync.gov/Calendar.aspx?EID=2692",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Catawba",
+      "population": 171604,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.catawbacountync.gov/",
+      "checkedAt": "2026-10-29T14:28:37.568Z",
+      "sources": [
+        {
+          "title": "Planning",
+          "url": "https://www.catawbacountync.gov/county-services/planning-and-parks/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Chatham",
+      "population": 84505,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.chathamcountync.gov/",
+      "checkedAt": "2026-10-29T14:28:38.886Z",
+      "sources": [
+        {
+          "title": "Planning",
+          "url": "https://www.chathamcountync.gov/government/departments-programs-i-z/planning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Cleveland",
+      "population": 102115,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.clevelandcounty.com/",
+      "checkedAt": "2026-10-29T14:28:40.461Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 301"
+    },
+    {
+      "type": "county",
+      "name": "Columbus",
+      "population": 50341,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.columbusco.org/",
+      "checkedAt": "2026-10-29T14:28:41.622Z",
+      "sources": [
+        {
+          "title": "Agendas and Minutes",
+          "url": "https://www.columbusco.org/agendas-and-minutes",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning",
+          "url": "https://www.columbusco.org/planning-department",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Columbus County Water District 5 System Development Fee Plan November 13, 2023 Purpose of the Report Green Engineering was commissioned by the Columbus County Board of Commissioners to analyze its Utility Assets and create a Water System Development Fee (SDF) schedule. This...",
+          "url": "https://www.columbusco.org/news/columbus-county-water-district-5-system-development-fee-plan",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "2026 Planning Board Meeting Schedule",
+          "url": "https://www.columbusco.org/notices/2026-planning-board-meeting-schedule",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Craven",
+      "population": 108175,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.cravencountync.gov/",
+      "checkedAt": "2026-10-29T14:28:43.577Z",
+      "sources": [
+        {
+          "title": "Craven County Launches Online Planning and Inspections Portal",
+          "url": "https://www.cravencountync.gov/CivicAlerts.aspx?AID=1074",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "New Bern Area Metropolitan Planning Organization Transitions to Craven County",
+          "url": "https://www.cravencountync.gov/CivicAlerts.aspx?AID=1068",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Cumberland",
+      "population": 341048,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.cumberlandcountync.gov/",
+      "checkedAt": "2026-10-29T14:29:04.347Z",
+      "sources": [
+        {
+          "title": "Click here to learn more about the proposed data center ordinance.",
+          "url": "https://www.cumberlandcountync.gov/departments/planning-group/planning-and-inspections/datacenter",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Community Development",
+          "url": "https://www.cumberlandcountync.gov/top-navigation-groups/departments/a---c/community-development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning & Inspections",
+          "url": "https://www.cumberlandcountync.gov/top-navigation-groups/departments/j---r/planning-inspections",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Tourism and Development Authority Grant",
+          "url": "https://www.cumberlandcountync.gov/top-navigation-groups/how-do-i/apply-for/tourism-and-development-authority-grant",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Community Development",
+          "url": "https://www.cumberlandcountync.gov/top-navigation-groups/business/other-requests-for-proposals/community-development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning & Inspections",
+          "url": "https://www.cumberlandcountync.gov/top-navigation-groups/business/construction-plan-reviews",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Land Use & Zoning",
+          "url": "https://www.cumberlandcountync.gov/top-navigation-groups/business/construction-plan-reviews/land-use-zoning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Housing Services – Community Development",
+          "url": "https://www.cumberlandcountync.gov/top-navigation-groups/your-gov/resources-services/housing-services-community-development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Agendas & Minutes",
+          "url": "https://www.cumberlandcountync.gov/departments/election-group/elections/agendas-minutes",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Current Agendas & Minutes",
+          "url": "https://www.cumberlandcountync.gov/departments/commissioners-group/commissioners/meetings/schedule-agendas-minutes",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Agendas & Minutes Archive",
+          "url": "https://www.cumberlandcountync.gov/departments/commissioners-group/commissioners/meetings/agendas-minutes-archive",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Public Hearings",
+          "url": "https://www.cumberlandcountync.gov/departments/commissioners-group/commissioners/register-to-speak/public-hearings",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Community Development Group",
+          "url": "https://www.cumberlandcountync.gov/departments/community-development-group",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Community Development",
+          "url": "https://www.cumberlandcountync.gov/departments/community-development-group/community_development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "About Us",
+          "url": "https://www.cumberlandcountync.gov/departments/community-development-group/community_development/about-us",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Point in Time Count",
+          "url": "https://www.cumberlandcountync.gov/departments/community-development-group/community_development/point-in-time-count",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Programs",
+          "url": "https://www.cumberlandcountync.gov/departments/community-development-group/community_development/programs",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Housing Rehabilitation",
+          "url": "https://www.cumberlandcountync.gov/departments/community-development-group/community_development/programs/housing-rehabilitation",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Rental Rehabilitation",
+          "url": "https://www.cumberlandcountync.gov/departments/community-development-group/community_development/programs/rental-rehabilitation",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Homebuyers",
+          "url": "https://www.cumberlandcountync.gov/departments/community-development-group/community_development/programs/homebuyers",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Davidson",
+      "population": 181248,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.co.davidson.nc.us/",
+      "checkedAt": "2026-10-29T14:29:06.288Z",
+      "sources": [],
+      "status": "official_homepage_only",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Duplin",
+      "population": 50548,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.duplinnc.gov/",
+      "checkedAt": "2026-10-29T14:29:26.929Z",
+      "sources": [],
+      "status": "official_homepage_only",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Durham",
+      "population": 345085,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://dconc.gov/",
+      "checkedAt": "2026-10-29T14:29:47.575Z",
+      "sources": [
+        {
+          "title": "Doing Business In Durham County",
+          "url": "https://dconc.gov/Economic-Development/Why-Durham-County",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Entrepreneurs",
+          "url": "https://dconc.gov/Economic-Development/Small-Business-Support-and-Programming",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Board of Commissioners",
+          "url": "https://dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Forsyth",
+      "population": 400766,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.co.forsyth.nc.us/",
+      "checkedAt": "2026-10-29T14:29:49.267Z",
+      "sources": [
+        {
+          "title": "Commissioners Meeting Video Archive",
+          "url": "https://www.co.forsyth.nc.us/commissioners/meeting_agendas.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Transportation Planning Organization Needs your Input",
+          "url": "https://www.co.forsyth.nc.us/article.aspx?NewsID=29289",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Franklin",
+      "population": 82732,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.franklincountync.gov/",
+      "checkedAt": "2026-10-29T14:29:50.445Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 403"
+    },
+    {
+      "type": "county",
+      "name": "Gaston",
+      "population": 249916,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.gastongov.com/",
+      "checkedAt": "2026-10-29T14:29:50.593Z",
+      "sources": [
+        {
+          "title": "Public Hearing set for East Gaston VFD Pumper Truck Purchase",
+          "url": "https://www.gastongov.com/CivicAlerts.aspx?AID=824",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Granville",
+      "population": 61020,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.granvillecounty.org/",
+      "checkedAt": "2026-10-29T14:30:13.294Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 403"
+    },
+    {
+      "type": "county",
+      "name": "Guilford",
+      "population": 557963,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.guilfordcountync.gov/",
+      "checkedAt": "2026-10-29T14:30:13.513Z",
+      "sources": [
+        {
+          "title": "Read more about the scam here.",
+          "url": "https://www.guilfordcountync.gov/rezoning-scam-alert",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Harnett",
+      "population": 149841,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://harnett.org/",
+      "checkedAt": "2026-10-29T14:30:14.633Z",
+      "sources": [
+        {
+          "title": "Development Services",
+          "url": "https://harnett.org/devsvc/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "View Commissioner Agendas/Minutes",
+          "url": "https://harnett.org/boc",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "View Upcoming Public Hearings",
+          "url": "https://harnett.org/boc/?btid=7&bid=295",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": [
+        {
+          "id": "source-3ba855a941647b39209d2f2404196e",
+          "url": "https://gis.harnett.org/arcgis/rest/services/Planning/Projects/MapServer/0",
+          "scope": "Harnett County planning inventory",
+          "role": "development_review"
+        }
+      ]
+    },
+    {
+      "type": "county",
+      "name": "Haywood",
+      "population": 64522,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.haywoodcountync.gov/",
+      "checkedAt": "2026-10-29T14:30:15.967Z",
+      "sources": [
+        {
+          "title": "Agendas & Minutes",
+          "url": "https://www.haywoodcountync.gov/712/Agendas-Minutes-Videos",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Henderson",
+      "population": 123440,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.hendersoncountync.gov/",
+      "checkedAt": "2026-10-29T14:30:36.816Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 520"
+    },
+    {
+      "type": "county",
+      "name": "Hoke",
+      "population": 56642,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.hokecounty.net/",
+      "checkedAt": "2026-10-29T14:30:52.000Z",
+      "sources": [
+        {
+          "title": "Agendas & Minutes",
+          "url": "https://www.hokecounty.net/agendacenter",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Iredell",
+      "population": 214151,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.iredellcountync.gov/",
+      "checkedAt": "2026-10-29T14:31:12.701Z",
+      "sources": [],
+      "status": "official_homepage_only",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Johnston",
+      "population": 257598,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.johnstonnc.gov/",
+      "checkedAt": "2026-10-29T14:31:33.851Z",
+      "sources": [
+        {
+          "title": "Planning Board meeting documents",
+          "url": "https://www.johnstonnc.gov/hplansearch.cfm",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning and Zoning",
+          "url": "https://www.johnstonnc.gov/planning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Upcoming UDO Public Hearings - October 20th, October 26th and November 2nd",
+          "url": "https://www.johnstonnc.gov/planning/content.cfm?pageid=85",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Lee",
+      "population": 70161,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://leecountync.gov/",
+      "checkedAt": "2026-10-29T14:31:35.095Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "robots.txt restricts automatic retrieval for this request."
+    },
+    {
+      "type": "county",
+      "name": "Lenoir",
+      "population": 54904,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://lenoircountync.gov/",
+      "checkedAt": "2026-10-29T14:31:35.272Z",
+      "sources": [
+        {
+          "title": "Planning Board",
+          "url": "https://lenoircountync.gov/government/planning-board/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "2025 Meetings",
+          "url": "https://lenoircountync.gov/government/planning-board/2025-planning-board-meetings/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "2024 Meetings",
+          "url": "https://lenoircountync.gov/government/planning-board/2024-planning-board-meetings/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "2023 Meetings",
+          "url": "https://lenoircountync.gov/government/planning-board/2023-planning-board-meetings/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "2022 Meetings",
+          "url": "https://lenoircountync.gov/government/planning-board/2022-planning-board-meetings/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "2021 Meetings",
+          "url": "https://lenoircountync.gov/government/planning-board/2021-planning-board-meetings/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning &#038; Inspections",
+          "url": "https://lenoircountync.gov/planning-inspections-department/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Frequently Asked Questions",
+          "url": "https://lenoircountync.gov/planning-inspections-department/frequently-asked-questions/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Subdivider’s Checklist",
+          "url": "https://lenoircountync.gov/planning-inspections-department/subdividers-checklist/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Floodplain Information",
+          "url": "https://lenoircountync.gov/planning-inspections-department/floodplain-information/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Harvey Parkway Area Study",
+          "url": "https://lenoircountync.gov/planning-inspections-department/harvey-parkway-area-study/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Commissioner Meeting Agendas and Minutes",
+          "url": "https://lenoircountync.gov/government/2025-board-of-commissioners-meetings/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Lincoln",
+      "population": 98409,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.lincolncountync.gov/",
+      "checkedAt": "2026-10-29T14:31:36.445Z",
+      "sources": [
+        {
+          "title": "Agendas & Minutes",
+          "url": "https://www.lincolncountync.gov/agendacenter",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning Learn more about us",
+          "url": "https://www.lincolncountync.gov/104/Planning-and-Inspections",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Mecklenburg",
+      "population": 1224717,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.charlottenc.gov/",
+      "checkedAt": "2026-10-29T14:31:57.128Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 302"
+    },
+    {
+      "type": "county",
+      "name": "Moore",
+      "population": 112063,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.moorecountync.gov/",
+      "checkedAt": "2026-10-29T14:31:58.476Z",
+      "sources": [
+        {
+          "title": "Agendas & Minutes",
+          "url": "https://www.moorecountync.gov/129/Agendas-Minutes",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Nash",
+      "population": 100148,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://nashcountync.gov/",
+      "checkedAt": "2026-10-29T14:32:18.903Z",
+      "sources": [
+        {
+          "title": "Agendas & Minutes",
+          "url": "https://nashcountync.gov/agendacenter",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "New Hanover",
+      "population": 245917,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.nhcgov.com/",
+      "checkedAt": "2026-10-29T14:32:39.573Z",
+      "sources": [
+        {
+          "title": "Extension Planning",
+          "url": "https://www.nhcgov.com/Calendar.aspx?EID=6838",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "New emergency planning zones for Brunswick Nuclear Plant go into effect this November",
+          "url": "https://www.nhcgov.com/CivicAlerts.aspx?AID=1197",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Onslow",
+      "population": 217827,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.onslowcountync.gov/",
+      "checkedAt": "2026-10-29T14:33:00.359Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 403"
+    },
+    {
+      "type": "county",
+      "name": "Orange",
+      "population": 151404,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.orangecountync.gov/",
+      "checkedAt": "2026-10-29T14:33:00.543Z",
+      "sources": [],
+      "status": "official_homepage_only",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Pender",
+      "population": 71328,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.pendercountync.gov/",
+      "checkedAt": "2026-10-29T14:33:21.384Z",
+      "sources": [
+        {
+          "title": "Planning & Community Development",
+          "url": "https://www.pendercountync.gov/248/Planning-Community-Development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": [
+        {
+          "id": "source-9d85e9d2a0dacbd1948f99ae590e8d",
+          "url": "https://gis.pendercountync.gov/arcgis/rest/services/Development_Activity/MapServer/3",
+          "scope": "Pender County planning inventory",
+          "role": "development_review"
+        },
+        {
+          "id": "source-ba325e3a44fd419b623c8faf8bfb1e",
+          "url": "https://gis.pendercountync.gov/arcgis/rest/services/Development_Activity/MapServer/1",
+          "scope": "Pender County planning inventory",
+          "role": "development_review"
+        },
+        {
+          "id": "source-dc6f9807f85c526e083193069b2758",
+          "url": "https://gis.pendercountync.gov/arcgis/rest/services/Development_Activity/MapServer/4",
+          "scope": "Pender County planning inventory",
+          "role": "development_review"
+        }
+      ]
+    },
+    {
+      "type": "county",
+      "name": "Pitt",
+      "population": 182281,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.pittcountync.gov/",
+      "checkedAt": "2026-10-29T14:33:42.015Z",
+      "sources": [
+        {
+          "title": "Agendas & Minutes",
+          "url": "https://www.pittcountync.gov/AgendaCenter",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Public Meeting Cancellation Notice | October Planning Board",
+          "url": "https://www.pittcountync.gov/CivicAlerts.aspx?AID=2042",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning & Development",
+          "url": "https://www.pittcountync.gov/CivicAlerts.aspx?CID=10",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Public Hearing Notice | NC Commerce Building Reuse Grant",
+          "url": "https://www.pittcountync.gov/CivicAlerts.aspx?AID=2034",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Public Hearing Notice | Pitt Area Transit System",
+          "url": "https://www.pittcountync.gov/CivicAlerts.aspx?AID=2019",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Strategic Plan Priority | Balanced Development",
+          "url": "https://www.pittcountync.gov/CivicAlerts.aspx?AID=2002",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Public Hearing Notice | 2026 Community Development Block Grant Funding",
+          "url": "https://www.pittcountync.gov/CivicAlerts.aspx?AID=1991",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Public Meeting Cancellation Notice | August Planning Board",
+          "url": "https://www.pittcountync.gov/CivicAlerts.aspx?AID=1992",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Notice of Public Hearings | Zoning Map Amendments",
+          "url": "https://www.pittcountync.gov/CivicAlerts.aspx?AID=1990",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning Board | Vacancy",
+          "url": "https://www.pittcountync.gov/CivicAlerts.aspx?AID=1986",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning & Development",
+          "url": "https://www.pittcountync.gov/192/Planning-Development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Randolph",
+      "population": 148941,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.randolphcountync.gov/",
+      "checkedAt": "2026-10-29T14:34:02.891Z",
+      "sources": [],
+      "status": "official_homepage_only",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Robeson",
+      "population": 118295,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.robesoncountync.gov/",
+      "checkedAt": "2026-10-29T14:34:23.869Z",
+      "sources": [
+        {
+          "title": "Community Development",
+          "url": "https://www.robesoncountync.gov/communitydev",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Rockingham",
+      "population": 94004,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.rockinghamcountync.gov/",
+      "checkedAt": "2026-10-29T14:34:34.085Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 403"
+    },
+    {
+      "type": "county",
+      "name": "Rowan",
+      "population": 155298,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.rowancountync.gov/",
+      "checkedAt": "2026-10-29T14:34:35.312Z",
+      "sources": [
+        {
+          "title": "NOTICES",
+          "url": "https://www.rowancountync.gov/2073/Long-Ferry-Development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Long Ferry Development Timeline Long Ferry Continued...",
+          "url": "https://www.rowancountync.gov/AlertCenter.aspx?AID=Long-Ferry-Development-Timeline-139",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Agendas, Minutes, & Notices",
+          "url": "https://www.rowancountync.gov/1209/Agendas-Minutes",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Sign Up for Alerts Our Notify Me feature lets you subscribe to department updates and receive timely notifications - including meeting notices with links to agendas - delivered straight to you via email or text.",
+          "url": "https://www.rowancountync.gov/notifyme",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Rutherford",
+      "population": 65089,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.rutherfordcountync.gov/",
+      "checkedAt": "2026-10-29T14:34:56.312Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 302"
+    },
+    {
+      "type": "county",
+      "name": "Sampson",
+      "population": 61009,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.sampsoncountync.gov/",
+      "checkedAt": "2026-10-29T14:34:56.479Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 302"
+    },
+    {
+      "type": "county",
+      "name": "Stanly",
+      "population": 68617,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.stanlycountync.gov/",
+      "checkedAt": "2026-10-29T14:34:57.669Z",
+      "sources": [],
+      "status": "official_homepage_only",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Surry",
+      "population": 72264,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.co.surry.nc.us/",
+      "checkedAt": "2026-10-29T14:35:18.723Z",
+      "sources": [
+        {
+          "title": "Development Services",
+          "url": "https://www.co.surry.nc.us/departments/development_services/index.php",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning",
+          "url": "https://www.co.surry.nc.us/departments/planning.php",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Tourism Development",
+          "url": "https://www.co.surry.nc.us/departments/(k_through_z)/tourism_development_authority/index.php",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Read More on Notice of Public Hearing - Housing Consortium",
+          "url": "https://www.co.surry.nc.us/news_detail_T7_R803.php",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Union",
+      "population": 271383,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.unioncountync.gov/",
+      "checkedAt": "2026-10-29T14:35:19.907Z",
+      "sources": [
+        {
+          "title": "Planning & Development",
+          "url": "https://www.unioncountync.gov/government/departments-f-p/planning-development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Community Development Block Grant (CDBG) Program",
+          "url": "https://www.unioncountync.gov/business/community-development-block-grant-cdbg-program",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning & Development",
+          "url": "https://www.unioncountync.gov/business/planning-development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Development Services",
+          "url": "https://www.unioncountync.gov/business/development-services",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "I want to...",
+          "url": "https://www.unioncountync.gov/business/development-services/i-want-to",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Department Resources",
+          "url": "https://www.unioncountync.gov/business/development-services/department-resources",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "UC Atlas",
+          "url": "https://www.unioncountync.gov/business/development-services/gomaps",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Community Development Block Grant (CDBG) Program",
+          "url": "https://www.unioncountync.gov/community/community-development-block-grant-cdbg-program",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Wake",
+      "population": 1259530,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.wake.gov/",
+      "checkedAt": "2026-10-29T14:35:21.150Z",
+      "sources": [
+        {
+          "title": "Find Planning & Zoning Info",
+          "url": "https://www.wake.gov/doing-business/find-planning-zoning-info",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Comprehensive Planning",
+          "url": "https://www.wake.gov/departments-government/comprehensive-planning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Zoning and Subdivision",
+          "url": "https://www.wake.gov/departments-government/zoning-and-subdivision",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning & Development Services",
+          "url": "https://www.wake.gov/departments-government/planning-and-development-services",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Watauga",
+      "population": 55213,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.wataugacounty.org/",
+      "checkedAt": "2026-10-29T14:35:22.238Z",
+      "sources": [
+        {
+          "title": "Forms",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/forms.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Agendas",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/BOC/agendas.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Agendas and Board Packets",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/BOC/boardpacket.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Public Hearing Rules",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/BOC/publicHearingRules.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning and Inspections",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/home.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Daily Inspection Schedules",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/planningdailyschedules.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Personnel",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/personnel.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning and Development Ordinance",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/ordinances.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Rules of Procedure for Boards",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/rules.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Fee Schedule",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/feeschedule.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Pay Permit Fees",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/payment.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "2025 Watauga County Comprehensive Plan",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/comprehensiveplan.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Gateway Plans",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/gatewayplan.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Flood Protection",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/flood.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Agendas",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/planningagendas.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "USPS National Delivery Planning Standards",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/Forms/USPS_National_Delivery_Planning_Standards.pdf",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Links",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/links.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Contact Us",
+          "url": "https://www.wataugacounty.org/App_Pages/Dept/Planning/contact.aspx",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Wayne",
+      "population": 120861,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.waynegov.com/",
+      "checkedAt": "2026-10-29T14:35:23.511Z",
+      "sources": [
+        {
+          "title": "Agendas & Minutes",
+          "url": "https://www.waynegov.com/129/Agendas-Minutes",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Agendas & Minutes",
+          "url": "https://www.waynegov.com/AgendaCenter",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Wilkes",
+      "population": 65995,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.wilkescounty.net/",
+      "checkedAt": "2026-10-29T14:35:44.139Z",
+      "sources": [
+        {
+          "title": "Agendas & Minutes",
+          "url": "https://www.wilkescounty.net/agendacenter",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Notice - Public Hearing",
+          "url": "https://www.wilkescounty.net/CivicAlerts.aspx?AID=360",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "county",
+      "name": "Wilson",
+      "population": 81209,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-and-non-municipal-population",
+      "officialDirectory": "https://www.nc.gov/your-government/county-government-websites",
+      "homepage": "https://www.wilsoncountync.gov/",
+      "checkedAt": "2026-10-29T14:36:04.674Z",
+      "sources": [
+        {
+          "title": "Current Projects",
+          "url": "https://www.wilsoncountync.gov/departments/county-engineering/current-and-completed-projects/current-projects",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Development Services",
+          "url": "https://www.wilsoncountync.gov/departments/development-services",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Inspections Metrics",
+          "url": "https://www.wilsoncountync.gov/departments/development-services/inspections/inspections-metrics",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Educational Videos",
+          "url": "https://www.wilsoncountync.gov/departments/development-services/educational-videos",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning",
+          "url": "https://www.wilsoncountync.gov/departments/planning-division",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Wilson County Local Stormwater Program",
+          "url": "https://www.wilsoncountync.gov/departments/development-services/planning/wilson-county-udo/wilson-county-local-stormwater-program",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Public Meetings Schedule",
+          "url": "https://www.wilsoncountync.gov/departments/development-services/planning-division/public-meeting-and-fee-schedules",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Current Comprehensive Plan",
+          "url": "https://www.wilsoncountync.gov/departments/development-services/planning-division/comprehensive-plan",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "2045 Comprehensive Plan",
+          "url": "https://www.wilsoncountync.gov/departments/development-services/planning/2045-comprehensive-plan",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Community Development Projects",
+          "url": "https://www.wilsoncountync.gov/departments/development-services/community-development-projects-264",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Online Permit Application",
+          "url": "https://www.wilsoncountync.gov/departments/development-services/online-permit-application",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Family Planning",
+          "url": "https://www.wilsoncountync.gov/departments/health-department/clinical-services/family-planning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Unified Development Ordinance",
+          "url": "https://www.wilsoncountync.gov/government/transparency/unified-development-ordinance",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Videos, Agendas and Minutes",
+          "url": "https://www.wilsoncountync.gov/how-do-i/find/video-agendas-minutes",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Small Business Development",
+          "url": "https://www.wilsoncountync.gov/business/small-business-development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "MEETINGS AND AGENDAS",
+          "url": "https://www.wilsoncountync.gov/how-do-i/find/video-agendas-minutes/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "city",
+      "name": "Apex",
+      "population": 77453,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.apexnc.org/",
+      "checkedAt": "2026-10-29T14:36:06.007Z",
+      "sources": [
+        {
+          "title": "Council Agendas & Minutes Follow Local Board Meetings",
+          "url": "https://www.apexnc.org/838/Agendas-Minutes",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning to vote? Be in the know...",
+          "url": "https://www.apexnc.org/voting",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": [
+        {
+          "id": "source-8ad50df7b7918cceaf0e16245fd827",
+          "url": "https://services1.arcgis.com/nry3yyvaEfskMEXA/arcgis/rest/services/Development/FeatureServer/0",
+          "scope": "Apex",
+          "role": "development_review"
+        }
+      ]
+    },
+    {
+      "type": "city",
+      "name": "Asheville",
+      "population": 97700,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.ashevillenc.gov/",
+      "checkedAt": "2026-10-29T14:36:26.926Z",
+      "sources": [
+        {
+          "title": "Permits",
+          "url": "https://www.ashevillenc.gov/department/development-services/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning and Urban Design",
+          "url": "https://www.ashevillenc.gov/department/planning-urban-design/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Special Meeting: City Council Strategic Planning Retreat (In-person)",
+          "url": "https://www.ashevillenc.gov/event/special-meeting-city-council-strategic-planning-retreat-in-person/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning and Zoning Commission (In-Person)",
+          "url": "https://www.ashevillenc.gov/event/planning-and-zoning-commission-in-person-11/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "City Council Agenda Briefing (Virtual)",
+          "url": "https://www.ashevillenc.gov/event/city-council-agenda-briefing-virtual-25/",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": [
+        {
+          "id": "source-1c6f73fbb3ee88e206f3af0c2931e0",
+          "url": "https://gis.ashevillenc.gov/server/rest/services/Permits/AccelaPlanningView/FeatureServer/1",
+          "scope": "Asheville planning jurisdiction",
+          "role": "development_review"
+        }
+      ]
+    },
+    {
+      "type": "city",
+      "name": "Burlington",
+      "population": 62377,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.burlingtonnc.gov/",
+      "checkedAt": "2026-10-29T14:36:28.095Z",
+      "sources": [
+        {
+          "title": "Business & Development",
+          "url": "https://www.burlingtonnc.gov/2208",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Parking on grass, dirt, and lawns is prohibited by Burlington&#39;s Unified Development Ordinance Click here for more information on warnings, fines, and how to report.",
+          "url": "https://www.burlingtonnc.gov/2466/Residential-Parking-Ordinance",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": [
+        {
+          "id": "source-6e01c414f8dc5e960d935e472fa512",
+          "url": "https://maps.regisnc.org/arcgis/rest/services/sde_baselayers/BURL_TRC_Points/FeatureServer/0",
+          "scope": "Burlington",
+          "role": "development_review"
+        },
+        {
+          "id": "source-1bb48732857df49b9ee9972bcf0739",
+          "url": "https://www.burlingtonnc.gov/Archive.aspx?AMID=46",
+          "scope": "Burlington planning agenda index",
+          "role": "document_review"
+        }
+      ]
+    },
+    {
+      "type": "city",
+      "name": "Cary",
+      "population": 190336,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.carync.gov/",
+      "checkedAt": "2026-10-29T14:36:48.770Z",
+      "sources": [
+        {
+          "title": "Business & Development",
+          "url": "https://www.carync.gov/business-development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Annexation Application Frequently Asked Questions",
+          "url": "https://www.carync.gov/business-development/annexation-application-frequently-asked-questions",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Applications & Forms",
+          "url": "https://www.carync.gov/business-development/applications-forms",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Bids & Proposals",
+          "url": "https://www.carync.gov/business-development/bids-proposals",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Business Opportunities",
+          "url": "https://www.carync.gov/business-development/business-opportunities",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Commercial Projects",
+          "url": "https://www.carync.gov/business-development/commercial-projects",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Inspections Assistance Program",
+          "url": "https://www.carync.gov/business-development/small-business-inspections-assistance-program",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Developing in Cary",
+          "url": "https://www.carync.gov/business-development/developing-in-cary",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Doing Business",
+          "url": "https://www.carync.gov/business-development/doing-business",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Neighborhood Meetings",
+          "url": "https://www.carync.gov/business-development/neighborhood-meetings",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Film & Photography",
+          "url": "https://www.carync.gov/business-development/film-photography",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Online Plan Submittals",
+          "url": "https://www.carync.gov/business-development/online-plan-submittals",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Residential Projects",
+          "url": "https://www.carync.gov/business-development/residential-projects",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Rezoning Application Submittals",
+          "url": "https://www.carync.gov/business-development/rezoning-application-submittals",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Rezoning Cases - Active & Historic",
+          "url": "https://www.carync.gov/business-development/rezoning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Rezoning Process",
+          "url": "https://www.carync.gov/business-development/rezoning-process",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Starting a Business",
+          "url": "https://www.carync.gov/business-development/starting-a-business",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Temporary Signs",
+          "url": "https://www.carync.gov/business-development/temporary-signs",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Who&#39;s My Inspector?",
+          "url": "https://www.carync.gov/business-development/who-s-my-inspector",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Agendas & Minutes",
+          "url": "https://www.carync.gov/mayor-council/agendas-minutes",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": [
+        {
+          "id": "source-ac9a0dbee4e33b63d1d1a6b8fd372f",
+          "url": "https://data.townofcary.org/api/explore/v2.1/catalog/datasets/developments/records",
+          "scope": "Cary",
+          "role": "development_review"
+        },
+        {
+          "id": "source-682be2f330dca1be45edbd5dcf27a7",
+          "url": "https://maps-apis.carync.gov/server/rest/services/Development/ActiveDevelopment/FeatureServer/0",
+          "scope": "Cary active development GIS",
+          "role": "development_review"
+        }
+      ]
+    },
+    {
+      "type": "city",
+      "name": "Chapel Hill",
+      "population": 63483,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.chapelhillnc.gov/",
+      "checkedAt": "2026-10-29T14:36:50.078Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 302"
+    },
+    {
+      "type": "city",
+      "name": "Charlotte",
+      "population": 959079,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.charlottenc.gov/",
+      "checkedAt": "2026-10-29T14:36:51.326Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [
+        {
+          "id": "source-5dd5ebe3bc2a7e5b814cabf05757de",
+          "url": "https://gis.charlottenc.gov/arcgis/rest/services/CATS/TransitStationDevelopmentPublic/MapServer/0",
+          "scope": "Charlotte transit-area development inventory",
+          "role": "development_review"
+        }
+      ],
+      "error": "Official source HTTP 302"
+    },
+    {
+      "type": "city",
+      "name": "Concord",
+      "population": 116941,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://concordnc.gov/",
+      "checkedAt": "2026-10-29T14:36:52.545Z",
+      "sources": [
+        {
+          "title": "Planning & Development",
+          "url": "https://concordnc.gov/Departments/Planning-Development-Services",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Down Payment Assistance",
+          "url": "https://concordnc.gov/Departments/Planning/Community-Development/Federal-Grant-Programs",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Licenses & Permits",
+          "url": "https://concordnc.gov/Business/Building-Development/Licenses-Permits",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Online Plan Review",
+          "url": "https://concordnc.gov/Departments/Planning-Development-Services/Permits",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Small Business Permit Guide",
+          "url": "https://concordnc.gov/Business/Building-Development/Small-Business-Permit-Guide",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Economic Resources",
+          "url": "https://concordnc.gov/Departments/Planning-Development-Services/Economic-Development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Incentives & Taxes",
+          "url": "https://concordnc.gov/Departments/Planning-Development-Services/Economic-Development/Incentives-and-Taxes",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Business Assistance",
+          "url": "https://concordnc.gov/Departments/Planning-Development-Services/Economic-Development/Business-Assistance",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Area Plans",
+          "url": "https://concordnc.gov/Departments/Planning-Development-Services/Area-Plans",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "GIS & Mapping",
+          "url": "https://concordnc.gov/Departments/Planning-Development-Services/GIS",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Council Agenda",
+          "url": "https://concordnc.gov/Government/Documents-Resources/Council-Agenda",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning and Zoning Commission",
+          "url": "https://concordnc.gov/Services/Community/Calendar/ModuleID/413/ItemID/675/mctl/EventDetails",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "city",
+      "name": "Durham",
+      "population": 306475,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.durhamnc.gov/",
+      "checkedAt": "2026-10-29T14:36:53.965Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [
+        {
+          "id": "source-111a21ca95a17e40f57f2d9c483685",
+          "url": "https://services2.arcgis.com/G5vR3cOjh6g2Ed8E/arcgis/rest/services/Planning/FeatureServer/17",
+          "scope": "Durham",
+          "role": "development_review"
+        }
+      ],
+      "error": "Official source HTTP 403"
+    },
+    {
+      "type": "city",
+      "name": "Fayetteville",
+      "population": 211282,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.fayettevillenc.gov/",
+      "checkedAt": "2026-10-29T14:36:54.100Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [
+        {
+          "id": "source-4a2e94a962f08742bc434c6b9fd72b",
+          "url": "https://services.arcgis.com/j3zNT485kmwrBtMJ/arcgis/rest/services/InfrastructureProjects_allfundedprojects_c26055940a844acf9834f8717d3fe712/FeatureServer/0",
+          "scope": "Fayetteville",
+          "role": "development_review"
+        }
+      ],
+      "error": "Official source HTTP 302"
+    },
+    {
+      "type": "city",
+      "name": "Gastonia",
+      "population": 87621,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.gastonianc.gov/",
+      "checkedAt": "2026-10-29T14:36:55.269Z",
+      "sources": [
+        {
+          "title": "Planning",
+          "url": "https://www.gastonianc.gov/doing-business/planning.html",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Development Services",
+          "url": "https://www.gastonianc.gov/doing-business/development_services.html",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning",
+          "url": "https://www.gastonianc.gov/government/departments/planning.html",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning",
+          "url": "https://www.gastonianc.gov/doing-business/planning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Advocacy Agenda",
+          "url": "https://www.gastonianc.gov/component/content/article/2098-advocacy-agenda-2.html?catid=8:article&Itemid=17442",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": [
+        {
+          "id": "source-72e4264c594347cf5a7dff43931106",
+          "url": "https://cogserver.gastonianc.gov/serverweb/rest/services/Planning/ResidentialDevelopments/MapServer/1",
+          "scope": "Gastonia planning jurisdiction",
+          "role": "development_review"
+        },
+        {
+          "id": "source-c80c893f7cc5ab813941518fd0f0cb",
+          "url": "https://cogserver.gastonianc.gov/serverweb/rest/services/Planning/ResidentialDevelopments/MapServer/0",
+          "scope": "Gastonia planning jurisdiction",
+          "role": "development_review"
+        },
+        {
+          "id": "source-8a1ca71d74c881f8067e635dc36d64",
+          "url": "https://services3.arcgis.com/u6Nvh8zpOQRNNRJi/arcgis/rest/services/Gaston_County___GCLMPO___Developments_2025/FeatureServer/26",
+          "scope": "Gastonia",
+          "role": "development_review"
+        }
+      ]
+    },
+    {
+      "type": "city",
+      "name": "Greensboro",
+      "population": 307952,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.greensboro-nc.gov/",
+      "checkedAt": "2026-10-29T14:36:56.872Z",
+      "sources": [
+        {
+          "title": "Regional Transportation Planning",
+          "url": "https://www.greensboro-nc.gov/services/city-assistance-programs/regional-transportation-planning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Interactive Land Development Ordinance",
+          "url": "https://www.greensboro-nc.gov/services/look-up-and-access/interactive-land-development-ordinance",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Building / Development Process: Commercial and Residential",
+          "url": "https://www.greensboro-nc.gov/services/requests/building-development-process-commercial-and-residential",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Zoning/Rezoning",
+          "url": "https://www.greensboro-nc.gov/services/requests/zoning-rezoning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Housing & Neighborhood Development",
+          "url": "https://www.greensboro-nc.gov/departments/housing-neighborhood-development-4344",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning",
+          "url": "https://www.greensboro-nc.gov/departments/planning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "GSO2040",
+          "url": "https://www.greensboro-nc.gov/departments/planning/gso2040",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "LEED for Cities",
+          "url": "https://www.greensboro-nc.gov/departments/planning/leed-for-cities",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning/Zoning Agendas, Minutes, Videos",
+          "url": "https://www.greensboro-nc.gov/departments/planning/planning-zoning-agendas-minutes-videos",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Agenda/ Minutes/ Videos",
+          "url": "https://www.greensboro-nc.gov/residents/info-center/agenda-minutes-videos",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Regional Transportation Planning",
+          "url": "https://www.greensboro-nc.gov/residents/programs/regional-transportation-planning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Highway 421 Land Use Study",
+          "url": "https://www.greensboro-nc.gov/business/economic-development/highway-421-land-use-study",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Food Trucks",
+          "url": "https://www.greensboro-nc.gov/business/economic-development/food-trucks",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Development Services",
+          "url": "https://www.greensboro-nc.gov/business/development-services",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Solar Panels",
+          "url": "https://www.greensboro-nc.gov/business/development-services/solar-panels",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Contact Information",
+          "url": "https://www.greensboro-nc.gov/business/development-services/contact-information",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Building Permits Portal",
+          "url": "https://www.greensboro-nc.gov/business/development-services/building-permits-portal",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Residents/Homeowners",
+          "url": "https://www.greensboro-nc.gov/business/development-services/residents-homeowners",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Design Professionals & Developers",
+          "url": "https://www.greensboro-nc.gov/business/development-services/design-professionals-developers",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Contractors - Residential & Commercial",
+          "url": "https://www.greensboro-nc.gov/business/development-services/contractors-residential-commercial",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": [
+        {
+          "id": "source-4c7a08d8cbc50c48fe4a5e2a5c28f6",
+          "url": "https://gis.greensboro-nc.gov/arcgis/rest/services/EngineeringInspections/BuildingPermits_MS/MapServer/1",
+          "scope": "Greensboro",
+          "role": "supporting_only"
+        }
+      ]
+    },
+    {
+      "type": "city",
+      "name": "Greenville",
+      "population": 97120,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.greenvillenc.gov/",
+      "checkedAt": "2026-10-29T14:36:58.180Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [
+        {
+          "id": "source-419edfdbabc085f5a6a20e5e1b2552",
+          "url": "https://gisonline.greenvillenc.gov/arcgis/rest/services/GreenvilleLink/MapServer/3",
+          "scope": "Greenville planning jurisdiction",
+          "role": "location_reference"
+        }
+      ],
+      "error": "Official source HTTP 403"
+    },
+    {
+      "type": "city",
+      "name": "High Point",
+      "population": 118208,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.highpointnc.gov/",
+      "checkedAt": "2026-10-29T14:36:58.361Z",
+      "sources": [],
+      "status": "official_homepage_only",
+      "existingAdapters": [
+        {
+          "id": "source-728007135911a041cb34b75303d07a",
+          "url": "https://giswa02.highpointnc.gov/server/rest/services/LandDevelopment/MapServer/0",
+          "scope": "High Point",
+          "role": "development_review"
+        }
+      ]
+    },
+    {
+      "type": "city",
+      "name": "Holly Springs",
+      "population": 50499,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.hollyspringsnc.gov/",
+      "checkedAt": "2026-10-29T14:37:18.824Z",
+      "sources": [
+        {
+          "title": "Tune In Town Council Live stream Town Council meetings, view agendas and meeting materials, and more!",
+          "url": "https://www.hollyspringsnc.gov/livestream",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Development Activity",
+          "url": "https://www.hollyspringsnc.gov/339",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": [
+        {
+          "id": "source-1e0b31a7b636c64cd4d43d4b4281dd",
+          "url": "https://gis.hollyspringsnc.us/ths_arcserver/rest/services/Planning/InteractiveDevelopment/FeatureServer/0",
+          "scope": "Holly Springs",
+          "role": "development_review"
+        }
+      ]
+    },
+    {
+      "type": "city",
+      "name": "Huntersville",
+      "population": 67842,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.huntersville.org/",
+      "checkedAt": "2026-10-29T14:37:39.594Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [
+        {
+          "id": "source-cced580bef87ae08ecb3cfeeb97ed6",
+          "url": "https://services7.arcgis.com/CADYoH7VVBN3BQHU/arcgis/rest/services/Development_Projects/FeatureServer/0",
+          "scope": "Huntersville",
+          "role": "development_review"
+        }
+      ],
+      "error": "Official source HTTP 403"
+    },
+    {
+      "type": "city",
+      "name": "Jacksonville",
+      "population": 71101,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.jacksonvillenc.gov/",
+      "checkedAt": "2026-10-29T14:37:59.862Z",
+      "sources": [
+        {
+          "title": "Jacksonville Tourism Development Authority Workshop",
+          "url": "https://www.jacksonvillenc.gov/Calendar.aspx?EID=7020",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "city",
+      "name": "Kannapolis",
+      "population": 59965,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.kannapolisnc.gov/",
+      "checkedAt": "2026-10-29T14:38:21.268Z",
+      "sources": [
+        {
+          "title": "Building & Development",
+          "url": "https://www.kannapolisnc.gov/Business/Building-Development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Community Development",
+          "url": "https://www.kannapolisnc.gov/Government-Departments/Community-Development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning",
+          "url": "https://www.kannapolisnc.gov/Government-Departments/Planning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": [
+        {
+          "id": "source-c6b6103f7fa5d7e8d4c51a364f2228",
+          "url": "https://maps.kannapolisnc.gov/arcgis/rest/services/Planning/Developments/FeatureServer/22",
+          "scope": "Kannapolis",
+          "role": "development_review"
+        },
+        {
+          "id": "source-8c1eabeb036a4393e890729df7c630",
+          "url": "https://www.kannapolisnc.gov/Government-Departments/Planning/Planning-Zoning-Commission-Board-of-Adjustment",
+          "scope": "Kannapolis planning board document index",
+          "role": "document_review"
+        }
+      ]
+    },
+    {
+      "type": "city",
+      "name": "Mooresville",
+      "population": 60297,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.mooresvillenc.gov/",
+      "checkedAt": "2026-10-29T14:38:22.708Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [
+        {
+          "id": "source-bb3ff9a936be8799ce8dbff3741e12",
+          "url": "https://gis.mooresvillenc.gov/gisadmin/rest/services/Planning/active_projects/MapServer/0",
+          "scope": "Mooresville",
+          "role": "development_review"
+        }
+      ],
+      "error": "Official source HTTP 302"
+    },
+    {
+      "type": "city",
+      "name": "Raleigh",
+      "population": 504445,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://raleighnc.gov/",
+      "checkedAt": "2026-10-29T14:38:22.867Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 403"
+    },
+    {
+      "type": "city",
+      "name": "Rocky Mount",
+      "population": 55966,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://rockymountnc.gov/",
+      "checkedAt": "2026-10-29T14:38:23.001Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [],
+      "error": "Official source HTTP 301"
+    },
+    {
+      "type": "city",
+      "name": "Wake Forest",
+      "population": 60658,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.wakeforestnc.gov/",
+      "checkedAt": "2026-10-29T14:38:23.191Z",
+      "sources": [
+        {
+          "title": "Downtown Development",
+          "url": "https://www.wakeforestnc.gov/downtown-development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning",
+          "url": "https://www.wakeforestnc.gov/planning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning Board",
+          "url": "https://www.wakeforestnc.gov/planning-board",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Public Hearings Notices",
+          "url": "https://www.wakeforestnc.gov/public-hearings-notices",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Unified Development Ordinance",
+          "url": "https://www.wakeforestnc.gov/planning/unified-development-ordinance",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Wake Forest Downtown, Inc.",
+          "url": "https://www.wakeforestnc.gov/downtown-development/wake-forest-downtown-inc",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Downtown Wake Forest",
+          "url": "https://www.wakeforestnc.gov/downtown-development/experience-downtown-wake-forest",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Farmers Market",
+          "url": "https://www.wakeforestnc.gov/downtown-development/experience-downtown-wake-forest/farmers-market",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Active Developments Map",
+          "url": "https://www.wakeforestnc.gov/planning/development-review/development-activity-dashboard",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Certified NC Destination Businesses",
+          "url": "https://www.wakeforestnc.gov/downtown-development/experience-downtown-wake-forest/certified-nc-destination-businesses",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Downtown Dollars",
+          "url": "https://www.wakeforestnc.gov/downtown-development/experience-downtown-wake-forest/downtown-dollars",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Downtown Specials",
+          "url": "https://www.wakeforestnc.gov/downtown-development/experience-downtown-wake-forest/downtown-specials",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Electric Vehicle & Cell Phone Charging Stations",
+          "url": "https://www.wakeforestnc.gov/downtown-development/experience-downtown-wake-forest/electric-vehicle-cell-phone-charging-stations",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Experience a Day Downtown",
+          "url": "https://www.wakeforestnc.gov/downtown-development/experience-downtown-wake-forest/experience-day-downtown",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Art & Culture Immersion",
+          "url": "https://www.wakeforestnc.gov/downtown-development/experience-downtown-wake-forest/experience-day-downtown/art-culture-immersion",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Day of Wake Forest History",
+          "url": "https://www.wakeforestnc.gov/downtown-development/experience-downtown-wake-forest/experience-day-downtown/day-wake-forest",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Day of Wellness & Relaxation",
+          "url": "https://www.wakeforestnc.gov/downtown-development/experience-downtown-wake-forest/experience-day-downtown/day-wellness",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Family Fun Day",
+          "url": "https://www.wakeforestnc.gov/downtown-development/experience-downtown-wake-forest/experience-day-downtown/family-fun-day",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Food & Drink Exploration",
+          "url": "https://www.wakeforestnc.gov/downtown-development/experience-downtown-wake-forest/experience-day-downtown/food-drink-exploration",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Forest Fest",
+          "url": "https://www.wakeforestnc.gov/downtown-development/experience-downtown-wake-forest/forest-fest",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": [
+        {
+          "id": "source-5b0ff4068df1d33930f9db05b07751",
+          "url": "https://services1.arcgis.com/gqTCvanrwF2z2HEu/arcgis/rest/services/Active_Developments_2026/FeatureServer/0",
+          "scope": "Wake Forest",
+          "role": "development_review"
+        }
+      ]
+    },
+    {
+      "type": "city",
+      "name": "Wilmington",
+      "population": 126247,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.wilmingtonnc.gov/",
+      "checkedAt": "2026-10-29T14:38:25.040Z",
+      "sources": [],
+      "status": "needs_source_verification",
+      "existingAdapters": [
+        {
+          "id": "source-beaa9697115294d6292c81ac09e07e",
+          "url": "https://services1.arcgis.com/GwaLJVJq0Y6voqEc/arcgis/rest/services/CIPACE_2026Updates/FeatureServer/25",
+          "scope": "Wilmington capital improvements",
+          "role": "development_review"
+        }
+      ],
+      "error": "Official source HTTP 302"
+    },
+    {
+      "type": "city",
+      "name": "Wilson",
+      "population": 50691,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.wilsonnc.org/",
+      "checkedAt": "2026-10-29T14:38:26.202Z",
+      "sources": [
+        {
+          "title": "Development Services",
+          "url": "https://www.wilsonnc.org/residents/city-services/all-departments/development-services",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning & Commmunity Revitalization",
+          "url": "https://www.wilsonnc.org/residents/city-services/all-departments/planning-commmunity-revitalization",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Airport",
+          "url": "https://www.wilsonnc.org/business/economic-development/airport",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "City Initiatives",
+          "url": "https://www.wilsonnc.org/business/economic-development/city-initiatives",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Downtown Development",
+          "url": "https://www.wilsonnc.org/business/economic-development/downtown-development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Gig East",
+          "url": "https://www.wilsonnc.org/business/economic-development/gig-east",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "News and Media",
+          "url": "https://www.wilsonnc.org/business/economic-development/news-and-media",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Request For Proposals",
+          "url": "https://www.wilsonnc.org/business/economic-development/request-for-proposals",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Wilson EDC",
+          "url": "https://www.wilsonnc.org/business/economic-development/wilson-edc",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Building and Development",
+          "url": "https://www.wilsonnc.org/business/building-and-development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Applications & Forms",
+          "url": "https://www.wilsonnc.org/business/building-and-development/applications-forms",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Brownfields",
+          "url": "https://www.wilsonnc.org/business/building-and-development/brownfields",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Construction Standards",
+          "url": "https://www.wilsonnc.org/business/building-and-development/construction-standards",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Fees & Schedules",
+          "url": "https://www.wilsonnc.org/business/building-and-development/fees-schedules",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Fire Prevention/Inspections",
+          "url": "https://www.wilsonnc.org/business/building-and-development/fire-prevention-inspections",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Historic Preservation",
+          "url": "https://www.wilsonnc.org/business/building-and-development/historic-preservation",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Permits",
+          "url": "https://www.wilsonnc.org/business/building-and-development/permits",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Unified Development Ordinance",
+          "url": "https://www.wilsonnc.org/business/building-and-development/unified-development-ordinance",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Zoning",
+          "url": "https://www.wilsonnc.org/business/building-and-development/zoning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Affordable Housing (Community Development)",
+          "url": "https://www.wilsonnc.org/how-do-i/find/affordable-housing-community-development",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": []
+    },
+    {
+      "type": "city",
+      "name": "Winston-Salem",
+      "population": 260060,
+      "populationYear": 2025,
+      "populationSource": "https://www.osbm.nc.gov/facts-figures/population-demographics/state-demographer/municipal-population-estimates/municipal-population-change",
+      "homepage": "https://www.cityofws.org/",
+      "checkedAt": "2026-10-29T14:38:27.365Z",
+      "sources": [
+        {
+          "title": "Agendas",
+          "url": "https://www.cityofws.org/129/Agendas-Minutes",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning / Zoning Agendas & Minutes",
+          "url": "https://www.cityofws.org/363/Boards-Commissions",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Winston-Salem Zoning Board of Adjustment Meeting",
+          "url": "https://www.cityofws.org/Calendar.aspx?EID=8596",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Planning Zoning & Historic Preservation",
+          "url": "https://www.cityofws.org/278/Planning-Development-Services",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Strategic Plan",
+          "url": "https://www.cityofws.org/216/Strategic-Planning",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        },
+        {
+          "title": "Agendas & Minutes",
+          "url": "https://www.cityofws.org/129",
+          "verification": "Linked from retrieved official homepage; target contents and adapter not yet validated",
+          "retrievalAllowed": true
+        }
+      ],
+      "status": "official_links_found_adapter_pending",
+      "existingAdapters": [
+        {
+          "id": "source-5dceffa9311b289179dc980a0aea63",
+          "url": "https://services.arcgis.com/XAnuVx6VEMybNvyd/ArcGIS/rest/services/Development/FeatureServer/7",
+          "scope": "Winston-Salem",
+          "role": "development_review"
+        },
+        {
+          "id": "source-49989286711c6cf616f344ee2ba9b8",
+          "url": "https://services.arcgis.com/XAnuVx6VEMybNvyd/ArcGIS/rest/services/Development/FeatureServer/8",
+          "scope": "Winston-Salem",
+          "role": "development_review"
+        }
+      ]
+    }
+  ]
+}

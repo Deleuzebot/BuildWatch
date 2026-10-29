@@ -1,0 +1,565 @@
+{
+  "discoveryOnly": true,
+  "entries": [
+    {
+      "name": "Davidson",
+      "links": [
+        {
+          "title": "Sheetz #411 (2)",
+          "url": "https://weblink.davidsoncountync.gov/WebLink/DocView.aspx?cr=1&dbid=0&id=2965012&repo=DavidsonCounty"
+        },
+        {
+          "title": "2022000614",
+          "url": "https://weblink.davidsoncountync.gov/WebLink/DocView.aspx?cr=1&dbid=0&id=2193845&repo=DavidsonCounty"
+        }
+      ]
+    },
+    {
+      "name": "Duplin",
+      "links": [
+        {
+          "title": "Duplin County Planning Department",
+          "url": "https://files.duplincountync.com/MeetingMinutes/2025/05-05-2025%20Meeting%20Minutes.pdf"
+        },
+        {
+          "title": "DUPLIN COUNTY",
+          "url": "https://files.duplincountync.com/MeetingPackets/2025/01-06-2025%20Meeting%20Packet.pdf"
+        },
+        {
+          "title": "Duplin County",
+          "url": "https://www.duplincountync.com/wp-content/uploads/Unified-Development-Ordinance-FINAL.pdf"
+        },
+        {
+          "title": "DUPLIN COUNTY",
+          "url": "https://files.duplincountync.com/MeetingPackets/2025/03-03-2025%20Meeting%20Packet.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Lincoln",
+      "links": [
+        {
+          "title": "Lincoln County Public Library System",
+          "url": "https://lcpls.lincolncountync.gov/polaris/search/communityinformationfull.aspx?by=CN&cn=527&communitysearchtype=browse&ctx=1.1033.0.0.1&fb=1&limit=TOOID%3D%2A&pos=1&sort=RELEVANCE&term=Building+Inspections&type=Community"
+        },
+        {
+          "title": "Planning and Inspections | County of Lincoln, NC - Official Website",
+          "url": "https://lincolncountync.gov/104/Planning-and-Inspections"
+        },
+        {
+          "title": "Quick Links • Lincoln County • CivicEngage",
+          "url": "https://www.lincolncountync.gov/quicklinks.aspx"
+        },
+        {
+          "title": "Lincoln County Public Library System",
+          "url": "https://lcpls.lincolncountync.gov/polaris/search/communityinformationfull.aspx?by=CN&cn=544&communitysearchtype=browse&ctx=1.1033.0.0.1&fb=1&limit=TOOID%3D%2A&pos=1&sort=RELEVANCE&term=LONG+RANGE+PLANNING&type=Community"
+        },
+        {
+          "title": "Staff Directory • Lincoln County • CivicEngage",
+          "url": "https://www.lincolncountync.gov/m/directory"
+        }
+      ]
+    },
+    {
+      "name": "Wake",
+      "links": [
+        {
+          "title": "Planning | Town of Rolesville, NC",
+          "url": "https://www.rolesvillenc.gov/planning"
+        },
+        {
+          "title": "Maps | Holly Springs, NC - Official Website",
+          "url": "https://hollyspringsnc.gov/742/Maps"
+        },
+        {
+          "title": "Development Activity Dashboard | Town of Wake Forest, NC",
+          "url": "https://www.wakeforestnc.gov/planning/development-review/development-activity-dashboard"
+        },
+        {
+          "title": "Wake County - Planning Jurisdictions",
+          "url": "https://catalog.data.gov/dataset/planning-jurisdictions"
+        },
+        {
+          "title": "Knightdale Gateway Phase 3 (Adams Assemblage) | Town of Knightdale, NC",
+          "url": "https://www.knightdalenc.gov/project/knightdale-gateway-phase-3-adams-assemblage"
+        }
+      ]
+    },
+    {
+      "name": "Burke",
+      "links": [
+        {
+          "title": "Notice of Public Meeting - Planning Board • Burke County, NC",
+          "url": "https://www.burkenc.org/m/newsflash/home/detail/1764"
+        },
+        {
+          "title": "Agenda Center • Burke County, NC • CivicEngage",
+          "url": "https://www.burkenc.org/agendacenter"
+        },
+        {
+          "title": "Notice of Public Meeting - Planning Board • Burke County, NC",
+          "url": "https://www.burkenc.org/m/newsflash/Home/Detail/1770"
+        },
+        {
+          "title": "Vacancies | Burke County, NC",
+          "url": "https://burkenc.org/1237/Vacancies"
+        },
+        {
+          "title": "Agenda Center • Burke County, NC • CivicEngage",
+          "url": "https://burkenc.org/agendacenter"
+        }
+      ]
+    },
+    {
+      "name": "Cabarrus",
+      "links": [
+        {
+          "title": "Planning Division Cabarrus County",
+          "url": "https://www.cabarruscounty.us/Government/Departments/Planning/Planning-Division"
+        },
+        {
+          "title": "Directory Cabarrus County",
+          "url": "https://www.cabarruscounty.us/CabCo-Resources/Contact-Us/Directory"
+        },
+        {
+          "title": "Planning Cabarrus County",
+          "url": "https://www.cabarruscounty.us/Government/Departments/Planning/Planning-Division/Planning"
+        },
+        {
+          "title": "Information for Property Owners Cabarrus County",
+          "url": "https://www.cabarruscounty.us/Government/Departments/Planning/Information-for-Property-Owners"
+        },
+        {
+          "title": "Departments Cabarrus County",
+          "url": "https://www.cabarruscounty.us/Government/Departments"
+        }
+      ]
+    },
+    {
+      "name": "Buncombe",
+      "links": [
+        {
+          "title": "Planning Development Portal | Buncombe County, NC",
+          "url": "https://www.buncombenc.gov/1162/Planning-Development-Portal"
+        },
+        {
+          "title": "Development Projects - Buncombe County, NC",
+          "url": "https://developmentprojects.buncombenc.gov/"
+        },
+        {
+          "title": "Development Projects | Buncombe County, NC",
+          "url": "https://www.buncombenc.gov/810/Development-Projects"
+        },
+        {
+          "title": "Development | Buncombe County, NC",
+          "url": "https://www.buncombenc.gov/330/Development"
+        },
+        {
+          "title": "Development Projects - Buncombe County, NC",
+          "url": "https://developmentprojects.buncombenc.gov/default.aspx"
+        }
+      ]
+    },
+    {
+      "name": "Henderson",
+      "links": [
+        {
+          "title": "Planning | Henderson County North Carolina",
+          "url": "https://www.hendersoncountync.gov/planning"
+        },
+        {
+          "title": "Housing | Henderson County North Carolina",
+          "url": "https://www.hendersoncountync.gov/planning/page/housing"
+        },
+        {
+          "title": "Planning Board | Henderson County North Carolina",
+          "url": "https://www.hendersoncountync.gov/bc-pb"
+        },
+        {
+          "title": "Land Development Code | Henderson County North Carolina",
+          "url": "https://www.hendersoncountync.gov/planning/page/land-development-code"
+        },
+        {
+          "title": "ARTICLE XI. REVIEW PROCESSES AND PROCEDURES | Henderson County North Carolina",
+          "url": "https://www.hendersoncountync.gov/code-document/article-xi-review-processes-and-procedures"
+        }
+      ]
+    },
+    {
+      "name": "Cleveland",
+      "links": [
+        {
+          "title": "Folder: Planning",
+          "url": "https://gis.clevelandcounty.com/arcgis/rest/services/Planning"
+        },
+        {
+          "title": "Cleveland County, NC",
+          "url": "https://www.clevelandcounty.com/main/departments/planning___zoning/planning___zoning_faqs.php"
+        },
+        {
+          "title": "Cleveland County, NC",
+          "url": "https://www.clevelandcounty.com/main/departments/planning___zoning/zoning_services.php"
+        },
+        {
+          "title": "ZONING PERMIT",
+          "url": "https://www.clevelandcounty.com/main/Document%20Center/Departments/Planning%20%26%20Zoning/Planning%20%26%20Zoning%20Forms/Zoning%20Permit%20Application.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Columbus",
+      "links": [
+        {
+          "title": "Planning Department | Columbus County, NC",
+          "url": "https://www.columbusco.org/planning-department"
+        },
+        {
+          "title": "Jobs | Columbus County, NC",
+          "url": "https://www.columbusco.org/jobs"
+        },
+        {
+          "title": "Columbus County, NC",
+          "url": "https://www.columbusco.org/"
+        },
+        {
+          "title": "Notices | Columbus County, NC",
+          "url": "https://www.columbusco.org/notices?page=0"
+        }
+      ]
+    },
+    {
+      "name": "Forsyth",
+      "links": [
+        {
+          "title": "Board of Commissioners - Forsyth County, North Carolina",
+          "url": "https://www.forsyth.cc/commissioners/planning_board.aspx"
+        },
+        {
+          "title": "Boards, Committees & Commissions",
+          "url": "https://www.forsyth.cc/commissioners/volunteer_boards.aspx"
+        },
+        {
+          "title": "Boards, Committees & Commissions",
+          "url": "https://forsyth.cc/commissioners/volunteer_boards.aspx"
+        },
+        {
+          "title": "Forsyth County, North Carolina",
+          "url": "https://forsyth.cc/article.aspx?NewsID=28584"
+        }
+      ]
+    },
+    {
+      "name": "Lee",
+      "links": [
+        {
+          "title": "Home - Library Policies - LibGuides at Lee County Library",
+          "url": "https://library.leecountync.gov/librarypolicies"
+        },
+        {
+          "title": "LEE COUNTY PLANNING BOARD",
+          "url": "https://leecountync.gov/Document%20Center/Department/Planning%20Board/2023-2024%20FY-LCPB-Roster.pdf"
+        },
+        {
+          "title": "Mo",
+          "url": "https://leecountync.gov/Document%20Center/Department/Planning%20Board/2024-07-15%20LCPB%20Agenda%20Packet%20-%20BINDER.pdf"
+        },
+        {
+          "title": "Mo",
+          "url": "https://leecountync.gov/Document%20Center/Department/Planning%20Board/000-2024-11-18%20LCPB%20Agenda%20Packet-BINDER.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Rutherford",
+      "links": [
+        {
+          "title": "Rutherford County GIS Website",
+          "url": "https://gis.rutherfordcountync.gov/maps/default.htm?pin=1654315"
+        },
+        {
+          "title": "NewLayers (MapServer)",
+          "url": "https://gis.rutherfordcountync.gov/server/rest/services/NewLayers/MapServer"
+        },
+        {
+          "title": "SUBDIVISION REGULATIONS",
+          "url": "https://www.rutherfordcountync.gov/SUBDIVISION%20ORDINANCE.pdf"
+        },
+        {
+          "title": "…showcasing activities and accomplishments of departments and offices within Rutherford County Government.",
+          "url": "https://www.rutherfordcountync.gov/document_center/County%20Manager/2024%20Year%20End%20Highlights.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Surry",
+      "links": [
+        {
+          "title": "All Layers and Tables (InternalUse/SurryLayers)",
+          "url": "https://gis.co.surry.nc.us/arcgis/rest/services/InternalUse/SurryLayers/MapServer/layers"
+        },
+        {
+          "title": "Meeting o",
+          "url": "https://co.surry.nc.us/document_center/Commissioners/Minutes/2003.pdf"
+        },
+        {
+          "title": "SURRY COUNTY BOARD OF COMMISSIONERS",
+          "url": "https://co.surry.nc.us/document_center/Commissioners/Minutes/2001.pdf"
+        },
+        {
+          "title": "Meeting",
+          "url": "https://co.surry.nc.us/document_center/Commissioners/Minutes/2009.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Union",
+      "links": [
+        {
+          "title": "Development Data Now Available in Online Map | News List | Union County, NC",
+          "url": "https://www.unioncountync.gov/Home/Components/News/News/1904/"
+        },
+        {
+          "title": "Development Services | Union County, NC",
+          "url": "https://www.unioncountync.gov/Home/Components/News/News/1904/833?widgetId=5421"
+        },
+        {
+          "title": "Development Services | Union County, NC",
+          "url": "https://www.unioncountync.gov/Home/Components/News/News/1794/833?widgetId=5421"
+        },
+        {
+          "title": "Development Services Portal Gets an Upgrade | News List | Union County, NC",
+          "url": "https://www.unioncountync.gov/Home/Components/News/News/1525/"
+        }
+      ]
+    },
+    {
+      "name": "Wake",
+      "links": [
+        {
+          "title": "Jewish American Heritage Month | Wake County Public Libraries",
+          "url": "https://catalog.wake.gov/MyAccount/MyList/144478"
+        },
+        {
+          "title": "Want to read | Wake County Public Libraries",
+          "url": "https://catalog.wake.gov/MyAccount/MyList/59271?filter%5B%5D=available_at_catalog%3A%22Oberlin+Regional%22&filter%5B%5D=econtent_device%3A%22Kindle%22&filter%5B%5D=econtent_device%3A%22iPhone%22&filter%5B%5D=genre_facet%3A%22Fiction%22&filter%5B%5D=rating_facet%3A%22fourStar%22&sort=recentlyAdded"
+        },
+        {
+          "title": "Jewish American Heritage Month | Wake County Public Libraries",
+          "url": "https://catalog.wake.gov/MyAccount/MyList/144478?sort=dateAdded"
+        },
+        {
+          "title": "Summer Reading | Wake County Public Libraries",
+          "url": "https://catalog.wake.gov/MyAccount/MyList/156739?filter%5B%5D=available_at_catalog%3A%22West+Regional%22&filter%5B%5D=language_catalog%3A%22English%22&filter%5B%5D=rating_facet%3A%22threeStar%22&sort=author"
+        }
+      ]
+    },
+    {
+      "name": "Chapel Hill",
+      "type": "city",
+      "links": [
+        {
+          "title": "Active Development | Chapel Hill, NC",
+          "url": "https://www.chapelhillnc.gov/Business-and-Development/Active-Development"
+        },
+        {
+          "title": "Current Initiatives | Chapel Hill, NC",
+          "url": "https://www.chapelhillnc.gov/Business-and-Development/Planning-and-Zoning/Current-Initiatives"
+        },
+        {
+          "title": "Projects | Chapel Hill, NC",
+          "url": "https://www.chapelhillnc.gov/Projects"
+        },
+        {
+          "title": "Business and Development | Chapel Hill, NC",
+          "url": "https://www.chapelhillnc.gov/Business-and-Development"
+        },
+        {
+          "title": "Content search | Chapel Hill, NC",
+          "url": "https://www.chapelhillnc.gov/Content-search"
+        }
+      ]
+    },
+    {
+      "name": "Concord",
+      "type": "city",
+      "links": [
+        {
+          "title": "City of Concord NC > Departments > Planning & Development Services > GIS",
+          "url": "https://concordnc.gov/Departments/Planning-Development-Services/GIS"
+        },
+        {
+          "title": "planning_webmap_PlanningMap_MIL1 (MapServer)",
+          "url": "https://maps2.concordnc.gov/server/rest/services/planning_webmap_PlanningMap_MIL1/MapServer"
+        },
+        {
+          "title": "City of Concord NC > Departments > Planning & Development Services",
+          "url": "https://concordnc.gov/Departments/Planning-Development-Services/NeighborhoodProgram"
+        },
+        {
+          "title": "City of Concord NC > Departments > Planning & Development Services",
+          "url": "https://concordnc.gov/Departments/Planning-Development-Services/NeighborhoodProgram/Neighborhoods"
+        },
+        {
+          "title": "City of Concord NC > Departments > Planning & Development Services",
+          "url": "https://concordnc.gov/Departments/Planning-Development-Services/neighborhoods/neighborhood-program"
+        }
+      ]
+    },
+    {
+      "name": "Raleigh",
+      "type": "city",
+      "links": [
+        {
+          "title": "Current Development Activity | Raleighnc.gov",
+          "url": "https://raleighnc.gov/planning/services/current-development-activity"
+        },
+        {
+          "title": "Small Business Economic Development Reports | Raleighnc.gov",
+          "url": "https://raleighnc.gov/doing-business/services/small-business-economic-development-reports"
+        },
+        {
+          "title": "Planning and Development | Raleighnc.gov",
+          "url": "https://raleighnc.gov/planning-and-development"
+        },
+        {
+          "title": "Current Development Activity | Raleighnc.gov",
+          "url": "https://raleighnc.gov/current-development-activity"
+        },
+        {
+          "title": "Missing Middle Metrics | Raleighnc.gov",
+          "url": "https://raleighnc.gov/planning/services/preliminary-subdivision-plans/missing-middle-metrics"
+        }
+      ]
+    },
+    {
+      "name": "Jacksonville",
+      "type": "city",
+      "links": [
+        {
+          "title": "Planning & Permitting | Jacksonville, NC - Official Website",
+          "url": "https://www.jacksonvillenc.gov/733/Permitting-Planning-Zoning"
+        },
+        {
+          "title": "City Projects & Plans | Jacksonville, NC - Official Website",
+          "url": "https://jacksonvillenc.gov/114/City-Projects-Plans"
+        },
+        {
+          "title": "Jacksonville, NC - Official Website | Official Website",
+          "url": "https://www.jacksonvillenc.gov/"
+        },
+        {
+          "title": "Site Map • Jacksonville, NC • CivicEngage",
+          "url": "https://jacksonvillenc.gov/SiteMap"
+        },
+        {
+          "title": "CIPs Explained | Jacksonville, NC - Official Website",
+          "url": "https://www.jacksonvillenc.gov/366/CIPs-Explained"
+        }
+      ]
+    },
+    {
+      "name": "Rocky Mount",
+      "type": "city",
+      "links": [
+        {
+          "title": "Development Activity | Rocky Mount, NC",
+          "url": "https://www.rockymountnc.gov/524/Development-Activity"
+        },
+        {
+          "title": "Development Services | Rocky Mount, NC",
+          "url": "https://www.rockymountnc.gov/206/Development-Services"
+        },
+        {
+          "title": "Applications, Documents & Forms | Rocky Mount, NC",
+          "url": "https://www.rockymountnc.gov/211/Applications-Documents-Forms"
+        },
+        {
+          "title": "Boards & Commissions | Rocky Mount, NC",
+          "url": "https://www.rockymountnc.gov/177/Boards-Commissions"
+        },
+        {
+          "title": "Notify Me • Rocky Mount, NC • CivicEngage",
+          "url": "https://www.rockymountnc.gov/List.aspx"
+        }
+      ]
+    },
+    {
+      "name": "Wilson",
+      "type": "city",
+      "links": [
+        {
+          "title": "Geographic Information Systems (GIS) | Wilson, NC",
+          "url": "https://www.wilsonnc.org/residents/all-departments/development-services/geographic-information-systems-gis"
+        },
+        {
+          "title": "Development Activity Map | Wilson, NC",
+          "url": "https://www.wilsonnc.org/residents/all-departments/development-services/development-activity-map"
+        },
+        {
+          "title": "Development Services | Wilson, NC",
+          "url": "https://www.wilsonnc.org/residents/city-services/all-departments/development-services"
+        },
+        {
+          "title": "Site Map | Wilson, NC",
+          "url": "https://www.wilsonnc.org/how-do-i/view/site-map"
+        },
+        {
+          "title": "General City Contact Directory | Wilson, NC",
+          "url": "https://www.wilsonnc.org/how-do-i/contact/city-departments"
+        }
+      ]
+    },
+    {
+      "name": "Greenville",
+      "type": "city",
+      "links": [
+        {
+          "title": "Planning | Greenville, NC",
+          "url": "https://www.greenvillenc.gov/522/Planning"
+        },
+        {
+          "title": "Greenville Urban Area Metropolitan Planning Organization | Greenville, NC",
+          "url": "https://www.greenvillenc.gov/236/Greenville-Urban-Area-Metropolitan-Plann"
+        },
+        {
+          "title": "Engineering | Greenville, NC",
+          "url": "https://www.greenvillenc.gov/181/Engineering"
+        },
+        {
+          "title": "Community and Development Services | Greenville, NC",
+          "url": "https://www.greenvillenc.gov/521/Community-and-Development-Services"
+        },
+        {
+          "title": "FAQs - CivicPlus.CMS.FAQ",
+          "url": "https://www.greenvillenc.gov/m/faq"
+        }
+      ]
+    },
+    {
+      "name": "Greensboro",
+      "type": "city",
+      "links": [
+        {
+          "title": "View | Greensboro, NC",
+          "url": "https://www.greensboro-nc.gov/departments/planning/view"
+        },
+        {
+          "title": "Developers & Contractors | Greensboro, NC",
+          "url": "https://www.greensboro-nc.gov/departments/engineering-inspections/developers-contractors"
+        },
+        {
+          "title": "Staff Reports | Greensboro, NC",
+          "url": "https://www.greensboro-nc.gov/departments/planning/boards-commissions-meetings/planning-and-zoning-commission/staff-reports"
+        },
+        {
+          "title": "Greensboro City Council Advances Voluntary Central Business Zoning Initiative Near Downtown Greenway | City News | Greensboro, NC",
+          "url": "https://www.greensboro-nc.gov/Home/Components/News/News/23023/36?backlist=%2F"
+        },
+        {
+          "title": "Learn More About | Greensboro, NC",
+          "url": "https://www.greensboro-nc.gov/departments/planning/learn-more-about"
+        }
+      ]
+    }
+  ]
+}
