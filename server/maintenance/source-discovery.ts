@@ -6,7 +6,7 @@ export function officialResources(base:string,html:string){
   const value=u.href,context=decodeHTML(title.replace(/<[^>]*>/g,' ')).replace(/\s+/g,' ').trim();
   let kind:'arcgis'|'agenda'|'portal'|'document'|undefined;
   if(/\/(?:FeatureServer|MapServer)(?:\/\d+)?(?:\?|$)|(?:arcgis\.com|arcgis\.com\/apps)\/.*(?:[?&](?:id|appid|webmap)=|\/[a-f0-9]{32}(?:\?|$))/i.test(value))kind='arcgis';
-  else if(/agenda|meeting.*packet|planning.*board|planning.*commission|public.hearing|rezoning/i.test(value+' '+context))kind=/\.pdf(?:\?|$)|Archive\.aspx\?ADID=|ViewFile|\/DocumentCenter\/View\/|\/download\?attachment|\/showpublisheddocument\//i.test(value)?'document':'agenda';
+  else if(/agenda|minutes|meeting.*packet|planning.*board|planning.*commission|public.hearing|rezoning/i.test(value+' '+context))kind=/\.pdf(?:\?|$)|Archive\.aspx\?ADID=|ViewFile|\/DocumentCenter\/View\/|\/download\?attachment|\/showpublisheddocument\//i.test(value)?'document':'agenda';
   else if(/development.*(?:map|project|activity)|current.project|pending.application|permit.*portal|geocivix|tylerhost|opengov|evolvepublic/i.test(value+' '+context))kind='portal';
   if(!kind||/login|logout|signin|facebook|twitter|youtube|mailto:|staff|member.list|calendar.*deadline|rules.of.procedure|skip.to.(?:main|content)|preferred.language/i.test(value+' '+context)||/^(?:rezoning|special.use|zoning) application(?:\.pdf)?$/i.test(context))return;
   resources.set(value,{url:value,title:context.slice(0,300),kind,parent:base});
