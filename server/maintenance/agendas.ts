@@ -1,14 +1,15 @@
 import {spawn} from 'node:child_process';import {resolve} from 'node:path';import {hash} from './policy';
-export type PDFText={pages:{page:number;text:string}[];totalPages:number;truncated:boolean};
-export function extractAgendaPDF(data:Buffer):Promise<PDFText>{
- if(data.length>2_000_000||!data.subarray(0,5).equals(Buffer.from('%PDF-')))return Promise.reject(Error('Not a bounded PDF document'));
+import {pdfProfile,type PDFProfile} from './pdf-limits';
+export type PDFText={pages:{page:number;text:string}[];totalPages:number;truncated:boolean;metrics?:{wallMs:number;cpuSeconds:number;peakRSSBytes:number;expandedBytes:number}};
+export function extractAgendaPDF(data:Buffer,profile:PDFProfile='standard'):Promise<PDFText>{
+ const limits=pdfProfile(profile);if(data.length>limits.bytes||!data.subarray(0,5).equals(Buffer.from('%PDF-')))return Promise.reject(Error('Not a bounded PDF document'));
  return new Promise((done,reject)=>{
-  const child=spawn(process.env.BW_PDF_PYTHON||'python3',['-I',resolve('scripts/extract-agenda-pdf.py')],{stdio:['pipe','pipe','pipe']}),out:Buffer[]=[];let bytes=0,settled=false;
+  const child=spawn(process.env.BW_PDF_PYTHON||'python3',['-I',resolve('scripts/extract-agenda-pdf.py'),profile],{stdio:['pipe','pipe','pipe']}),out:Buffer[]=[];let bytes=0,settled=false;
   const finish=(error?:Error,value?:PDFText)=>{if(settled)return;settled=true;clearTimeout(timer);error?reject(error):done(value!);};
-  const timer=setTimeout(()=>{child.kill('SIGKILL');finish(Error('PDF extraction time ceiling reached'));},15000);
+  const timer=setTimeout(()=>{child.kill('SIGKILL');finish(Error('PDF extraction time ceiling reached'));},limits.wallMs);
   child.on('error',e=>finish(e));child.stdin.on('error',()=>{});child.stderr.resume();
-  child.stdout.on('data',b=>{bytes+=b.length;if(bytes>1_000_000){child.kill('SIGKILL');finish(Error('PDF text ceiling reached'));}else out.push(b);});
-  child.on('close',code=>{if(code!==0)return finish(Error('PDF extractor unavailable, malformed/encrypted document, or resource limit; manual review required'));try{const value=JSON.parse(Buffer.concat(out).toString());if(!Array.isArray(value.pages)||value.pages.length>50||value.pages.some((p:any)=>typeof p.text!=='string'))throw Error('Invalid PDF text');if(value.pages.reduce((n:number,p:any)=>n+p.text.trim().length,0)<40)return finish(Error('Insufficient PDF text; scanned or empty document requires manual review'));finish(undefined,value);}catch{finish(Error('PDF text could not be validated'));}});
+  child.stdout.on('data',b=>{bytes+=b.length;if(bytes>limits.text*6+100000){child.kill('SIGKILL');finish(Error('PDF text ceiling reached'));}else out.push(b);});
+  child.on('close',code=>{if(code!==0)return finish(Error('PDF extractor unavailable, malformed/encrypted document, or resource limit; manual review required'));try{const value=JSON.parse(Buffer.concat(out).toString());if(!Array.isArray(value.pages)||value.pages.length>limits.pages||value.pages.some((p:any)=>typeof p.text!=='string')||value.pages.reduce((n:number,p:any)=>n+p.text.length,0)>limits.text)throw Error('Invalid PDF text');if(value.pages.reduce((n:number,p:any)=>n+p.text.trim().length,0)<40)return finish(Error('Insufficient PDF text; scanned or empty document requires manual review'));finish(undefined,value);}catch{finish(Error('PDF text could not be validated'));}});
   child.stdin.end(data);
  });
 }

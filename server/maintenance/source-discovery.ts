@@ -17,7 +17,7 @@ export function officialResources(base:string,html:string){
  return[...resources.values()].slice(0,100);
 }
 export function developmentLayers(metadata:any){
- return(metadata.layers||[]).filter((v:any)=>Number.isInteger(v.id)&&/development|rezoning|site.plan|subdivision|planning.*case|current.project|active.project/i.test(v.name||'')&&!/parcel|boundary|zoning.district|overlay|flood|stormwater|inspection|historic|street|buffer|permit|utility/i.test(v.name||'')).slice(0,8).map((v:any)=>({id:v.id,name:v.name}));
+ return(metadata.layers||[]).filter((v:any)=>Number.isInteger(v.id)&&/development|rezoning|zoning.case|site.plan|subdivision|planning.*case|current.project|active.project/i.test(v.name||'')&&!/parcel|boundary|zoning.district|overlay|flood|stormwater|inspection|historic|street|buffer|permit|utility/i.test(v.name||'')).slice(0,8).map((v:any)=>({id:v.id,name:v.name}));
 }
 /** Suggested mappings require exact metadata fields; never infer status meanings. */
 export function mappingProposal(metadata:any){

@@ -2,6 +2,11 @@ name: BuildWatch state research and maintenance
 on:
   workflow_dispatch:
     inputs:
+      validation_mode:
+        description: Manual reliability validation (always dry-run; no publication)
+        type: choice
+        options: [none, pdf50-benchmark, five-jurisdiction]
+        default: none
       nc_adapter_pilot:
         description: Test disabled NC source candidates on Linux (always dry-run)
         type: boolean
@@ -70,6 +75,7 @@ jobs:
       BW_NC_CONTINUE: ${{ inputs.nc_continue_pilot || false }}
       BW_NC_ADAPTER: ${{ inputs.nc_adapter_pilot || false }}
       BW_NC_AGENDA: ${{ inputs.nc_agenda_pdf_pilot || false }}
+      BW_VALIDATION_MODE: ${{ inputs.validation_mode || 'none' }}
     steps:
       - uses: actions/checkout@v6
       - uses: pnpm/action-setup@v4
@@ -94,7 +100,7 @@ jobs:
             echo "PGSSLROOTCERT=$RUNNER_TEMP/buildwatch-ca.pem" >> "$GITHUB_ENV"
           fi
       - name: Run bounded worker
-        if: env.BW_NC_SOURCE_AUDIT != 'true' && env.BW_NC_CONTINUE != 'true' && env.BW_NC_ADAPTER != 'true' && env.BW_NC_AGENDA != 'true'
+        if: env.BW_NC_SOURCE_AUDIT != 'true' && env.BW_NC_CONTINUE != 'true' && env.BW_NC_ADAPTER != 'true' && env.BW_NC_AGENDA != 'true' && env.BW_VALIDATION_MODE == 'none'
         run: pnpm exec tsx scripts/maintenance.mts "--mode=$BW_MODE" "--states=$BW_STATES" "--dry-run=$BW_DRY_RUN" "--queue=$BW_QUEUE" "--source=$BW_PILOT_SOURCE"
       - name: Run NC source-readiness pilot (dry-run only)
         if: env.BW_NC_SOURCE_AUDIT == 'true' && env.BW_NC_CONTINUE != 'true'
@@ -108,6 +114,16 @@ jobs:
       - name: Test NC agenda PDFs
         if: env.BW_NC_AGENDA == 'true'
         run: pnpm exec tsx scripts/nc-agenda-pilot.mts
+      - name: Benchmark PDF resource boundaries
+        if: env.BW_VALIDATION_MODE != 'none'
+        env:
+          NODE_OPTIONS: --max-old-space-size=768
+        run: pnpm exec tsx scripts/pdf-50mb-benchmark.mts
+      - name: Benchmark representative government PDFs
+        if: env.BW_VALIDATION_MODE == 'pdf50-benchmark'
+        env:
+          NODE_OPTIONS: --max-old-space-size=768
+        run: pnpm exec tsx scripts/nc-pdf50-real-benchmark.mts
       - name: Report failure
         if: failure()
         run: echo "::error::BuildWatch maintenance did not finish. Check the run summary and persistent Supabase checkpoints. Projects were not marked verified merely because this workflow ran."

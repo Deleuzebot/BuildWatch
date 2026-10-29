@@ -1,9 +1,15 @@
-import {SourceHTTP} from './http';import {Budget} from './policy';import {robotsAllows,robotsUnavailableAllows} from './worker';
+import {SourceHTTP} from './http';import {Budget,hash} from './policy';import {robotsAllows,robotsUnavailableAllows} from './worker';
 /** Manual research reader: policies checked at every origin and redirect target. */
 export class ResearchReader{
  private policies=new Map<string,Promise<string>>();private cache=new Map<string,Promise<any>>();
+ snapshotHits=0;private snapshots=new Set<string>();
  constructor(private budget:Budget,private onRead?:(url:string,response:any)=>void){}
- get(url:string):Promise<{body:string;rawBody:Buffer;url:string}>{if(!this.cache.has(url))this.cache.set(url,this.read(url));return this.cache.get(url)!;}
+ /** Snapshot time stays distinct from a new successful network verification. */
+ seed(snapshot:{url:string;body:string;checkedAt:string;hash:string},now=Date.now()){
+  const age=now-Date.parse(snapshot.checkedAt),u=new URL(snapshot.url);if(u.protocol!=='https:'||u.username||u.password||!Number.isFinite(age)||age<0||age>86400000||Buffer.byteLength(snapshot.body)>2_000_000||hash(snapshot.body)!==snapshot.hash)return false;
+  this.cache.set(snapshot.url,Promise.resolve({url:snapshot.url,body:snapshot.body,rawBody:Buffer.from(snapshot.body),snapshotAt:snapshot.checkedAt,fromSnapshot:true}));this.snapshots.add(snapshot.url);return true;
+ }
+ get(url:string):Promise<{body:string;rawBody:Buffer;url:string;snapshotAt?:string;fromSnapshot?:boolean}>{if(this.snapshots.has(url))this.snapshotHits++;if(!this.cache.has(url))this.cache.set(url,this.read(url));return this.cache.get(url)!;}
  private async read(url:string,depth=0):Promise<any>{
   if(depth>2)throw Error('Canonical redirect ceiling reached');const original=new URL(url);let redirected='';
   const transport:typeof fetch=async(input,options)=>{const response=await fetch(input,options);if(response.status>=300&&response.status<400)redirected=response.headers.get('location')||'';return response;};

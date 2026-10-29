@@ -1,0 +1,211 @@
+[
+  {
+    "name": "Cary",
+    "source": {
+      "id": "source-682be2f330dca1be45edbd5dcf27a7",
+      "state": "NC",
+      "jurisdiction": "Cary active development GIS",
+      "url": "https://maps-apis.carync.gov/server/rest/services/Development/ActiveDevelopment/FeatureServer/0",
+      "adapter": "arcgis",
+      "authority": "official",
+      "enabled": true,
+      "autopublish": false,
+      "config": {
+        "notes": [
+          "GIS edit dates do not reset approval expiration.",
+          "ApplicationNumber preserves exact linkage to original Cary source references.",
+          "Polygon geometry is evidence, not an invented point pin."
+        ],
+        "fields": {
+          "name": "ApplicationName",
+          "status": "Status",
+          "description": "SummaryDescription"
+        },
+        "idField": "OBJECTID",
+        "factFields": {
+          "units": "TotalUnits",
+          "acreage": "TotalAcreage",
+          "globalId": "GlobalID",
+          "squareFeet": "TotalSqFt",
+          "documentURL": "FinalActionDocumentURL",
+          "recordNumber": "ApplicationNumber"
+        },
+        "statusScope": "application",
+        "scopeVerified": false,
+        "mappingVersion": "cary-active-2026-10-28-v1",
+        "requiredFields": [
+          "OBJECTID",
+          "ApplicationNumber",
+          "ApplicationName",
+          "Status",
+          "SummaryDescription",
+          "TotalUnits",
+          "TotalSqFt",
+          "TotalAcreage",
+          "FinalActionDocumentURL",
+          "GlobalID"
+        ],
+        "permissionEvidence": {
+          "coverage": "Active developments layer; not a complete historical permit inventory",
+          "checkedAt": "2026-10-28",
+          "robotsURL": "https://maps-apis.carync.gov/robots.txt",
+          "officialPage": "https://www.carync.gov/projects-initiatives/maps/interactive-development-map",
+          "robotsStatus": 404
+        },
+        "originalIdentityField": "ApplicationNumber"
+      }
+    }
+  },
+  {
+    "name": "Apex",
+    "source": {
+      "id": "source-8ad50df7b7918cceaf0e16245fd827",
+      "state": "NC",
+      "jurisdiction": "Apex",
+      "url": "https://services1.arcgis.com/nry3yyvaEfskMEXA/arcgis/rest/services/Development/FeatureServer/0",
+      "adapter": "arcgis",
+      "authority": "official",
+      "enabled": true,
+      "autopublish": false,
+      "config": {
+        "notes": [
+          "Source dates retain their specific meanings; no GIS edit date resets expiration.",
+          "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+        ],
+        "fields": {
+          "name": "Name",
+          "status": "Status",
+          "category": "Type"
+        },
+        "idField": "FID",
+        "dateFields": {
+          "submittedAt": "Submittal_Date",
+          "applicationActionAt": "Action_Date"
+        },
+        "factFields": {
+          "documentURL": "More_Info",
+          "applicationAction": "Action_Taken"
+        },
+        "statusScope": "application",
+        "statusValues": {},
+        "orderByFields": "Action_Date DESC, FID ASC",
+        "scopeVerified": false,
+        "mappingVersion": "nc-2026-10-28-v2",
+        "requiredFields": [
+          "FID",
+          "Name",
+          "Type",
+          "Status",
+          "Submittal_Date",
+          "Action_Date",
+          "More_Info",
+          "Action_Taken"
+        ],
+        "mappingEvidence": {
+          "url": "https://services1.arcgis.com/nry3yyvaEfskMEXA/arcgis/rest/services/Development/FeatureServer/0?f=pjson",
+          "verifiedAt": "2026-10-28"
+        }
+      }
+    }
+  },
+  {
+    "name": "Huntersville",
+    "source": {
+      "id": "source-cced580bef87ae08ecb3cfeeb97ed6",
+      "state": "NC",
+      "jurisdiction": "Huntersville",
+      "url": "https://services7.arcgis.com/CADYoH7VVBN3BQHU/arcgis/rest/services/Development_Projects/FeatureServer/0",
+      "adapter": "arcgis",
+      "authority": "official",
+      "enabled": true,
+      "autopublish": false,
+      "config": {
+        "notes": [
+          "Source dates retain their specific meanings; no GIS edit date resets expiration.",
+          "Application/funding/permit approval is not completed physical construction. Ambiguous and consequential statuses require review."
+        ],
+        "fields": {
+          "name": "Name",
+          "status": "Status_1",
+          "category": "Pln_Typ"
+        },
+        "idField": "FID",
+        "dateFields": {},
+        "factFields": {
+          "documentURL": "Add_Info"
+        },
+        "statusScope": "application",
+        "statusValues": {},
+        "scopeVerified": false,
+        "mappingVersion": "nc-2026-10-28-v2",
+        "requiredFields": [
+          "FID",
+          "Name",
+          "Status_1",
+          "Pln_Typ",
+          "Add_Info"
+        ],
+        "mappingEvidence": {
+          "url": "https://services7.arcgis.com/CADYoH7VVBN3BQHU/arcgis/rest/services/Development_Projects/FeatureServer/0?f=pjson",
+          "verifiedAt": "2026-10-28"
+        }
+      }
+    }
+  },
+  {
+    "name": "Burlington",
+    "source": {
+      "id": "source-1bb48732857df49b9ee9972bcf0739",
+      "state": "NC",
+      "jurisdiction": "Burlington planning agenda index",
+      "url": "https://www.burlingtonnc.gov/Archive.aspx?AMID=46",
+      "adapter": "document",
+      "authority": "official",
+      "enabled": true,
+      "autopublish": false,
+      "config": {
+        "sourceRole": "document_review",
+        "noticeLimit": 20,
+        "statusScope": "agenda-index",
+        "scopeVerified": false,
+        "mappingVersion": "burlington-agendas-2026-10-28-v1",
+        "noticePathPattern": "^/(Archive\\.aspx\\?ADID=\\d+|ArchiveCenter/ViewFile/Item/\\d+)",
+        "permissionEvidence": {
+          "coverage": "Planning and Zoning agenda links only; PDF contents and project facts require review",
+          "checkedAt": "2026-10-28",
+          "robotsURL": "https://www.burlingtonnc.gov/robots.txt",
+          "officialPage": "https://www.burlingtonnc.gov/Archive.aspx?AMID=46",
+          "robotsStatus": 200
+        }
+      }
+    }
+  },
+  {
+    "name": "Kannapolis",
+    "source": {
+      "id": "source-8c1eabeb036a4393e890729df7c630",
+      "state": "NC",
+      "jurisdiction": "Kannapolis planning board document index",
+      "url": "https://www.kannapolisnc.gov/Government-Departments/Planning/Planning-Zoning-Commission-Board-of-Adjustment",
+      "adapter": "document",
+      "authority": "official",
+      "enabled": true,
+      "autopublish": false,
+      "config": {
+        "sourceRole": "document_review",
+        "noticeLimit": 20,
+        "statusScope": "agenda-index",
+        "scopeVerified": false,
+        "mappingVersion": "kannapolis-agendas-2026-10-28-v1",
+        "noticePathPattern": "^/Portals/0/Kannapolis/Departments/Planning/Documents/.*(?:Agenda|agenda|PZ).*\\.pdf",
+        "permissionEvidence": {
+          "coverage": "Published planning agenda links, including historical packets; not the restricted live development layer",
+          "checkedAt": "2026-10-28",
+          "robotsURL": "https://www.kannapolisnc.gov/robots.txt",
+          "officialPage": "https://www.kannapolisnc.gov/Government-Departments/Planning/Planning-Zoning-Commission-Board-of-Adjustment",
+          "robotsStatus": 200
+        }
+      }
+    }
+  }
+]

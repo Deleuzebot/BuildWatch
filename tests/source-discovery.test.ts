@@ -1,6 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {officialResources,developmentLayers,mappingProposal} from '../server/maintenance/source-discovery';import {agendaReferences,extractAgendaPDF} from '../server/maintenance/agendas';
 import {linkedArcGISServices} from '../server/maintenance/research-reader';
+import {ResearchReader} from '../server/maintenance/research-reader';import {Budget,hash} from '../server/maintenance/policy';import {pdfLimits,pdfProfile} from '../server/maintenance/pdf-limits';
 test('only explicitly linked HTTPS resources are discovered; discovery never asserts project facts',()=>{
  const r=officialResources('https://government.example/planning','<iframe src="https://www.arcgis.com/apps/mapviewer/index.html?webmap=123"></iframe><a href="/AgendaCenter/ViewFile/Agenda/123">Planning agenda packet</a><a href="javascript:alert(1)">Planning</a><a href="https://user:password@example.com/agenda">Planning</a>');
  assert.equal(r.length,2);assert.equal(r[0].parent,'https://government.example/planning');assert.ok(r.every(v=>!('status' in v)&&!('latitude' in v)));
@@ -11,6 +12,13 @@ test('layer selection rejects parcels, districts, stormwater, permits and mainte
 });
 test('embedded maps do not promote roads, parcels or boundaries into development feeds',()=>{
  const result=linkedArcGISServices({operationalLayers:[{title:'Lenoir_Roads',url:'https://services.arcgis.com/x/FeatureServer/1'},{title:'CountyBoundary',url:'https://services.arcgis.com/x/FeatureServer/2'},{title:'Development Projects',url:'https://services.arcgis.com/x/FeatureServer/3'}]});assert.deepEqual(result.urls,['https://services.arcgis.com/x/FeatureServer/3']);
+});
+test('snapshot reuse preserves retrieval time, checks hashes and spends zero network requests',async()=>{
+ const budget=new Budget(),reader=new ResearchReader(budget),at='2026-10-29T10:00:00Z',snapshot={url:'https://government.example/planning',body:'Official snapshot',checkedAt:at,hash:hash('Official snapshot')};
+ assert.equal(reader.seed(snapshot,Date.parse(at)+1000),true);const result=await reader.get(snapshot.url);assert.equal(result.snapshotAt,at);assert.equal(budget.requests,0);assert.equal(reader.seed({...snapshot,body:'tampered'},Date.parse(at)+1000),false);assert.equal(reader.seed(snapshot,Date.parse(at)+86400001),false);
+});
+test('large PDF resource profile stays opt-in and never changes standard limits',()=>{
+ const before=process.env.BW_PDF_50MB_BENCHMARK,validated=process.env.BW_PDF_50MB_VALIDATED;delete process.env.BW_PDF_50MB_BENCHMARK;delete process.env.BW_PDF_50MB_VALIDATED;try{assert.equal(pdfProfile().bytes,2_000_000);assert.throws(()=>pdfProfile('planning50'),/explicit benchmark/);process.env.BW_PDF_50MB_BENCHMARK='true';assert.equal(pdfProfile('planning50').bytes,50_000_000);assert.equal(pdfLimits.planning50.pages,200);assert.equal(pdfProfile().bytes,2_000_000);}finally{if(before===undefined)delete process.env.BW_PDF_50MB_BENCHMARK;else process.env.BW_PDF_50MB_BENCHMARK=before;if(validated===undefined)delete process.env.BW_PDF_50MB_VALIDATED;else process.env.BW_PDF_50MB_VALIDATED=validated;}
 });
 test('agenda extraction preserves page citations and never turns requested actions into approvals or meetings',async()=>{
  const records=agendaReferences({totalPages:1,truncated:false,pages:[{page:1,text:'Application CZ-2026-15: Consider a request to approve a conditional zoning development. This is not a decision.\nMeeting date to be announced.'}]},'https://government.example/agenda.pdf');
