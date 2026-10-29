@@ -2,6 +2,11 @@ name: BuildWatch NC shadow checks
 on:
   workflow_dispatch:
     inputs:
+      research_profile:
+        description: Coverage profile (full evidence research is blocked until integrated and validated)
+        type: choice
+        options: [structured-feeds, evidence-research]
+        default: structured-feeds
       live_checks:
         description: Authorize bounded live checks only (16 requests maximum; no public writes)
         type: boolean
@@ -30,6 +35,7 @@ jobs:
       BW_ALLOW_LIVE_WRITES: 'false'
       BW_AI_ENABLED: 'false'
       BW_SHADOW_LIVE_CHECKS: 'true'
+      BW_SHADOW_PROFILE: ${{ inputs.research_profile || 'structured-feeds' }}
       NODE_OPTIONS: --max-old-space-size=512
     steps:
       - uses: actions/checkout@v6
@@ -40,6 +46,8 @@ jobs:
         with:
           node-version: 24
       - run: pnpm install --frozen-lockfile
+      - name: Check research scope before reserving budget or contacting sources
+        run: pnpm exec tsx scripts/nc-shadow-plan.mts "--check-profile=$BW_SHADOW_PROFILE"
       - name: Verify database TLS
         env:
           BW_WORKER_CA: ${{ secrets.BW_WORKER_CA }}

@@ -1,5 +1,9 @@
 import {Budget,LimitReached,hash,type Source} from './policy';import {SourceHTTP} from './http';import {robotsAllows,robotsUnavailableAllows} from './worker';import {parsePage,sourcePage,validateSourceSchema} from './adapters';import {proposeStructured,pointInOfficialPolygon} from './end-to-end';import {chapelEvidence,raleighEvidence,officialPoint} from './live-evidence';
 export type ShadowRPC=(action:string,input?:Record<string,any>)=>Promise<any>;
+/** Observation times do not create duplicate proposals for the same source response and meaning. */
+export function shadowFindingId(sourceId:string,externalId:string,finding:any){
+ const {observation,...semantic}=finding;return hash([sourceId,externalId,semantic]);
+}
 const apex:Source={id:'apex',state:'NC',jurisdiction:'Apex',url:'https://services1.arcgis.com/nry3yyvaEfskMEXA/arcgis/rest/services/Development/FeatureServer/0',adapter:'arcgis',authority:'official',enabled:true,autopublish:false,config:{idField:'FID',fields:{name:'Name',status:'Status',category:'Type'},dateFields:{applicationActionAt:'Action_Date',submittedAt:'Submittal_Date'},factFields:{applicationAction:'Action_Taken'},statusScope:'application',scopeVerified:false,orderByFields:'Action_Date DESC,FID DESC',requiredFields:['FID','Name','Type','Status','Action_Date','Submittal_Date','Action_Taken']}};
 export const shadowSources=[apex,{id:'chapel',state:'NC',jurisdiction:'Chapel Hill',url:'https://gisweb.townofchapelhill.org/arcgis/rest/services/MapServices/CurrentDevelopmentActivity/FeatureServer/0',adapter:'arcgis',authority:'official',enabled:true,autopublish:false,config:{idField:'OBJECTID',fields:{name:'ProjectName',status:'ProjectOverallStatus',address:'StreetAddress',category:'ProjectType'},orderByFields:'last_edited_date DESC,OBJECTID DESC',requiredFields:['OBJECTID','ProjectID','GlobalID','ProjectName','ProjectOverallStatus','ProjectType','StreetAddress','ProjectWebPage','last_edited_date',...[1,2,3,4].flatMap(i=>['Application'+i,'Application'+i+'ReviewStatus','Application'+i+'ApprovalDate','Application'+i+'ApprovalAuthority'])]}},{id:'raleigh',state:'NC',jurisdiction:'Raleigh',url:'https://services.arcgis.com/v400IkDOw1ad7Yad/ArcGIS/rest/services/Building_Permits/FeatureServer/0',adapter:'arcgis',authority:'official',enabled:true,autopublish:false,config:{idField:'OBJECTID',fields:{name:'projectname',description:'proposedworkdescription',status:'statuscurrentmapped',address:'originaladdress1'},orderByFields:'issueddate DESC,OBJECTID DESC',requiredFields:['OBJECTID','permitnum','projectname','proposedworkdescription','description','statuscurrent','statuscurrentmapped','issueddate','applieddate','coissueddate','cocissueddate','voiddate','workclassmapped','originaladdress1','pin','devplanid','housingunitstotal','totalsqft','proposeduse'],where:"permittypemapped='Building' AND issueddate>=TIMESTAMP '2025-01-01 00:00:00' AND (UPPER(proposedworkdescription) LIKE '%MULTIFAMILY%' OR UPPER(proposedworkdescription) LIKE '%APARTMENT%' OR UPPER(proposedworkdescription) LIKE '%WAREHOUSE%' OR UPPER(proposedworkdescription) LIKE '%HOSPITAL%' OR UPPER(proposedworkdescription) LIKE '%NEW BUILDING%')"}}] as Source[];
 export function shadowFinding(source:Source,feature:any,data:any,context:any){
@@ -34,18 +38,20 @@ export async function runShadow(rpc:ShadowRPC,options:{key:string;scheduled?:boo
   const body=response.body;if(Buffer.byteLength(body)>200000)throw Error('200 KB persistent source cache ceiling exceeded; defer for review');
   if(!isRobots){const payload=JSON.parse(body);if(payload.error)throw Error('Official source API error');if(new URL(url).pathname.endsWith('/query')){if(!Array.isArray(payload.features)||payload.features.length>8)throw Error('Bounded response shape changed');}else validateSourceSchema(source,payload);}
   if(!notModified&&saved.hash&&saved.hash===hash(body))unchanged++;
-  await call('cache_write',{url,body,hash:hash(body),status:response.status,etag:response.etag,modified:response.modified});cacheBytes+=Buffer.byteLength(body);return response;
+  await call('cache_write',{url,body,hash:hash(body),status:response.status,etag:response.etag,modified:response.modified});cacheBytes+=Buffer.byteLength(body);return{...response,responseHash:hash(body),checkedAt:new Date().toISOString(),verification:notModified?'http-304-cached-body':'fresh-http-response'};
  }
  try{
   for(const source of shadowSources){if(cp.done.includes(source.id))continue;try{
    const origin=new URL(source.url).origin;if(!policies.has(origin)){const robots=await get(origin+'/robots.txt',source,86400000);policies.set(origin,robots.body);}
    const meta=JSON.parse((await get(source.url+'?f=json',source,7*86400000)).body);validateSourceSchema(source,meta);
    const cursor=claim.cursors?.[source.id]||0,offsets=[0,...(cursor>0?[cursor]:[])];let nextCursor=0;
-   for(const offset of offsets){const u=new URL(sourcePage(source,offset,8));if(source.config.where)u.searchParams.set('where',source.config.where);const data=JSON.parse((await get(u.href,source)).body);if(data.error||!Array.isArray(data.features)||data.features.length>8)throw Error('Source response shape changed');
+   for(const offset of offsets){const u=new URL(sourcePage(source,offset,8));if(source.config.where)u.searchParams.set('where',source.config.where);const response=await get(u.href,source),data=JSON.parse(response.body);if(data.error||!Array.isArray(data.features)||data.features.length>8)throw Error('Source response shape changed');
     for(const feature of data.features){const a=feature.attributes,id=String(a[source.config.idField]),key=source.id+':'+id;if(seen.has(key))continue;budget.check(false);budget.records++;seen.add(key);
      const context=await call('context',{sourceId:source.id,externalId:id,name:a[source.config.fields.name]||a.permitnum,address:a[source.config.fields.address]||'',projectPage:a.ProjectWebPage,permitNumber:a.permitnum}),finding=shadowFinding(source,feature,data,context);
-     // Ignore GIS edit/import timestamps when computing semantic proposal identity.
-     await call('finding',{sourceId:source.id,externalId:id,id:hash([source.id,id,finding]),finding});
+     // Keep exact response provenance; repeated verification alone is not a new finding.
+     finding.responseEvidence={requestURL:u.href,responseHash:response.responseHash,publicationDate:null,publicationDateNotice:'Not supplied by these APIs; an edit/retrieval date is not a publication or decision date.'};
+     finding.observation={checkedAt:response.checkedAt,verification:response.verification};
+     await call('finding',{sourceId:source.id,externalId:id,id:shadowFindingId(source.id,id,finding),finding});
     }
     nextCursor=data.exceededTransferLimit?(offset+data.features.length):0;
    }

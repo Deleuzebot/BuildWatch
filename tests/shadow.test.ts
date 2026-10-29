@@ -1,4 +1,8 @@
-import test from 'node:test';import assert from 'node:assert/strict';import {shadowFinding,shadowSources,summarizeShadow} from '../server/maintenance/shadow';
+import test from 'node:test';import assert from 'node:assert/strict';import {shadowFinding,shadowFindingId,shadowSources,summarizeShadow} from '../server/maintenance/shadow';
+test('repeat verification does not duplicate identical evidence and changed source evidence remains traceable',()=>{
+ const f={name:'Fixture',responseEvidence:{responseHash:'a'},observation:{checkedAt:'2026-10-29',verification:'fresh-http-response'}};
+ assert.equal(shadowFindingId('apex','1',f),shadowFindingId('apex','1',{...f,observation:{checkedAt:'2026-10-30',verification:'http-304-cached-body'}}));assert.notEqual(shadowFindingId('apex','1',f),shadowFindingId('apex','1',{...f,responseEvidence:{responseHash:'b'}}));
+});
 test('shadow permits cannot propose construction, completion or publication',()=>{
  const a={OBJECTID:2,permitnum:'FIXTURE-ONLY',projectname:'Fixture apartments',proposedworkdescription:'New 30 unit multifamily apartment building',issueddate:1791504000000,originaladdress1:'100 Fixture St',statuscurrentmapped:'Issued'};
  const r=shadowFinding(shadowSources[2],{attributes:a,geometry:{x:-78.7,y:35.8}},{spatialReference:{wkid:4326}},{ids:[]});assert.equal(r.significantNewCandidate,true);assert.deepEqual(r.proposed,{publish:false,archive:false,status:null,timeline:null,location:null,approvalDate:null});assert.match(r.reasons.join(' '),/Supporting permit only/);

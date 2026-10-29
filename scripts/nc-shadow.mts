@@ -1,5 +1,7 @@
 /** Manual shadow checks. Publication/archival operations are absent from its database API. */
 import {appendFileSync} from 'node:fs';import {PostgresDatabase} from '../server/postgres/connection';import {runShadow} from '../server/maintenance/shadow';
+import {requireShadowProfile} from '../server/maintenance/shadow-plan';
+requireShadowProfile(process.env.BW_SHADOW_PROFILE||'structured-feeds');
 if(!process.env.CI)process.loadEnvFile('.env.maintenance');
 if(process.env.BW_SHADOW_LIVE_CHECKS!=='true')throw Error('Explicit manual live-source authorization required');
 if(process.env.BW_ALLOW_LIVE_WRITES==='true'||process.env.BW_AI_ENABLED==='true')throw Error('Publication and AI must remain off');
