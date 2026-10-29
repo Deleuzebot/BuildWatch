@@ -184,5 +184,23 @@
     "jurisdiction": "Hickory planning jurisdiction",
     "url": "https://arcgis.hickorync.gov/server/rest/services/EconomicDevelopment/Hickory_Development_Projects/MapServer/0",
     "previouslyBlocked": false
+  },
+  {
+    "sourceId": "source-682be2f330dca1be45edbd5dcf27a7",
+    "jurisdiction": "Cary active development GIS",
+    "url": "https://maps-apis.carync.gov/server/rest/services/Development/ActiveDevelopment/FeatureServer/0",
+    "previouslyBlocked": false
+  },
+  {
+    "sourceId": "source-1bb48732857df49b9ee9972bcf0739",
+    "jurisdiction": "Burlington planning agenda index",
+    "url": "https://www.burlingtonnc.gov/Archive.aspx?AMID=46",
+    "previouslyBlocked": false
+  },
+  {
+    "sourceId": "source-8c1eabeb036a4393e890729df7c630",
+    "jurisdiction": "Kannapolis planning board document index",
+    "url": "https://www.kannapolisnc.gov/Government-Departments/Planning/Planning-Zoning-Commission-Board-of-Adjustment",
+    "previouslyBlocked": false
   }
 ]

@@ -3,6 +3,7 @@ import{SourceHTTP}from'./http';
 import{parsePage,sourcePage,validateSourceSchema}from'./adapters';
 import{deriveProject}from'../supabase/derive';
 import{extractDocument}from'./ai';
+import{noticeLinks}from'./notices';
 export type WorkerRPC=(action:string,input?:Record<string,any>)=>Promise<any>;
 type Options={state:string;mode:'weekly'|'initial';dryRun:boolean;key:string;scheduled?:boolean;githubURL?:string;maxSeconds?:number;maxRequests?:number;maxRecords?:number;onlySource?:string};
 export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fetch=fetch){
@@ -38,6 +39,7 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
     }
     const policy=robots.get(policyKey)!;
     if(!robotsAllows(policy,new URL(source.url).pathname))throw Error('robots.txt restricts automatic retrieval for this source.');
+    http.accessPolicy=url=>robotsAllows(policy,url.pathname+url.search);
     const crawlDelay=Math.max(1,...[...policy.matchAll(/^crawl-delay:\s*(\d+(?:\.\d+)?)/gim)].map(v=>Number(v[1])));
     if(crawlDelay>60)throw Error('Source crawl delay exceeds the bounded worker; defer for access review.');
     http.minimumInterval=crawlDelay*1000;
@@ -62,11 +64,19 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
      const digest=hash(result.body);
      if(digest===cache.hash&&reusable){stats.unchangedDocuments++;more=!!cache.more;}
      else if(source.adapter==='document'){
+      if(source.config.noticePathPattern){
+       const links=noticeLinks(source,result.body);if(!links.length)throw Error('Official document index layout changed or no matching document links are available');
+       for(const link of links){budget.check();budget.records++;const lead={externalId:hash(link.url),name:link.title,description:'Official document link; project and meeting contents require review.',address:'',latitude:null,longitude:null,rawStatus:'',category:'',developer:'',url:link.url,quote:link.title+' — '+link.url,principalUseVerified:false,locationVerified:false,wholeDevelopment:false,recordKind:'document_index_entry'};
+        await call('finding',{id:hash([source.id,link,options.dryRun]),sourceId:source.id,finding:lead,project:{id:'lead-'+hash(link.url).slice(0,30),state:source.state},eligible:false,reason:'Official agenda/document pointer only. No project status, meeting date or coordinates inferred.',confidence:{method:'requires_review'}});stats.documentLeads=(stats.documentLeads||0)+1;stats.unverified++;
+       }
+       more=false;
+      }else{
       const ai=await extractDocument(result.body,source.url,budget);stats.aiUnresolved+=ai.findings.length||1;stats.unverified++;
       // Preserve source evidence even if AI is off or unavailable. No invented project.
       const lead={externalId:digest,name:source.jurisdiction+' source document',description:'',address:'',latitude:null,longitude:null,rawStatus:'',category:'',developer:'',url:source.url,quote:result.body.replace(/<[^>]*>/g,' ').slice(0,2000),principalUseVerified:false,locationVerified:false,wholeDevelopment:false,aiFindings:ai.findings,aiStatus:ai.status};
       await call('finding',{id:hash([source.id,digest,options.dryRun]),sourceId:source.id,finding:lead,project:{id:'lead-'+digest.slice(0,30),state:source.state},eligible:false,reason:'Unstructured document requires review; AI is optional and never establishes facts.',confidence:{method:'requires_review'}});
       more=false;
+      }
      }else{
       const page=parsePage(source,result.body);more=page.more;
       for(const finding of page.findings){
@@ -118,7 +128,9 @@ export function robotsAllows(body:string,path:string){
  const groups:{agents:string[];rules:{allow:boolean;path:string}[]}[]=[];let group={agents:[] as string[],rules:[] as {allow:boolean;path:string}[]};
  for(const raw of body.split(/\r?\n/)){const line=raw.split('#')[0].trim(),split=line.indexOf(':');if(split<0)continue;const key=line.slice(0,split).trim().toLowerCase(),value=line.slice(split+1).trim();if(key==='user-agent'){if(group.rules.length){groups.push(group);group={agents:[],rules:[]};}group.agents.push(value.toLowerCase());}else if((key==='disallow'||key==='allow')&&value)group.rules.push({allow:key==='allow',path:value});}
  groups.push(group);const specific=groups.filter(g=>g.agents.some(v=>v.includes('buildwatch'))),selected=specific.length?specific:groups.filter(g=>g.agents.includes('*')),rules=selected.flatMap(g=>g.rules);
- // Conservative wildcard handling: unsupported expressions block instead of evading a restriction.
- const matched=rules.filter(v=>path.startsWith(v.path.replace(/\*.*$/,'')));matched.sort((a,b)=>b.path.length-a.path.length||Number(b.allow)-Number(a.allow));
+ // RFC 9309 wildcard/end-anchor matching. An unrelated /*/ctl/ restriction
+ // must not block every public page, and query-specific rules still apply.
+ const specificity=(value:string)=>value.replace(/\*/g,'').replace(/\$$/,'').length;
+ const matched=rules.filter(v=>{const end=v.path.endsWith('$'),raw=end?v.path.slice(0,-1):v.path;const pattern=raw.split('*').map(part=>part.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('.*');return new RegExp('^'+pattern+(end?'$':'')).test(path);});matched.sort((a,b)=>specificity(b.path)-specificity(a.path)||Number(b.allow)-Number(a.allow));
  return !matched.length||matched[0].allow;
 }

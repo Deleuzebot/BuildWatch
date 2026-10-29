@@ -41,6 +41,11 @@ test('source queries select required fields and use verified stable recent-first
 test('unavailable robots file is distinct from explicit restrictions and actual API authorization',()=>{
  const s=source(mappings[0]);assert.equal(robotsUnavailableAllows(s,'Official source HTTP 403'),true);assert.equal(robotsUnavailableAllows({...s,adapter:'document'},'Official source HTTP 403'),false);for(const code of[401,429,500,503])assert.equal(robotsUnavailableAllows(s,'Official source HTTP '+code),false);assert.equal(robotsAllows('User-agent: *\nDisallow: /server/rest','/server/rest/services/query'),false);
 });
+test('robots wildcard and end-anchor restrictions apply to the matching path rather than an entire site',()=>{
+ const rules='User-agent: *\nDisallow: /*/ctl/\nDisallow: /private/*\nAllow: /private/public/\nDisallow: /export$';
+ assert.equal(robotsAllows(rules,'/Government-Departments/Planning'),true);assert.equal(robotsAllows(rules,'/x/ctl/edit'),false);assert.equal(robotsAllows(rules,'/private/data'),false);assert.equal(robotsAllows(rules,'/private/public/data'),true);assert.equal(robotsAllows(rules,'/export'),false);assert.equal(robotsAllows(rules,'/export-help'),true);
+ assert.equal(robotsAllows('User-agent: *\nDisallow: /arcgis/*','/arcgis/rest/services'),false);
+});
 test('parcel-only reference source performs no retrieval or publication',async()=>{
  const s=source(mappings.find((v:any)=>v.config.sourceRole==='location_reference'));const calls:string[]=[];const rpc:any=async(action:string)=>{calls.push(action);if(action==='claim')return {status:'running',run:{id:'r',lease:'l'},state:{max_seconds:40,max_requests:8,max_records:50},sources:[s]};return {};};const r=await runState(rpc,{state:'NC',mode:'initial',dryRun:true,key:'parcel-test',onlySource:s.id},async()=>{throw Error('Parcel feed must not be downloaded');});assert.equal(r.referenceSourcesSkipped,1);assert.equal(r.sourceRecords,0);assert.ok(!calls.includes('finding'));
 });

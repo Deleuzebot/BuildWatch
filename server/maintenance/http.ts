@@ -11,9 +11,10 @@ export async function safeURL(value:string,origin:string){
 }
 export class SourceHTTP{
  minimumInterval=1000;
+ accessPolicy?: (url:URL)=>boolean;
  constructor(public budget:Budget,public origin:string,private transport:typeof fetch=fetch){}
  async get(url:string,headers:Record<string,string>={}){
-  await safeURL(url,this.origin);
+  const target=await safeURL(url,this.origin);if(this.accessPolicy&&!this.accessPolicy(target))throw Error('robots.txt restricts automatic retrieval for this request.');
   for(let attempt=0;attempt<3;attempt++){
    this.budget.check();const delay=Math.max(0,this.minimumInterval-(Date.now()-(lastByOrigin.get(this.origin)||0)));if(delay>this.budget.seconds*1000-(Date.now()-this.budget.started)-5000)throw new LimitReached('Source rate limit requires a later attempt');await wait(delay);this.budget.check();this.budget.requests++;lastByOrigin.set(this.origin,Date.now());
    let r:Response;try{r=await this.transport(url,{redirect:'manual',signal:AbortSignal.timeout(Math.min(15000,Math.max(1000,this.budget.seconds*1000-(Date.now()-this.budget.started)-5000))),headers:{'User-Agent':'BuildWatch/1.0 development monitoring; official public sources',...headers}});}catch(e){if(attempt===2)throw Error('Source network retries exhausted');await wait(1000*2**attempt);continue;}
