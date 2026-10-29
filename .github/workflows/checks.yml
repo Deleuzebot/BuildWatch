@@ -22,6 +22,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install --disable-pip-version-check --no-cache-dir -r requirements-maintenance.txt
+      - run: python tests/pdf-encryption.test.py
       - run: pnpm check
       - name: Validate PDF capacity safety boundaries (no live sources)
         env:

@@ -91,6 +91,8 @@ jobs:
           python-version: '3.12'
       - name: Install bounded agenda text reader
         run: python -m pip install --disable-pip-version-check --no-cache-dir -r requirements-maintenance.txt
+      - name: Test public AES and protected PDF handling
+        run: python tests/pdf-encryption.test.py
       - name: Verify database TLS
         env:
           BW_WORKER_CA: ${{ secrets.BW_WORKER_CA }}
