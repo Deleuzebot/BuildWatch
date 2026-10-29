@@ -4,6 +4,7 @@ import{validateProject}from'../../src/lib/validate';
 import{roadDecision}from'../roads/policy';
 import{exactDate}from'../archives/policy';
 import type{Project,Status}from'../../src/data/projects';
+import {terminalEvidence,informationChange} from './changes';
 export const rotation=[
  ['CA','OR','NV','HI','AK','ID','MT','WY','UT','VT'],
  ['TX','OK','AR','LA','KS','NE','NM','MS','AL','ND'],
@@ -35,10 +36,11 @@ export function evaluateFinding(f:Finding,s:Source,existing:Project|null,now=Dat
  if(s.authority!=='official')reasons.push('Supplementary evidence requires review');
  if(!f.status||!f.wholeDevelopment)reasons.push('Status may describe an application or permit rather than the whole development');
  if(!dated)reasons.push('Substantive event date is missing, ambiguous, or in the future');
+ if(existing?.sourceStatusDate&&f.eventDate&&Date.parse(f.eventDate)<Date.parse(existing.sourceStatusDate))reasons.push('Source decision predates the last confirmed milestone; do not regress the project');
  if(!f.locationVerified||f.latitude===null||f.longitude===null||!Number.isFinite(f.latitude)||!Number.isFinite(f.longitude))reasons.push('Coordinates require verification');
  if(!f.principalUseVerified)reasons.push('Principal physical development scope requires review');
  if(!s.autopublish)reasons.push('Source adapter is not approved for automatic publication');
- if(f.status==='Completed'||f.status==='Cancelled')reasons.push('Completion or cancellation requires administrator confirmation');
+ if((f.status==='Completed'||f.status==='Cancelled')&&!terminalEvidence(f,s))reasons.push('Completion or cancellation needs explicitly verified whole-development decision evidence');
  const project:Project={...(existing||{}),id:existing?.id||'auto-'+hash([s.id,f.externalId]).slice(0,36),revision:existing?.revision||0,name:f.name,address:f.address,neighborhood:s.jurisdiction,state:s.state,jurisdiction:s.jurisdiction,status:f.status||existing?.status||'Proposed',category:f.category,latitude:f.latitude!,longitude:f.longitude!,description:f.description,developer:f.developer,homes:existing?.homes||0,completion:existing?.completion||'Not documented',meetings:existing?.meetings||[],sources:[...(existing?.sources||[])],evidenceType:'municipal',sourceStatus:f.rawStatus,sourceStatusDate:f.eventDate,reviewedAt:new Date(now).toISOString().slice(0,10)};
  if(!project.sources!.some(v=>v.url===f.url))project.sources!.push({title:s.jurisdiction+' official development record',url:f.url});
  if(f.meeting){const m=f.meeting;if(!/^\d{4}-\d{2}-\d{2}T.*(Z|[+-]\d{2}:\d{2})$/.test(m.startsAt)||!Number.isFinite(Date.parse(m.startsAt))||!m.agenda.startsWith('https:'))reasons.push('Meeting needs an official date with timezone and source link');else project.meetings=[...project.meetings.filter(v=>v.id!==m.id),m];}
@@ -49,7 +51,7 @@ export function evaluateFinding(f:Finding,s:Source,existing:Project|null,now=Dat
  if(/stormwater|erosion control/i.test(f.category+' '+f.name)&&!/apartments?|housing|subdivision|commercial building|industrial|public park|treatment plant/i.test(f.description))reasons.push('Stormwater or administrative permit alone is not a development');
  const error=validateProject(project);if(error)reasons.push(error);
  // Confidence describes explicit checks, never an AI probability.
- return{project,reasons,eligible:reasons.length===0,confidence:{method:'deterministic-evidence-gates-v1',passed:reasons.length===0,reasons},dated:!!dated};
+ return{project,reasons,informationChange:informationChange(f,s,existing),eligible:reasons.length===0,confidence:{method:'deterministic-evidence-gates-v1',passed:reasons.length===0,reasons},dated:!!dated};
 }
 export class LimitReached extends Error{}
 export class Budget{

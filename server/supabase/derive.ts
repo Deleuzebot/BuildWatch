@@ -10,5 +10,5 @@ export async function deriveProject(project:Project,policy?:any){
  const approval=typeof policy?.approval_evidence==='string'?JSON.parse(policy.approval_evidence):policy?.approval_evidence;
  const schedules=typeof policy?.schedules==='string'?JSON.parse(policy.schedules):policy?.schedules||[];
  return {fingerprint,normalized:{...normalized,classification:{...classification,inputFingerprint:fingerprint}},road:roadDecision({...project,...normalized}),
-  recordEvents:recordEvents(project),meetingEvents:meetingEvents(project),policyEvents:policyEvents(approval,schedules)};
+  recordEvents:recordEvents(project),meetingEvents:meetingEvents(project),...(policy?{policyEvents:policyEvents(approval,schedules)}:{})};
 }

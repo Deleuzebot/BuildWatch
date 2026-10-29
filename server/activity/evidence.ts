@@ -7,7 +7,10 @@ export function recordEvents(p:Project):EvidenceEvent[]{
  const source=p.sources?.map(s=>url(s.url)).find(Boolean),status=(p.sourceStatus||'').trim();if(!source||!p.sourceStatusDate)return [];
  // "Under construction" + Action_Date can be the old approval date. It is NOT a documented start.
  if(/^(?:construction (?:started|began)|construction start)$/i.test(status))return event('Construction Started',p.sourceStatusDate,'The source explicitly records construction starting.',source);
- if(/approved|approval granted/i.test(status))return event('Approval',p.sourceStatusDate,'Documented source decision: '+status+'.',source);
+ if(/^completed$/i.test(status))return event('Completion',p.sourceStatusDate,'Explicit whole-development completion decision; scope must be verified before publication.',source);
+ if(/^cancelled$|^canceled$/i.test(status))return event('Cancellation',p.sourceStatusDate,'Explicit whole-development cancellation decision; application withdrawal is not cancellation.',source);
+ if(/^trc approved$/i.test(status))return event('Application Approval',p.sourceStatusDate,'TRC approval of this application; broader development approval is not established.',source);
+ if(/^(?:approved|approval granted)$/i.test(status))return event('Approval',p.sourceStatusDate,'Documented source decision: '+status+'.',source);
  if(/^(?:plan check|trc review|under review|in review|pending applicant action)$/i.test(status))return event('Review Update',p.sourceStatusDate,'Documented review-stage activity: '+status+'.',source);
  if(/^(?:proposed|project proposed|preliminary plat proposed|rezoning proposed|application (?:received|submitted))$/i.test(status))return event('Proposal / Application',p.sourceStatusDate,'Documented proposal/application activity: '+status+'.',source);
  if(/^issued$/i.test(status)&&p.evidenceType==='municipal')return event('Permit / Regulatory Decision',p.sourceStatusDate,'The municipal planning record reports issuance. This does not establish construction starting.',source);
@@ -16,7 +19,7 @@ export function recordEvents(p:Project):EvidenceEvent[]{
 export function meetingEvents(p:Project):EvidenceEvent[]{return(p.meetings||[]).flatMap(m=>event('Public Meeting',m.startsAt,m.title+(m.venue?' — '+m.venue:''),url(m.agenda)||p.sources?.map(s=>url(s.url)).find(Boolean),'meeting|'+m.id));}
 export function policyEvents(approval:any,schedules:any[]):EvidenceEvent[]{
  const events:EvidenceEvent[]=[];
- if(approval&&url(approval.url)&&approval.quote)events.push(...event('Approval',approval.date,approval.quote,approval.url,'approval'));
- for(const s of schedules||[])if(s.kind==='start'&&url(s.url)&&s.quote)events.push(...event('Construction Started',s.date,s.quote,s.url,'start|'+s.date));
+ if(approval&&url(approval.url)&&approval.quote)events.push(...event('Approval',approval.date,approval.quote,approval.url,'approval|'+approval.date));
+ for(const s of schedules||[])if(s.kind==='start'&&url(s.url)&&s.quote)events.push(...event((exactDate(s.date)||0)>Date.now()?'Construction Scheduled':'Construction Started',s.date,s.quote,s.url,'start|'+s.date));
  return events;
 }

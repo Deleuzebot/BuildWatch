@@ -4,6 +4,7 @@ import{parsePage,sourcePage,validateSourceSchema}from'./adapters';
 import{deriveProject}from'../supabase/derive';
 import{extractDocument}from'./ai';
 import{noticeLinks}from'./notices';
+import {componentMilestone} from './changes';
 import{extractAgendaPDF,agendaReferences}from'./agendas';
 export type WorkerRPC=((action:string,input?:Record<string,any>)=>Promise<any>) & {batch?:(action:string,inputs:Record<string,any>[])=>Promise<any[]>};
 type Options={state:string;mode:'weekly'|'initial';dryRun:boolean;key:string;scheduled?:boolean;githubURL?:string;maxSeconds?:number;maxRequests?:number;maxRecords?:number;onlySource?:string;pageSize?:number};
@@ -110,10 +111,14 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
        if(finding.reviewNotes?.length)quality.conflictingNotes++;
        const match=matches?matches[index++]:await call('match',{sourceId:source.id,externalId:finding.externalId});stats.projectsChecked+=match.ids.length===1?1:0;
        const evaluation=evaluateFinding(finding,source,match.project);
+       const component=match.ids.length===1?componentMilestone(finding,source,match.project):null;
        if(match.ids.length>1)evaluation.reasons.push('Shared source identifier maps to multiple records; duplicate review required');
-       const input={id:hash([source.id,finding.externalId,finding,options.dryRun]),sourceId:source.id,finding,project:evaluation.project,eligible:evaluation.eligible&&match.ids.length<=1,confidence:evaluation.confidence,reason:evaluation.reasons.join('; ')||'Exact official evidence and deterministic validation gates passed.',derived:evaluation.eligible?await deriveProject(evaluation.project):null};
+       const derived=component?{...await deriveProject(match.project,match.policy),recordEvents:[component]}:evaluation.eligible?await deriveProject(evaluation.project,match.policy):null;
+       if(derived&&!component)derived.recordEvents=derived.recordEvents.map(e=>({...e,url:finding.url,description:(e.description+' Evidence: '+finding.quote).slice(0,700)}));
+       const input={id:hash([source.id,finding.externalId,finding,options.dryRun]),sourceId:source.id,finding,project:evaluation.project,componentMilestone:component,informationChange:evaluation.informationChange,eligible:evaluation.eligible&&match.ids.length<=1,confidence:evaluation.confidence,reason:evaluation.reasons.join('; ')||'Exact official evidence and deterministic validation gates passed.',derived};
        if(matches){queued.push({runId:run.id,lease:run.lease,...input});continue;}
        const res=await call('finding',input);
+       if(res.outcome==='milestone_added'||res.outcome==='would_add_milestone')stats.milestones++;
        if(res.previousOutcome==='awaiting_review')stats.unverified++;
        if(res.outcome==='potential_duplicate')stats.duplicateCandidates++;else if(res.outcome==='awaiting_review')stats.unverified++;else if(res.outcome==='excluded_archive')stats.archivedExcluded++;else if(res.outcome==='published'){if(!match.project)stats.newFindings++;else if(match.project.status!==finding.status)stats.statusChanges++;stats.milestones+=finding.eventDate?1:0;}
       }

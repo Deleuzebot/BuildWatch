@@ -1,0 +1,56 @@
+{
+  "capturedAt": "2026-10-29T17:34:17.108Z",
+  "productionProjectHash": "a144bf52fc4ea8fac8d02094ff8f7fa7",
+  "reference": {
+    "source_id": "source-8ad50df7b7918cceaf0e16245fd827",
+    "external_id": "712"
+  },
+  "project": {
+    "id": "nc-local-82a43dcb917317",
+    "city": "Apex",
+    "name": "NC Childrens Health Infrastructure",
+    "homes": 0,
+    "state": "NC",
+    "county": "Wake",
+    "status": "Proposed",
+    "address": "NC Childrens Health Infrastructure — mapped site, Apex, NC",
+    "sources": [
+      {
+        "url": "https://services1.arcgis.com/nry3yyvaEfskMEXA/arcgis/rest/services/Development/FeatureServer/0/query?where=FID%3D712&outFields=FID%2CName%2CType%2CStatus%2CMore_Info%2CAction_Date%2CAction_Taken&outSR=4326&f=pjson",
+        "title": "Apex official record 712"
+      },
+      {
+        "url": "https://www.apexnc.org/2119/Demographic-and-Development-Data",
+        "title": "Official public tracker / context"
+      },
+      {
+        "url": "https://www.apexnc.org/DocumentCenter/View/54546",
+        "title": "Published project documentation"
+      }
+    ],
+    "subtype": "Housing",
+    "category": "Residential",
+    "latitude": 35.69644540055417,
+    "meetings": [],
+    "revision": 1,
+    "developer": "Not confirmed in cited record",
+    "longitude": -78.86317481071825,
+    "completion": "Not confirmed in cited record",
+    "reviewedAt": "2026-10-25",
+    "description": "Housing development listed in the Apex public inventory. The source lists “Proposed”. This is the agency-listed status, not independent confirmation of on-site activity. The map pin is an approximate site centroid; it is not an entrance or surveyed boundary.",
+    "evidenceType": "municipal",
+    "jurisdiction": "Apex",
+    "neighborhood": "Apex · Wake County",
+    "sourceStatus": "Proposed",
+    "classification": {
+      "reason": "Housing is the principal documented use; amenities are ancillary.",
+      "status": "classified",
+      "version": 1,
+      "inputFingerprint": "35a7d35cfc853075544e19e8648777b77c061bbe2475970c3c831a4512c4f075"
+    },
+    "primaryCategory": "Residential",
+    "originalCategory": "Housing",
+    "verificationNote": "Agency-listed project. Status reflects the source record; current site activity and final delivery are not independently verified.",
+    "secondaryCategories": []
+  }
+}
