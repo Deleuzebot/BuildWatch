@@ -15,6 +15,7 @@
   "validatedDemonstrationStates": ["NC"],
   "newStateActivation": "not_automatic",
   "defaults": {"cachedEvidenceOnly": true, "newLiveResearchRequests": 0, "productionWrites": 0, "paidServices": false},
+  "sessionLimits": {"maxSeconds": 900, "maxRecords": 500, "pageSize": 100, "maxDocumentLinks": 20, "sourceRefreshHours": 24},
   "notes": [
     "Illinois moved to the California queue and Vermont to the North Carolina queue, compared with the earlier unattended rotation.",
     "Only North Carolina has a validated demonstration; other state entries are future research queues, not enabled coverage.",

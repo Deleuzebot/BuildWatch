@@ -1,0 +1,6 @@
+interface:
+  display_name: "BuildWatch Research"
+  short_description: "Resume efficient weekday development research"
+  default_prompt: "Use $buildwatch-research to run the requested weekday queue with existing budgets and private update previews."
+policy:
+  allow_implicit_invocation: true

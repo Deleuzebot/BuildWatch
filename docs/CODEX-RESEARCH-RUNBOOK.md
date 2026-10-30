@@ -32,6 +32,10 @@ These are manually chosen work queues, not scheduled jobs or guarantees of compl
 
 ## One run
 
+The reusable `$buildwatch-research` skill now implements session coordination. Invoke “Run BuildWatch Monday research.” It reads the existing rotation and uses `scripts/buildwatch-research.mts` for a private durable queue, cursors, semantic fingerprints, idempotent decisions and JSON/Markdown reports. Commands and packet format live with the skill in `skills/buildwatch-research/references/commands.md`.
+
+The local journal stores only research coordination metadata; it does not replace Supabase or copy development/history tables. It persists across Codex sessions on this computer. It is not a cross-device/cloud queue. The coordinator is deliberately cached-only and cannot execute live HTTP or publication; future approved live sessions must reuse the existing globally budgeted readers and bind their resource receipts into reporting before claiming complete live accounting. Government snapshots retain their original observation dates. Source refresh, runtime, record and batch ceilings are in the existing rotation configuration.
+
 1. The user starts a session with a weekday/state queue and an existing approved total research budget. Read the current allowance and safety gates first. Do not infer a new allowance from a new day/month. No permission prompt is needed for each individual allowed retrieval; ask only if the approved total or permissions must change.
 2. Use cached source registries and last successful work first. Prioritize upcoming hearings, active applications, meaningful recent changes and incomplete investigations. Search by jurisdiction/topic rather than separately searching every project.
 3. Capture official source URL/identifier, raw evidence hash, publication/retrieval/event dates separately, page/section, exact supporting facts, application/component scope, location provenance and secondary corroboration. A secondary identity mention alone is not corroboration of a milestone.
