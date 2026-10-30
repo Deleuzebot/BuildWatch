@@ -16,6 +16,9 @@ export class SourceHTTP{
  accessPolicy?: (url:URL)=>boolean;
  /** Explicit same-origin canonical document redirects only; off by default. */
  redirectPolicy?: (url:URL)=>boolean;
+ /** Optional private evidence sink. It cannot change the request or validation policy. */
+ onRead?: (url:string,response:{status:number;body:string;rawBody:Buffer;etag:string|null;modified:string|null})=>void;
+ onBytes?: (bytes:number)=>void;
  constructor(public budget:Budget,public origin:string,private transport:typeof fetch=fetch){}
  async getPDF(url:string,profile:PDFProfile='standard'){return this.get(url,{Accept:'application/pdf'},0,profile);}
  async get(url:string,headers:Record<string,string>={},redirects=0,pdf?:PDFProfile):Promise<{status:number;body:string;rawBody:Buffer;etag:string|null;modified:string|null}>{
@@ -33,8 +36,8 @@ export class SourceHTTP{
    if(!r.ok){await r.body?.cancel();throw Error('Official source HTTP '+r.status);}
    const max=Math.min(documentLimit,this.budget.maxBytes-this.budget.bytes);if(Number(r.headers.get('content-length'))>documentLimit){await r.body?.cancel();throw new DocumentTooLarge('Document exceeds '+documentLimit+' bytes; manual review required');}
    const reader=r.body!.getReader();let size=0;const chunks:Uint8Array[]=[];
-   try{while(true){const part=await reader.read();if(part.done)break;size+=part.value.byteLength;this.budget.bytes+=part.value.byteLength;if(size>max){if(max<documentLimit)throw new LimitReached('Run download ceiling reached');throw new DocumentTooLarge('Document exceeds '+documentLimit+' bytes; deferred for manual review');}chunks.push(part.value);}}catch(e){await reader.cancel();throw e;}
-   const rawBody=Buffer.concat(chunks);if(pdf&&!rawBody.subarray(0,5).equals(Buffer.from('%PDF-')))throw Error('Official PDF endpoint returned a non-PDF response');return{status:r.status,body:pdf?'':rawBody.toString('utf8'),rawBody,etag:r.headers.get('etag'),modified:r.headers.get('last-modified')};
+   try{while(true){const part=await reader.read();if(part.done)break;size+=part.value.byteLength;this.budget.bytes+=part.value.byteLength;this.onBytes?.(part.value.byteLength);if(size>max){if(max<documentLimit)throw new LimitReached('Run download ceiling reached');throw new DocumentTooLarge('Document exceeds '+documentLimit+' bytes; deferred for manual review');}chunks.push(part.value);}}catch(e){await reader.cancel();throw e;}
+   const rawBody=Buffer.concat(chunks);if(pdf&&!rawBody.subarray(0,5).equals(Buffer.from('%PDF-')))throw Error('Official PDF endpoint returned a non-PDF response');const result={status:r.status,body:pdf?'':rawBody.toString('utf8'),rawBody,etag:r.headers.get('etag'),modified:r.headers.get('last-modified')};this.onRead?.(url,result);return result;
   }throw Error('Source retry limit reached');
  }
 }

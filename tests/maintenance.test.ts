@@ -29,6 +29,6 @@ test('resuming a completed index preserves unresolved PDF blockers',async()=>{
  const selected={...source,adapter:'document',config:{noticePathPattern:'^/packet',agendaPDFReview:true,agendaPDFLimit:1}};let saved:any={};
  const rpc:any=async(action:string,input:any)=>{if(action==='claim')return{run:{id:'r',lease:'l',checkpoint:saved.checkpoint||{},stats:saved.stats||{}},state:{max_seconds:30,max_requests:8,max_records:100},sources:[selected]};if(action==='finish')saved=structuredClone(input);return{};};
  const first=await runState(rpc,{state:'NC',mode:'initial',dryRun:true,key:'pdf',onlySource:'fixture'},async(url:any)=>new Response(String(url).endsWith('robots.txt')?'':String(url).includes('/packet')?'not a PDF':'<a href="/packet.pdf">Official agenda packet</a>'));
- assert.equal(first.status,'partially_completed');assert.match(first.error,/Not a bounded PDF/);
- const second=await runState(rpc,{state:'NC',mode:'initial',dryRun:true,key:'pdf',onlySource:'fixture'},async()=>{throw Error('Index should already be checkpointed');});assert.equal(second.status,'partially_completed');assert.match(second.error,/Not a bounded PDF/);
+ assert.equal(first.status,'partially_completed');assert.match(first.error,/non-PDF response/);
+ const second=await runState(rpc,{state:'NC',mode:'initial',dryRun:true,key:'pdf',onlySource:'fixture'},async()=>{throw Error('Index should already be checkpointed');});assert.equal(second.status,'partially_completed');assert.match(second.error,/non-PDF response/);
 });

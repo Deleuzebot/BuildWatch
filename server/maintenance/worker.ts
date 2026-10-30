@@ -8,14 +8,14 @@ import {componentMilestone} from './changes';
 import{extractAgendaPDF,agendaReferences}from'./agendas';
 import {evidenceDocuments,planningDocumentFindings} from './platforms';
 export type WorkerRPC=((action:string,input?:Record<string,any>)=>Promise<any>) & {batch?:(action:string,inputs:Record<string,any>[])=>Promise<any[]>};
-type Options={state:string;mode:'weekly'|'initial';dryRun:boolean;key:string;scheduled?:boolean;githubURL?:string;maxSeconds?:number;maxRequests?:number;maxRecords?:number;onlySource?:string;pageSize?:number};
+type Options={state:string;mode:'weekly'|'initial';dryRun:boolean;key:string;scheduled?:boolean;githubURL?:string;maxSeconds?:number;maxRequests?:number;maxRecords?:number;onlySource?:string;pageSize?:number;maxSourcePages?:number;maxDownloadBytes?:number;deferPDFExtraction?:boolean;onDownloadBytes?:(bytes:number)=>void;onEvidence?:(url:string,response:{status:number;body:string;rawBody:Buffer;etag:string|null;modified:string|null})=>void};
 export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fetch=fetch){
  const claimed=await rpc('claim',{state:options.state,mode:options.mode,dryRun:options.dryRun,key:options.key,scheduled:!!options.scheduled,githubURL:options.githubURL});
  if(claimed.status==='skipped')return claimed;
  const run=claimed.run,call=(action:string,input:Record<string,any>={})=>rpc(action,{runId:run.id,lease:run.lease,...input});
  const previous=run.stats||{};
  const snapshot=()=>{const value=budget.snapshot();return{...value,attemptSeconds:value.seconds,seconds:(previous.seconds||0)+value.seconds,requests:(previous.requests||0)+value.requests,downloadBytes:(previous.downloadBytes||0)+value.downloadBytes,aiRequests:(previous.aiRequests||0)+value.aiRequests,aiTokens:(previous.aiTokens||0)+value.aiTokens};};
- const budget=new Budget(Math.min(claimed.state.max_seconds,options.maxSeconds||900),Math.min(claimed.state.max_requests,options.maxRequests||300),Math.min(claimed.state.max_records,options.maxRecords||5000));
+ const budget=new Budget(Math.min(claimed.state.max_seconds,options.maxSeconds||900),Math.min(claimed.state.max_requests,options.maxRequests||300),Math.min(claimed.state.max_records,options.maxRecords||5000),Math.min(100_000_000,options.maxDownloadBytes||20_000_000));
  const cp={done:[] as string[],cursors:{} as Record<string,number>,...(run.checkpoint||{})};
  const stats:any={projectsChecked:0,sourceRecords:0,newFindings:0,statusChanges:0,milestones:0,archived:0,wouldArchive:0,duplicateCandidates:0,unverified:0,sourceFailures:0,unchangedDocuments:0,archivedExcluded:0,aiUnresolved:0,...(run.stats||{})};
  const sources:Source[]=claimed.sources.filter((s:Source)=>!options.onlySource||s.id===options.onlySource);
@@ -31,7 +31,7 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
     await call('checkpoint',{checkpoint:cp,stats:{...stats,...snapshot()}});continue;
    }
    try{
-    const origin=new URL(source.url).origin,http=new SourceHTTP(budget,origin,transport),policyKey=origin+':'+(source.adapter==='arcgis'&&source.authority==='official'?'official-arcgis':'other');
+    const origin=new URL(source.url).origin,http=new SourceHTTP(budget,origin,transport),policyKey=origin+':'+(source.adapter==='arcgis'&&source.authority==='official'?'official-arcgis':'other');http.onRead=options.onEvidence;http.onBytes=options.onDownloadBytes;
     if(!robots.has(policyKey)){
      try{const result=await http.get(origin+'/robots.txt');robots.set(policyKey,result.body);}catch(e:any){if(e instanceof LimitReached)throw e;
       // RFC 9309 §2.3.1.3: unavailable robots.txt is distinct from an explicit
@@ -57,7 +57,9 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
     }
     let cursor=cp.cursors[source.id]??(source.config.pagination==='oid_keyset'?-1:0),more=true;
     const pageSize=options.dryRun?Math.max(1,Math.min(500,Math.floor(options.pageSize||50))):50;
+    let sourcePages=0;
     while(more){
+     if(options.maxSourcePages&&sourcePages>=options.maxSourcePages){stats.sourcesDeferred=(stats.sourcesDeferred||0)+1;errors.push(source.jurisdiction+': per-source page ceiling reached; continuation remains queued');break;}sourcePages++;
      budget.check();const url=sourcePage(source,cursor,Math.min(pageSize,budget.maxRecords-budget.records));
      const cacheURL=source.config.mappingVersion?url+'#mapping='+encodeURIComponent(source.config.mappingVersion):url;
      const cache=await call('document',{sourceId:source.id,url:cacheURL});
@@ -82,12 +84,13 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
         const limit=Math.max(1,Math.min(3,source.config.agendaPDFLimit||1));stats.documentCoverage='Official index plus bounded PDF sample only; other packets and project/meeting associations still require review';
         stats.agendaDocumentsDeferred=(stats.agendaDocumentsDeferred||0)+Math.max(0,links.length-limit);
         for(const link of links.slice(0,limit)){
+         if(options.deferPDFExtraction){stats.agendaDocumentsDeferred++;continue;}
          budget.check();
          try{const documentKey=link.url+'#pdf-parser=v3&profile='+hash([source.config.mappingVersion,source.config.documentResearch,source.config.decisionProfile]),cached=await call('document',{sourceId:source.id,url:documentKey});
-          const document=await http.get(link.url,cached.hash?{...(cached.etag?{'If-None-Match':cached.etag}:{}),...(cached.modified?{'If-Modified-Since':cached.modified}:{})}:{});
+          const document=await http.get(link.url,cached.hash?{Accept:'application/pdf',...(cached.etag?{'If-None-Match':cached.etag}:{}),...(cached.modified?{'If-Modified-Since':cached.modified}:{})}:{Accept:'application/pdf'},0,source.config.pdfProfile||'standard');
           if(document.status===304){if(!cached.hash)throw Error('PDF returned 304 without a validated extraction');stats.unchangedDocuments++;continue;}
           const documentHash=hash(document.rawBody);if(cached.hash===documentHash){stats.unchangedDocuments++;continue;}
-          const extracted=await extractAgendaPDF(document.rawBody);stats.agendaPDFs=(stats.agendaPDFs||0)+1;
+          const extracted=await extractAgendaPDF(document.rawBody,source.config.pdfProfile||'standard');stats.agendaPDFs=(stats.agendaPDFs||0)+1;
           if(extracted.truncated){stats.agendaTruncated=(stats.agendaTruncated||0)+1;const issue=source.jurisdiction+' document truncated: '+link.url;errors.push(issue);cp.agendaIssues[source.id].push(issue);}
           const refs=source.config.documentResearch===true?planningDocumentFindings(source,extracted,link.url,documentHash):agendaReferences(extracted,link.url);stats.agendaReferences=(stats.agendaReferences||0)+refs.length;
           if(!refs.length)stats.agendaWithoutCaseReferences=(stats.agendaWithoutCaseReferences||0)+1;
@@ -143,6 +146,7 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
      cursor=nextCursor??cursor+advance;cp.cursors[source.id]=cursor;
      await call('checkpoint',{checkpoint:cp,stats:{...stats,...snapshot()}});
     }
+    if(more)continue;
     cp.done.push(source.id);delete cp.cursors[source.id];await call('source',{sourceId:source.id});
     await call('checkpoint',{checkpoint:cp,stats:{...stats,...snapshot()}});
    }catch(e:any){

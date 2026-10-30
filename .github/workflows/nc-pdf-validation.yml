@@ -1,0 +1,33 @@
+name: Manual NC PDF source validation
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  documents:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      BW_PDF_50MB_VALIDATED: 'true'
+      NODE_OPTIONS: --max-old-space-size=768
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.25.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check --no-cache-dir -r requirements-maintenance.txt
+      - name: Validate four fixed official documents within eight HTTP attempts
+        run: pnpm exec tsx scripts/nc-pdf-source-validation.mts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nc-private-document-validation
+          path: reports/nc-pdf-validation/result.json
+          retention-days: 7

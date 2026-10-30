@@ -1,0 +1,147 @@
+{
+  "publication": false,
+  "archival": false,
+  "scheduling": false,
+  "profiles": [
+    {
+      "jurisdiction": "Union County",
+      "type": "county",
+      "platform": "arcgis",
+      "source": {
+        "id": "source-c4ebf7e50f108f64b0009c5ba1b1",
+        "state": "NC",
+        "jurisdiction": "Union County",
+        "url": "https://services2.arcgis.com/Z7YhSKLuj0a3XHN6/arcgis/rest/services/Union_County_Development_Projects_Summary/FeatureServer/0",
+        "adapter": "arcgis",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "mappingVersion": "union-official-20261030-v1",
+          "idField": "OBJECTID",
+          "fields": {
+            "name": "Project_Name",
+            "description": "Description",
+            "status": "Project_Status",
+            "category": "Project_Type"
+          },
+          "dateFields": {
+            "applicationApprovalAt": "Approval_Date"
+          },
+          "factFields": {
+            "applicationNumber": "Evolve_File_Number",
+            "parcelId": "Parcel_ID",
+            "units": "Number_Homes_Double",
+            "acres": "Acres_Double"
+          },
+          "requiredFields": [
+            "OBJECTID",
+            "Project_Name",
+            "Description",
+            "Project_Status",
+            "Project_Type",
+            "Evolve_File_Number",
+            "Parcel_ID",
+            "Number_Homes_Double",
+            "Acres_Double",
+            "Approval_Date"
+          ],
+          "expectedFieldTypes": {
+            "OBJECTID": "esriFieldTypeOID",
+            "Evolve_File_Number": "esriFieldTypeString",
+            "Project_Name": "esriFieldTypeString",
+            "Project_Type": "esriFieldTypeString",
+            "Project_Status": "esriFieldTypeString",
+            "Approval_Date": "esriFieldTypeString",
+            "Parcel_ID": "esriFieldTypeString",
+            "Description": "esriFieldTypeString",
+            "Acres_Double": "esriFieldTypeDouble",
+            "Number_Homes_Double": "esriFieldTypeDouble"
+          },
+          "statusScope": "application",
+          "scopeVerified": false,
+          "sourceRole": "development_review",
+          "currentInventory": true,
+          "officialReference": "https://www.unioncountync.gov/Home/Components/News/News/1904/",
+          "applicationScopeOnly": true,
+          "notes": [
+            "Coverage is county planning jurisdiction; do not assume all incorporated municipalities.",
+            "Consolidated summary avoids duplicate category-layer markers.",
+            "Approval date is application-level; GIS status, withdrawn/cancelled combinations and missing dates require review."
+          ]
+        }
+      },
+      "validation": "live_metadata_and_official_link_verified_records_pending",
+      "productionApproved": false,
+      "duplicateLayersSuppressed": 5
+    },
+    {
+      "jurisdiction": "Union County",
+      "type": "county",
+      "platform": "arcgis",
+      "source": {
+        "id": "source-d39f1640ba3f82f3ef58ead21cf0",
+        "state": "NC",
+        "jurisdiction": "Union County",
+        "url": "https://services2.arcgis.com/Z7YhSKLuj0a3XHN6/arcgis/rest/services/Union_County_Rezonings_2017_to_Present/FeatureServer/0",
+        "adapter": "arcgis",
+        "authority": "official",
+        "enabled": false,
+        "autopublish": false,
+        "config": {
+          "mappingVersion": "union-official-20261030-v1",
+          "idField": "OBJECTID",
+          "fields": {
+            "name": "Rezoning_Name",
+            "description": "Description_of_Use",
+            "status": "County_Commission_Decision",
+            "category": "Proposed_LU"
+          },
+          "dateFields": {},
+          "factFields": {
+            "planningBoardRecommendation": "Planning_Board_Decision",
+            "staffRecommendation": "Staff_Recommendation",
+            "units": "Proposed_Units",
+            "proposedYearText": "Year_Proposed"
+          },
+          "requiredFields": [
+            "OBJECTID",
+            "Rezoning_Name",
+            "Description_of_Use",
+            "County_Commission_Decision",
+            "Proposed_LU",
+            "Planning_Board_Decision",
+            "Staff_Recommendation",
+            "Proposed_Units",
+            "Year_Proposed"
+          ],
+          "expectedFieldTypes": {
+            "OBJECTID": "esriFieldTypeOID",
+            "Proposed_LU": "esriFieldTypeString",
+            "Year_Proposed": "esriFieldTypeString",
+            "Planning_Board_Decision": "esriFieldTypeString",
+            "Staff_Recommendation": "esriFieldTypeString",
+            "County_Commission_Decision": "esriFieldTypeString",
+            "Proposed_Units": "esriFieldTypeString",
+            "Rezoning_Name": "esriFieldTypeString",
+            "Description_of_Use": "esriFieldTypeString"
+          },
+          "statusScope": "application",
+          "scopeVerified": false,
+          "sourceRole": "supporting_only",
+          "currentInventory": false,
+          "officialReference": "https://www.unioncountync.gov/Home/Components/News/News/1904/",
+          "applicationScopeOnly": true,
+          "notes": [
+            "Coverage is county planning jurisdiction; do not assume all incorporated municipalities.",
+            "Consolidated summary avoids duplicate category-layer markers.",
+            "Approval date is application-level; GIS status, withdrawn/cancelled combinations and missing dates require review."
+          ]
+        }
+      },
+      "validation": "live_metadata_and_official_link_verified_records_pending",
+      "productionApproved": false,
+      "duplicateLayersSuppressed": 0
+    }
+  ]
+}

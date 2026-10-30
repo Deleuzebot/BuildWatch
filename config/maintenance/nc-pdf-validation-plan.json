@@ -1,0 +1,11 @@
+{
+  "mode": "manual_private_validation",
+  "publication": false,
+  "maximumGovernmentHTTPRequests": 8,
+  "sources": [
+    {"jurisdiction":"Burke","url":"https://www.burkenc.org/AgendaCenter/ViewFile/Agenda/_11122026-948"},
+    {"jurisdiction":"Caldwell","url":"https://caldwellcountync.org/DocumentCenter/View/3113/72826-Agenda"},
+    {"jurisdiction":"Carteret","url":"https://carteretcountync.gov/AgendaCenter/ViewFile/Agenda/_10122026-1602"},
+    {"jurisdiction":"Catawba","url":"https://www.catawbacountync.gov/site/assets/files/9853/bud_road_conceptual_rezoning_plan_04042023.pdf"}
+  ]
+}

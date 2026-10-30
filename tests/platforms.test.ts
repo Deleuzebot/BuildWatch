@@ -4,14 +4,21 @@ import {evidenceDocuments,planningDocumentFindings,governmentPlatform} from '../
 import {evaluateFinding} from '../server/maintenance/policy';import {arcgisReferenceId} from '../server/maintenance/source-identity';
 import {runState} from '../server/maintenance/worker';import {syntheticPDF} from '../server/maintenance/pdf-fixture';
 const fixture=JSON.parse(readFileSync('tests/fixtures/nc-platforms.json','utf8')),wilson=fixture.profiles.find((p:any)=>p.jurisdiction==='Wilson');
+test('a source page ceiling preserves its cursor and allows other sources to run',async()=>{
+ const base:any={state:'NC',jurisdiction:'Controlled city',adapter:'arcgis',authority:'official',autopublish:false,config:{idField:'OBJECTID',fields:{name:'Name'},requiredFields:['OBJECTID','Name']}};
+ const sources=['a','b'].map(id=>({...base,id,url:'https://example.com/arcgis/'+id+'/FeatureServer/0'}));let finished:any;
+ const rpc:any=async(action:string,input:any={})=>{if(action==='claim')return{run:{id:'controlled-page-cap',lease:'controlled',checkpoint:{}},state:{max_seconds:30,max_requests:10,max_records:100},sources};if(action==='document')return{};if(action==='match')return{ids:[],project:null};if(action==='finding')return{outcome:'awaiting_review'};if(action==='finish')finished=input;return{};};
+ const transport:typeof fetch=async(input)=>{const url=String(input);if(url.endsWith('/robots.txt'))return new Response('User-agent: *\nAllow: /');if(!url.includes('/query'))return Response.json({objectIdField:'OBJECTID',fields:[{name:'OBJECTID',type:'esriFieldTypeOID'},{name:'Name',type:'esriFieldTypeString'}]});return Response.json({features:[{attributes:{OBJECTID:1,Name:'Controlled multifamily project'}}],exceededTransferLimit:url.includes('/a/')});};
+ const result=await runState(rpc,{state:'NC',mode:'weekly',dryRun:true,key:'controlled',maxSourcePages:1},transport);assert.equal(result.status,'partially_completed');assert.equal(result.sourcesDeferred,1);assert.deepEqual(finished.checkpoint.done,['b']);assert.equal(finished.checkpoint.cursors.a,1);assert.equal(result.sourceRecords,2);
+});
 test('real cached Wilson records retain descriptions/points but cannot invent statuses or approval dates',()=>{
  validateSourceSchema(wilson.source,wilson.metadata);const page=parsePage(wilson.source,JSON.stringify(wilson.records),100);assert.equal(page.count,40);
  for(const f of page.findings){assert.ok(f.name);assert.equal(f.status,undefined);assert.equal(f.eventDate,undefined);assert.equal(evaluateFinding(f,wilson.source,null).eligible,false);}
  const ballpark=page.findings.find(f=>f.name==='Wilson Ball Park')!;assert.match(ballpark.description,/116/);assert.equal(ballpark.sourceFacts?.applicationNumber,'24-124');
 });
-test('schema-only Lincoln/Forsyth are validated mappings, not verified record coverage',()=>{
+test('Lincoln schema and Forsyth historical GIS rows remain review-only coverage',()=>{
  for(const p of fixture.profiles){assert.doesNotThrow(()=>validateSourceSchema(p.source,p.metadata));const broken=structuredClone(p.metadata);broken.fields=broken.fields.filter((f:any)=>f.name!=='OBJECTID');assert.throws(()=>validateSourceSchema(p.source,broken));assert.equal(p.source.autopublish,false);assert.equal(p.source.enabled,false);}
- assert.equal(fixture.profiles.filter((p:any)=>p.records).length,1);
+ assert.equal(fixture.profiles.filter((p:any)=>p.records).length,2);
 });
 test('shared CivicPlus and official HTML adapters replay cached markup without asserting decisions',()=>{
  assert.equal(fixture.indexes.length,17);let shared=0;
@@ -45,3 +52,5 @@ test('document cache rechecks same-URL PDFs under unchanged indexes and suppress
  const first=await runState(rpc,{state:'NC',mode:'weekly',dryRun:true,key:'first',onlySource:source.id},fake);assert.equal(first.agendaFailures||0,0,first.error);assert.equal(first.agendaPDFs,1);const before=finds;
  const second=await runState(rpc,{state:'NC',mode:'weekly',dryRun:true,key:'second',onlySource:source.id},fake);assert.equal(second.agendaPDFs||0,0);assert.equal(second.unchangedDocuments,1);assert.equal(pdfGets,2);assert.equal(finds,before+1,'Only the stable index lead is re-submitted; PDF case findings are suppressed');
 });
+
+test('Forsyth repeated business dockets do not overwrite unique GIS rows or become dated approvals',()=>{const p=fixture.profiles.find((p:any)=>p.jurisdiction==='Forsyth');const result=parsePage(p.source,JSON.stringify(p.records),100);assert.equal(new Set(result.findings.map(f=>f.externalId)).size,15);assert.ok(new Set(result.findings.map(f=>f.sourceFacts?.docketId)).size<15);assert.ok(result.findings.every(f=>!f.eventDate&&!f.wholeDevelopment));});

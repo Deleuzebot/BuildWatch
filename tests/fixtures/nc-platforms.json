@@ -4181,12 +4181,11 @@
         "enabled": false,
         "autopublish": false,
         "config": {
-          "mappingVersion": "nc-shared-platform-v1",
+          "mappingVersion": "forsyth-row-identity-v2-review-only",
           "statusScope": "application",
           "scopeVerified": false,
           "pagination": "oid_keyset",
           "idField": "OBJECTID",
-          "originalIdentityField": "DOCKET",
           "fields": {
             "name": "DOCKET",
             "status": "APPR_DENI",
@@ -4197,7 +4196,8 @@
             "caseType": "CASE_TYPE",
             "actionType": "ACTION_TYP",
             "parcelId": "PIN",
-            "yearText": "YEAR"
+            "yearText": "YEAR",
+            "docketId": "DOCKET"
           },
           "requiredFields": [
             "OBJECTID",
@@ -4217,7 +4217,8 @@
           "notes": [
             "DOCKET is a case identifier, not a verified project title.",
             "YEAR is not an exact decision date. No status mapping without sample verification.",
-            "County service does not establish complete Winston-Salem or incorporated-town coverage."
+            "County service does not establish complete Winston-Salem or incorporated-town coverage.",
+            "GIS OBJECTID is the unique source-row identifier; repeated DOCKET values are business-case aliases and require multipart/case grouping before project identity is asserted."
           ]
         }
       },
@@ -4662,7 +4663,368 @@
         "standardMaxRecordCountNoGeometry": 32000,
         "maxRecordCountFactor": 1
       },
-      "records": null,
+      "records": {
+        "objectIdFieldName": "OBJECTID",
+        "globalIdFieldName": "",
+        "geometryType": "esriGeometryPoint",
+        "spatialReference": {
+          "wkid": 4326,
+          "latestWkid": 4326
+        },
+        "fields": [
+          {
+            "name": "OBJECTID",
+            "alias": "OBJECTID",
+            "type": "esriFieldTypeOID"
+          },
+          {
+            "name": "PIN",
+            "alias": "PIN",
+            "type": "esriFieldTypeString",
+            "length": 20
+          },
+          {
+            "name": "WARD",
+            "alias": "WARD",
+            "type": "esriFieldTypeString",
+            "length": 10
+          },
+          {
+            "name": "DOCKET",
+            "alias": "DOCKET",
+            "type": "esriFieldTypeString",
+            "length": 254
+          },
+          {
+            "name": "CASE_TYPE",
+            "alias": "CASE_TYPE",
+            "type": "esriFieldTypeString",
+            "length": 254
+          },
+          {
+            "name": "ACTION_TYP",
+            "alias": "ACTION_TYP",
+            "type": "esriFieldTypeString",
+            "length": 254
+          },
+          {
+            "name": "YEAR",
+            "alias": "YEAR",
+            "type": "esriFieldTypeString",
+            "length": 254
+          },
+          {
+            "name": "APPR_DENI",
+            "alias": "APPR_DENI",
+            "type": "esriFieldTypeString",
+            "length": 254
+          },
+          {
+            "name": "ORIG_FID",
+            "alias": "ORIG_FID",
+            "type": "esriFieldTypeInteger"
+          },
+          {
+            "name": "LOTS_UNITS",
+            "alias": "LOTS_UNITS",
+            "type": "esriFieldTypeInteger"
+          },
+          {
+            "name": "RES_TYPE",
+            "alias": "RES_TYPE",
+            "type": "esriFieldTypeString",
+            "length": 3
+          }
+        ],
+        "features": [
+          {
+            "attributes": {
+              "OBJECTID": 48,
+              "PIN": "6874-47-1077.000",
+              "WARD": " ",
+              "DOCKET": "K-780",
+              "CASE_TYPE": "Zoning",
+              "ACTION_TYP": "Special Use Zoning",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 0,
+              "LOTS_UNITS": 275,
+              "RES_TYPE": "MFR"
+            },
+            "geometry": {
+              "x": -80.10304391221077,
+              "y": 36.072511019473474
+            }
+          },
+          {
+            "attributes": {
+              "OBJECTID": 49,
+              "PIN": "6885-92-5127.000",
+              "WARD": " ",
+              "DOCKET": "K-782",
+              "CASE_TYPE": "Zoning",
+              "ACTION_TYP": "Special Use Zoning",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 0,
+              "LOTS_UNITS": 178,
+              "RES_TYPE": "MXD"
+            },
+            "geometry": {
+              "x": -80.05022905976237,
+              "y": 36.08689033118598
+            }
+          },
+          {
+            "attributes": {
+              "OBJECTID": 54,
+              "PIN": "6886-52-1597.000",
+              "WARD": " ",
+              "DOCKET": "K-673.A1",
+              "CASE_TYPE": "Zoning",
+              "ACTION_TYP": "Special Use Zoning",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 0,
+              "LOTS_UNITS": 53,
+              "RES_TYPE": "MFR"
+            },
+            "geometry": {
+              "x": -80.06584249930249,
+              "y": 36.115375413842955
+            }
+          },
+          {
+            "attributes": {
+              "OBJECTID": 55,
+              "PIN": "6886-42-8635.000",
+              "WARD": " ",
+              "DOCKET": "K-666.A1",
+              "CASE_TYPE": "Zoning",
+              "ACTION_TYP": "Special Use Zoning",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 0,
+              "LOTS_UNITS": 65,
+              "RES_TYPE": "MFR"
+            },
+            "geometry": {
+              "x": -80.06706821724975,
+              "y": 36.115592084615024
+            }
+          },
+          {
+            "attributes": {
+              "OBJECTID": 60,
+              "PIN": "6873-57-5501.000",
+              "WARD": " ",
+              "DOCKET": "K-762.A1",
+              "CASE_TYPE": "Zoning",
+              "ACTION_TYP": "Special Use Zoning",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 0,
+              "LOTS_UNITS": 25,
+              "RES_TYPE": "SFR"
+            },
+            "geometry": {
+              "x": -80.09816332551787,
+              "y": 36.04623441048102
+            }
+          },
+          {
+            "attributes": {
+              "OBJECTID": 61,
+              "PIN": "6886-05-0796.000",
+              "WARD": " ",
+              "DOCKET": "K-Unknown1",
+              "CASE_TYPE": "Subdivision",
+              "ACTION_TYP": "Conventional Subdivision",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 0,
+              "LOTS_UNITS": 52,
+              "RES_TYPE": "SFR"
+            },
+            "geometry": {
+              "x": -80.08325315744014,
+              "y": 36.12394742077937
+            }
+          },
+          {
+            "attributes": {
+              "OBJECTID": 62,
+              "PIN": " ",
+              "WARD": " ",
+              "DOCKET": "K-570FDP TR MU5.A1",
+              "CASE_TYPE": "Final Development Plan",
+              "ACTION_TYP": "Final Development Plan",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 0,
+              "LOTS_UNITS": 63,
+              "RES_TYPE": "MFR"
+            },
+            "geometry": {
+              "x": -80.32903059886674,
+              "y": 36.14219482559141
+            }
+          },
+          {
+            "attributes": {
+              "OBJECTID": 63,
+              "PIN": " ",
+              "WARD": " ",
+              "DOCKET": "K-570FDP TR RL23.A1",
+              "CASE_TYPE": "Final Development Plan",
+              "ACTION_TYP": "Final Development Plan",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 0,
+              "LOTS_UNITS": 77,
+              "RES_TYPE": "SFR"
+            },
+            "geometry": {
+              "x": -80.08717320293557,
+              "y": 36.10410176149064
+            }
+          },
+          {
+            "attributes": {
+              "OBJECTID": 64,
+              "PIN": " ",
+              "WARD": " ",
+              "DOCKET": "K-641FDP TR7.A2 \r\n",
+              "CASE_TYPE": "Final Development Plan",
+              "ACTION_TYP": "Final Development Plan",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 0,
+              "LOTS_UNITS": 36,
+              "RES_TYPE": "MFR"
+            },
+            "geometry": {
+              "x": -80.08118912908462,
+              "y": 36.07895635785241
+            }
+          },
+          {
+            "attributes": {
+              "OBJECTID": 65,
+              "PIN": " ",
+              "WARD": " ",
+              "DOCKET": "L-PBR 2020001",
+              "CASE_TYPE": "Subdivision",
+              "ACTION_TYP": "Conventional Subdivision",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 0,
+              "LOTS_UNITS": 7,
+              "RES_TYPE": "SFR"
+            },
+            "geometry": {
+              "x": -80.40041293332924,
+              "y": 36.08446170153764
+            }
+          },
+          {
+            "attributes": {
+              "OBJECTID": 67,
+              "PIN": "6886-05-0796.000",
+              "WARD": " ",
+              "DOCKET": "K-Unknown1",
+              "CASE_TYPE": "Subdivision",
+              "ACTION_TYP": "Conventional Subdivision",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 0,
+              "LOTS_UNITS": 5,
+              "RES_TYPE": "SFR"
+            },
+            "geometry": {
+              "x": -80.08325315744014,
+              "y": 36.12394742077937
+            }
+          },
+          {
+            "attributes": {
+              "OBJECTID": 72,
+              "PIN": "5893-33-5641.000",
+              "WARD": " ",
+              "DOCKET": "C-19-005",
+              "CASE_TYPE": "Subdivision",
+              "ACTION_TYP": "Conventional Subdivision",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 0,
+              "LOTS_UNITS": 12,
+              "RES_TYPE": "SFR"
+            },
+            "geometry": {
+              "x": -80.37447319117119,
+              "y": 36.03246808328996
+            }
+          },
+          {
+            "attributes": {
+              "OBJECTID": 73,
+              "PIN": "5892-22-0602.000",
+              "WARD": " ",
+              "DOCKET": "C-20-001",
+              "CASE_TYPE": "Subdivision",
+              "ACTION_TYP": "Conventional Subdivision",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 0,
+              "LOTS_UNITS": 30,
+              "RES_TYPE": "SFR"
+            },
+            "geometry": {
+              "x": -80.37889285000212,
+              "y": 36.000365473697364
+            }
+          },
+          {
+            "attributes": {
+              "OBJECTID": 74,
+              "PIN": "5893-30-9990.000",
+              "WARD": " ",
+              "DOCKET": "C-234",
+              "CASE_TYPE": "Zoning",
+              "ACTION_TYP": "Special Use Zoning",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 0,
+              "LOTS_UNITS": 78,
+              "RES_TYPE": "MFR"
+            },
+            "geometry": {
+              "x": -80.372939418524,
+              "y": 36.02498734591428
+            }
+          },
+          {
+            "attributes": {
+              "OBJECTID": 75,
+              "PIN": "6826-64-1144.000",
+              "WARD": "Northwest",
+              "DOCKET": "W-3447",
+              "CASE_TYPE": "Zoning",
+              "ACTION_TYP": "Special Use Zoning",
+              "YEAR": "2020",
+              "APPR_DENI": "Approval",
+              "ORIG_FID": 57,
+              "LOTS_UNITS": 69,
+              "RES_TYPE": "MFR"
+            },
+            "geometry": {
+              "x": -80.2662562584717,
+              "y": 36.1174779187225
+            }
+          }
+        ],
+        "exceededTransferLimit": true
+      },
       "validation": "cached_schema_only",
       "productionApproved": false
     }

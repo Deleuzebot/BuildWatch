@@ -152,12 +152,11 @@
         "enabled": false,
         "autopublish": false,
         "config": {
-          "mappingVersion": "nc-shared-platform-v1",
+          "mappingVersion": "forsyth-row-identity-v2-review-only",
           "statusScope": "application",
           "scopeVerified": false,
           "pagination": "oid_keyset",
           "idField": "OBJECTID",
-          "originalIdentityField": "DOCKET",
           "fields": {
             "name": "DOCKET",
             "status": "APPR_DENI",
@@ -168,7 +167,8 @@
             "caseType": "CASE_TYPE",
             "actionType": "ACTION_TYP",
             "parcelId": "PIN",
-            "yearText": "YEAR"
+            "yearText": "YEAR",
+            "docketId": "DOCKET"
           },
           "requiredFields": [
             "OBJECTID",
@@ -188,7 +188,8 @@
           "notes": [
             "DOCKET is a case identifier, not a verified project title.",
             "YEAR is not an exact decision date. No status mapping without sample verification.",
-            "County service does not establish complete Winston-Salem or incorporated-town coverage."
+            "County service does not establish complete Winston-Salem or incorporated-town coverage.",
+            "GIS OBJECTID is the unique source-row identifier; repeated DOCKET values are business-case aliases and require multipart/case grouping before project identity is asserted."
           ]
         }
       },
