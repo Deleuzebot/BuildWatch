@@ -6,6 +6,7 @@ import{extractDocument}from'./ai';
 import{noticeLinks}from'./notices';
 import {componentMilestone} from './changes';
 import{extractAgendaPDF,agendaReferences}from'./agendas';
+import {evidenceDocuments,planningDocumentFindings} from './platforms';
 export type WorkerRPC=((action:string,input?:Record<string,any>)=>Promise<any>) & {batch?:(action:string,inputs:Record<string,any>[])=>Promise<any[]>};
 type Options={state:string;mode:'weekly'|'initial';dryRun:boolean;key:string;scheduled?:boolean;githubURL?:string;maxSeconds?:number;maxRequests?:number;maxRecords?:number;onlySource?:string;pageSize?:number};
 export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fetch=fetch){
@@ -54,22 +55,25 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
      if(!oid||!Array.isArray(meta.fields))throw Error('Stable source object identifier unavailable');
      if(!source.config.idField){source.config={...source.config,idField:oid};await call('source',{sourceId:source.id,config:{idField:oid}});}
     }
-    let cursor=cp.cursors[source.id]||0,more=true;
+    let cursor=cp.cursors[source.id]??(source.config.pagination==='oid_keyset'?-1:0),more=true;
     const pageSize=options.dryRun?Math.max(1,Math.min(500,Math.floor(options.pageSize||50))):50;
     while(more){
      budget.check();const url=sourcePage(source,cursor,Math.min(pageSize,budget.maxRecords-budget.records));
      const cacheURL=source.config.mappingVersion?url+'#mapping='+encodeURIComponent(source.config.mappingVersion):url;
      const cache=await call('document',{sourceId:source.id,url:cacheURL});
-     const reusable=pageSize===50&&options.mode==='weekly'&&cache.applied===!options.dryRun;
+     // An unchanged index can still link a revised PDF at the same URL. Revisit
+     // bounded children, using their own conditional/hash caches instead.
+     const reviewDocuments=source.adapter==='document'&&options.dryRun&&source.config.agendaPDFReview===true;
+     const reusable=!reviewDocuments&&source.config.pagination!=='oid_keyset'&&pageSize===50&&options.mode==='weekly'&&cache.applied===!options.dryRun;
      const result=await http.get(url,reusable?{...(cache.etag?{'If-None-Match':cache.etag}:{}),...(cache.modified?{'If-Modified-Since':cache.modified}:{})}:{});
-     if(result.status===304){stats.unchangedDocuments++; // Page cardinality is retained, not guessed from HTTP 304.
+     if(result.status===304){if(!reusable||!cache.hash)throw Error('Source returned 304 without a reusable validated page');stats.unchangedDocuments++; // Page cardinality is retained, not guessed from HTTP 304.
       if(cache.more){cursor+=50;cp.cursors[source.id]=cursor;await call('checkpoint',{checkpoint:cp,stats:{...stats,...snapshot()}});continue;}more=false;break;
      }
-     const digest=hash(result.body);let advance=50;
+     const digest=hash(result.body);let advance=50,nextCursor:number|undefined;
      if(digest===cache.hash&&reusable){stats.unchangedDocuments++;more=!!cache.more;}
      else if(source.adapter==='document'){
       if(source.config.noticePathPattern){
-       const links=noticeLinks(source,result.body);if(!links.length)throw Error('Official document index layout changed or no matching document links are available');
+       const links=source.config.documentResearch===true?evidenceDocuments(source,result.body):noticeLinks(source,result.body);if(!links.length)throw Error('Official document index layout changed or no matching document links are available');
        for(const link of links){budget.check(false);budget.records++;const lead={externalId:hash(link.url),name:link.title,description:'Official document link; project and meeting contents require review.',address:'',latitude:null,longitude:null,rawStatus:'',category:'',developer:'',url:link.url,quote:link.title+' — '+link.url,principalUseVerified:false,locationVerified:false,wholeDevelopment:false,recordKind:'document_index_entry'};
         await call('finding',{id:hash([source.id,link,options.dryRun]),sourceId:source.id,finding:lead,project:{id:'lead-'+hash(link.url).slice(0,30),state:source.state},eligible:false,reason:'Official agenda/document pointer only. No project status, meeting date or coordinates inferred.',confidence:{method:'requires_review'}});stats.documentLeads=(stats.documentLeads||0)+1;stats.unverified++;
        }
@@ -79,13 +83,21 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
         stats.agendaDocumentsDeferred=(stats.agendaDocumentsDeferred||0)+Math.max(0,links.length-limit);
         for(const link of links.slice(0,limit)){
          budget.check();
-         try{const document=await http.get(link.url);const extracted=await extractAgendaPDF(document.rawBody);stats.agendaPDFs=(stats.agendaPDFs||0)+1;
-          if(extracted.truncated)stats.agendaTruncated=(stats.agendaTruncated||0)+1;
-          const refs=agendaReferences(extracted,link.url);stats.agendaReferences=(stats.agendaReferences||0)+refs.length;
+         try{const documentKey=link.url+'#pdf-parser=v3&profile='+hash([source.config.mappingVersion,source.config.documentResearch,source.config.decisionProfile]),cached=await call('document',{sourceId:source.id,url:documentKey});
+          const document=await http.get(link.url,cached.hash?{...(cached.etag?{'If-None-Match':cached.etag}:{}),...(cached.modified?{'If-Modified-Since':cached.modified}:{})}:{});
+          if(document.status===304){if(!cached.hash)throw Error('PDF returned 304 without a validated extraction');stats.unchangedDocuments++;continue;}
+          const documentHash=hash(document.rawBody);if(cached.hash===documentHash){stats.unchangedDocuments++;continue;}
+          const extracted=await extractAgendaPDF(document.rawBody);stats.agendaPDFs=(stats.agendaPDFs||0)+1;
+          if(extracted.truncated){stats.agendaTruncated=(stats.agendaTruncated||0)+1;const issue=source.jurisdiction+' document truncated: '+link.url;errors.push(issue);cp.agendaIssues[source.id].push(issue);}
+          const refs=source.config.documentResearch===true?planningDocumentFindings(source,extracted,link.url,documentHash):agendaReferences(extracted,link.url);stats.agendaReferences=(stats.agendaReferences||0)+refs.length;
           if(!refs.length)stats.agendaWithoutCaseReferences=(stats.agendaWithoutCaseReferences||0)+1;
-          for(const ref of refs){budget.check(false);budget.records++;const lead={externalId:ref.id,name:ref.sourceIdentifier,description:ref.quote,address:'',latitude:null,longitude:null,rawStatus:'',category:'',developer:'',url:link.url,quote:ref.quote,principalUseVerified:false,locationVerified:false,wholeDevelopment:false,recordKind:'agenda_case_reference',documentPage:ref.page,documentHash:hash(document.rawBody),extractionTruncated:extracted.truncated};
+          for(const ref of refs){budget.check(false);budget.records++;const lead:any=source.config.documentResearch===true?ref:{externalId:ref.id,name:ref.sourceIdentifier,description:ref.quote,address:'',latitude:null,longitude:null,rawStatus:'',category:'',developer:'',url:link.url,quote:ref.quote,principalUseVerified:false,locationVerified:false,wholeDevelopment:false,recordKind:'agenda_case_reference',documentPage:ref.page,documentHash,extractionTruncated:extracted.truncated};
+           if(source.config.documentResearch===true){const match=await call('match',{sourceId:source.id,externalId:lead.externalId});lead.documentProposal.matchCandidates=match.ids||[];lead.documentProposal.identityVerified=false;stats.documentDecisions=(stats.documentDecisions||0)+(lead.documentProposal.decision?1:0);stats.documentDescriptionCandidates=(stats.documentDescriptionCandidates||0)+(lead.documentProposal.description?1:0);}
            await call('finding',{id:hash([source.id,ref,options.dryRun]),sourceId:source.id,finding:lead,project:{id:'lead-'+ref.id.slice(0,30),state:source.state},eligible:false,reason:'Exact official agenda text and page citation. No project identity, decision, meeting association or coordinates automatically verified.',confidence:{method:'document_excerpt_requires_review'}});stats.unverified++;
           }
+          // Cache only after extraction and private proposal persistence succeed.
+          // Raw PDFs/text are not stored in the database cache.
+          await call('cache',{sourceId:source.id,url:documentKey,hash:documentHash,etag:document.etag,modified:document.modified,more:false,applied:false});
          }catch(e:any){if(e instanceof LimitReached)throw e;stats.agendaFailures=(stats.agendaFailures||0)+1;const issue=source.jurisdiction+' document: '+e.message;errors.push(issue);cp.agendaIssues[source.id].push(issue);}
         }
        }
@@ -99,6 +111,7 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
       }
      }else{
       const page=parsePage(source,result.body,Math.min(pageSize,budget.maxRecords-budget.records));more=page.more;
+      if(source.config.pagination==='oid_keyset'&&page.count){if(page.nextCursor===undefined||page.firstCursor===undefined||page.firstCursor<=cursor||page.nextCursor<=cursor)throw Error('Official keyset failed to advance');nextCursor=page.nextCursor;}
       const matches=options.dryRun&&!source.autopublish&&rpc.batch?await rpc.batch('match',page.findings.map(f=>({runId:run.id,lease:run.lease,sourceId:source.id,externalId:f.externalId}))):null;
       const queued:Record<string,any>[]=[];let index=0;
       for(const finding of page.findings){
@@ -127,7 +140,7 @@ export async function runState(rpc:WorkerRPC,options:Options,transport:typeof fe
       if(more&&!advance)throw Error('Source pagination returned an empty continuation page');
      }
      await call('cache',{sourceId:source.id,url:cacheURL,hash:digest,etag:result.etag,modified:result.modified,more,applied:!options.dryRun});
-     cursor+=advance;cp.cursors[source.id]=cursor;
+     cursor=nextCursor??cursor+advance;cp.cursors[source.id]=cursor;
      await call('checkpoint',{checkpoint:cp,stats:{...stats,...snapshot()}});
     }
     cp.done.push(source.id);delete cp.cursors[source.id];await call('source',{sourceId:source.id});

@@ -26,6 +26,8 @@ jobs:
       - run: pnpm check
       - name: Validate cached NC document interpretation (no HTTP or database writes)
         run: pnpm exec tsx scripts/nc-cached-maintenance.mts
+      - name: Validate shared government platform fixtures (no live research)
+        run: pnpm exec tsx scripts/validate-nc-platforms.mts
       - name: Validate PDF capacity safety boundaries (no live sources)
         env:
           NODE_OPTIONS: --max-old-space-size=768

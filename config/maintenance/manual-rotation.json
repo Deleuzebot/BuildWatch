@@ -1,0 +1,23 @@
+{
+  "mode": "human_initiated_codex_research",
+  "scheduleEnabled": false,
+  "publicationEnabled": false,
+  "archivalEnabled": false,
+  "liveResearchBudgetIncrease": false,
+  "rotationStatus": "proposed_work_queue_not_complete_statewide_coverage",
+  "weekdays": {
+    "Monday": ["CA", "IL", "OR", "NV", "HI", "AK", "ID", "MT", "WY", "UT"],
+    "Tuesday": ["TX", "OK", "AR", "LA", "KS", "NE", "NM", "MS", "AL", "ND"],
+    "Wednesday": ["FL", "GA", "SC", "TN", "KY", "WV", "DE", "MD", "ME", "NH"],
+    "Thursday": ["NY", "NJ", "CT", "MA", "RI", "PA", "OH", "MI", "IN", "SD"],
+    "Friday": ["NC", "VA", "WA", "CO", "AZ", "MN", "WI", "IA", "MO", "VT"]
+  },
+  "validatedDemonstrationStates": ["NC"],
+  "newStateActivation": "not_automatic",
+  "defaults": {"cachedEvidenceOnly": true, "newLiveResearchRequests": 0, "productionWrites": 0, "paidServices": false},
+  "notes": [
+    "Illinois moved to the California queue and Vermont to the North Carolina queue, compared with the earlier unattended rotation.",
+    "Only North Carolina has a validated demonstration; other state entries are future research queues, not enabled coverage.",
+    "Incomplete states and jurisdictions must be reported and carried forward; a run completing does not imply complete verification."
+  ]
+}
