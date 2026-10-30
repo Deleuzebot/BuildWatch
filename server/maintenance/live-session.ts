@@ -5,11 +5,14 @@ export const LIVE_PILOT_REQUEST_CAP=20;
 export class LiveValidationSession{
  readonly budget:Budget;readonly reader:ResearchReader;readonly state:any;
  private lockHeld=false;
- constructor(readonly directory:string,transport:typeof fetch=fetch,readonly requestCap=LIVE_PILOT_REQUEST_CAP){
-  if(!Number.isInteger(requestCap)||requestCap<1||requestCap>LIVE_PILOT_REQUEST_CAP)throw Error('Manual session cap must be between 1 and 20');
+ constructor(readonly directory:string,transport:typeof fetch=fetch,readonly requestCap=LIVE_PILOT_REQUEST_CAP,authorization?:{reference:string;maximumRequests:number;maximumSearches:number}){
+  if(authorization&&(!authorization.reference||authorization.reference.length>1000||!Number.isInteger(authorization.maximumRequests)||authorization.maximumRequests<1||authorization.maximumRequests>50||!Number.isInteger(authorization.maximumSearches)||authorization.maximumSearches<0||authorization.maximumSearches>4))throw Error('Invalid bounded manual authorization');
+  const authorizedMaximum=authorization?.reference?Math.min(50,authorization.maximumRequests):LIVE_PILOT_REQUEST_CAP;
+  if(!Number.isInteger(requestCap)||requestCap<1||requestCap>authorizedMaximum)throw Error('Manual session exceeds its explicit authorization (default maximum 20)');
   mkdirSync(directory,{recursive:true});const path=join(directory,'ledger.json');
   this.state=existsSync(path)?JSON.parse(readFileSync(path,'utf8')):{createdAt:new Date().toISOString(),cap:requestCap,reservedRequests:requestCap,requests:[],responses:{},closed:false};
   if(this.state.cap!==requestCap||this.state.requests.length>requestCap)throw Error('Invalid pilot request ledger');
+  if(authorization){if(this.state.authorization&&JSON.stringify(this.state.authorization)!==JSON.stringify(authorization))throw Error('Authorization does not match the resumed session');this.state.authorization=authorization;this.state.searches??=[];}
   if(!this.state.closed){writeFileSync(join(directory,'capture.lock'),JSON.stringify({pid:process.pid,startedAt:new Date().toISOString()}),{flag:'wx'});this.lockHeld=true;}
   this.budget=new Budget(240,requestCap,100,10_000_000);this.budget.requests=this.state.requests.length;
   this.budget.bytes=this.state.bytes||0;
@@ -24,6 +27,8 @@ export class LiveValidationSession{
  }
  save(){this.state.bytes=this.budget?.bytes||this.state.bytes||0;const path=join(this.directory,'ledger.json');writeFileSync(path+'.tmp',JSON.stringify(this.state,null,2));renameSync(path+'.tmp',path);}
  release(){if(this.lockHeld){unlinkSync(join(this.directory,'capture.lock'));this.lockHeld=false;}}
+ reserveSearch(query:string){if(!this.state.authorization||!Number.isInteger(this.state.authorization.maximumSearches)||this.state.closed||typeof query!=='string'||!query.trim()||query.length>500)throw Error('Explicit bounded search authorization required');const old=this.state.searches.find((s:any)=>s.query===query);if(old)return{...old,alreadyReserved:true};if(this.state.searches.length>=this.state.authorization.maximumSearches)throw Error('Search query ceiling reached');const entry={id:this.state.searches.length+1,query,reservedAt:new Date().toISOString(),state:'reserved'};this.state.searches.push(entry);this.save();return entry;}
+ recordSearch(id:number,evidenceRef:string){const entry=this.state.searches?.find((s:any)=>s.id===id);if(!entry||!evidenceRef)throw Error('Reserve the search before recording its result');entry.state='completed';entry.evidenceRef=evidenceRef;this.save();return entry;}
  async get(url:string){
   const saved=this.state.responses[url];if(saved){const response=JSON.parse(readFileSync(join(this.directory,saved.file),'utf8'));if(response.sha256!==hash(response.body))throw Error('Evidence integrity failure');return{...response,sessionReplay:true};}
   if(this.state.closed)throw Error('Pilot session closed; no new research authorized');

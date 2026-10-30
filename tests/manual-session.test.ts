@@ -5,6 +5,14 @@ const fixture=JSON.parse(readFileSync('tests/fixtures/nc-platforms.json','utf8')
 const observedAt='2026-10-29T12:00:00Z';
 function setup(extra:any={}){const dir=mkdtempSync(join(tmpdir(),'bw-session-')),file=join(dir,'queue.sqlite');let now=Date.parse('2026-10-30T12:00:00Z');const j=new ManualResearchSession(file,{...limits,...extra},()=>now),s=j.start('Friday',['NC','VA'],[{source:profile.source,population:50000,coverage:'structured_retrieval_tested'}],'s');return{j,s,dir,file,advance:(ms:number)=>now+=ms,close:()=>{j.close();rmSync(dir,{recursive:true,force:true});}};}
 const packet=(body:any=profile.records)=>({format:'arcgis' as const,url:profile.source.url+'/query?f=json',observedAt,evidenceRef:'cached-government-response.json',body:JSON.stringify(body)});
+test('latest-record snapshots retain semantic fingerprints without advancing the full-scan cursor',()=>{const t=setup();try{
+ const task=t.j.next('s')[0],body=structuredClone(profile.records);body.features=body.features.slice(0,3).reverse();body.exceededTransferLimit=false;
+ assert.throws(()=>t.j.ingest('s',task.id,packet(body)),/keyset identifiers/);
+ const p={...packet(body),snapshotOnly:true},first=t.j.ingest('s',task.id,p);
+ assert.equal(first.records,3);assert.equal(first.more,true);assert.deepEqual(t.j.task(task.id).cursor,{});assert.equal(t.j.task(task.id).status,'pending');
+ const replay=t.j.ingest('s',task.id,p);assert.equal(replay.unchanged,3);assert.deepEqual(t.j.task(task.id).cursor,{});
+ body.features=[body.features[0],body.features[0]];assert.throws(()=>t.j.ingest('s',task.id,{...p,body:JSON.stringify(body)}),/duplicate/);
+}finally{t.close();}});
 test('cached response and semantic fingerprints persist across processes; unreviewed work is retained',()=>{const t=setup();try{
  const task=t.j.next('s')[0],first=t.j.ingest('s',task.id,packet());assert.equal(first.changed,40);assert.equal(first.requiresReasoning.length,40);assert.equal(t.j.task(task.id).data.lastEvidenceRef,'cached-government-response.json');
  t.j.close();const second=new ManualResearchSession(t.file,limits,()=>Date.parse('2026-10-30T12:00:00Z'));const again=second.ingest('s',task.id,packet());assert.equal(again.changed,0);assert.equal(again.unchanged,40);assert.equal(again.cachedResponse,true);assert.equal(second.report('s').unfinished.filter(t=>t.kind==='changed_record').length,40);second.close();

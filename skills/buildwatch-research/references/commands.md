@@ -13,7 +13,7 @@ node <skill>/scripts/run.mjs report --session <id> --finish
 
 `start --id <existing-id>` resumes an unfinished session. Finished/expired sessions retain their queue; start a new manually named session with `--id` to continue. This grants no live request allowance. No `apply`, `publish` or schedule command exists.
 
-A cached packet has `format` (`arcgis`, `html`, `pdf-text`), `url`, `observedAt` (original cached retrieval time), and `body` (the original JSON/HTML or extracted PDF JSON string). Optional `context` maps source external IDs to existing protected Supabase lookup results. Preserve the context's retrieval provenance. Raw PDFs must first use the existing bounded Linux `extractAgendaPDF`; do not bypass its platform or resource checks.
+A cached packet has `format` (`arcgis`, `html`, `pdf-text`), `url`, `observedAt` (original cached retrieval time), and `body` (the original JSON/HTML or extracted PDF JSON string). For bounded latest-record samples, add `snapshotOnly:true`: this compares semantic fingerprints while preserving the full-scan cursor and leaving continuation pending. Never advance a keyset scan using a date-ordered sample. Optional `context` maps source external IDs to existing protected Supabase lookup results. Preserve the context's retrieval provenance. Raw PDFs must first use the existing bounded Linux `extractAgendaPDF`; do not bypass its platform or resource checks.
 
 `ingest` returns a private changed-evidence file. Use existing Supabase reconciliation against only those changed IDs. For ambiguous records, keep an awaiting-review decision instead of repeatedly downloading the same evidence. Description changes and additional phases still require evidence and scope review.
 
@@ -31,3 +31,20 @@ Useful existing resources (relative to BuildWatch):
 - `scripts/nc-evidence-shadow.mts`: private Supabase reconciliation under its existing manual reservation; do not call during cached-only sessions.
 - `scripts/preview-manual-nc-research.mts`: cached guarded Apex example; it does not publish.
 - `scripts/verify-guarded-milestone.mts`: optional read-only database verification after relevant authorization; do not run for every unrelated session.
+
+## Explicitly authorized live NC pilot
+
+`live` delegates to `scripts/buildwatch-live.mts`; it requires server-only Supabase access and refuses a scheduled invocation or enabled production gates. The current bridge supports a maximum 50-HTTP/four-search manual NC approval, never recurring authorization. Save the exact user's instruction in a private approval JSON (`id`, `state:NC`, `maximumRequests:50`, `maximumSearches:4`, `approvedAt`, `userInstruction`, and `publication`, `archival`, `scheduling`, `paidServices` all false). Initialize once, then resume the same run ID:
+
+```text
+node <skill>/scripts/run.mjs live init --run manual-nc-live-<id> --approval <private-approval.json>
+node <skill>/scripts/run.mjs live fetch --run <id> --plan <private-url-plan.json>
+node <skill>/scripts/run.mjs live reserve-search --run <id> --query <query>
+node <skill>/scripts/run.mjs live record-search --run <id> --id <returned-number> --file <private-search-results.json>
+node <skill>/scripts/run.mjs live receipt --run <id> --finish
+node <skill>/scripts/run.mjs live guard --run <id>
+```
+
+A URL plan is at most 20 `{key,url}` entries. Fetches use the existing permission-aware, SSRF-protected reader and cached responses; the ledger persists across commands. Reserve each search **before** calling the search tool, then preserve its results. Search-provider internal HTTP cannot be observed and is disclosed separately; fetching cited pages must use `live fetch`. Never call another search after four reservations. Stop safely at the HTTP cap, including robots/retry overhead.
+
+Use `scripts/plan-manual-nc-live.mts` only with captured official metadata to prepare bounded API queries, and `scripts/reconcile-manual-nc-live.mts` to compare captured records against current canonical/archived Supabase identities, history and pending proposals in a read-only transaction. Latest-record snapshots are samples, not complete keyset scans: reconciliation may sort a copy to validate unique IDs but must not advance a full-scan cursor from date-ordered samples. Neither script publishes. Keep ambiguous application phases and missing dates private. `receipt --finish` closes further HTTP/search use and fixes the final usage receipt. Finish with a field-level before/after preview and the receipt; verify unchanged production hashes, then attach accounting to the manual session. Do not commit private captures or credentials.

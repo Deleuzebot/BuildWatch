@@ -1288,8 +1288,8 @@
           "idField": "OBJECTID",
           "originalIdentityField": "CASEID",
           "fields": {
-            "name": "CASENAME",
-            "description": "CASEDESC",
+            "name": "CASEID",
+            "description": "CASENAME",
             "status": "CASESTATUS",
             "developer": "APPLICANT"
           },
@@ -1300,7 +1300,8 @@
           },
           "factFields": {
             "caseType": "CASETYPE",
-            "parcelIds": "LOCDESC"
+            "parcelIds": "LOCDESC",
+            "sourceDocumentURL": "CASEDESC"
           },
           "requiredFields": [
             "OBJECTID",

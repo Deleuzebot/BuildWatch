@@ -71,7 +71,7 @@ export class ManualResearchSession{
   const value={runId:r.runId,state:r.state,stats,reservation:r.reservation,evidenceRef};if(prior){if(prior.data!==JSON.stringify(value))throw Error('Worker receipt changed; reconcile original accounting before attaching');return{attached:false,alreadyRecorded:true};}
   this.event(sessionId,null,'worker_receipt',value);return{attached:true,note:'Imported counters only; reservation must be verified against the existing worker ledger. No retrieval or publication authorized.'};
  });}
- ingest(sessionId:string,taskId:string,input:{url:string;observedAt:string;evidenceRef:string;body:string;format:'arcgis'|'html'|'pdf-text';context?:Record<string,any>}){
+ ingest(sessionId:string,taskId:string,input:{url:string;observedAt:string;evidenceRef:string;body:string;format:'arcgis'|'html'|'pdf-text';context?:Record<string,any>;snapshotOnly?:boolean}){
   return this.tx(()=>{
    const s=this.session(sessionId),task=this.task(taskId);if(!s.states.includes(task.state)||!['source','document'].includes(task.kind))throw Error('Task is outside this session or is not a source/document');
    const observed=Date.parse(input.observedAt);if(!Number.isFinite(observed)||observed>this.now())throw Error('Use the actual cached retrieval timestamp, never a future/new verification time');
@@ -80,7 +80,8 @@ export class ManualResearchSession{
    const u=new URL(input.url),origin=new URL(source.url);if(u.protocol!=='https:'||u.origin!==origin.origin||u.username||u.password)throw Error('Evidence must remain in the registered source origin');
    if(input.format==='arcgis'&&(u.pathname!==origin.pathname+'/query'&&u.pathname!==origin.pathname))throw Error('Wrong government layer; do not mix identities');
    if(input.format!=='arcgis'&&u.href!==task.url)throw Error('Cached document/index URL does not match its queue task');
-   const bodyHash=hash(input.body),digest=hash([bodyHash,source.config,'manual-parser-v2']),old:any=this.db.prepare('SELECT * FROM snapshots WHERE task_id=? AND url=?').get(taskId,input.url);
+   if(input.snapshotOnly!==undefined&&typeof input.snapshotOnly!=='boolean')throw Error('Invalid snapshot mode');
+   const bodyHash=hash(input.body),digest=hash([bodyHash,source.config,'manual-parser-v2',input.snapshotOnly===true]),old:any=this.db.prepare('SELECT * FROM snapshots WHERE task_id=? AND url=?').get(taskId,input.url);
    if(old&&observed<old.observed)throw Error('Older cached evidence cannot overwrite a newer checkpoint');
    if(old?.hash===digest){const prior=JSON.parse(old.result);this.db.prepare('UPDATE snapshots SET observed=? WHERE task_id=? AND url=?').run(observed,taskId,input.url);this.db.prepare('UPDATE tasks SET status=?,cursor=?,updated=?,data=? WHERE id=?').run(prior.unresolved?'awaiting_review':prior.more?'pending':'done',JSON.stringify(prior.cursor||{}),this.now(),JSON.stringify({...task.data,lastEvidenceRef:input.evidenceRef,lastObservedAt:input.observedAt}),taskId);const counted=this.db.prepare("SELECT 1 FROM events WHERE session_id=? AND task_id=? AND kind='source_checked' AND json_extract(data,'$.cacheHash')=?").get(sessionId,taskId,digest);if(!counted)this.event(sessionId,taskId,'source_unchanged',{records:prior.records,cacheHash:digest,bodyHash,evidenceRef:input.evidenceRef,observation:'cached_replay_not_live_verification'});return{...prior,unchanged:prior.records,changed:0,cachedResponse:true};}
    const used=(this.db.prepare("SELECT coalesce(sum(json_extract(data,'$.records')),0) n FROM events WHERE session_id=? AND kind='source_checked'").get(sessionId) as any).n;
@@ -88,10 +89,12 @@ export class ManualResearchSession{
    let rows:any[]=[];
    if(input.format==='arcgis'){
     const requested=Number(u.searchParams.get('resultRecordCount')||this.limits.pageSize);if(!Number.isInteger(requested)||requested<1||requested>this.limits.pageSize)throw Error('Cached page exceeds this session batch limit');
-    const page=parsePage(source,input.body,requested),raw=JSON.parse(input.body);rows=page.findings;result.more=page.more||(page.count===requested&&raw.exceededTransferLimit!==false);
-    if(source.config.pagination==='oid_keyset'&&page.count&&(page.firstCursor!<=(task.cursor.offset??-1)))throw Error('Keyset response does not advance the saved cursor');
+    const snapshotSource=input.snapshotOnly?{...source,config:{...source.config,pagination:undefined}}:source;
+    const page=parsePage(snapshotSource,input.body,requested),raw=JSON.parse(input.body);rows=page.findings;result.more=page.more||(page.count===requested&&raw.exceededTransferLimit!==false);
+    if(!input.snapshotOnly&&source.config.pagination==='oid_keyset'&&page.count&&(page.firstCursor!<=(task.cursor.offset??-1)))throw Error('Keyset response does not advance the saved cursor');
     const offset=Number(u.searchParams.get('resultOffset')||0);if(!Number.isSafeInteger(offset)||offset<0)throw Error('Invalid official page offset');
-    result.cursor=source.config.pagination==='oid_keyset'?{offset:page.nextCursor??task.cursor.offset??-1}:{offset:offset+page.count};
+    result.cursor=input.snapshotOnly?(task.cursor||{}):source.config.pagination==='oid_keyset'?{offset:page.nextCursor??task.cursor.offset??-1}:{offset:offset+page.count};
+    if(input.snapshotOnly){result.more=true;result.snapshotOnly=true;result.coverage='Bounded observation only; full scan cursor preserved';}
     if(page.more&&!page.count)throw Error('Empty continuation page is not complete coverage');
    }else if(input.format==='html'){
     const links=evidenceDocuments(source,input.body).slice(0,this.limits.maxDocumentLinks);if(!links.length)throw Error('Index yielded no permitted document links; source requires repair');

@@ -1,9 +1,11 @@
-/** Small manual coordinator. No credentials, network, scheduling, Supabase writes or publication. */
+/** Manual coordinator; live commands delegate to the explicitly authorized review-only bridge. No publication. */
 import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';import {resolve} from 'node:path';
 import {randomUUID} from 'node:crypto';
+import {spawnSync} from 'node:child_process';
 import {ManualResearchSession} from '../server/research/manual-session';import {localDay} from '../server/maintenance/policy';import {shadowSources} from '../server/maintenance/shadow';
 const read=(p:string)=>JSON.parse(readFileSync(p,'utf8')),rotation=read('config/maintenance/manual-rotation.json');
 const [command,...args]=process.argv.slice(2),option=(key:string)=>{const i=args.indexOf('--'+key);return i<0?undefined:args[i+1];};
+if(command==='live'){const child=spawnSync(process.execPath,['--import','tsx','scripts/buildwatch-live.mts',...args],{stdio:'inherit',env:process.env});if(child.error)throw child.error;process.exit(child.status??1);}
 const allowed=['start','next','ingest','checkpoint','attach-receipt','report','request'];if(!allowed.includes(command))throw Error('Use start, next, ingest, checkpoint, attach-receipt, report, or request. No apply/publish command exists.');
 if(rotation.scheduleEnabled||rotation.publicationEnabled||rotation.archivalEnabled||rotation.defaults.newLiveResearchRequests!==0)throw Error('Manual coordinator requires cached-only research and publication/scheduling gates off');
 const dbPath=process.env.BW_MANUAL_JOURNAL||resolve('../../work/buildwatch-manual-research/checkpoints.sqlite'),journal=new ManualResearchSession(dbPath,rotation.sessionLimits);
