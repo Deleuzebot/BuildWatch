@@ -13,5 +13,7 @@ test('manual milestone preview rejects changed fields, duplicate events and wron
  const p={proposalId:'controlled',applied:false,approvalRequired:true,preview:{before,after:{...before,revision:2},policyBefore:null,policyAfter:null,milestone:m,timelineBefore:[],timelineAfter:[m],historyBefore:1,historyAfter:2,expectedNotifications:0,evidence:{externalId:'712',attributes:{Name:before.name,Action_Taken:'TRC Approved',Action_Date:1792627200000}}}};
  const result=manualMilestonePreview(p);assert.equal(result.productionWrites,0);assert.equal(result.wouldWrite.project_activity.eventDate,'2026-10-22');
  assert.throws(()=>manualMilestonePreview({...p,preview:{...p.preview,after:{...p.preview.after,status:'Approved'}}}));
+ assert.throws(()=>manualMilestonePreview({...p,preview:{...p.preview,after:{...p.preview.after,unexpectedField:true}}}));
  assert.throws(()=>manualMilestonePreview({...p,preview:{...p.preview,timelineBefore:[{type:'Approval',event_date:'2026-10-22'}]}}));
+ assert.throws(()=>manualMilestonePreview({...p,preview:{...p.preview,evidence:{...p.preview.evidence,attributes:{...p.preview.evidence.attributes,Action_Taken:'Recommended approval'}}}}));
 });
