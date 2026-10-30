@@ -4,7 +4,7 @@ import {randomUUID} from 'node:crypto';
 import {ManualResearchSession} from '../server/research/manual-session';import {localDay} from '../server/maintenance/policy';import {shadowSources} from '../server/maintenance/shadow';
 const read=(p:string)=>JSON.parse(readFileSync(p,'utf8')),rotation=read('config/maintenance/manual-rotation.json');
 const [command,...args]=process.argv.slice(2),option=(key:string)=>{const i=args.indexOf('--'+key);return i<0?undefined:args[i+1];};
-const allowed=['start','next','ingest','checkpoint','report','request'];if(!allowed.includes(command))throw Error('Use start, next, ingest, checkpoint, report, or request. No apply/publish command exists.');
+const allowed=['start','next','ingest','checkpoint','attach-receipt','report','request'];if(!allowed.includes(command))throw Error('Use start, next, ingest, checkpoint, attach-receipt, report, or request. No apply/publish command exists.');
 if(rotation.scheduleEnabled||rotation.publicationEnabled||rotation.archivalEnabled||rotation.defaults.newLiveResearchRequests!==0)throw Error('Manual coordinator requires cached-only research and publication/scheduling gates off');
 const dbPath=process.env.BW_MANUAL_JOURNAL||resolve('../../work/buildwatch-manual-research/checkpoints.sqlite'),journal=new ManualResearchSession(dbPath,rotation.sessionLimits);
 try{
@@ -25,6 +25,7 @@ try{
   if(!sid)throw Error('--session is required');
   if(command==='next')result=journal.next(sid,Number(option('limit')||5));
   if(command==='request')journal.assertLiveAllowed(sid);
+  if(command==='attach-receipt'){const file=option('file');if(!file)throw Error('Use --file with the verified existing worker receipt');result=journal.attachWorkerReceipt(sid,read(file),resolve(file));}
   if(command==='ingest'){
    const task=option('task'),file=option('file');if(!task||!file)throw Error('Use --task and --file with a cached evidence packet');
    const packet=read(file);if(!['arcgis','html','pdf-text'].includes(packet.format)||!packet.url||!packet.observedAt||typeof packet.body!=='string')throw Error('Packet needs format, url, observedAt, body and optional contexts; do not fabricate an observation time');
@@ -38,8 +39,8 @@ try{
    result=journal.report(sid,args.includes('--finish'));const dir='reports/manual-research/'+encodeURIComponent(sid);mkdirSync(dir,{recursive:true});
    writeFileSync(dir+'/report.json',JSON.stringify(result,null,2));
    const cloud=existsSync('reports/maintenance/CLOUD-DATA-PATH.json')?read('reports/maintenance/CLOUD-DATA-PATH.json'):null;
-   const text=`# BuildWatch ${result.day} research\n\n${result.status}. Cached evidence only; no production changes.\n\n| Measure | Count |\n| --- | ---: |\n| Sources checked | ${result.sourcesChecked} |\n| Records compared | ${result.recordsCompared} |\n| Changed | ${result.changedRecords} |\n| Unchanged | ${result.unchangedRecords} |\n| Projects matched | ${result.projectsMatched} |\n| Additions proposed | ${result.additionsProposed} |\n| Updates proposed | ${result.updatesProposed} |\n| Updates applied | 0 |\n| Unresolved | ${result.unresolved} |\n| HTTP / search requests | 0 / 0 |\n| Runtime seconds | ${result.runtimeSeconds} |\n\nUnfinished tasks: ${result.unfinishedTotal}. See report.json for checkpoints.\n\n${result.warning}\n\nClient check: ${cloud?.checkedAt||'not available'} cached verification; website Supabase reads ${cloud?.publicCatalogResponded?'passed':'unverified'}, native binary tested ${cloud?.nativeBinaryTested===true?'yes':'no'}. No fresh network verification performed by this report.\n`;
-   writeFileSync(dir+'/report.md',text);result={...result,unfinished:result.unfinished.slice(0,5),unfinishedTotal:result.unfinishedTotal,report:resolve(dir+'/report.md')};
+   const text=`# BuildWatch ${result.day} research\n\n${result.status}. ${result.mode}; no production changes.\n\n| Measure | Count |\n| --- | ---: |\n| Sources checked | ${result.sourcesChecked} |\n| Records compared | ${result.recordsCompared} |\n| Changed | ${result.changedRecords} |\n| Unchanged | ${result.unchangedRecords} |\n| Projects matched | ${result.projectsMatched} |\n| Additions proposed | ${result.additionsProposed} |\n| Updates proposed | ${result.updatesProposed} |\n| Updates applied | 0 |\n| Unresolved | ${result.unresolved} |\n| HTTP / search requests | ${result.httpRequests} / ${result.searchQueries} |\n| Runtime seconds | ${result.runtimeSeconds} |\n\nUnfinished tasks: ${result.unfinishedTotal}. See report.json for checkpoints.\n\n${result.warning}\n\nClient check: ${cloud?.checkedAt||'not available'} cached verification; website Supabase reads ${cloud?.publicCatalogResponded?'passed':'unverified'}, native binary tested ${cloud?.nativeBinaryTested===true?'yes':'no'}. No fresh network verification performed by this report.\n`;
+   writeFileSync(dir+'/report.md',text+'\nChecked sources:\n\n'+result.checkedSources.map(s=>'- ['+s.jurisdiction+'](<'+s.sourceURL+'>) — cached evidence').join('\n')+'\n');result={...result,unfinished:result.unfinished.slice(0,5),unfinishedTotal:result.unfinishedTotal,report:resolve(dir+'/report.md')};
   }
  }
  console.log(JSON.stringify(result,null,2));
