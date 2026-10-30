@@ -33,6 +33,7 @@ try{
   if(command==='reserve-search')console.log(JSON.stringify(live.reserveSearch(arg('query')||'')));
   if(command==='record-search')console.log(JSON.stringify(live.recordSearch(Number(arg('id')),arg('file')||'')));
   if(command==='receipt'){
+   assert.equal(live.state.reservedExternalRequests||0,0,'Import external worker receipts before finalizing research accounting');
    if(args.includes('--finish')&&!live.state.closed){live.state.closed=true;live.state.closedAt=new Date().toISOString();live.save();}
    const receipt={runId:id,state:'NC',dryRun:true,productionUnchanged:true,publication:false,archival:false,scheduling:false,reservation:{reference:authorization.reference,maxRequests:authorization.maximumRequests,maxQueries:authorization.maximumSearches},stats:{requests:live.state.requests.length,searchQueries:live.state.searches.length,downloadBytes:live.state.bytes||0,seconds:Math.round(((live.state.closedAt?Date.parse(live.state.closedAt):Date.now())-Date.parse(live.state.createdAt))/1000)},permissions:live.state.requests.filter((x:any)=>x.url.endsWith('/robots.txt')),limitations:['Search-provider upstream HTTP is not visible; search queries have their own explicitly authorized ceiling. All source-page downloads, robots, retries and redirects use this HTTP ledger.']};
    assert.deepEqual(await guard(),authorization.baseline,'Production changed during research; withhold publication and inspect');writeFileSync(dir+'/receipt.json',JSON.stringify(receipt,null,2));console.log(JSON.stringify(receipt));

@@ -1,6 +1,6 @@
 {
   "capturedAt": "2026-10-29T17:34:17.108Z",
-  "productionProjectHash": "a144bf52fc4ea8fac8d02094ff8f7fa7",
+  "productionProjectHash": "609ee02775e7a95a438ece88e1cf02f6",
   "reference": {
     "source_id": "source-8ad50df7b7918cceaf0e16245fd827",
     "external_id": "712"
@@ -52,5 +52,8 @@
     "originalCategory": "Housing",
     "verificationNote": "Agency-listed project. Status reflects the source record; current site activity and final delivery are not independently verified.",
     "secondaryCategories": []
-  }
+  },
+  "revalidatedAt": "2026-10-30",
+  "previousProductionProjectHash": "a144bf52fc4ea8fac8d02094ff8f7fa7",
+  "revalidationNote": "Read-only Supabase comparison confirmed every cached Apex project field unchanged. The global hash changed after the separately authorized 611 MLK, Altera Heights and Glenn Square batch; the historical Apex evidence and isolation assertions are unchanged."
 }

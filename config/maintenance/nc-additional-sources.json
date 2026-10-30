@@ -71,7 +71,7 @@
           ]
         }
       },
-      "validation": "live_metadata_and_official_link_verified_records_pending",
+      "validation": "live_metadata_and_records_parsed_private_review_only_20261030",
       "productionApproved": false,
       "duplicateLayersSuppressed": 5
     },
@@ -139,7 +139,7 @@
           ]
         }
       },
-      "validation": "live_metadata_and_official_link_verified_records_pending",
+      "validation": "live_metadata_and_records_parsed_private_review_only_20261030",
       "productionApproved": false,
       "duplicateLayersSuppressed": 0
     }

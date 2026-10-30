@@ -18,6 +18,7 @@ try{
   for(const p of read('config/maintenance/nc-five-jurisdiction-plan.json'))definitions.set(p.source.url,p.source);
   for(const p of read('config/maintenance/nc-platform-plan.json').profiles)definitions.set(p.source.url,p.source);
   for(const p of read('config/maintenance/nc-platform-plan.json').indexes)definitions.set(p.source.url,p.source);
+  if(existsSync('config/maintenance/nc-additional-sources.json'))for(const p of read('config/maintenance/nc-additional-sources.json').profiles)definitions.set(p.source.url,p.source);
   for(const s of shadowSources)if(!definitions.has(s.url))definitions.set(s.url,s);
   const seeds=[...definitions.values()].map(source=>{const record=inventory.sources.find((r:any)=>r.url===source.url),entity=[...inventory.counties,...inventory.municipalities].find((e:any)=>record?.entityIds.includes(e.id));return{source:{...source,enabled:false,autopublish:false},population:entity?.population,coverage:record?.evidenceLevel};});
   let id=option('id')||localDay()+'-'+day;const prior:any=journal.db.prepare('SELECT started,finished FROM sessions WHERE id=?').get(id);

@@ -1,0 +1,1617 @@
+[
+  {
+    "source": {
+      "id": "source-c4ebf7e50f108f64b0009c5ba1b1",
+      "state": "NC",
+      "jurisdiction": "Union County",
+      "url": "https://services2.arcgis.com/Z7YhSKLuj0a3XHN6/arcgis/rest/services/Union_County_Development_Projects_Summary/FeatureServer/0",
+      "adapter": "arcgis",
+      "authority": "official",
+      "enabled": false,
+      "autopublish": false,
+      "config": {
+        "mappingVersion": "union-official-20261030-v1",
+        "idField": "OBJECTID",
+        "fields": {
+          "name": "Project_Name",
+          "description": "Description",
+          "status": "Project_Status",
+          "category": "Project_Type"
+        },
+        "dateFields": {
+          "applicationApprovalAt": "Approval_Date"
+        },
+        "factFields": {
+          "applicationNumber": "Evolve_File_Number",
+          "parcelId": "Parcel_ID",
+          "units": "Number_Homes_Double",
+          "acres": "Acres_Double"
+        },
+        "requiredFields": [
+          "OBJECTID",
+          "Project_Name",
+          "Description",
+          "Project_Status",
+          "Project_Type",
+          "Evolve_File_Number",
+          "Parcel_ID",
+          "Number_Homes_Double",
+          "Acres_Double",
+          "Approval_Date"
+        ],
+        "expectedFieldTypes": {
+          "OBJECTID": "esriFieldTypeOID",
+          "Evolve_File_Number": "esriFieldTypeString",
+          "Project_Name": "esriFieldTypeString",
+          "Project_Type": "esriFieldTypeString",
+          "Project_Status": "esriFieldTypeString",
+          "Approval_Date": "esriFieldTypeString",
+          "Parcel_ID": "esriFieldTypeString",
+          "Description": "esriFieldTypeString",
+          "Acres_Double": "esriFieldTypeDouble",
+          "Number_Homes_Double": "esriFieldTypeDouble"
+        },
+        "statusScope": "application",
+        "scopeVerified": false,
+        "sourceRole": "development_review",
+        "currentInventory": true,
+        "officialReference": "https://www.unioncountync.gov/Home/Components/News/News/1904/",
+        "applicationScopeOnly": true,
+        "notes": [
+          "Coverage is county planning jurisdiction; do not assume all incorporated municipalities.",
+          "Consolidated summary avoids duplicate category-layer markers.",
+          "Approval date is application-level; GIS status, withdrawn/cancelled combinations and missing dates require review."
+        ]
+      }
+    },
+    "metadata": {
+      "currentVersion": 12,
+      "id": 0,
+      "name": "Union County Development Projects Summary",
+      "type": "Feature Layer",
+      "serviceItemId": "60175bce24bc4edc9f0096c47dcf4d28",
+      "displayField": "",
+      "description": "",
+      "copyrightText": "",
+      "defaultVisibility": true,
+      "editingInfo": {
+        "lastEditDate": 1714754371934,
+        "schemaLastEditDate": 1714754083907,
+        "dataLastEditDate": 1714754371934
+      },
+      "relationships": [],
+      "isDataVersioned": false,
+      "hasContingentValuesDefinition": false,
+      "supportsAppend": true,
+      "supportsCalculate": true,
+      "supportsASyncCalculate": true,
+      "supportsTruncate": true,
+      "supportsAttachmentsByUploadId": true,
+      "supportsAttachmentsResizing": true,
+      "supportsRollbackOnFailureParameter": true,
+      "supportsStatistics": true,
+      "supportsExceedsLimitStatistics": true,
+      "supportsAdvancedQueries": true,
+      "supportsValidateSql": true,
+      "supportsCoordinatesQuantization": true,
+      "supportsLayerOverrides": true,
+      "supportsTilesAndBasicQueriesMode": true,
+      "supportsFieldDescriptionProperty": true,
+      "supportsQuantizationEditMode": true,
+      "supportsColumnStoreIndex": true,
+      "supportsApplyEditsWithGlobalIds": false,
+      "supportsReturningQueryGeometry": true,
+      "enableNullGeometry": false,
+      "advancedQueryCapabilities": {
+        "supportsPagination": true,
+        "supportsPaginationOnAggregatedQueries": true,
+        "supportsQueryRelatedPagination": true,
+        "supportsQueryWithDistance": true,
+        "supportsOutDistance": true,
+        "supportsReturningQueryExtent": true,
+        "supportsStatistics": true,
+        "supportsOrderBy": true,
+        "supportsDistinct": true,
+        "supportsQueryWithResultType": true,
+        "supportsSqlExpression": true,
+        "supportsTimeRelation": true,
+        "supportsAdvancedQueryRelated": true,
+        "supportsCountDistinct": true,
+        "supportsPercentileStatistics": true,
+        "supportsApproxPercentileStatistics": true,
+        "supportsSpatialAggregationStatistics": true,
+        "supportedSpatialAggregationStatistics": [
+          "EnvelopeAggregate",
+          "CentroidAggregate",
+          "ConvexHullAggregate"
+        ],
+        "supportsQueryAttachments": true,
+        "supportsQueryAttachmentsCountOnly": true,
+        "supportsQueryAttachmentOrderByFields": true,
+        "supportsQueryAttachmentWithTypeWildcard": true,
+        "supportsLod": true,
+        "supportsQueryWithLodSR": false,
+        "supportedLodTypes": [
+          "geohash"
+        ],
+        "supportsReturningGeometryCentroid": false,
+        "supportsReturningGeometryEnvelope": false,
+        "supportsQueryWithDatumTransformation": true,
+        "supportsCurrentUserQueries": true,
+        "supportsHavingClause": true,
+        "supportsOutFieldSQLExpression": true,
+        "supportsMaxRecordCountFactor": true,
+        "supportsTopFeaturesQuery": true,
+        "supportsDisjointSpatialRel": true,
+        "supportsQueryWithCacheHint": true,
+        "supportedOperationsWithCacheHint": [
+          "query",
+          "queryTopFilter",
+          "queryAnalytics",
+          "queryAttachments",
+          "queryRelated",
+          "queryBins",
+          "queryPivot"
+        ],
+        "supportsQueryAttachmentsWithReturnUrl": true,
+        "supportsQueryAnalytic": true,
+        "supportsQueryPivot": true,
+        "supportsQueryBins": true,
+        "supportsDefaultSR": true,
+        "supportsTranslations": false,
+        "supportsAggIds": true,
+        "supportsQueryWithCollation": true,
+        "supportsISODOW": true,
+        "supportsISOWeek": true,
+        "supportsFullTextSearch": true,
+        "fullTextSearchCapabilities": {
+          "supportsAccentSensitivity": true,
+          "supportsStopWords": true,
+          "supportsSearchOperator": true,
+          "supportsOperator": true
+        }
+      },
+      "advancedQueryAnalyticCapabilities": {
+        "supportsLinearRegression": true,
+        "supportsTrendlineRegression": true,
+        "supportsAsync": true,
+        "supportsPercentileAnalytic": true
+      },
+      "queryBinsCapabilities": {
+        "supportsAsync": true,
+        "supportsAutoIntervalBin": true,
+        "supportsFixedIntervalBin": true,
+        "supportsFixedBoundariesBin": true,
+        "supportsDateBin": true,
+        "supportsClassificationBin": true,
+        "supportsStackBy": true,
+        "supportsSplitBy": true,
+        "supportsFirstDayOfWeek": true,
+        "supportsSnapToData": true,
+        "supportsReturnFullIntervalBin": true,
+        "supportsReturnStackValueRange": true,
+        "supportsNormalization": true,
+        "supportedStatisticTypes": [
+          "COUNT",
+          "SUM",
+          "AVG",
+          "VAR",
+          "STDDEV",
+          "MIN",
+          "MAX",
+          "PERCENTILE_CONT",
+          "PERCENTILE_DISC",
+          "APPROX_PERCENTILE_CONT",
+          "APPROX_PERCENTILE_DISC",
+          "CentroidAggregate",
+          "EnvelopeAggregate",
+          "ConvexHullAggregate"
+        ],
+        "supportedNormalizationTypes": [
+          "boxCox",
+          "field",
+          "inverse",
+          "log",
+          "naturalLog",
+          "percentOfTotal",
+          "squareRoot"
+        ]
+      },
+      "supportedOperationsWithCollation": "query,addField,updateField",
+      "advancedEditingCapabilities": {
+        "supportedSqlFormatsInCalculate": [
+          "standard"
+        ],
+        "supportsAsyncApplyEdits": true,
+        "supportsReturnEditResults": true,
+        "supportsApplyEditsbyUploadID": true,
+        "supportedApplyEditsUploadIDFormats": "JSON,PBF",
+        "supportsTranslation": false,
+        "supportsMaxTranslations": 10
+      },
+      "infoInEstimates": [
+        "extent",
+        "count"
+      ],
+      "useStandardizedQueries": true,
+      "geometryType": "esriGeometryPoint",
+      "minScale": 0,
+      "maxScale": 0,
+      "extent": {
+        "xmin": -17811118.526923772,
+        "ymin": -15538711.096309224,
+        "xmax": 17811118.526923772,
+        "ymax": 15538711.096309224,
+        "spatialReference": {
+          "wkid": 102100,
+          "latestWkid": 3857
+        }
+      },
+      "spatialReference": {
+        "wkid": 102100,
+        "latestWkid": 3857
+      },
+      "drawingInfo": {
+        "renderer": {
+          "type": "simple",
+          "symbol": {
+            "type": "esriPMS",
+            "url": "RedSphere.png",
+            "imageData": "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",
+            "contentType": "image/png",
+            "width": 15,
+            "height": 15
+          }
+        }
+      },
+      "allowGeometryUpdates": true,
+      "hasAttachments": true,
+      "attachmentProperties": [
+        {
+          "name": "id",
+          "fieldName": "ATTACHMENTID",
+          "isEnabled": true
+        },
+        {
+          "name": "globalId",
+          "fieldName": "AttachmentGlobalID",
+          "isEnabled": true
+        },
+        {
+          "name": "name",
+          "fieldName": "ATT_NAME",
+          "isEnabled": true
+        },
+        {
+          "name": "size",
+          "fieldName": "DATA_SIZE",
+          "isEnabled": true
+        },
+        {
+          "name": "contentType",
+          "fieldName": "CONTENT_TYPE",
+          "isEnabled": true
+        },
+        {
+          "name": "keywords",
+          "fieldName": "Keywords",
+          "isEnabled": true
+        },
+        {
+          "name": "exifInfo",
+          "fieldName": "ExifInfo",
+          "isEnabled": true
+        }
+      ],
+      "htmlPopupType": "esriServerHTMLPopupTypeNone",
+      "hasM": false,
+      "hasZ": false,
+      "objectIdField": "OBJECTID",
+      "uniqueIdField": {
+        "name": "OBJECTID",
+        "isSystemMaintained": true
+      },
+      "globalIdField": "",
+      "typeIdField": "",
+      "collation": {
+        "locale": "neutral",
+        "caseSensitive": false,
+        "accentSensitive": true
+      },
+      "fields": [
+        {
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID",
+          "alias": "OBJECTID",
+          "sqlType": "sqlTypeOther",
+          "nullable": false,
+          "editable": false,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Evolve_File_Number",
+          "type": "esriFieldTypeString",
+          "alias": "Evolve File Number",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Project_Name",
+          "type": "esriFieldTypeString",
+          "alias": "Project Name",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Project_Type",
+          "type": "esriFieldTypeString",
+          "alias": "Project Type",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": false,
+          "editable": true,
+          "domain": {
+            "type": "codedValue",
+            "name": "Union County Development Projects Summary_Project_Type_2a7a8583-6097-4ef0-8bdd-b002c468d7de",
+            "codedValues": [
+              {
+                "name": "Residential",
+                "code": "Residential"
+              },
+              {
+                "name": "Commercial",
+                "code": "Commercial"
+              },
+              {
+                "name": "Industrial",
+                "code": "Industrial"
+              },
+              {
+                "name": "Mixed Use",
+                "code": "Mixed Use"
+              },
+              {
+                "name": "Institutional",
+                "code": "Institutional"
+              },
+              {
+                "name": "Rezoning",
+                "code": "Rezoning"
+              },
+              {
+                "name": "Special Use Permit",
+                "code": "Special Use Permit"
+              }
+            ]
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "Project_Status",
+          "type": "esriFieldTypeString",
+          "alias": "Project Status",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": false,
+          "editable": true,
+          "domain": {
+            "type": "codedValue",
+            "name": "Union County Development Projects Summary_Project_Status_a7b421d7-faa4-47e0-8df2-9c212830eb3e",
+            "codedValues": [
+              {
+                "name": "Rezoning",
+                "code": "Rezoning"
+              },
+              {
+                "name": "Special Use Permit",
+                "code": "Special Use Permit"
+              },
+              {
+                "name": "Site Plan Review",
+                "code": "Site Plan Review"
+              },
+              {
+                "name": "Under Construction",
+                "code": "Under Construction"
+              },
+              {
+                "name": "Complete",
+                "code": "Complete"
+              },
+              {
+                "name": "Withdrawn/Cancelled",
+                "code": "Withdrawn/Cancelled"
+              }
+            ]
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "Contact",
+          "type": "esriFieldTypeString",
+          "alias": "Staff_contact",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": {
+            "type": "codedValue",
+            "name": "Union County Development Projects Summary_Contact_64593245-dc1a-4d6a-86fc-577d5591cb1e",
+            "codedValues": [
+              {
+                "name": "Bjorn Hansen",
+                "code": "Bjorn Hansen"
+              },
+              {
+                "name": "Jim King",
+                "code": "Jim King"
+              },
+              {
+                "name": "Union County Building Code Enforcement",
+                "code": "Union County Building Code Enforcement"
+              }
+            ]
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "Contact_Email",
+          "type": "esriFieldTypeString",
+          "alias": "Contact Email",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": {
+            "type": "codedValue",
+            "name": "Union County Development Projects Summary_Contact_Email_865239fd-fcab-4d54-885e-55c51625cce5",
+            "codedValues": [
+              {
+                "name": "james.king@unioncountync.gov",
+                "code": "james.king@unioncountync.gov"
+              },
+              {
+                "name": "bjorn.hansen@unioncountync.gov",
+                "code": "bjorn.hansen@unioncountync.gov"
+              },
+              {
+                "name": "susie.calkins@unioncountync.gov",
+                "code": "susie.calkins@unioncountync.gov"
+              }
+            ]
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "Approval_Date",
+          "type": "esriFieldTypeString",
+          "alias": "Approval Date",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Parcel_ID",
+          "type": "esriFieldTypeString",
+          "alias": "Parcel ID",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Description",
+          "type": "esriFieldTypeString",
+          "alias": "Description",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Acres_Double",
+          "type": "esriFieldTypeDouble",
+          "alias": "Acres",
+          "sqlType": "sqlTypeOther",
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Number_Homes_Double",
+          "type": "esriFieldTypeDouble",
+          "alias": "Number of Homes",
+          "sqlType": "sqlTypeOther",
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        }
+      ],
+      "indexes": [
+        {
+          "name": "PK__Union_Co__F4B70D857511D716",
+          "fields": "OBJECTID",
+          "isAscending": true,
+          "isUnique": true,
+          "description": "clustered, unique, primary key",
+          "indexType": "Attribute"
+        },
+        {
+          "name": "Union_County_Development_Projects_Summary_UNION_COUNTY_DEVELOPMENT_PROJECTS_SUMMARY_Shape_sidx",
+          "fields": "Shape",
+          "isAscending": true,
+          "isUnique": false,
+          "description": "Shape Index",
+          "indexType": "Spatial"
+        }
+      ],
+      "dateFieldsTimeReference": {
+        "timeZone": "UTC",
+        "timeZoneIANA": "Etc/UTC",
+        "respectsDaylightSaving": false
+      },
+      "preferredTimeReference": null,
+      "types": [],
+      "templates": [
+        {
+          "name": "New Feature",
+          "description": "",
+          "drawingTool": "esriFeatureEditToolPoint",
+          "prototype": {
+            "attributes": {
+              "Evolve_File_Number": null,
+              "Project_Name": null,
+              "Project_Type": null,
+              "Project_Status": null,
+              "Contact": null,
+              "Contact_Email": null,
+              "Approval_Date": null,
+              "Parcel_ID": null,
+              "Description": null,
+              "Acres_Double": null,
+              "Number_Homes_Double": null
+            }
+          }
+        }
+      ],
+      "supportedQueryFormats": "JSON, geoJSON, PBF",
+      "supportedAppendFormats": "sqlite,geoPackage,shapefile,filegdb,featureCollection,geojson,csv,excel,jsonl,featureService,pbf,imageCollection",
+      "supportedAppendSourceFilterFormats": "sqlite,geoPackage,shapefile,filegdb,featureService",
+      "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel,parquet",
+      "supportedConvertFileFormats": "JSON,PBF,Parquet",
+      "supportedConvertContentFormats": "LayerEditCollection,FeatureCollection",
+      "supportedSpatialRelationships": [
+        "esriSpatialRelIntersects",
+        "esriSpatialRelContains",
+        "esriSpatialRelCrosses",
+        "esriSpatialRelEnvelopeIntersects",
+        "esriSpatialRelIndexIntersects",
+        "esriSpatialRelOverlaps",
+        "esriSpatialRelTouches",
+        "esriSpatialRelWithin",
+        "esriSpatialRelDisjoint",
+        "esriSpatialRelRelation"
+      ],
+      "guidFormat": "",
+      "supportsContingentValues": true,
+      "supportsEditingContingentValues": true,
+      "supportedContingentValuesFormats": "JSON, PBF",
+      "supportsFieldGroups": true,
+      "supportedSyncDataOptions": 260,
+      "hasStaticData": false,
+      "maxRecordCount": 2000,
+      "standardMaxRecordCount": 16000,
+      "maxIdsCount": 1000000,
+      "standardMaxRecordCountNoGeometry": 32000,
+      "tileMaxRecordCount": 8000,
+      "maxRecordCountFactor": 1,
+      "capabilities": "Create,Delete,Query,Update,Editing"
+    },
+    "records": {
+      "features": [
+        {
+          "attributes": {
+            "OBJECTID": 3,
+            "Project_Name": "Best Box",
+            "Description": "Two story mini-storage facility",
+            "Project_Status": "Site Plan Review",
+            "Project_Type": "Commercial",
+            "Evolve_File_Number": "20160501",
+            "Parcel_ID": "06138017A",
+            "Number_Homes_Double": null,
+            "Acres_Double": 2.8,
+            "Approval_Date": null
+          },
+          "geometry": {
+            "x": -80.75197678584854,
+            "y": 34.94123586386759
+          }
+        },
+        {
+          "attributes": {
+            "OBJECTID": 4,
+            "Project_Name": "JLS Concrete Plant",
+            "Description": "Concrete plant",
+            "Project_Status": "Site Plan Review",
+            "Project_Type": "Industrial",
+            "Evolve_File_Number": "20222604",
+            "Parcel_ID": "0937200590",
+            "Number_Homes_Double": null,
+            "Acres_Double": 9.2,
+            "Approval_Date": null
+          },
+          "geometry": {
+            "x": -80.60952517232285,
+            "y": 35.01078230258483
+          }
+        },
+        {
+          "attributes": {
+            "OBJECTID": 5,
+            "Project_Name": "Marvin Storage",
+            "Description": "Self-storage facility",
+            "Project_Status": "Site Plan Review",
+            "Project_Type": "Commercial",
+            "Evolve_File_Number": "20220251",
+            "Parcel_ID": "06204001B",
+            "Number_Homes_Double": null,
+            "Acres_Double": 5,
+            "Approval_Date": null
+          },
+          "geometry": {
+            "x": -80.80492594302588,
+            "y": 34.993874504690204
+          }
+        },
+        {
+          "attributes": {
+            "OBJECTID": 6,
+            "Project_Name": "Twin Lakes Senior Living",
+            "Description": "182 unit senior living facility",
+            "Project_Status": "Site Plan Review",
+            "Project_Type": "Commercial",
+            "Evolve_File_Number": "20180826",
+            "Parcel_ID": "06042001A",
+            "Number_Homes_Double": 182,
+            "Acres_Double": 9.1,
+            "Approval_Date": null
+          },
+          "geometry": {
+            "x": -80.69506616232897,
+            "y": 35.019979104530854
+          }
+        }
+      ],
+      "exceededTransferLimit": false
+    },
+    "capturedAt": "2026-10-30",
+    "sourceQuery": "https://services2.arcgis.com/Z7YhSKLuj0a3XHN6/arcgis/rest/services/Union_County_Development_Projects_Summary/FeatureServer/0/query?f=json&where=1%3D1&outFields=OBJECTID%2CProject_Name%2CDescription%2CProject_Status%2CProject_Type%2CEvolve_File_Number%2CParcel_ID%2CNumber_Homes_Double%2CAcres_Double%2CApproval_Date&outSR=4326&returnGeometry=true&orderByFields=OBJECTID&resultOffset=0&resultRecordCount=50",
+    "sampleOnly": true
+  },
+  {
+    "source": {
+      "id": "source-d39f1640ba3f82f3ef58ead21cf0",
+      "state": "NC",
+      "jurisdiction": "Union County",
+      "url": "https://services2.arcgis.com/Z7YhSKLuj0a3XHN6/arcgis/rest/services/Union_County_Rezonings_2017_to_Present/FeatureServer/0",
+      "adapter": "arcgis",
+      "authority": "official",
+      "enabled": false,
+      "autopublish": false,
+      "config": {
+        "mappingVersion": "union-official-20261030-v1",
+        "idField": "OBJECTID",
+        "fields": {
+          "name": "Rezoning_Name",
+          "description": "Description_of_Use",
+          "status": "County_Commission_Decision",
+          "category": "Proposed_LU"
+        },
+        "dateFields": {},
+        "factFields": {
+          "planningBoardRecommendation": "Planning_Board_Decision",
+          "staffRecommendation": "Staff_Recommendation",
+          "units": "Proposed_Units",
+          "proposedYearText": "Year_Proposed"
+        },
+        "requiredFields": [
+          "OBJECTID",
+          "Rezoning_Name",
+          "Description_of_Use",
+          "County_Commission_Decision",
+          "Proposed_LU",
+          "Planning_Board_Decision",
+          "Staff_Recommendation",
+          "Proposed_Units",
+          "Year_Proposed"
+        ],
+        "expectedFieldTypes": {
+          "OBJECTID": "esriFieldTypeOID",
+          "Proposed_LU": "esriFieldTypeString",
+          "Year_Proposed": "esriFieldTypeString",
+          "Planning_Board_Decision": "esriFieldTypeString",
+          "Staff_Recommendation": "esriFieldTypeString",
+          "County_Commission_Decision": "esriFieldTypeString",
+          "Proposed_Units": "esriFieldTypeString",
+          "Rezoning_Name": "esriFieldTypeString",
+          "Description_of_Use": "esriFieldTypeString"
+        },
+        "statusScope": "application",
+        "scopeVerified": false,
+        "sourceRole": "supporting_only",
+        "currentInventory": false,
+        "officialReference": "https://www.unioncountync.gov/Home/Components/News/News/1904/",
+        "applicationScopeOnly": true,
+        "notes": [
+          "Coverage is county planning jurisdiction; do not assume all incorporated municipalities.",
+          "Consolidated summary avoids duplicate category-layer markers.",
+          "Approval date is application-level; GIS status, withdrawn/cancelled combinations and missing dates require review."
+        ]
+      }
+    },
+    "metadata": {
+      "currentVersion": 12,
+      "id": 0,
+      "name": "Point layer",
+      "type": "Feature Layer",
+      "serviceItemId": "04ae7ee527114f5dbbd71f880306f19e",
+      "cacheMaxAge": 30,
+      "displayField": "",
+      "description": "",
+      "copyrightText": "",
+      "defaultVisibility": true,
+      "editFieldsInfo": {
+        "creationDateField": "CreationDate",
+        "creatorField": "Creator",
+        "editDateField": "EditDate",
+        "editorField": "Editor"
+      },
+      "editingInfo": {
+        "lastEditDate": 1792499385923,
+        "schemaLastEditDate": 1788972881390,
+        "dataLastEditDate": 1792499385923
+      },
+      "relationships": [],
+      "isDataVersioned": false,
+      "hasContingentValuesDefinition": false,
+      "supportsAppend": true,
+      "supportsCalculate": true,
+      "supportsASyncCalculate": true,
+      "supportsTruncate": false,
+      "supportsAttachmentsByUploadId": true,
+      "supportsAttachmentsResizing": true,
+      "supportsRollbackOnFailureParameter": true,
+      "supportsStatistics": true,
+      "supportsExceedsLimitStatistics": true,
+      "supportsAdvancedQueries": true,
+      "supportsValidateSql": true,
+      "supportsCoordinatesQuantization": true,
+      "supportsLayerOverrides": true,
+      "supportsTilesAndBasicQueriesMode": true,
+      "supportsFieldDescriptionProperty": true,
+      "supportsQuantizationEditMode": true,
+      "supportsColumnStoreIndex": true,
+      "supportsApplyEditsWithGlobalIds": true,
+      "supportsReturningQueryGeometry": true,
+      "enableNullGeometry": false,
+      "advancedQueryCapabilities": {
+        "supportsPagination": true,
+        "supportsPaginationOnAggregatedQueries": true,
+        "supportsQueryRelatedPagination": true,
+        "supportsQueryWithDistance": true,
+        "supportsOutDistance": true,
+        "supportsReturningQueryExtent": true,
+        "supportsStatistics": true,
+        "supportsOrderBy": true,
+        "supportsDistinct": true,
+        "supportsQueryWithResultType": true,
+        "supportsSqlExpression": true,
+        "supportsTimeRelation": true,
+        "supportsAdvancedQueryRelated": true,
+        "supportsCountDistinct": true,
+        "supportsPercentileStatistics": true,
+        "supportsApproxPercentileStatistics": true,
+        "supportsSpatialAggregationStatistics": true,
+        "supportedSpatialAggregationStatistics": [
+          "EnvelopeAggregate",
+          "CentroidAggregate",
+          "ConvexHullAggregate"
+        ],
+        "supportsQueryAttachments": true,
+        "supportsQueryAttachmentsCountOnly": true,
+        "supportsQueryAttachmentOrderByFields": true,
+        "supportsQueryAttachmentWithTypeWildcard": true,
+        "supportsLod": true,
+        "supportsQueryWithLodSR": false,
+        "supportedLodTypes": [
+          "geohash"
+        ],
+        "supportsReturningGeometryCentroid": false,
+        "supportsReturningGeometryEnvelope": false,
+        "supportsQueryWithDatumTransformation": true,
+        "supportsCurrentUserQueries": true,
+        "supportsHavingClause": true,
+        "supportsOutFieldSQLExpression": true,
+        "supportsMaxRecordCountFactor": true,
+        "supportsTopFeaturesQuery": true,
+        "supportsDisjointSpatialRel": true,
+        "supportsQueryWithCacheHint": true,
+        "supportedOperationsWithCacheHint": [
+          "query",
+          "queryTopFilter",
+          "queryAnalytics",
+          "queryAttachments",
+          "queryRelated",
+          "queryBins",
+          "queryPivot"
+        ],
+        "supportsQueryAttachmentsWithReturnUrl": true,
+        "supportsQueryAnalytic": true,
+        "supportsQueryPivot": true,
+        "supportsQueryBins": true,
+        "supportsDefaultSR": true,
+        "supportsTranslations": false,
+        "supportsAggIds": true,
+        "supportsQueryWithCollation": true,
+        "supportsISODOW": true,
+        "supportsISOWeek": true,
+        "supportsFullTextSearch": true,
+        "fullTextSearchCapabilities": {
+          "supportsAccentSensitivity": true,
+          "supportsStopWords": true,
+          "supportsSearchOperator": true,
+          "supportsOperator": true
+        }
+      },
+      "advancedQueryAnalyticCapabilities": {
+        "supportsLinearRegression": true,
+        "supportsTrendlineRegression": true,
+        "supportsAsync": true,
+        "supportsPercentileAnalytic": true
+      },
+      "queryBinsCapabilities": {
+        "supportsAsync": true,
+        "supportsAutoIntervalBin": true,
+        "supportsFixedIntervalBin": true,
+        "supportsFixedBoundariesBin": true,
+        "supportsDateBin": true,
+        "supportsClassificationBin": true,
+        "supportsStackBy": true,
+        "supportsSplitBy": true,
+        "supportsFirstDayOfWeek": true,
+        "supportsSnapToData": true,
+        "supportsReturnFullIntervalBin": true,
+        "supportsReturnStackValueRange": true,
+        "supportsNormalization": true,
+        "supportedStatisticTypes": [
+          "COUNT",
+          "SUM",
+          "AVG",
+          "VAR",
+          "STDDEV",
+          "MIN",
+          "MAX",
+          "PERCENTILE_CONT",
+          "PERCENTILE_DISC",
+          "APPROX_PERCENTILE_CONT",
+          "APPROX_PERCENTILE_DISC",
+          "CentroidAggregate",
+          "EnvelopeAggregate",
+          "ConvexHullAggregate"
+        ],
+        "supportedNormalizationTypes": [
+          "boxCox",
+          "field",
+          "inverse",
+          "log",
+          "naturalLog",
+          "percentOfTotal",
+          "squareRoot"
+        ]
+      },
+      "supportedOperationsWithCollation": "query,addField,updateField",
+      "advancedEditingCapabilities": {
+        "supportedSqlFormatsInCalculate": [
+          "standard"
+        ],
+        "supportsAsyncApplyEdits": true,
+        "supportsReturnEditResults": true,
+        "supportsApplyEditsbyUploadID": true,
+        "supportedApplyEditsUploadIDFormats": "JSON,PBF",
+        "supportsTranslation": false,
+        "supportsMaxTranslations": 10
+      },
+      "infoInEstimates": [
+        "extent",
+        "count"
+      ],
+      "useStandardizedQueries": true,
+      "geometryType": "esriGeometryPoint",
+      "minScale": 0,
+      "maxScale": 0,
+      "extent": {
+        "xmin": -9072315.860670056,
+        "ymin": 4130094.3132123654,
+        "xmax": -8837543.054587046,
+        "ymax": 4209500.012036648,
+        "spatialReference": {
+          "wkid": 102100,
+          "latestWkid": 3857
+        }
+      },
+      "spatialReference": {
+        "wkid": 102100,
+        "latestWkid": 3857
+      },
+      "drawingInfo": {
+        "renderer": {
+          "type": "uniqueValue",
+          "field1": "Proposed_LU",
+          "uniqueValueInfos": [
+            {
+              "value": "Commercial",
+              "symbol": {
+                "angle": 0,
+                "xoffset": 0,
+                "yoffset": 0,
+                "type": "esriPMS",
+                "url": "fbc0b0fc-f6f8-4544-9061-1a29197a9675",
+                "imageData": "iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OURDRDBBMkZEMjdBMTFFMEFFOTVFRTBGMDE2NDc1MDUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OURDRDBBMzBEMjdBMTFFMEFFOTVFRTBGMDE2NDc1MDUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxRjE2MjU0QUQyNzkxMUUwQUU5NUVFMEYwMTY0NzUwNSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5RENEMEEyRUQyN0ExMUUwQUU5NUVFMEYwMTY0NzUwNSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgQ9khMAAAlOSURBVHja7JtrbBTX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",
+                "contentType": "image/png",
+                "width": 18.75,
+                "height": 18.75
+              },
+              "label": "Commercial"
+            },
+            {
+              "value": "Residential",
+              "symbol": {
+                "angle": 0,
+                "xoffset": 0,
+                "yoffset": 0,
+                "type": "esriPMS",
+                "url": "1196a71e-af1c-44bd-b7cf-719295eba07b",
+                "imageData": "iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6REFEQzQxMENEMjk5MTFFMEFFOTVFRTBGMDE2NDc1MDUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6REFEQzQxMEREMjk5MTFFMEFFOTVFRTBGMDE2NDc1MDUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpEQURDNDEwQUQyOTkxMUUwQUU5NUVFMEYwMTY0NzUwNSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpEQURDNDEwQkQyOTkxMUUwQUU5NUVFMEYwMTY0NzUwNSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqFZ+0cAAAi5SURBVHja7Ft7aFZl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",
+                "contentType": "image/png",
+                "width": 18.75,
+                "height": 18.75
+              },
+              "label": "Residential"
+            },
+            {
+              "value": "Government",
+              "symbol": {
+                "angle": 0,
+                "xoffset": 0,
+                "yoffset": 0,
+                "type": "esriPMS",
+                "url": "c1a948cb-b75d-4cf9-b7e6-528bce2dcedd",
+                "imageData": "iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTZEQzM2MUVEMzIyMTFFMEFFOTVFRTBGMDE2NDc1MDUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NzgzRUVCOEFEMzIyMTFFMEFFOTVFRTBGMDE2NDc1MDUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1NkRDMzYxQ0QzMjIxMUUwQUU5NUVFMEYwMTY0NzUwNSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1NkRDMzYxREQzMjIxMUUwQUU5NUVFMEYwMTY0NzUwNSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PmQCNYMAAAhfSURBVHja7FprbBRV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",
+                "contentType": "image/png",
+                "width": 18.75,
+                "height": 18.75
+              },
+              "label": "Government"
+            }
+          ]
+        },
+        "transparency": 0
+      },
+      "allowGeometryUpdates": true,
+      "hasAttachments": true,
+      "attachmentProperties": [
+        {
+          "name": "id",
+          "fieldName": "ATTACHMENTID",
+          "isEnabled": true
+        },
+        {
+          "name": "globalId",
+          "fieldName": "AttachmentGlobalID",
+          "isEnabled": true
+        },
+        {
+          "name": "name",
+          "fieldName": "ATT_NAME",
+          "isEnabled": true
+        },
+        {
+          "name": "size",
+          "fieldName": "DATA_SIZE",
+          "isEnabled": true
+        },
+        {
+          "name": "contentType",
+          "fieldName": "CONTENT_TYPE",
+          "isEnabled": true
+        },
+        {
+          "name": "keywords",
+          "fieldName": "Keywords",
+          "isEnabled": true
+        },
+        {
+          "name": "exifInfo",
+          "fieldName": "ExifInfo",
+          "isEnabled": true
+        }
+      ],
+      "htmlPopupType": "esriServerHTMLPopupTypeNone",
+      "hasM": false,
+      "hasZ": false,
+      "objectIdField": "OBJECTID",
+      "uniqueIdField": {
+        "name": "OBJECTID",
+        "isSystemMaintained": true
+      },
+      "globalIdField": "GlobalID",
+      "typeIdField": "Proposed_LU",
+      "collation": {
+        "locale": "neutral",
+        "caseSensitive": false,
+        "accentSensitive": true
+      },
+      "fields": [
+        {
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID",
+          "alias": "OBJECTID",
+          "sqlType": "sqlTypeOther",
+          "nullable": false,
+          "editable": false,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "GlobalID",
+          "type": "esriFieldTypeGlobalID",
+          "alias": "GlobalID",
+          "sqlType": "sqlTypeOther",
+          "length": 38,
+          "nullable": false,
+          "editable": false,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "CreationDate",
+          "type": "esriFieldTypeDate",
+          "alias": "CreationDate",
+          "sqlType": "sqlTypeOther",
+          "length": 8,
+          "nullable": true,
+          "editable": false,
+          "domain": null,
+          "defaultValue": null,
+          "precision": 1
+        },
+        {
+          "name": "Creator",
+          "type": "esriFieldTypeString",
+          "alias": "Creator",
+          "sqlType": "sqlTypeOther",
+          "length": 128,
+          "nullable": true,
+          "editable": false,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "EditDate",
+          "type": "esriFieldTypeDate",
+          "alias": "EditDate",
+          "sqlType": "sqlTypeOther",
+          "length": 8,
+          "nullable": true,
+          "editable": false,
+          "domain": null,
+          "defaultValue": null,
+          "precision": 1
+        },
+        {
+          "name": "Editor",
+          "type": "esriFieldTypeString",
+          "alias": "Editor",
+          "sqlType": "sqlTypeOther",
+          "length": 128,
+          "nullable": true,
+          "editable": false,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Existing_LU",
+          "type": "esriFieldTypeString",
+          "alias": "Existing Land Use ",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Proposed_LU",
+          "type": "esriFieldTypeString",
+          "alias": "Proposed Land Use",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Year_Proposed",
+          "type": "esriFieldTypeString",
+          "alias": "Year Proposed",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Acres",
+          "type": "esriFieldTypeString",
+          "alias": "Acres",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Planning_Board_Decision",
+          "type": "esriFieldTypeString",
+          "alias": "Planning Board Recommendation",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": {
+            "type": "codedValue",
+            "name": "Point layer_Planning_Board_Decision_392d4039-0913-456d-804d-ad803a517586",
+            "codedValues": [
+              {
+                "name": "Approval",
+                "code": "Approval"
+              },
+              {
+                "name": "Denial",
+                "code": "Denial"
+              },
+              {
+                "name": "Withdrawn",
+                "code": "Withdrawn"
+              },
+              {
+                "name": "Not yet presented",
+                "code": "Not yet presented"
+              },
+              {
+                "name": "Tabled",
+                "code": "Tabled"
+              }
+            ]
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "Staff_Recommendation",
+          "type": "esriFieldTypeString",
+          "alias": "Staff Recommendation ",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": {
+            "type": "codedValue",
+            "name": "Point layer_Staff_Recommendation_cf1c8ebb-9b78-48dc-8bc2-6b5fead10514",
+            "codedValues": [
+              {
+                "name": "Approval",
+                "code": "Approval"
+              },
+              {
+                "name": "Withdrawn",
+                "code": "Withdrawn"
+              },
+              {
+                "name": "Denial",
+                "code": "Denial"
+              },
+              {
+                "name": "Not yet presented",
+                "code": "Not yet presented"
+              }
+            ]
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "County_Commission_Decision",
+          "type": "esriFieldTypeString",
+          "alias": "County Commission Decision",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": {
+            "type": "codedValue",
+            "name": "Point layer_County_Commission_Decision_9588308f-4d82-4333-8010-8bb0a01a69db",
+            "codedValues": [
+              {
+                "name": "Approval",
+                "code": "Approval"
+              },
+              {
+                "name": "Withdrawn",
+                "code": "Withdrawn"
+              },
+              {
+                "name": "Denial",
+                "code": "Denial"
+              },
+              {
+                "name": "Not yet presented",
+                "code": "Not yet presented"
+              }
+            ]
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "Proposed_Units",
+          "type": "esriFieldTypeString",
+          "alias": "Proposed Number of Dwelling Units",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Rezoning_Name",
+          "type": "esriFieldTypeString",
+          "alias": "Rezoning Name",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Description_of_Use",
+          "type": "esriFieldTypeString",
+          "alias": "Descriptions of Proposed Uses ",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Contact",
+          "type": "esriFieldTypeString",
+          "alias": "Staff Contact",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        },
+        {
+          "name": "Email",
+          "type": "esriFieldTypeString",
+          "alias": "Email",
+          "sqlType": "sqlTypeOther",
+          "length": 256,
+          "nullable": true,
+          "editable": true,
+          "domain": null,
+          "defaultValue": null
+        }
+      ],
+      "indexes": [
+        {
+          "name": "GlobalID_Index",
+          "fields": "GlobalID",
+          "isAscending": false,
+          "isUnique": true,
+          "description": "",
+          "indexType": "Attribute"
+        },
+        {
+          "name": "user_30273.Union_County_Rezonings_2017_to_Present_POINT_LAYER_Shape_sidx",
+          "fields": "Shape",
+          "isAscending": false,
+          "isUnique": false,
+          "description": "Shape Index",
+          "indexType": "Spatial"
+        },
+        {
+          "name": "PK__Union_Co__F4B70D85577CFF40",
+          "fields": "OBJECTID",
+          "isAscending": true,
+          "isUnique": true,
+          "description": "clustered, unique, primary key",
+          "indexType": "Attribute"
+        },
+        {
+          "name": "CreationDateIndex",
+          "fields": "CreationDate",
+          "isAscending": true,
+          "isUnique": false,
+          "description": "CreationDate Field index",
+          "indexType": "Attribute"
+        },
+        {
+          "name": "CreatorIndex",
+          "fields": "Creator",
+          "isAscending": false,
+          "isUnique": false,
+          "description": "Creator Field index",
+          "indexType": "Attribute"
+        },
+        {
+          "name": "EditDateIndex",
+          "fields": "EditDate",
+          "isAscending": true,
+          "isUnique": false,
+          "description": "EditDate Field index",
+          "indexType": "Attribute"
+        },
+        {
+          "name": "EditorIndex",
+          "fields": "Editor",
+          "isAscending": false,
+          "isUnique": false,
+          "description": "Editor Field index",
+          "indexType": "Attribute"
+        },
+        {
+          "name": "County_Commission_Decision_Index",
+          "fields": "County_Commission_Decision",
+          "isAscending": true,
+          "isUnique": false,
+          "description": "County_Commission_Decision_Index",
+          "indexType": "Attribute"
+        },
+        {
+          "name": "Year_Proposed_Index",
+          "fields": "Year_Proposed",
+          "isAscending": true,
+          "isUnique": false,
+          "description": "Year_Proposed_Index",
+          "indexType": "Attribute"
+        }
+      ],
+      "dateFieldsTimeReference": {
+        "timeZone": "UTC",
+        "timeZoneIANA": "Etc/UTC",
+        "respectsDaylightSaving": false
+      },
+      "preferredTimeReference": null,
+      "types": [
+        {
+          "id": "Commercial",
+          "name": "Commercial",
+          "domains": {},
+          "templates": [
+            {
+              "name": "Commercial",
+              "description": "",
+              "drawingTool": "esriFeatureEditToolNone",
+              "prototype": {
+                "attributes": {
+                  "Proposed_LU": "Commercial",
+                  "Existing_LU": null,
+                  "Year_Proposed": null,
+                  "Acres": null,
+                  "Planning_Board_Decision": null,
+                  "Staff_Recommendation": null,
+                  "County_Commission_Decision": null,
+                  "Proposed_Units": null,
+                  "Rezoning_Name": null,
+                  "Description_of_Use": null,
+                  "Contact": null,
+                  "Email": null
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "Residential",
+          "name": "Residential",
+          "domains": {},
+          "templates": [
+            {
+              "name": "Residential",
+              "description": "",
+              "drawingTool": "esriFeatureEditToolNone",
+              "prototype": {
+                "attributes": {
+                  "Proposed_LU": "Residential",
+                  "Existing_LU": null,
+                  "Year_Proposed": null,
+                  "Acres": null,
+                  "Planning_Board_Decision": null,
+                  "Staff_Recommendation": null,
+                  "County_Commission_Decision": null,
+                  "Proposed_Units": null,
+                  "Rezoning_Name": null,
+                  "Description_of_Use": null,
+                  "Contact": null,
+                  "Email": null
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "Government",
+          "name": "Government",
+          "domains": {},
+          "templates": [
+            {
+              "name": "Government",
+              "description": "",
+              "drawingTool": "esriFeatureEditToolNone",
+              "prototype": {
+                "attributes": {
+                  "Proposed_LU": "Government",
+                  "Existing_LU": null,
+                  "Year_Proposed": null,
+                  "Acres": null,
+                  "Planning_Board_Decision": null,
+                  "Staff_Recommendation": null,
+                  "County_Commission_Decision": null,
+                  "Proposed_Units": null,
+                  "Rezoning_Name": null,
+                  "Description_of_Use": null,
+                  "Contact": null,
+                  "Email": null
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "templates": [],
+      "supportedQueryFormats": "JSON, geoJSON, PBF",
+      "supportedAppendFormats": "sqlite,geoPackage,shapefile,filegdb,featureCollection,geojson,csv,excel,jsonl,featureService,pbf,imageCollection",
+      "supportedAppendSourceFilterFormats": "sqlite,geoPackage,shapefile,filegdb,featureService",
+      "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel,parquet",
+      "supportedConvertFileFormats": "JSON,PBF,Parquet",
+      "supportedConvertContentFormats": "LayerEditCollection,FeatureCollection",
+      "supportedSpatialRelationships": [
+        "esriSpatialRelIntersects",
+        "esriSpatialRelContains",
+        "esriSpatialRelCrosses",
+        "esriSpatialRelEnvelopeIntersects",
+        "esriSpatialRelIndexIntersects",
+        "esriSpatialRelOverlaps",
+        "esriSpatialRelTouches",
+        "esriSpatialRelWithin",
+        "esriSpatialRelDisjoint",
+        "esriSpatialRelRelation"
+      ],
+      "guidFormat": "",
+      "supportsContingentValues": true,
+      "supportsEditingContingentValues": true,
+      "supportedContingentValuesFormats": "JSON, PBF",
+      "supportsFieldGroups": true,
+      "supportedSyncDataOptions": 260,
+      "hasStaticData": true,
+      "maxRecordCount": 2000,
+      "standardMaxRecordCount": 16000,
+      "maxIdsCount": 1000000,
+      "standardMaxRecordCountNoGeometry": 32000,
+      "tileMaxRecordCount": 8000,
+      "maxRecordCountFactor": 1,
+      "capabilities": "Query,Extract,Sync"
+    },
+    "records": {
+      "features": [
+        {
+          "attributes": {
+            "OBJECTID": 1,
+            "Rezoning_Name": "2017-CZ-001 Waxhaw-Nixon",
+            "Description_of_Use": "199,000 square feet of commercial and retail.",
+            "County_Commission_Decision": "Approval",
+            "Proposed_LU": "Commercial",
+            "Planning_Board_Decision": "Tabled",
+            "Staff_Recommendation": "Approval",
+            "Proposed_Units": "0",
+            "Year_Proposed": "2017"
+          },
+          "geometry": {
+            "x": -80.75189092897975,
+            "y": 34.9428372335634
+          }
+        },
+        {
+          "attributes": {
+            "OBJECTID": 3,
+            "Rezoning_Name": "2017-CZ-003 1507 Providence Print Shop",
+            "Description_of_Use": "Rezone site to allow a print shop.",
+            "County_Commission_Decision": "Approval",
+            "Proposed_LU": "Commercial",
+            "Planning_Board_Decision": "Approval",
+            "Staff_Recommendation": "Approval",
+            "Proposed_Units": "0",
+            "Year_Proposed": "2017"
+          },
+          "geometry": {
+            "x": -80.7727721760921,
+            "y": 34.99073682773738
+          }
+        },
+        {
+          "attributes": {
+            "OBJECTID": 4,
+            "Rezoning_Name": "2017-CZ-004 218 Auto Repair",
+            "Description_of_Use": "Auto repair shop",
+            "County_Commission_Decision": "Approval",
+            "Proposed_LU": "Commercial",
+            "Planning_Board_Decision": "Approval",
+            "Staff_Recommendation": "Approval",
+            "Proposed_Units": "0",
+            "Year_Proposed": "2017"
+          },
+          "geometry": {
+            "x": -80.45269783048957,
+            "y": 35.13369337776067
+          }
+        },
+        {
+          "attributes": {
+            "OBJECTID": 5,
+            "Rezoning_Name": "2017-CZ-005 Turf",
+            "Description_of_Use": "Landscaping business and reclamation landfill.",
+            "County_Commission_Decision": "Approval",
+            "Proposed_LU": "Commercial",
+            "Planning_Board_Decision": "Approval",
+            "Staff_Recommendation": "Approval",
+            "Proposed_Units": "0",
+            "Year_Proposed": "2017"
+          },
+          "geometry": {
+            "x": -80.57215556549811,
+            "y": 35.107136568132724
+          }
+        }
+      ],
+      "exceededTransferLimit": false
+    },
+    "capturedAt": "2026-10-30",
+    "sourceQuery": "https://services2.arcgis.com/Z7YhSKLuj0a3XHN6/arcgis/rest/services/Union_County_Rezonings_2017_to_Present/FeatureServer/0/query?f=json&where=1%3D1&outFields=OBJECTID%2CRezoning_Name%2CDescription_of_Use%2CCounty_Commission_Decision%2CProposed_LU%2CPlanning_Board_Decision%2CStaff_Recommendation%2CProposed_Units%2CYear_Proposed&outSR=4326&returnGeometry=true&orderByFields=OBJECTID&resultOffset=0&resultRecordCount=50",
+    "sampleOnly": true
+  }
+]

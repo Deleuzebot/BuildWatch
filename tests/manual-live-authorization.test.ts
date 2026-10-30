@@ -1,6 +1,12 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {mkdtempSync,rmSync} from 'node:fs';import {join} from 'node:path';import {tmpdir} from 'node:os';
 import {LiveValidationSession} from '../server/maintenance/live-session';
 const authorization={reference:'controlled-server-reservation',maximumRequests:50,maximumSearches:4};
+test('remote PDF reservations share the HTTP ceiling, survive restarts and import only once',async()=>{const dir=mkdtempSync(join(tmpdir(),'bw-external-cap-'));try{
+ let calls=0;const fake:typeof fetch=async()=>{calls++;return new Response('controlled');};let s=new LiveValidationSession(dir,fake,50,authorization);
+ s.state.requests=Array.from({length:41},(_,i)=>({ordinal:i+1,url:'controlled-prior'}));s.save();s.reserveExternal('linux-pdf',8);s.release();s=new LiveValidationSession(dir,fake,50,authorization);
+ assert.equal(s.reserveExternal('linux-pdf',8).count,8);assert.equal(s.state.reservedExternalRequests,8);await s.transport('https://example.com/last-local');await assert.rejects(()=>s.transport('https://example.com/over-cap'),/cap/);assert.equal(calls,1);
+ s.recordExternal('linux-pdf',{requests:Array.from({length:8},()=>({url:'https://example.com/document.pdf',startedAt:new Date().toISOString(),status:200})),downloadBytes:123});assert.equal(s.state.requests.length,50);assert.equal(s.state.reservedExternalRequests,0);assert.throws(()=>s.recordExternal('linux-pdf',{requests:[],downloadBytes:0}),/receipt/);s.release();
+}finally{rmSync(dir,{recursive:true,force:true});}});
 test('500 HTTP and 20 searches require the larger explicit reservation and cannot exceed it',async()=>{const dir=mkdtempSync(join(tmpdir(),'bw-state-cap-'));try{
  let calls=0;const s=new LiveValidationSession(dir,async()=>{calls++;return new Response('controlled');},500,{reference:'explicit-nc-500-20',maximumRequests:500,maximumSearches:20});
  for(let i=0;i<20;i++)s.reserveSearch('controlled query '+i);assert.throws(()=>s.reserveSearch('twenty-first'),/ceiling/);

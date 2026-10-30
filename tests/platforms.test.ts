@@ -4,6 +4,13 @@ import {evidenceDocuments,planningDocumentFindings,governmentPlatform} from '../
 import {evaluateFinding} from '../server/maintenance/policy';import {arcgisReferenceId} from '../server/maintenance/source-identity';
 import {runState} from '../server/maintenance/worker';import {syntheticPDF} from '../server/maintenance/pdf-fixture';
 const fixture=JSON.parse(readFileSync('tests/fixtures/nc-platforms.json','utf8')),wilson=fixture.profiles.find((p:any)=>p.jurisdiction==='Wilson');
+test('Union consolidated inventory and supporting rezonings retain independent official evidence without inferred milestones',()=>{
+ const profiles=JSON.parse(readFileSync('tests/fixtures/nc-union-sources.json','utf8'));assert.equal(profiles.length,2);
+ for(const p of profiles){validateSourceSchema(p.source,p.metadata);const parsed=parsePage(p.source,JSON.stringify(p.records),100);assert.equal(parsed.count,4);assert.ok(parsed.findings.every(f=>!f.wholeDevelopment));assert.equal(p.source.enabled,false);assert.equal(p.source.autopublish,false);}
+ const primary=profiles.find((p:any)=>p.source.config.sourceRole==='development_review'),support=profiles.find((p:any)=>p.source.config.sourceRole==='supporting_only');
+ const first=parsePage(primary.source,JSON.stringify(primary.records),100).findings[0];assert.equal(first.name,'Best Box');assert.equal(first.sourceFacts?.applicationNumber,'20160501');assert.equal(first.sourceDates?.applicationApprovalAt,undefined);
+ const rezoning=parsePage(support.source,JSON.stringify(support.records),100).findings[0];assert.equal(rezoning.rawStatus,'Approval');assert.equal(rezoning.sourceFacts?.planningBoardRecommendation,'Tabled');assert.equal(rezoning.eventDate,undefined);assert.deepEqual(rezoning.sourceDates,{});assert.equal(evaluateFinding(rezoning,support.source,null).eligible,false,'A year, staff recommendation or zoning approval cannot become a new whole-project milestone');
+});
 test('a source page ceiling preserves its cursor and allows other sources to run',async()=>{
  const base:any={state:'NC',jurisdiction:'Controlled city',adapter:'arcgis',authority:'official',autopublish:false,config:{idField:'OBJECTID',fields:{name:'Name'},requiredFields:['OBJECTID','Name']}};
  const sources=['a','b'].map(id=>({...base,id,url:'https://example.com/arcgis/'+id+'/FeatureServer/0'}));let finished:any;
