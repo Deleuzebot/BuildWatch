@@ -19,14 +19,16 @@ export class SourceHTTP{
  /** Optional private evidence sink. It cannot change the request or validation policy. */
  onRead?: (url:string,response:{status:number;body:string;rawBody:Buffer;etag:string|null;modified:string|null})=>void;
  onBytes?: (bytes:number)=>void;
+ /** Source-specific ceiling checked before every actual attempt, including retries/redirects. */
+ beforeRequest?: (url:string)=>void;
  constructor(public budget:Budget,public origin:string,private transport:typeof fetch=fetch){}
  async getPDF(url:string,profile:PDFProfile='standard'){return this.get(url,{Accept:'application/pdf'},0,profile);}
  async get(url:string,headers:Record<string,string>={},redirects=0,pdf?:PDFProfile):Promise<{status:number;body:string;rawBody:Buffer;etag:string|null;modified:string|null}>{
   const documentLimit=pdf?pdfProfile(pdf).bytes:2_000_000;
   const target=await safeURL(url,this.origin);if(this.accessPolicy&&!this.accessPolicy(target))throw Error('robots.txt restricts automatic retrieval for this request.');
   for(let attempt=0;attempt<3;attempt++){
-   this.budget.check();const delay=Math.max(0,this.minimumInterval-(Date.now()-(lastByOrigin.get(this.origin)||0)));if(delay>this.budget.seconds*1000-(Date.now()-this.budget.started)-5000)throw new LimitReached('Source rate limit requires a later attempt');await wait(delay);this.budget.check();this.budget.requests++;lastByOrigin.set(this.origin,Date.now());
-   let r:Response;try{r=await this.transport(url,{redirect:'manual',signal:AbortSignal.timeout(Math.min(pdf?pdfProfile(pdf).wallMs:15000,Math.max(1000,this.budget.seconds*1000-(Date.now()-this.budget.started)-5000))),headers:{'User-Agent':'BuildWatch/1.0 development monitoring; official public sources',...headers}});}catch(e){if(attempt===2)throw Error('Source network retries exhausted');await wait(1000*2**attempt);continue;}
+   this.budget.check();const delay=Math.max(0,this.minimumInterval-(Date.now()-(lastByOrigin.get(this.origin)||0)));if(delay>this.budget.seconds*1000-(Date.now()-this.budget.started)-5000)throw new LimitReached('Source rate limit requires a later attempt');await wait(delay);this.budget.check();this.beforeRequest?.(url);this.budget.requests++;lastByOrigin.set(this.origin,Date.now());
+   let r:Response;try{r=await this.transport(url,{redirect:'manual',signal:AbortSignal.timeout(Math.min(pdf?pdfProfile(pdf).wallMs:15000,Math.max(1000,this.budget.seconds*1000-(Date.now()-this.budget.started)-5000))),headers:{'User-Agent':'BuildWatch/1.0 development monitoring; official public sources',...headers}});}catch(e){if(e instanceof LimitReached)throw e;if(attempt===2)throw Error('Source network retries exhausted');await wait(1000*2**attempt);continue;}
    if([429,500,502,503,504].includes(r.status)&&attempt<2){await r.body?.cancel();const retryAfter=Number(r.headers.get('retry-after'))||0;if(retryAfter>10)throw new LimitReached('Source Retry-After deferred to a later run');await wait(Math.max(retryAfter*1000,Math.min(4000,1000*2**attempt)));continue;}
    if([301,302,307,308].includes(r.status)&&this.redirectPolicy&&redirects<2){
     const location=r.headers.get('location');await r.body?.cancel();if(!location)throw Error('Document redirect has no target');const next=await safeURL(new URL(location,url).href,this.origin);

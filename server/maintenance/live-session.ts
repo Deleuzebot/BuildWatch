@@ -1,10 +1,11 @@
 import {existsSync,mkdirSync,readFileSync,writeFileSync,renameSync,unlinkSync} from 'node:fs';
-import {join} from 'node:path';import {Budget,hash} from './policy';import {ResearchReader} from './research-reader';
+import {join} from 'node:path';import {Budget,hash,LimitReached,SourceRequestLimit,SOURCE_REQUEST_CEILING} from './policy';import {ResearchReader} from './research-reader';
 export const LIVE_PILOT_REQUEST_CAP=20;
 /** Manual, evidence-only session. Its ledger counts every actual attempt, including robots and retries. */
 export class LiveValidationSession{
  readonly budget:Budget;readonly reader:ResearchReader;readonly state:any;readonly transport:typeof fetch;
  private lockHeld=false;
+ private sourceContext:{id:string;limit:number}|null=null;
  constructor(readonly directory:string,transport:typeof fetch=fetch,readonly requestCap=LIVE_PILOT_REQUEST_CAP,authorization?:{reference:string;maximumRequests:number;maximumSearches:number}){
   if(authorization&&(!authorization.reference||authorization.reference.length>1000||!Number.isInteger(authorization.maximumRequests)||authorization.maximumRequests<1||authorization.maximumRequests>500||!Number.isInteger(authorization.maximumSearches)||authorization.maximumSearches<0||authorization.maximumSearches>(authorization.maximumRequests>50?20:4)))throw Error('Invalid bounded manual authorization');
   const authorizedMaximum=authorization?.reference?Math.min(500,authorization.maximumRequests):LIVE_PILOT_REQUEST_CAP;
@@ -18,8 +19,10 @@ export class LiveValidationSession{
   this.budget=new Budget(240,requestCap,100,requestCap>50?100_000_000:10_000_000);this.budget.requests=this.state.requests.length+this.state.reservedExternalRequests;
   this.budget.bytes=this.state.bytes||0;
   this.transport=async(input,options)=>{
-   if(this.state.closed||this.state.requests.length+this.state.reservedExternalRequests>=requestCap)throw Error('Live pilot request cap reached or session closed');
-   const entry:any={ordinal:this.state.requests.length+1,url:String(input),startedAt:new Date().toISOString()};this.state.requests.push(entry);this.save();
+   if(this.state.closed||this.state.requests.length+this.state.reservedExternalRequests>=requestCap)throw new LimitReached('Live pilot request cap reached or session closed');
+   const fallbackId='origin:'+new URL(String(input)).origin,context=this.sourceContext||{id:fallbackId,limit:Math.min(SOURCE_REQUEST_CEILING,this.state.sourceLimits?.[fallbackId]??SOURCE_REQUEST_CEILING)};
+   if((this.sourceRequestCounts()[context.id]||0)>=context.limit)throw new SourceRequestLimit('Per-source request ceiling reached; resume in a later authorized session');
+   const entry:any={ordinal:this.state.requests.length+1,url:String(input),sourceId:context.id,sourceRequestLimit:context.limit,startedAt:new Date().toISOString()};this.state.requests.push(entry);this.save();
    try{const response=await transport(input,options);entry.status=response.status;entry.completedAt=new Date().toISOString();this.save();return response;}catch(e:any){entry.error=e.message;entry.completedAt=new Date().toISOString();this.save();throw e;}
   };
   this.reader=new ResearchReader(this.budget,(url,response)=>{
@@ -29,6 +32,8 @@ export class LiveValidationSession{
  }
  save(){this.state.bytes=this.budget?.bytes||this.state.bytes||0;const path=join(this.directory,'ledger.json');writeFileSync(path+'.tmp',JSON.stringify(this.state,null,2));renameSync(path+'.tmp',path);}
  release(){if(this.lockHeld){unlinkSync(join(this.directory,'capture.lock'));this.lockHeld=false;}}
+ setSourceContext(id:string,limit=SOURCE_REQUEST_CEILING){if(!id||!Number.isSafeInteger(limit)||limit<1||limit>SOURCE_REQUEST_CEILING)throw Error('Invalid bounded source context');this.state.sourceLimits??={};const old=this.state.sourceLimits[id];if(old!==undefined&&limit>old)throw Error('Cannot enlarge a source allowance within a session');if(old!==limit){this.state.sourceLimits[id]=limit;this.save();}this.sourceContext={id,limit};}
+ sourceRequestCounts():Record<string,number>{const counts:Record<string,number>={};for(const row of this.state.requests)if(row.sourceId)counts[row.sourceId]=(counts[row.sourceId]||0)+1;return counts;}
  reserveExternal(reference:string,count:number){if(!this.state.authorization||this.state.closed||!reference||!Number.isSafeInteger(count)||count<1)throw Error('Explicit external allocation required');this.state.externalReservations??={};const old=this.state.externalReservations[reference];if(old){if(old.count!==count)throw Error('External allocation changed');return old;}if(this.state.requests.length+this.state.reservedExternalRequests+count>this.requestCap)throw Error('External allocation exceeds total ceiling');const item={count,status:'reserved',reservedAt:new Date().toISOString()};this.state.externalReservations[reference]=item;this.state.reservedExternalRequests+=count;this.budget.requests+=count;this.save();return item;}
  recordExternal(reference:string,receipt:{requests:any[];downloadBytes:number}){const reservation=this.state.externalReservations?.[reference];if(!reservation||reservation.status!=='reserved'||!Array.isArray(receipt.requests)||receipt.requests.length>reservation.count||!Number.isSafeInteger(receipt.downloadBytes)||receipt.downloadBytes<0||receipt.requests.some(r=>typeof r.url!=='string'||!r.url.startsWith('https:')||!Number.isFinite(Date.parse(r.startedAt))))throw Error('Invalid external worker receipt');for(const row of receipt.requests)this.state.requests.push({...row,ordinal:this.state.requests.length+1,externalReference:reference});this.state.reservedExternalRequests-=reservation.count;reservation.status='recorded';reservation.actual=receipt.requests.length;this.budget.requests=this.state.requests.length+this.state.reservedExternalRequests;this.budget.bytes+=receipt.downloadBytes;this.save();}
  reserveSearch(query:string){if(!this.state.authorization||!Number.isInteger(this.state.authorization.maximumSearches)||this.state.closed||typeof query!=='string'||!query.trim()||query.length>500)throw Error('Explicit bounded search authorization required');const old=this.state.searches.find((s:any)=>s.query===query);if(old)return{...old,alreadyReserved:true};if(this.state.searches.length>=this.state.authorization.maximumSearches)throw Error('Search query ceiling reached');const entry={id:this.state.searches.length+1,query,reservedAt:new Date().toISOString(),state:'reserved'};this.state.searches.push(entry);this.save();return entry;}

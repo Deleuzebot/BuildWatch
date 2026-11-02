@@ -2,7 +2,8 @@ import {DatabaseSync} from 'node:sqlite';
 import {randomUUID} from 'node:crypto';
 import {mkdirSync,chmodSync} from 'node:fs';import {dirname} from 'node:path';
 import {hash,type Source,type Finding} from '../maintenance/policy';
-import {parsePage,sourcePage} from '../maintenance/adapters';
+import {parsePage,sourcePage,validateSourceSchema} from '../maintenance/adapters';
+import {incrementalQuery,incrementalWindow} from '../maintenance/incremental-query';
 import {evidenceDocuments,planningDocumentFindings} from '../maintenance/platforms';
 import type {PDFText} from '../maintenance/agendas';
 
@@ -21,6 +22,8 @@ export function taskPriority(data:any,now=Date.now()){
  if(data.outstanding)value+=20;if(data.changed)value+=25;if(/review/i.test(data.status||''))value+=10;
  if(data.meetingAt&&Date.parse(data.meetingAt)>now&&Date.parse(data.meetingAt)-now<14*86400000)value+=30;
  if(data.approvalAt&&now-Date.parse(data.approvalAt)>=0&&now-Date.parse(data.approvalAt)<30*86400000)value+=15;
+ if(data.meaningfulChange)value+=40;if(data.newProposal)value+=30;if(data.descriptionChanged)value+=25;
+ if(data.historicalBackfill)value-=100;
  return value;
 }
 /** Private manual work journal, not a development database or a scheduler. No publication operations. */
@@ -53,12 +56,23 @@ export class ManualResearchSession{
    this.db.prepare('INSERT INTO sessions(id,day,states,started) VALUES(?,?,?,?)').run(id,day,JSON.stringify(states),this.now());
    for(const state of states){const sources=seeds.filter(s=>s.source.state===state);if(!sources.length)this.put({id:hash(['coverage',state]),state,jurisdiction:state,sourceId:'',kind:'coverage_gap',url:'',priority:1,data:{reason:'No registered sources in this manual queue; not researched or activated.'}},'blocked');}
    for(const seed of seeds.filter(s=>states.includes(s.source.state))){const s=seed.source,key=hash(['source',s.state,s.url]);this.put({id:key,state:s.state,jurisdiction:s.jurisdiction,sourceId:s.id,kind:'source',url:s.url,priority:taskPriority(seed,this.now()),data:{source:s,population:seed.population||0,coverage:seed.coverage||'identified_only'}});
-    const t=this.task(key);if(hash(t.data.source.config)!==hash(s.config))this.db.prepare("UPDATE tasks SET status='pending',cursor='{}',data=?,updated=? WHERE id=?").run(JSON.stringify({...t.data,source:s}),this.now(),key);
-    else if(t.status==='done'&&this.now()-t.updated>=this.limits.sourceRefreshHours*3600000)this.db.prepare("UPDATE tasks SET status='pending',cursor='{}',updated=? WHERE id=?").run(this.now(),key);
+    const t=this.task(key);if(hash(t.data.baseSourceConfig||t.data.source.config)!==hash(s.config))this.db.prepare("UPDATE tasks SET status='pending',cursor='{}',data=?,updated=? WHERE id=?").run(JSON.stringify({...t.data,source:s,baseSourceConfig:s.config,queryScope:null}),this.now(),key);
+    else if(t.status==='done'&&this.now()-t.updated>=this.limits.sourceRefreshHours*3600000)this.db.prepare("UPDATE tasks SET status='pending',cursor='{}',data=?,updated=? WHERE id=?").run(JSON.stringify({...t.data,source:s,baseSourceConfig:s.config,queryScope:null}),this.now(),key);
    }return this.session(id,false);
   });
  }
- next(sessionId:string,limit=5){const s=this.session(sessionId);return this.db.prepare(`SELECT *,source_id AS sourceId FROM tasks WHERE state IN(${s.states.map(()=>'?').join(',')}) AND status='pending' ORDER BY priority+min(20,max(0,(?-updated)/86400000)) DESC,updated,id LIMIT ?`).all(...s.states,this.now(),Math.min(20,Math.max(1,limit))).map(unpack).map(t=>({...t,requestURL:t.kind==='source'&&t.data.source.adapter==='arcgis'?sourcePage(t.data.source,t.cursor.offset??(t.data.source.config.pagination==='oid_keyset'?-1:0),this.limits.pageSize):t.url}));}
+ next(sessionId:string,limit=5,includeBackfills=false){const s=this.session(sessionId);return this.db.prepare(`SELECT *,source_id AS sourceId FROM tasks WHERE state IN(${s.states.map(()=>'?').join(',')}) AND status='pending' ${includeBackfills?'':"AND coalesce(json_extract(data,'$.historicalBackfill'),0)=0"} ORDER BY priority+min(20,max(0,(?-updated)/86400000)) DESC,updated,id LIMIT ?`).all(...s.states,this.now(),Math.min(20,Math.max(1,limit))).map(unpack).map(t=>({...t,requestURL:t.kind==='source'&&t.data.source.adapter==='arcgis'?sourcePage(t.data.source,t.cursor.offset??(t.data.source.config.pagination==='oid_keyset'?-1:0),this.limits.pageSize):t.url}));}
+ /** Pin one metadata-backed read scope through all pages and sessions. No retrieval occurs. */
+ scope(sessionId:string,taskId:string,input:{metadata:any;activeIds:string[];evidenceRef:string}){
+  return this.tx(()=>{const s=this.session(sessionId),t=this.task(taskId);if(!s.states.includes(t.state)||t.kind!=='source'||t.data.source.adapter!=='arcgis'||!input.evidenceRef||!Array.isArray(input.activeIds)||input.activeIds.some(v=>typeof v!=='string'))throw Error('A registered ArcGIS task and cached metadata/identity references are required');
+   if(t.data.queryScope)return{...t.data.queryScope,resumed:true};if(Object.keys(t.cursor).length)throw Error('An existing unscoped continuation must be completed or explicitly reviewed before changing its query');
+   const source=t.data.source;if(source.config.requiredFields?.length)validateSourceSchema(source,input.metadata);const window=incrementalWindow(t.data.lastCompletedReadAt,this.now()),query=incrementalQuery(source,input.metadata,input.activeIds,window.since);if(!query.bounded)throw Error('No safe incremental scope; keep queued for explicit identifier batching or adapter repair');
+   const queryScope={...query,window,metadataHash:hash(input.metadata),evidenceRef:input.evidenceRef,coverage:'Pinned incremental window and supplied active identities only; not full-jurisdiction verification'};
+   const data={...t.data,baseSourceConfig:source.config,source:{...source,config:{...source.config,where:query.where}},queryScope};this.db.prepare('UPDATE tasks SET data=?,updated=? WHERE id=?').run(JSON.stringify(data),this.now(),taskId);
+   if(window.deferredGap)this.put({id:hash(['incremental-gap',taskId,window.deferredGap]),state:t.state,jurisdiction:t.jurisdiction,sourceId:t.sourceId,kind:'coverage_gap',url:t.url,priority:0,data:{reason:'Older source interval was deferred by the routine window; not verified',parent:taskId,gap:window.deferredGap}},'blocked');
+   return queryScope;
+  });
+ }
  /** This phase has no live allowance. Fail before any transport can run. */
  assertLiveAllowed(sessionId:string):never{this.session(sessionId);throw Error('Cached-only manual workflow: zero live requests authorized. Reuse the existing globally reserved research transport after separate authorization; this journal cannot raise budgets.');}
  /** Import accounting from an existing authorized worker; this never authorizes or performs retrieval. */
@@ -83,12 +97,13 @@ export class ManualResearchSession{
    if(input.snapshotOnly!==undefined&&typeof input.snapshotOnly!=='boolean')throw Error('Invalid snapshot mode');
    const bodyHash=hash(input.body),digest=hash([bodyHash,source.config,'manual-parser-v2',input.snapshotOnly===true]),old:any=this.db.prepare('SELECT * FROM snapshots WHERE task_id=? AND url=?').get(taskId,input.url);
    if(old&&observed<old.observed)throw Error('Older cached evidence cannot overwrite a newer checkpoint');
-   if(old?.hash===digest){const prior=JSON.parse(old.result);this.db.prepare('UPDATE snapshots SET observed=? WHERE task_id=? AND url=?').run(observed,taskId,input.url);this.db.prepare('UPDATE tasks SET status=?,cursor=?,updated=?,data=? WHERE id=?').run(prior.unresolved?'awaiting_review':prior.more?'pending':'done',JSON.stringify(prior.cursor||{}),this.now(),JSON.stringify({...task.data,lastEvidenceRef:input.evidenceRef,lastObservedAt:input.observedAt}),taskId);const counted=this.db.prepare("SELECT 1 FROM events WHERE session_id=? AND task_id=? AND kind='source_checked' AND json_extract(data,'$.cacheHash')=?").get(sessionId,taskId,digest);if(!counted)this.event(sessionId,taskId,'source_unchanged',{records:prior.records,cacheHash:digest,bodyHash,evidenceRef:input.evidenceRef,observation:'cached_replay_not_live_verification'});return{...prior,unchanged:prior.records,changed:0,cachedResponse:true};}
+   if(old?.hash===digest){const prior=JSON.parse(old.result),olderPage=(task.cursor.offset??-1)>(prior.cursor?.offset??-1);this.db.prepare('UPDATE snapshots SET observed=? WHERE task_id=? AND url=?').run(observed,taskId,input.url);if(!olderPage)this.db.prepare('UPDATE tasks SET status=?,cursor=?,updated=?,data=? WHERE id=?').run(prior.unresolved?'awaiting_review':prior.more?'pending':'done',JSON.stringify(prior.cursor||{}),this.now(),JSON.stringify({...task.data,lastEvidenceRef:input.evidenceRef,lastObservedAt:input.observedAt}),taskId);const counted=this.db.prepare("SELECT 1 FROM events WHERE session_id=? AND task_id=? AND kind='source_checked' AND json_extract(data,'$.cacheHash')=?").get(sessionId,taskId,digest);if(!counted)this.event(sessionId,taskId,'source_unchanged',{records:prior.records,cacheHash:digest,bodyHash,evidenceRef:input.evidenceRef,observation:'cached_replay_not_live_verification'});return{...prior,cursor:olderPage?task.cursor:prior.cursor,unchanged:prior.records,changed:0,cachedResponse:true};}
    const used=(this.db.prepare("SELECT coalesce(sum(json_extract(data,'$.records')),0) n FROM events WHERE session_id=? AND kind='source_checked'").get(sessionId) as any).n;
    const result:any={records:0,changed:0,unchanged:0,documents:0,proposals:[],requiresReasoning:[],observation:'cached_evidence',more:false};
    let rows:any[]=[];
    if(input.format==='arcgis'){
     const requested=Number(u.searchParams.get('resultRecordCount')||this.limits.pageSize);if(!Number.isInteger(requested)||requested<1||requested>this.limits.pageSize)throw Error('Cached page exceeds this session batch limit');
+    if(task.data.queryScope&&u.searchParams.get('where')!==new URL(sourcePage(source,task.cursor.offset??(source.config.pagination==='oid_keyset'?-1:0),requested)).searchParams.get('where'))throw Error('Cached page does not match the pinned incremental query and cursor');
     const snapshotSource=input.snapshotOnly?{...source,config:{...source.config,pagination:undefined}}:source;
     const page=parsePage(snapshotSource,input.body,requested),raw=JSON.parse(input.body);rows=page.findings;result.more=page.more||(page.count===requested&&raw.exceededTransferLimit!==false);
     if(!input.snapshotOnly&&source.config.pagination==='oid_keyset'&&page.count&&(page.firstCursor!<=(task.cursor.offset??-1)))throw Error('Keyset response does not advance the saved cursor');
@@ -110,12 +125,16 @@ export class ManualResearchSession{
     if(previous&&observed<previous.observed)throw Error('Historical page cannot regress the source record fingerprint');
     result.records++;if(previous?.semantic_hash===semantic){this.db.prepare('UPDATE fingerprints SET observed=? WHERE source_id=? AND external_id=?').run(observed,source.id,f.externalId);result.unchanged++;continue;}result.changed++;
     const id=hash(['record',source.id,f.externalId,semantic]),context=input.context?.[f.externalId];
-    this.put({id,state:task.state,jurisdiction:task.jurisdiction,sourceId:source.id,kind:'changed_record',url:f.url,priority:task.priority+taskPriority({changed:true,status:f.status,approvalAt:f.sourceDates?.applicationApprovalAt,outstanding:true},this.now()),data:{externalId:f.externalId,semanticHash:semantic,evidenceRef:input.evidenceRef,sourceURL:f.url,contextRef:context?.project?.id||null,newToJournal:!previous}},'pending');
+    const eventDates=[f.eventDate,f.sourceDates?.applicationActionAt,f.sourceDates?.applicationApprovalAt,f.sourceDates?.applicationStatusAt].filter((v):v is string=>typeof v==='string'&&Number.isFinite(Date.parse(v))&&Date.parse(v)<=this.now()),latestEvent=eventDates.sort().at(-1);
+    const historicalBackfill=!!(!previous&&context?.project&&latestEvent&&this.now()-Date.parse(latestEvent)>90*86400000);
+    const priority={changed:!!previous,meaningfulChange:!!previous,descriptionChanged:!!previous&&!!f.description,status:f.status,approvalAt:latestEvent,outstanding:true,historicalBackfill};
+    this.put({id,state:task.state,jurisdiction:task.jurisdiction,sourceId:source.id,kind:'changed_record',url:f.url,priority:task.priority+taskPriority(priority,this.now()),data:{externalId:f.externalId,semanticHash:semantic,evidenceRef:input.evidenceRef,sourceURL:f.url,contextRef:context?.project?.id||null,newToJournal:!previous,historicalBackfill,latestEvent:latestEvent||null}},'pending');
     this.db.prepare('INSERT INTO fingerprints VALUES(?,?,?,?) ON CONFLICT(source_id,external_id) DO UPDATE SET semantic_hash=excluded.semantic_hash,observed=excluded.observed').run(source.id,f.externalId,semantic,observed);
+    if(historicalBackfill){result.historicalBackfillsDeferred=(result.historicalBackfillsDeferred||0)+1;continue;}
     result.requiresReasoning.push({taskId:id,finding:f,context:context||null,reason:previous?'Meaningful source fields changed':'First observation; reconcile with Supabase before treating as new development'});
    }
    this.db.prepare('INSERT INTO snapshots VALUES(?,?,?,?,?) ON CONFLICT(task_id,url) DO UPDATE SET hash=excluded.hash,observed=excluded.observed,result=excluded.result').run(taskId,input.url,digest,observed,JSON.stringify({records:result.records,more:result.more,cursor:result.cursor||{},unresolved:result.unresolved||null}));
-   this.db.prepare('UPDATE tasks SET status=?,cursor=?,updated=?,data=? WHERE id=?').run(result.unresolved?'awaiting_review':result.more?'pending':'done',JSON.stringify(result.cursor||{}),this.now(),JSON.stringify({...task.data,lastEvidenceRef:input.evidenceRef,lastObservedAt:input.observedAt}),taskId);
+   this.db.prepare('UPDATE tasks SET status=?,cursor=?,updated=?,data=? WHERE id=?').run(result.unresolved?'awaiting_review':result.more?'pending':'done',JSON.stringify(result.cursor||{}),this.now(),JSON.stringify({...task.data,lastEvidenceRef:input.evidenceRef,lastObservedAt:input.observedAt,...(!result.more&&!result.unresolved?{lastCompletedReadAt:input.observedAt}:{})}),taskId);
    const {requiresReasoning,proposals,...compact}=result;this.event(sessionId,taskId,'source_checked',{...compact,evidenceRef:input.evidenceRef,cacheHash:digest,bodyHash,cachedBytes:Buffer.byteLength(input.body),sourcePermission:'Cached evidence only; no current robots/access permission assertion'});return result;
   });
  }

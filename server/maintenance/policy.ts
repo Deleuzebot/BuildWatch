@@ -54,6 +54,8 @@ export function evaluateFinding(f:Finding,s:Source,existing:Project|null,now=Dat
  return{project,reasons,informationChange:informationChange(f,s,existing),eligible:reasons.length===0,confidence:{method:'deterministic-evidence-gates-v1',passed:reasons.length===0,reasons},dated:!!dated};
 }
 export class LimitReached extends Error{}
+export class SourceRequestLimit extends LimitReached{}
+export const SOURCE_REQUEST_CEILING=8,DOCUMENT_REQUEST_CEILING=6,SOURCE_PAGE_CEILING=4;
 export class Budget{
  started=Date.now();requests=0;records=0;bytes=0;aiRequests=0;aiTokens=0;
  constructor(public seconds=240,public maxRequests=80,public maxRecords=1000,public maxBytes=20_000_000){}

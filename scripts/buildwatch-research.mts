@@ -6,7 +6,7 @@ import {ManualResearchSession} from '../server/research/manual-session';import {
 const read=(p:string)=>JSON.parse(readFileSync(p,'utf8')),rotation=read('config/maintenance/manual-rotation.json');
 const [command,...args]=process.argv.slice(2),option=(key:string)=>{const i=args.indexOf('--'+key);return i<0?undefined:args[i+1];};
 if(command==='live'){const child=spawnSync(process.execPath,['--import','tsx','scripts/buildwatch-live.mts',...args],{stdio:'inherit',env:process.env});if(child.error)throw child.error;process.exit(child.status??1);}
-const allowed=['start','next','ingest','checkpoint','attach-receipt','report','request'];if(!allowed.includes(command))throw Error('Use start, next, ingest, checkpoint, attach-receipt, report, or request. No apply/publish command exists.');
+const allowed=['start','next','scope','ingest','checkpoint','attach-receipt','report','request'];if(!allowed.includes(command))throw Error('Use start, next, scope, ingest, checkpoint, attach-receipt, report, or request. No apply/publish command exists.');
 if(rotation.scheduleEnabled||rotation.publicationEnabled||rotation.archivalEnabled||rotation.defaults.newLiveResearchRequests!==0)throw Error('Manual coordinator requires cached-only research and publication/scheduling gates off');
 const dbPath=process.env.BW_MANUAL_JOURNAL||resolve('../../work/buildwatch-manual-research/checkpoints.sqlite'),journal=new ManualResearchSession(dbPath,rotation.sessionLimits);
 try{
@@ -26,7 +26,8 @@ try{
   result=journal.start(day,rotation.weekdays[day],seeds,id);result={...result,journal:dbPath,queued:result.finished?[]:journal.next(result.id).map(t=>({id:t.id,jurisdiction:t.jurisdiction,kind:t.kind,url:t.url})),note:'Resumes persistent work; zero new live requests authorized.'};
  }else{
   if(!sid)throw Error('--session is required');
-  if(command==='next')result=journal.next(sid,Number(option('limit')||5));
+  if(command==='next')result=journal.next(sid,Number(option('limit')||5),args.includes('--include-backfills'));
+  if(command==='scope'){const task=option('task'),file=option('file');if(!task||!file)throw Error('Use --task and --file with cached schema and active identifiers');result=journal.scope(sid,task,{...read(file),evidenceRef:resolve(file)});}
   if(command==='request')journal.assertLiveAllowed(sid);
   if(command==='attach-receipt'){const file=option('file');if(!file)throw Error('Use --file with the verified existing worker receipt');result=journal.attachWorkerReceipt(sid,read(file),resolve(file));}
   if(command==='ingest'){

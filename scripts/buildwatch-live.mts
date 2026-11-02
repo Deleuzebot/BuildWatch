@@ -1,6 +1,7 @@
 /** Manual review-only bridge. One server-recorded approval, one durable HTTP/search ledger. */
 import assert from 'node:assert/strict';import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';import {resolve} from 'node:path';
 import {LiveValidationSession} from '../server/maintenance/live-session';import {PostgresDatabase,loadPostgresEnvironment} from '../server/postgres/connection';
+import {SOURCE_REQUEST_CEILING,DOCUMENT_REQUEST_CEILING} from '../server/maintenance/policy';
 const [command,...args]=process.argv.slice(2),arg=(key:string)=>{const i=args.indexOf('--'+key);return i<0?undefined:args[i+1];};
 if(!['init','fetch','reserve-search','record-search','receipt','guard'].includes(command)||process.env.GITHUB_EVENT_NAME==='schedule')throw Error('Use a manually authorized research command; no publication or schedule entry point exists');
 const id=arg('run');if(!id||!/^manual-nc-live-[a-zA-Z0-9-]+$/.test(id))throw Error('Use a stable manual NC run identifier');
@@ -27,7 +28,7 @@ try{
   live=new LiveValidationSession(dir,fetch,authorization.maximumRequests,{reference:authorization.reference,maximumRequests:authorization.maximumRequests,maximumSearches:authorization.maximumSearches});
   if(command==='fetch'){
    const file=arg('plan');if(!file)throw Error('Supply the explicit bounded source URL plan');const plan=JSON.parse(readFileSync(file,'utf8'));if(!Array.isArray(plan)||plan.length>20||plan.some(x=>typeof x.url!=='string'||typeof x.key!=='string'||!/^[a-z0-9-]{1,80}$/.test(x.key)))throw Error('Bounded URL plan required');
-   const results=[];for(const p of plan){if(live.state.requests.length>=authorization.maximumRequests){results.push({key:p.key,status:'deferred_budget'});break;}try{const r=await live.get(p.url),{rawBody,...compact}=r;writeFileSync(dir+'/'+p.key+'.json',JSON.stringify({url:p.url,...compact},null,2));results.push({key:p.key,status:'captured',bytes:Buffer.byteLength(r.body),replay:r.sessionReplay});}catch(e:any){results.push({key:p.key,status:'unresolved',error:e.message});}}
+   const results=[];for(const p of plan){if(live.state.requests.length>=authorization.maximumRequests){results.push({key:p.key,status:'deferred_budget'});break;}try{if(p.sourceId!==undefined&&(typeof p.sourceId!=="string"||!p.sourceId||p.sourceId.length>150))throw Error("Invalid registered source identifier");live.setSourceContext(p.sourceId||"origin:"+new URL(p.url).origin,p.adapter==="arcgis"?SOURCE_REQUEST_CEILING:DOCUMENT_REQUEST_CEILING);const r=await live.get(p.url),{rawBody,...compact}=r;writeFileSync(dir+'/'+p.key+'.json',JSON.stringify({url:p.url,...compact},null,2));results.push({key:p.key,status:'captured',bytes:Buffer.byteLength(r.body),replay:r.sessionReplay});}catch(e:any){results.push({key:p.key,status:'unresolved',error:e.message});}}
    writeFileSync(dir+'/fetch-results-'+Date.now()+'.json',JSON.stringify(results,null,2));console.log(JSON.stringify({requests:live.state.requests.length,remaining:authorization.maximumRequests-live.state.requests.length,results}));
   }
   if(command==='reserve-search')console.log(JSON.stringify(live.reserveSearch(arg('query')||'')));
