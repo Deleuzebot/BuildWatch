@@ -8,12 +8,14 @@ import AccountEntry from "./AccountEntry";
 import AdministratorAccess from "./AdministratorAccess";
 import {useTheme,useThemeStyles} from "../lib/Theme";
 import PasswordRecovery from './PasswordRecovery';
+import {useLayoutPreference} from '../lib/LayoutPreference';
 const WelcomeContext=createContext({showWelcome:()=>{},guestSearch:null as string|null,clearGuestSearch:()=>{},exploreAsGuest:(_query:string)=>{}});
 export const useWelcome=()=>useContext(WelcomeContext);
 export default function WelcomeGate({children}:{children:React.ReactNode}){
- const{account}=useSession(),theme=useTheme(),s=useThemeStyles(styles);
+ const{account}=useSession(),theme=useTheme(),s=useThemeStyles(styles),{mobile}=useLayoutPreference();
  const[chosen,setChosen]=useState<boolean|null>(null),[reopened,setReopened]=useState(false),[adminOpen,setAdminOpen]=useState(false),[guestSearch,setGuestSearch]=useState<string|null>(null);
  useEffect(()=>{void hasChosenAccess().then(setChosen).catch(()=>setChosen(false));},[]);
+ useEffect(()=>{if(mobile)setAdminOpen(false);},[mobile]);
  useEffect(()=>{if(account){setChosen(true);setReopened(false);void rememberAccessChoice().catch(()=>{});}},[account?.id]);
  function exploreAsGuest(query:string){setGuestSearch(query);setChosen(true);setReopened(false);void rememberAccessChoice().catch(()=>{});}
  const value={showWelcome:()=>{void forgetAccessChoice().catch(()=>{});setChosen(false);setReopened(true);},guestSearch,clearGuestSearch:()=>setGuestSearch(null),exploreAsGuest};

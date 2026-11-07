@@ -1,3 +1,4 @@
+import {isAdministratorPanel} from './adminVisibility';
 import AccountEntry from "./AccountEntry";
 import {useWelcome} from "./Welcome";
 import {useTheme,useThemeStyles} from "../lib/Theme";
@@ -127,6 +128,8 @@ export default function AccountPanel({
   const [screen, setScreen] = useState<Panel>(initial),
     [message, setMessage] = useState(""),
     [busy, setBusy] = useState(false);
+  const phoneAdminScreen=layout.mobile&&(isAdministratorPanel(screen)||(account?.role==='admin'&&['Edit Map','Project Management'].includes(screen)));
+  useEffect(()=>{if(phoneAdminScreen)setScreen('Account');},[phoneAdminScreen]);
   const [name, setName] = useState(account?.name || ""),
     [confirm, setConfirm] = useState(""),
     [invite, setInvite] = useState(invitationToken()),
@@ -168,7 +171,7 @@ export default function AccountPanel({
     }
   }
   async function load() {
-    if (!account) {
+    if (!account || phoneAdminScreen) {
       setItems([]);
       return;
     }
@@ -202,7 +205,7 @@ export default function AccountPanel({
   useEffect(() => {
     if (account && screen === "Login") onClose();
   }, [account?.id]);
-  const admin = account?.role === "admin";
+  const admin = account?.role === "admin"&&!layout.mobile;
   const editor = (admin && account?.mfa) || account?.role === "collaborator";
   const authUI = <AccountEntry onGuest={query=>{welcome.exploreAsGuest(query);onClose();}} onAdministrator={()=>setScreen("Administrator Security")}/>;
   const accountUI = account ? (
@@ -247,11 +250,11 @@ export default function AccountPanel({
             )
             .join(", ") || "Sign-in provider"}
         </Text>
-        <Action
+        {!(layout.mobile&&account.role==='admin')&&<Action
           title={account.methods.includes('supabase-admin')?'Administrator security':'Sign in again / complete MFA'}
           disabled={busy}
           onPress={() => setScreen(account.role==='admin'?'Administrator Security':'Login')}
-        />
+        />}
         {capabilities.linking&&!account.methods.includes('supabase-admin') ? (
           <>
             <Text style={s.body}>
@@ -481,6 +484,7 @@ export default function AccountPanel({
     </View>
   );
   const editableMatches = screen === "Edit Map" ? items as Project[] : [];
+  if(phoneAdminScreen)return null;
   return (
     <Modal visible animationType="slide" onRequestClose={onClose}>
       <SafeAreaView style={s.page}>

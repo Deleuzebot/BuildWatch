@@ -5,8 +5,9 @@ import{useSession}from'./Session';
 import{adminClient}from'./adminAuth';
 import{login,authConfigured}from'./auth';
 import{normalizeAuthenticatorCode}from'./adminSetup';
+import{useLayoutPreference}from'../lib/LayoutPreference';
 export default function AccountEntry({onGuest,onAdministrator}:{onGuest:(query:string)=>void;onAdministrator:()=>void}){
- const s=useThemeStyles(styles),{dark}=useTheme(),session=useSession();
+ const s=useThemeStyles(styles),{dark}=useTheme(),session=useSession(),{mobile}=useLayoutPreference();
  const[email,setEmail]=useState(''),[password,setPassword]=useState(''),[open,setOpen]=useState(false),[register,setRegister]=useState(false),[busy,setBusy]=useState(false),[message,setMessage]=useState(''),[google,setGoogle]=useState(false),[factor,setFactor]=useState(''),[code,setCode]=useState('');
  useEffect(()=>{if(!authConfigured)return;void fetch(process.env.EXPO_PUBLIC_SUPABASE_URL+'/auth/v1/settings',{headers:{apikey:process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY!},signal:AbortSignal.timeout(10000)}).then(r=>r.ok?r.json():null).then(v=>setGoogle(v?.external?.google===true)).catch(()=>{});},[]);
  const run=async(work:()=>Promise<void>)=>{if(busy)return;setBusy(true);setMessage('');try{await work();}catch(e:any){setMessage(e.code==='mfa_verification_failed'?'That code did not match. Wait for a fresh code and try again.':e.message||'Unable to sign in. Please try again.');}finally{setBusy(false);}};
@@ -31,7 +32,7 @@ export default function AccountEntry({onGuest,onAdministrator}:{onGuest:(query:s
  {busy&&<ActivityIndicator accessibilityLabel="Signing in" color={dark?'#e5eee8':'#164A37'}/>}
  {!!message&&<Text accessibilityRole="alert" style={s.body}>{message}</Text>}
  </View><Text style={s.divider}>OR EXPLORE WITHOUT AN ACCOUNT</Text><Pressable accessibilityRole="button" onPress={()=>onGuest('')} style={s.guestButton}><Text style={s.guestText}>Continue as guest</Text></Pressable>
- {Platform.OS==='web'&&<Pressable accessibilityRole="button" onPress={onAdministrator} style={s.admin}><Text style={s.adminText}>Administrator access</Text></Pressable>}
+ {Platform.OS==='web'&&!mobile&&<Pressable accessibilityRole="button" onPress={onAdministrator} style={s.admin}><Text style={s.adminText}>Administrator access</Text></Pressable>}
  </View>;
 }
 const styles=StyleSheet.create({wrap:{width:'100%',maxWidth:440,alignSelf:'center',gap:16},brand:{fontSize:38,fontWeight:'800',letterSpacing:-1.5,color:'#163A30',textAlign:'center'},subtitle:{fontSize:15,color:'#637369',textAlign:'center',marginBottom:8},card:{padding:24,gap:14,backgroundColor:'#fff',borderColor:'#DCE5D9',borderWidth:1,borderRadius:22},title:{fontSize:21,fontWeight:'700',color:'#163A30'},body:{fontSize:14,lineHeight:21,color:'#637369'},provider:{flexDirection:'row',gap:14,alignItems:'center',justifyContent:'center',minHeight:54,borderWidth:1,borderColor:'#CFDCCE',borderRadius:12,backgroundColor:'#F7F9F3'},providerText:{fontSize:16,fontWeight:'600',color:'#173C30'},logo:{width:22,height:22},mail:{fontSize:25,width:24,textAlign:'center',color:'#173C30'},input:{padding:14,fontSize:16,borderWidth:1,borderColor:'#CFDCCE',borderRadius:12,color:'#173C30',backgroundColor:'#F7F9F3'},continue:{minHeight:48,alignItems:'center',justifyContent:'center',borderRadius:12,backgroundColor:'#164A37'},continueText:{fontSize:15,fontWeight:'700',color:'white'},link:{minHeight:44,justifyContent:'center'},divider:{fontSize:10,letterSpacing:1,color:'#637369',textAlign:'center'},guestButton:{minHeight:54,alignItems:'center',justifyContent:'center',borderRadius:16,borderWidth:1,borderColor:'#CFDCCE',backgroundColor:'white'},guestText:{fontSize:15,fontWeight:'600',color:'#234D35'},admin:{alignSelf:'center',minHeight:44,justifyContent:'center',paddingHorizontal:12,marginTop:10},adminText:{fontSize:11,color:'#76867B'}});

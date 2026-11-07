@@ -1,3 +1,4 @@
+import {isAdministratorPanel} from './src/account/adminVisibility';
 import {useThemeStyle} from "./src/lib/Theme";
 import {ThemeProvider,useTheme,useThemeStyles} from "./src/lib/Theme";
 import ActivityFilter from './src/components/ActivityFilter';
@@ -67,7 +68,7 @@ function BuildWatchApp() {
   const {mobile} = useLayoutPreference();
   const canEdit =
     account?.role === "collaborator" ||
-    (account?.role === "admin" && account.mfa);
+    (!mobile && account?.role === "admin" && account.mfa);
   const [menu, setMenu] = useState(false);
   const [coverageOpen, setCoverageOpen] = useState(false);
   const [cluster, setCluster] = useState<MapNode | null>(null);
@@ -84,14 +85,16 @@ function BuildWatchApp() {
     void api("/api/follows")
       .then((list: any[]) => setFollowing(list.map((p) => p.projectId)))
       .catch(() => {});
-    if(consumeAdministratorResume()){setPanel('Administrator Security');return;}
+    if(!mobile&&consumeAdministratorResume()){setPanel('Administrator Security');return;}
     void consumeProject().then((id) => {
       if (id) setReturnProject(id);
       else if (invitationToken()) setPanel("Settings");
     });
   }, [account?.id]);
+  useEffect(()=>{if(mobile&&panel&&isAdministratorPanel(panel))setPanel(null);},[mobile,panel]);
   function showPanel(value: Panel) {
     setMenu(false);
+    if(mobile&&isAdministratorPanel(value))return;
     setPanel(value);
   }
   async function follow(project: Project) {
@@ -490,7 +493,7 @@ function BuildWatchApp() {
                     />
                   </>
                 )}
-                {account?.role === "admin" && (
+                {!mobile&&account?.role === "admin" && (
                   <>
                     <Action
                       title="Admin Dashboard"
