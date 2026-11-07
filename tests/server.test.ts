@@ -567,11 +567,13 @@ test("legacy migration preserves data; deleted subjects cannot recreate accounts
     await t.close();
   }
 });
-test("real JWT verification validates issuer, audience, expiry and signature", async () => {
+test("retired local identity verifier rejects valid legacy tokens without contacting the issuer", async () => {
   const { publicKey, privateKey } = await generateKeyPair("RS256");
   const jwk = await exportJWK(publicKey);
   jwk.kid = "test";
+  let legacyRequests=0;
   const server = createServer((req, res) => {
+    legacyRequests++;
     res.setHeader("Content-Type", "application/json");
     res.end(JSON.stringify({ keys: [jwk] }));
   });
@@ -597,7 +599,8 @@ test("real JWT verification validates issuer, audience, expiry and signature", a
       .setAudience("buildwatch")
       .setExpirationTime("5m")
       .sign(privateKey);
-    assert.equal((await verify(token)).subject, "jwt-user");
+    await assert.rejects(verify(token),{status:410});
+    assert.equal(legacyRequests,0);
     await assert.rejects(() => verify(token.slice(0, -10) + "invalid"));
     const wrong = await new SignJWT({})
       .setProtectedHeader({ alg: "RS256", kid: "test" })

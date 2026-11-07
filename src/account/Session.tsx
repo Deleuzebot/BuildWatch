@@ -45,7 +45,7 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
     try {
       const config = await api("/api/config");
       if (version !== epoch.current) return;
-      setCapabilities(config);
+      setCapabilities({...config,auth:authConfigured,linking:false,deletion:true});
       if (authConfigured && (await accessToken())) {
         const result = await api("/api/me");
         if (version !== epoch.current) return;

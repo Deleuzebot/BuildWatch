@@ -1,5 +1,5 @@
 import React,{createContext,useContext,useEffect,useState} from "react";
-import {Pressable,ScrollView,StyleSheet,Text,View} from "react-native";
+import {Platform,Pressable,ScrollView,StyleSheet,Text,View} from "react-native";
 import {SafeAreaProvider,SafeAreaView} from "react-native-safe-area-context";
 import {StatusBar} from "expo-status-bar";
 import {useSession} from "./Session";
@@ -7,6 +7,7 @@ import {hasChosenAccess,rememberAccessChoice,forgetAccessChoice} from "./welcome
 import AccountEntry from "./AccountEntry";
 import AdministratorAccess from "./AdministratorAccess";
 import {useTheme,useThemeStyles} from "../lib/Theme";
+import PasswordRecovery from './PasswordRecovery';
 const WelcomeContext=createContext({showWelcome:()=>{},guestSearch:null as string|null,clearGuestSearch:()=>{},exploreAsGuest:(_query:string)=>{}});
 export const useWelcome=()=>useContext(WelcomeContext);
 export default function WelcomeGate({children}:{children:React.ReactNode}){
@@ -16,6 +17,7 @@ export default function WelcomeGate({children}:{children:React.ReactNode}){
  useEffect(()=>{if(account){setChosen(true);setReopened(false);void rememberAccessChoice().catch(()=>{});}},[account?.id]);
  function exploreAsGuest(query:string){setGuestSearch(query);setChosen(true);setReopened(false);void rememberAccessChoice().catch(()=>{});}
  const value={showWelcome:()=>{void forgetAccessChoice().catch(()=>{});setChosen(false);setReopened(true);},guestSearch,clearGuestSearch:()=>setGuestSearch(null),exploreAsGuest};
+ if(Platform.OS==='web'&&new URLSearchParams(window.location.search).get('recovery')==='1')return <SafeAreaProvider><SafeAreaView style={s.page}><ScrollView contentContainerStyle={s.scroll}><PasswordRecovery/></ScrollView></SafeAreaView></SafeAreaProvider>;
  return <WelcomeContext.Provider value={value}>{(chosen||account)&&!reopened?children:<SafeAreaProvider><SafeAreaView style={s.page}><StatusBar style={theme.dark?"light":"dark"}/><ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={s.scroll}>{adminOpen?<View style={s.admin}><Pressable accessibilityRole="button" onPress={()=>setAdminOpen(false)} style={s.back}><Text style={s.text}>← Back to BuildWatch</Text></Pressable><AdministratorAccess/></View>:<AccountEntry onGuest={exploreAsGuest} onAdministrator={()=>setAdminOpen(true)}/>}</ScrollView></SafeAreaView></SafeAreaProvider>}</WelcomeContext.Provider>;
 }
 const styles=StyleSheet.create({page:{flex:1,backgroundColor:"#F6F7F2"},scroll:{flexGrow:1,padding:24,justifyContent:"center"},admin:{width:"100%",maxWidth:520,alignSelf:"center",gap:16},back:{minHeight:44,justifyContent:"center"},text:{color:"#163A30",fontSize:14}});

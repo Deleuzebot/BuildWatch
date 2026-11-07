@@ -3,7 +3,7 @@ import{isPublicApiPath}from'./apiPaths';
 export const usesSupabase=process.env.EXPO_PUBLIC_BACKEND==='supabase';
 const cloud=process.env.EXPO_PUBLIC_SUPABASE_URL?.trim().replace(/\/$/,''),key=process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY?.trim();
 const legacy=process.env.EXPO_PUBLIC_API_URL?.trim().replace(/\/$/,'')||(Platform.OS==='web'?'':null);
-/** Public reads avoid Edge invocation quotas; all privileged calls use Auth0. */
+/** Public reads avoid Edge invocation quotas; all privileged calls use server-verified Supabase sessions. */
 export async function backendFetch(path:string,options:RequestInit={}):Promise<Response>{
  if(!usesSupabase){if(legacy===null)throw Error('The shared server URL is not configured.');return fetch(legacy+path,options);}
  if(!cloud||!key)throw Error('The Supabase backend is not configured for this build.');

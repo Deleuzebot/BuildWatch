@@ -20,7 +20,7 @@ The browser uses Leaflet/OpenStreetMap tiles with attribution. iPhone uses react
 
 Read **[ACCOUNT-SETUP.md](ACCOUNT-SETUP.md)** for:
 
-1. Auth0 Google/Apple/email configuration and secure one-time assignment of your own administrator account, with MFA.
+1. Supabase email authentication and the existing linked administrator password with Duo TOTP. Google OAuth requires configuration in Supabase; Auth0 is retired.
 2. Verified-email, single-use collaborator invitations and immediate revocation.
 3. Private correction/feedback review and project edit history.
 4. RevenueCat iOS StoreKit and web subscriptions, priced at US $9.99/month, sandbox validation and cancellation/restore.

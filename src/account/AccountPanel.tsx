@@ -238,8 +238,8 @@ export default function AccountPanel({
               (method) =>
                 (
                   ({
-                    auth0: "Email and password",
-                    "google-oauth2": "Google",
+                    "supabase-email": "Email and password",
+                    "supabase-google": "Google",
                     apple: "Apple",
                     'supabase-admin': 'Supabase administrator · password and authenticator',
                   }) as Record<string, string>
@@ -250,7 +250,7 @@ export default function AccountPanel({
         <Action
           title={account.methods.includes('supabase-admin')?'Administrator security':'Sign in again / complete MFA'}
           disabled={busy}
-          onPress={() => account.methods.includes('supabase-admin')?setScreen('Administrator Security'):void run(async () => session.signIn(undefined, true))}
+          onPress={() => setScreen(account.role==='admin'?'Administrator Security':'Login')}
         />
         {capabilities.linking&&!account.methods.includes('supabase-admin') ? (
           <>
@@ -260,12 +260,11 @@ export default function AccountPanel({
               emails match.
             </Text>
             {[
-              ["Link Google", "google-oauth2"],
+              ["Link Google", "google"],
               ["Link Apple", "apple"],
               [
                 "Link Email",
-                process.env.EXPO_PUBLIC_AUTH0_EMAIL_CONNECTION ||
-                  "Username-Password-Authentication",
+                "email",
               ],
             ].filter(([, connection]) => providerEnabled(connection)).map(([title, connection]) => (
               <Action
@@ -290,7 +289,7 @@ export default function AccountPanel({
             configured.
           </Text>
         )}
-        {account.methods.includes("auth0") && (
+        {account.methods.includes("supabase-email") && (
           <Action
             title="Send password reset email"
             disabled={busy}

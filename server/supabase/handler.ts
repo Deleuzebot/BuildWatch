@@ -1,6 +1,6 @@
 import type{Identity}from'../accounts/auth';
-import{verifyAuth0,type RuntimeConfig}from'./auth';
-import{verifyBuildWatchToken,supabaseSession,provisionAdmin}from'./admin-auth';
+import type{RuntimeConfig}from'./auth';
+import{verifyBuildWatchToken}from'./admin-auth';
 import{deriveProject}from'./derive';
 import{validateProject}from'../../src/lib/validate';
 import{policyValues,validateSourceEvidence}from'../archives/policy';
@@ -26,17 +26,6 @@ export function sourceProject(value:any,current?:any):Project{
  return{...source,category:source.category===current?.category?(original??source.category):source.category,...((originalMunicipalCategory??current?.originalMunicipalCategory)?{originalMunicipalCategory:originalMunicipalCategory??current?.originalMunicipalCategory}:{})};
 }
 function checkProject(project:any){const issue=validateProject(project);if(issue)fail(400,issue);}
-let managementCache:{token:string;expires:number;client:string}|undefined;
-async function management(config:RuntimeConfig,path:string,method:string,body?:unknown){
- const issuer=config.AUTH0_ISSUER?.replace(/\/$/,''),client=config.AUTH0_MANAGEMENT_CLIENT_ID,secret=config.AUTH0_MANAGEMENT_CLIENT_SECRET;
- if(!issuer||!client||!secret)fail(503,'Identity management is not configured.');
- if(!managementCache||managementCache.client!==client||managementCache.expires<Date.now()){
-  const r=await fetch(issuer+'/oauth/token',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({grant_type:'client_credentials',client_id:client,client_secret:secret,audience:issuer+'/api/v2/'}),signal:AbortSignal.timeout(10000)});
-  if(!r.ok)fail(502,'Identity management authorization failed.');const value=await r.json();managementCache={token:value.access_token,expires:Date.now()+Math.max(0,Number(value.expires_in||300)-60)*1000,client};
- }
- const r=await fetch(issuer+'/api/v2/'+path,{method,headers:{Authorization:'Bearer '+managementCache!.token,'Content-Type':'application/json'},...(body===undefined?{}:{body:JSON.stringify(body)}),signal:AbortSignal.timeout(10000)});
- if(!r.ok)fail(502,'The identity provider could not complete this operation.');
-}
 function secureEqual(a:string,b:string){const x=new TextEncoder().encode(a),y=new TextEncoder().encode(b);let diff=x.length^y.length;for(let i=0;i<Math.max(x.length,y.length);i++)diff|=(x[i]||0)^(y[i]||0);return diff===0;}
 async function entitlement(config:RuntimeConfig,id:string){
  if(!config.REVENUECAT_SECRET_KEY)fail(503,'Billing verification is not configured.');
@@ -55,7 +44,7 @@ export function createCloudHandler(deps:Dependencies){
    if(path==='/health')return Response.json({backend:'supabase',version:1,schedules:false},{headers});
    if(!path.startsWith('/api/')||!['GET','POST','PUT','PATCH','DELETE'].includes(req.method))fail(404,'Not found.');
    const query=Object.fromEntries(url.searchParams),method=req.method;
-   if(method==='GET'&&publicRoute(path))return Response.json(await deps.rpc('buildwatch_read',{path,query}),{headers});
+   if(method==='GET'&&publicRoute(path)){const result=await deps.rpc('buildwatch_read',{path,query});return Response.json(path==='/api/config'?{...result,auth:true,linking:false,deletion:true}:result,{headers});}
    const config=await deps.config();
    if(path==='/api/webhooks/revenuecat'&&method==='POST'){
     if(!config.REVENUECAT_WEBHOOK_SECRET||!secureEqual(req.headers.get('authorization')||'','Bearer '+config.REVENUECAT_WEBHOOK_SECRET))fail(401,'Invalid webhook authorization.');
@@ -80,36 +69,21 @@ export function createCloudHandler(deps:Dependencies){
    }
    if(path.startsWith('/api/admin/login/')){
     if(path==='/api/admin/login/status'&&method==='GET')return Response.json(await deps.rpc('buildwatch_admin_security',{action:'status',identity,input:{}}),{headers});
-    // Linking/provisioning explicitly requires the still-working Auth0 MFA
-    // identity, never an email match or a client-supplied administrator flag.
-    const primary=await verifyAuth0(bearer!.slice(7),config);
-    // A fresh, signed MFA event is sufficient for this dual-proof setup even
-    // when the upstream Google SSO session was established much earlier.
-    primary.authenticatedAt=Math.max(primary.authenticatedAt,primary.mfaAuthenticatedAt||0);
-    if(path==='/api/admin/login/provision'&&method==='POST'){
-     const owner=await deps.rpc('buildwatch_admin_security',{action:'authorize_setup',identity:primary,input:{}});
-     return Response.json(await provisionAdmin(owner.email,input.password as string,config),{headers});
-    }
-    if(path==='/api/admin/login/link'&&method==='POST'){
-     if(typeof input.secondaryToken!=='string'||input.secondaryToken.length>16000)fail(400,'Complete the Supabase MFA sign-in first.');
-     const secondary=await supabaseSession(input.secondaryToken,config);
-     return Response.json(await deps.rpc('buildwatch_admin_security',{action:'link',identity:primary,input:{authUserId:secondary.authUserId,sessionId:secondary.sessionId}}),{headers});
-    }
-    fail(404,'Not found.');
+    fail(410,'Legacy identity setup is retired. Use your BuildWatch password and authenticator.');
    }
    if(path==='/api/account/password'&&method==='POST'){
-    await call('/api/me',{},'GET');if(!config.AUTH0_PASSWORD_CLIENT_ID||!config.AUTH0_ISSUER)fail(503,'Password recovery email is not configured.');if(!identity!.methods.includes('auth0'))fail(400,'This account uses a social sign-in provider.');
-    const r=await fetch(config.AUTH0_ISSUER.replace(/\/$/,'')+'/dbconnections/change_password',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({client_id:config.AUTH0_PASSWORD_CLIENT_ID,email:identity!.email,connection:config.AUTH0_EMAIL_CONNECTION||'Username-Password-Authentication'}),signal:AbortSignal.timeout(10000)});if(!r.ok)fail(502,'Unable to send a password-reset email.');return Response.json({sent:true},{headers});
+    await call('/api/me',{},'GET');
+    const r=await fetch(config.SUPABASE_URL+'/auth/v1/recover',{method:'POST',headers:{apikey:config.SUPABASE_SERVICE_ROLE_KEY!,'Content-Type':'application/json'},body:JSON.stringify({email:identity.email}),signal:AbortSignal.timeout(10000)});
+    if(!r.ok)fail(502,'Unable to send password-reset instructions.');return Response.json({sent:true},{headers});
    }
-   if(path==='/api/account/link'&&method==='POST'){
-    if(typeof input.secondaryToken!=='string'||input.secondaryToken.length>16000)fail(400,'Missing secondary identity token.');let secondaryIdentity:Identity;try{secondaryIdentity=await(deps.verify||verifyAuth0)(input.secondaryToken,config);}catch{fail(401,'The secondary sign-in session is invalid.');}
-    const prepared=await call('__link_prepare',{secondaryIdentity});const split=secondaryIdentity!.subject.indexOf('|');if(split<1)fail(400,'Unsupported identity.');
-    await management(config,'users/'+encodeURIComponent(prepared.primarySubject)+'/identities','POST',{provider:secondaryIdentity!.subject.slice(0,split),user_id:secondaryIdentity!.subject.slice(split+1)});
-    return Response.json(await call('__link_commit',{secondaryIdentity}),{headers});
-   }
+   if(path==='/api/account/link'&&method==='POST')fail(410,'Account linking is not enabled. Use your original BuildWatch sign-in method.');
    if(path==='/api/me'&&method==='DELETE'){
-    if(!config.AUTH0_MANAGEMENT_CLIENT_SECRET)fail(503,'Account deletion is not configured.');const prepared=await call('__delete_prepare',input);
-    try{await management(config,'users/'+encodeURIComponent(prepared.subject),'DELETE');}catch(e){await call('__delete_abort',{});throw e;}
+    const prepared=await call('__delete_prepare',input);
+    if(!/^supabase\|[a-f0-9-]{36}$/.test(prepared.subject)){await call('__delete_abort',{});fail(409,'This legacy identity requires protected administrator recovery.');}
+    try{
+     const r=await fetch(config.SUPABASE_URL+'/auth/v1/admin/users/'+prepared.subject.slice(9),{method:'DELETE',headers:{apikey:config.SUPABASE_SERVICE_ROLE_KEY!,Authorization:'Bearer '+config.SUPABASE_SERVICE_ROLE_KEY},signal:AbortSignal.timeout(10000)});
+     if(!r.ok)fail(502,'Unable to delete the account.');
+    }catch(e){await call('__delete_abort',{});throw e;}
     return Response.json(await call('__delete_commit',{}),{headers});
    }
    if(path==='/api/billing/sync'&&method==='POST'){const user=await call('/api/me',{},'GET');return Response.json(await call('__billing_apply',await entitlement(config,user.id)),{headers});}
