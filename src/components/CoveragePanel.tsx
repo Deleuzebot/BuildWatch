@@ -1,8 +1,11 @@
+import {useThemeStyles} from "../lib/Theme";
 import React from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View, Linking } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import coverage from '../data/northCarolinaCoverage.json';
 export default function CoveragePanel({ visible, onClose, onSearch }: { visible: boolean; onClose: () => void; onSearch: (term: string) => void }) {
+ const s=useThemeStyles(baseStyles);
+
   return <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
     <SafeAreaView style={s.page}>
       <View style={s.header}><Text style={s.title}>Coverage & sources</Text><Pressable accessibilityRole="button" accessibilityLabel="Close coverage" onPress={onClose} style={s.button}><Text style={s.buttonText}>Done</Text></Pressable></View>
@@ -31,4 +34,4 @@ export default function CoveragePanel({ visible, onClose, onSearch }: { visible:
     </SafeAreaView>
   </Modal>;
 }
-const s=StyleSheet.create({page:{flex:1,backgroundColor:'#F6F7F2'},header:{padding:20,flexDirection:'row',justifyContent:'space-between',alignItems:'center'},title:{fontSize:22,fontWeight:'800',color:'#203F36'},heading:{fontSize:18,fontWeight:'700',color:'#203F36',marginBottom:8,marginTop:12},content:{padding:20,paddingBottom:50,gap:10},body:{fontSize:14,lineHeight:22,color:'#52665F'},button:{padding:12,backgroundColor:'#E2EAE2',borderRadius:20},buttonText:{fontWeight:'700',color:'#203F36'},card:{padding:16,backgroundColor:'white',borderRadius:14},notice:{padding:16,backgroundColor:'#FFF0D8',borderRadius:14},row:{paddingVertical:12,borderBottomWidth:1,borderBottomColor:'#DCE4DA'},rowTitle:{fontSize:16,fontWeight:'700',color:'#203F36'},link:{color:'#2466A5',paddingVertical:10}});
+const baseStyles = StyleSheet.create({page:{flex:1,backgroundColor:'#F6F7F2'},header:{padding:20,flexDirection:'row',justifyContent:'space-between',alignItems:'center'},title:{fontSize:22,fontWeight:'800',color:'#203F36'},heading:{fontSize:18,fontWeight:'700',color:'#203F36',marginBottom:8,marginTop:12},content:{padding:20,paddingBottom:50,gap:10},body:{fontSize:14,lineHeight:22,color:'#52665F'},button:{padding:12,backgroundColor:'#E2EAE2',borderRadius:20},buttonText:{fontWeight:'700',color:'#203F36'},card:{padding:16,backgroundColor:'white',borderRadius:14},notice:{padding:16,backgroundColor:'#FFF0D8',borderRadius:14},row:{paddingVertical:12,borderBottomWidth:1,borderBottomColor:'#DCE4DA'},rowTitle:{fontSize:16,fontWeight:'700',color:'#203F36'},link:{color:'#2466A5',paddingVertical:10}});

@@ -1,3 +1,4 @@
+import {useThemeStyles} from "../lib/Theme";
 import React,{useState} from 'react';
 import{Modal,Pressable,ScrollView,Text,View,StyleSheet,Linking}from'react-native';
 import type{MapNode}from'../lib/mapTypes';
@@ -5,6 +6,8 @@ import{clusterAppearance}from'../lib/mapAppearance';
 import{statusColors}from'../data/projects';
 import{stateNames}from'../lib/stateNames';
 export default function MapLegend({nodes,boundaryError}:{nodes:MapNode[];boundaryError?:boolean}){
+ const s=useThemeStyles(baseStyles);
+
  const[open,setOpen]=useState(false);
  const states=[...new Set(nodes.filter(n=>n.count>1&&n.state&&stateNames[n.state]).map(n=>n.state!))].sort((a,b)=>stateNames[a].localeCompare(stateNames[b]));
  const row=(label:string,color:string,pin=false)=><View key={label} style={s.row}><View style={[s.swatch,{backgroundColor:color,borderRadius:pin?3:12},pin&&{transform:[{rotate:'-45deg'}]}]}/><Text style={s.text}>{label}</Text></View>;
@@ -22,4 +25,4 @@ export default function MapLegend({nodes,boundaryError}:{nodes:MapNode[];boundar
  <Pressable accessibilityRole="link" onPress={()=>void Linking.openURL('https://www.census.gov/geographies/mapping-files/2025/geo/carto-boundary-file.html')}><Text style={[s.text,{color:'#2466A5',paddingVertical:12}]}>Source: U.S. Census Bureau, 2025 · 1:20m ↗</Text></Pressable>
  </ScrollView></View></View></Modal></>;
 }
-const s=StyleSheet.create({button:{position:'absolute',top:12,left:60,zIndex:1000,backgroundColor:'#FFFFFF',borderRadius:12,paddingHorizontal:12,paddingVertical:10,shadowColor:'#000',shadowOpacity:.1,shadowRadius:3,elevation:3},buttonText:{color:'#203F36',fontWeight:'700',fontSize:13},backdrop:{flex:1,backgroundColor:'#0006',justifyContent:'center',alignItems:'center',padding:20},panel:{width:'100%',maxWidth:480,maxHeight:'80%',backgroundColor:'#F6F7F2',borderRadius:20,padding:20},top:{flexDirection:'row',justifyContent:'space-between',alignItems:'center',marginBottom:10},title:{fontSize:22,fontWeight:'800',color:'#203F36'},heading:{fontSize:16,fontWeight:'700',color:'#203F36',marginTop:18,marginBottom:10},text:{color:'#344C42',fontSize:14,lineHeight:21},row:{flexDirection:'row',alignItems:'center',gap:12,marginVertical:8},swatch:{width:18,height:18,borderWidth:1,borderColor:'#0002'}});
+const baseStyles = StyleSheet.create({button:{position:'absolute',top:12,left:60,zIndex:1000,backgroundColor:'#FFFFFF',borderRadius:12,paddingHorizontal:12,paddingVertical:10,shadowColor:'#000',shadowOpacity:.1,shadowRadius:3,elevation:3},buttonText:{color:'#203F36',fontWeight:'700',fontSize:13},backdrop:{flex:1,backgroundColor:'#0006',justifyContent:'center',alignItems:'center',padding:20},panel:{width:'100%',maxWidth:480,maxHeight:'80%',backgroundColor:'#F6F7F2',borderRadius:20,padding:20},top:{flexDirection:'row',justifyContent:'space-between',alignItems:'center',marginBottom:10},title:{fontSize:22,fontWeight:'800',color:'#203F36'},heading:{fontSize:16,fontWeight:'700',color:'#203F36',marginTop:18,marginBottom:10},text:{color:'#344C42',fontSize:14,lineHeight:21},row:{flexDirection:'row',alignItems:'center',gap:12,marginVertical:8},swatch:{width:18,height:18,borderWidth:1,borderColor:'#0002'}});

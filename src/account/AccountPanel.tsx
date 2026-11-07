@@ -1,3 +1,6 @@
+import AccountEntry from "./AccountEntry";
+import {useWelcome} from "./Welcome";
+import {useTheme,useThemeStyles} from "../lib/Theme";
 import ArchivedProjects from './ArchivedProjects';
 import AutomationManagement from './AutomationManagement';
 import AdministratorAccess from './AdministratorAccess';
@@ -59,6 +62,8 @@ export function Action({
   onPress: () => void;
   disabled?: boolean;
 }) {
+ const s=useThemeStyles(baseStyles);
+
   return (
     <Pressable
       accessibilityRole="button"
@@ -83,6 +88,8 @@ export function Field({
   multiline?: boolean;
   secure?: boolean;
 }) {
+ const s=useThemeStyles(baseStyles);
+
   return (
     <View style={{ gap: 7 }}>
       <Text style={s.label}>{label}</Text>
@@ -111,9 +118,12 @@ export default function AccountPanel({
   onProject: (id: string) => void;
   onEdit: (project: Project | null) => void;
 }) {
+ const s=useThemeStyles(baseStyles);
+
   const session = useSession(),
     { account, capabilities } = session;
   const layout=useLayoutPreference();
+  const theme=useTheme(),welcome=useWelcome();
   const [screen, setScreen] = useState<Panel>(initial),
     [message, setMessage] = useState(""),
     [busy, setBusy] = useState(false);
@@ -194,50 +204,7 @@ export default function AccountPanel({
   }, [account?.id]);
   const admin = account?.role === "admin";
   const editor = (admin && account?.mfa) || account?.role === "collaborator";
-  const authUI = (
-    <View style={s.card}>
-      <Text style={s.h2}>Account</Text>
-      <Text style={s.body}>
-        Browse freely, or continue with your account to follow one development free and suggest
-        corrections.
-      </Text>
-      {!authConfigured || !capabilities.auth ? (
-        <Text style={s.notice}>
-          Account sign-in is not available yet. The administrator must configure
-          the identity service. You can continue exploring the map.
-        </Text>
-      ) : (
-        <>
-          {[
-            ["Continue with Google", "google-oauth2"],
-            ["Continue with Apple", "apple"],
-            [
-              "Continue with Email",
-              process.env.EXPO_PUBLIC_AUTH0_EMAIL_CONNECTION ||
-                "Username-Password-Authentication",
-            ],
-          ].filter(([, connection]) => providerEnabled(connection)).map(([title, connection]) => (
-            <Action
-              key={title}
-              title={title}
-              disabled={busy}
-              onPress={() =>
-                void run(async () => {
-                  await session.signIn(connection);
-                })
-              }
-            />
-          ))}
-          <Text style={s.body}>
-            New here? The same options create your account. Returning users
-            continue to their existing account.
-          </Text>
-        </>
-      )}
-      <Action title="Continue as Guest" onPress={onClose} />
-      {Platform.OS==='web'&&<Action title="Administrator login" onPress={()=>setScreen('Administrator Security')}/>}
-    </View>
-  );
+  const authUI = <AccountEntry onGuest={query=>{welcome.exploreAsGuest(query);onClose();}} onAdministrator={()=>setScreen("Administrator Security")}/>;
   const accountUI = account ? (
     <>
       <View style={s.card}>
@@ -523,7 +490,7 @@ export default function AccountPanel({
           <Action title="Done" onPress={onClose} />
         </View>
         <ScrollView
-          contentContainerStyle={s.content}
+          contentContainerStyle={[s.content, !account&&(screen==="Login"||screen==="Account")&&{flexGrow:1,justifyContent:"center"}]}
           keyboardShouldPersistTaps="handled"
         >
           {!!session.error && <Text style={s.notice}>{session.error}</Text>}
@@ -538,6 +505,8 @@ export default function AccountPanel({
             <>
               {screen==='Settings'&&<View style={s.card}>
                 <Text style={s.h2}>Display</Text>
+                <View style={s.toggle}><Text style={[s.label,{flex:1}]}>Dark mode</Text><Switch accessibilityLabel="Dark mode" value={theme.dark} onValueChange={theme.choose}/></View>
+                {!!theme.error&&<Text accessibilityRole="alert" style={s.notice}>{theme.error}</Text>}
                 <Text style={s.body}>Current layout: {layout.mobile?'Phone version':'Web version'}. Saved on this device.</Text>
                 <Action title={layout.mobile?'Switch to web version':'Switch to phone version'} onPress={()=>layout.choose(layout.mobile?'web':'phone')}/>
                 {layout.preference!=='auto'&&<Action title="Use automatic layout" onPress={()=>layout.choose('auto')}/>}
@@ -1170,7 +1139,7 @@ export default function AccountPanel({
     </Modal>
   );
 }
-const s = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   page: { flex: 1, backgroundColor: "#F6F7F2" },
   top: {
     padding: 18,

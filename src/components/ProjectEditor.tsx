@@ -1,3 +1,5 @@
+import {useThemeStyle} from "../lib/Theme";
+import {useThemeStyles} from "../lib/Theme";
 import React, { useState } from "react";
 import {
   Modal,
@@ -26,6 +28,10 @@ export default function ProjectEditor({
   onClose: () => void;
   onSaved: (p: Project) => void;
 }) {
+ const paint=useThemeStyle();
+
+ const s=useThemeStyles(baseStyles);
+
   const [draft, setDraft] = useState<Project>(() =>
     initial
       ? { ...initial, meetings: initial.meetings.map((m) => ({ ...m })) }
@@ -109,7 +115,7 @@ export default function ProjectEditor({
             onPress={onClose}
             style={s.secondary}
           >
-            <Text>Cancel</Text>
+            <Text style={paint({color:"#163A30"})}>Cancel</Text>
           </Pressable>
         </View>
         <ScrollView
@@ -160,7 +166,7 @@ export default function ProjectEditor({
               setReset((v) => v + 1);
             }}
           >
-            <Text>Show coordinates on map</Text>
+            <Text style={paint({color:"#163A30"})}>Show coordinates on map</Text>
           </Pressable>
           {(
             [
@@ -258,7 +264,7 @@ export default function ProjectEditor({
                 }
                 style={s.secondary}
               >
-                <Text>Remove source</Text>
+                <Text style={paint({color:"#163A30"})}>Remove source</Text>
               </Pressable>
             </View>
           ))}
@@ -272,7 +278,7 @@ export default function ProjectEditor({
               ])
             }
           >
-            <Text>Add source link</Text>
+            <Text style={paint({color:"#163A30"})}>Add source link</Text>
           </Pressable>
           <Text style={s.heading}>Public meetings</Text>
           <Text style={s.note}>
@@ -313,7 +319,7 @@ export default function ProjectEditor({
                   )
                 }
               >
-                <Text>Remove meeting {i + 1}</Text>
+                <Text style={paint({color:"#163A30"})}>Remove meeting {i + 1}</Text>
               </Pressable>
             </View>
           ))}
@@ -327,7 +333,7 @@ export default function ProjectEditor({
               ])
             }
           >
-            <Text>Add a meeting</Text>
+            <Text style={paint({color:"#163A30"})}>Add a meeting</Text>
           </Pressable>
           {!!error && (
             <Text accessibilityRole="alert" style={s.error}>
@@ -359,6 +365,8 @@ function Field({
   multiline?: boolean;
   secureTextEntry?: boolean;
 }) {
+ const s=useThemeStyles(baseStyles);
+
   return (
     <View>
       <Text style={s.label}>{label}</Text>
@@ -371,7 +379,7 @@ function Field({
     </View>
   );
 }
-const s = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   page: { flex: 1, backgroundColor: "#F6F7F2" },
   top: {
     padding: 18,

@@ -1,3 +1,5 @@
+import {useThemeStyle} from "../lib/Theme";
+import {useThemeStyles} from "../lib/Theme";
 import React,{useEffect,useState}from'react';
 import{View,Text,Pressable,Switch,StyleSheet,TextInput}from'react-native';
 import{api}from'./http';
@@ -10,6 +12,10 @@ function scheduled(weekdayNumber:number){
  return '';
 }
 export default function AutomationManagement({onReview,onDuplicates,onArchives}:{onReview:()=>void;onDuplicates:()=>void;onArchives:()=>void}){
+ const paint=useThemeStyle();
+
+ const s=useThemeStyles(baseStyles);
+
  const[registry,setRegistry]=useState<any>(null),[registryPage,setRegistryPage]=useState(0),[limits,setLimits]=useState<Record<string,any>>({}),[shadow,setShadow]=useState<any>(null);
  const[data,setData]=useState<any>(null),[error,setError]=useState(''),[busy,setBusy]=useState(false),[notice,setNotice]=useState(''),[showAll,setShowAll]=useState(false);
  async function load(){try{setData(await api('/api/admin/maintenance'));setError('');}catch(e:any){setError(e.message);}}
@@ -21,7 +27,7 @@ export default function AutomationManagement({onReview,onDuplicates,onArchives}:
  {button('Refresh execution status',()=>void load())}
  {button('Review private North Carolina shadow findings',()=>{void api('/api/admin/maintenance/shadow-report').then(setShadow).catch((e:any)=>setError(e.message));})}
  {shadow&&<View style={s.card}><Text style={s.subheading}>North Carolina shadow review</Text><Text style={s.text}>Shadow schedule: {shadow.control?.schedule_enabled?'enabled':'off'}. Publication and archiving remain disabled. Only Apex applications, Chapel Hill current development and Raleigh supporting permits are configured.</Text>{shadow.runs?.length===0&&<Text style={s.text}>No shadow execution has been authorized yet.</Text>}{shadow.runs?.map((r:any)=><View key={r.id}><Text style={s.text}>{r.created} · {r.status} · {r.stats?.requests||0} requests</Text>{button('Inspect private findings',()=>{void api('/api/admin/maintenance/shadow-report?runId='+encodeURIComponent(r.id)).then(setShadow).catch((e:any)=>setError(e.message));})}</View>)}{shadow.findings?.map((f:any)=><Text selectable key={f.id} style={s.text}>{JSON.stringify(f,null,2)}</Text>)}{button('Close shadow report',()=>setShadow(null))}</View>}
- {!data&&!error&&<Text>Loading automation status…</Text>}
+ {!data&&!error&&<Text style={paint({color:"#163A30"})}>Loading automation status…</Text>}
  {data&&<>
  <Text style={s.text}>Schedule: {data.control.schedule_enabled?'enabled':'off'} · Project writes: {data.control.writes_enabled?'enabled':'off'} · AI: off unless explicitly configured in the worker</Text>
  {button('Pause maintenance',()=>void action('pause',{}))}
@@ -52,4 +58,4 @@ export default function AutomationManagement({onReview,onDuplicates,onArchives}:
  </>}
  </View>;
 }
-const s=StyleSheet.create({wrap:{gap:13},heading:{fontSize:23,fontWeight:'700',color:'#173d31'},subheading:{fontSize:16,fontWeight:'600',color:'#173d31'},text:{fontSize:14,lineHeight:21,color:'#4e6057'},card:{padding:14,gap:9,borderWidth:1,borderColor:'#dce3dd',borderRadius:14},row:{flexDirection:'row',justifyContent:'space-between',alignItems:'center'},button:{padding:12,borderRadius:10,backgroundColor:'#214b3c'},white:{color:'#fff',fontWeight:'600'},error:{color:'#8e342a',lineHeight:20}});
+const baseStyles = StyleSheet.create({wrap:{gap:13},heading:{fontSize:23,fontWeight:'700',color:'#173d31'},subheading:{fontSize:16,fontWeight:'600',color:'#173d31'},text:{fontSize:14,lineHeight:21,color:'#4e6057'},card:{padding:14,gap:9,borderWidth:1,borderColor:'#dce3dd',borderRadius:14},row:{flexDirection:'row',justifyContent:'space-between',alignItems:'center'},button:{padding:12,borderRadius:10,backgroundColor:'#214b3c'},white:{color:'#fff',fontWeight:'600'},error:{color:'#8e342a',lineHeight:20}});

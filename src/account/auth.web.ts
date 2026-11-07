@@ -51,6 +51,7 @@ export async function login(
   connection?: string,
   fresh = false,
   secondary = false,
+  emailHint?: string,
 ): Promise<string> {
   if(!secondary)chooseAuth0();
   const primary = await getClient();
@@ -78,6 +79,7 @@ export async function login(
   await primary.loginWithRedirect({
     authorizationParams: {
       connection,
+      ...(emailHint ? {login_hint:emailHint} : {}),
       ...(fresh ? { prompt: "login", max_age: 0 } : {}),
     },
   });

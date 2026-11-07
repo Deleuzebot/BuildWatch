@@ -1,3 +1,4 @@
+import {useTheme} from "../lib/Theme";
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import type * as Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -10,6 +11,7 @@ import {useStateBoundaries} from '../lib/stateBoundaries';
 import type {Bounds} from '../lib/mapTypes';
 import type { MapNode } from '../lib/mapTypes';
 export default function ProjectMap({ projects, onSelect, resetKey, onPlace, nodes, onViewport, onSelectId, onCluster, focusBounds, onBackgroundPress, selectedProjectId, showControls = true }: ProjectMapProps) {
+  const {dark}=useTheme();
   const container=useRef<HTMLDivElement>(null),map=useRef<Leaflet.Map|null>(null),library=useRef<typeof Leaflet|null>(null);
   const markers=useRef(new Map<string,{marker:Leaflet.Marker;signature:string}>());
   const callbacks=useRef({onPlace,onSelect,onViewport,onSelectId,onCluster,onBackgroundPress});callbacks.current={onPlace,onSelect,onViewport,onSelectId,onCluster,onBackgroundPress};
@@ -74,13 +76,14 @@ export default function ProjectMap({ projects, onSelect, resetKey, onPlace, node
     const visible=opacity>0?(outlines.data?.lines||[]).filter(line=>overlapsBounds(line.bounds,extent)):[];
     const ids=new Set(visible.map(line=>line.id));
     for(const[id,line]of lines.current)if(!ids.has(id)){line.remove();lines.current.delete(id);}
-    for(const line of visible){const old=lines.current.get(line.id);if(old){old.setStyle({opacity});continue;}
-      lines.current.set(line.id,L.polyline(line.coordinates.map(([longitude,latitude])=>[latitude,longitude] as [number,number]),{pane:'stateBoundaries',color:boundaryStyle.color,weight:boundaryStyle.width,opacity,interactive:false,smoothFactor:1}).addTo(instance));
+    for(const line of visible){const old=lines.current.get(line.id);if(old){old.setStyle({opacity,color:dark?"#a4b8ac":boundaryStyle.color});continue;}
+      lines.current.set(line.id,L.polyline(line.coordinates.map(([longitude,latitude])=>[latitude,longitude] as [number,number]),{pane:'stateBoundaries',color:dark?"#a4b8ac":boundaryStyle.color,weight:boundaryStyle.width,opacity,interactive:false,smoothFactor:1}).addTo(instance));
     }
-  },[ready,zoom,extent,outlines.data]);
-  return <div style={{flex:1,position:'relative',minHeight:180,isolation:'isolate'}}>
-    <div ref={container} aria-label="Interactive development project map. Use arrow keys to pan and plus or minus to zoom." style={{position:'absolute',inset:0,background:'#E1E8DA'}} />
+  },[ready,zoom,extent,outlines.data,dark]);
+  return <div className={dark?"bw-map bw-map-dark":"bw-map"} style={{flex:1,position:'relative',minHeight:180,isolation:'isolate'}}>
+    <style>{`.bw-map-dark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.78) saturate(.8)}.bw-map-dark .leaflet-container{background:#101b16}.bw-map-dark .leaflet-control-attribution{background:#1b2a22;color:#c7d8ce}.bw-map-dark .leaflet-control-attribution a{color:#b9d7ca}`}</style>
+    <div ref={container} aria-label="Interactive development project map. Use arrow keys to pan and plus or minus to zoom." style={{position:'absolute',inset:0,background:dark?'#101b16':'#E1E8DA'}} />
     {showControls&&<MapLegend nodes={display} boundaryError={outlines.error}/>}
-    {(tileError||loadError)&&<div role="status" style={{position:'absolute',zIndex:1000,top:60,left:12,right:12,padding:10,background:'white',color:'#234D35',borderRadius:8,fontSize:13}}>{loadError?'Map could not load.':'Some map tiles could not load. Check your internet connection.'} Refresh the map to try again.</div>}
+    {(tileError||loadError)&&<div role="status" style={{position:'absolute',zIndex:1000,top:60,left:12,right:12,padding:10,background:dark?'#1b2a22':'white',color:dark?'#e5eee8':'#234D35',borderRadius:8,fontSize:13}}>{loadError?'Map could not load.':'Some map tiles could not load. Check your internet connection.'} Refresh the map to try again.</div>}
   </div>;
 }

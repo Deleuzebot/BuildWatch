@@ -1,3 +1,5 @@
+import {useThemeStyle} from "./src/lib/Theme";
+import {ThemeProvider,useTheme,useThemeStyles} from "./src/lib/Theme";
 import ActivityFilter from './src/components/ActivityFilter';
 import ProjectActivity from './src/components/ProjectActivity';
 import type {ActivityPeriod} from './src/lib/activity';
@@ -44,18 +46,23 @@ import {
   consumeProject,
   invitationToken,
 } from "./src/account/resume";
-import WelcomeGate from "./src/account/Welcome";
+import WelcomeGate,{useWelcome} from "./src/account/Welcome";
 import{consumeAdministratorResume}from'./src/account/adminResume';
 export default function App() {
   return (
-    <LayoutProvider><SessionProvider>
+    <ThemeProvider><LayoutProvider><SessionProvider>
       <WelcomeGate>
         <MapPopoverProvider><BuildWatchApp /></MapPopoverProvider>
       </WelcomeGate>
-    </SessionProvider></LayoutProvider>
+    </SessionProvider></LayoutProvider></ThemeProvider>
   );
 }
 function BuildWatchApp() {
+ const paint=useThemeStyle();
+
+ const s=useThemeStyles(baseStyles);
+
+  const theme=useTheme(),welcome=useWelcome();
   const { account } = useSession();
   const {mobile} = useLayoutPreference();
   const canEdit =
@@ -115,6 +122,7 @@ function BuildWatchApp() {
   const [editing, setEditing] = useState<{ project: Project | null } | null>(null);
   const [resetKey, setResetKey] = useState(0);
   const [query, setQuery] = useState("");
+  useEffect(()=>{if(welcome.guestSearch!==null){setQuery(welcome.guestSearch);welcome.clearGuestSearch();}},[welcome.guestSearch]);
   const [status, setStatus] = useState<Status | "All">("All");
   const [selected, setSelected] = useState<Project | null>(null);
   const [preview, setPreview] = useState<Project | null>(null);
@@ -145,7 +153,7 @@ function BuildWatchApp() {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={s.page}>
-        <StatusBar style="dark" />
+        <StatusBar style={theme.dark?"light":"dark"} />
         {mobile ? <MobileExplorer browser={browser} query={query} status={status} types={types} onTypes={setTypes} activity={activity} onActivity={setActivity}
           onQuery={setQuery} onStatus={setStatus} preview={preview}
           onSelect={p=>void open(p)} onOpen={()=>{if(preview){setSelected(preview);setPreview(null);}}}
@@ -182,13 +190,13 @@ function BuildWatchApp() {
             <Pressable
               accessibilityRole="button"
               onPress={() => setEditing({ project: null })}
-              style={{
+              style={paint({
                 backgroundColor: "#164A37",
                 padding: 12,
                 borderRadius: 10,
-              }}
+              })}
             >
-              <Text style={{ color: "white", fontWeight: "700" }}>
+              <Text style={paint({ color: "white", fontWeight: "700" })}>
                 + Add project
               </Text>
             </Pressable>
@@ -199,7 +207,7 @@ function BuildWatchApp() {
               <TextInput
                 accessibilityLabel="Search projects"
                 placeholder="Search project, city, county, street, or category"
-                placeholderTextColor="#647874"
+                placeholderTextColor={theme.dark?"#aebfb5":"#647874"}
                 value={query}
                 onChangeText={setQuery}
                 style={s.search}
@@ -211,7 +219,7 @@ function BuildWatchApp() {
                   onPress={() => setQuery("")}
                   style={s.clear}
                 >
-                  <Text>✕</Text>
+                  <Text style={paint({color:"#163A30"})}>✕</Text>
                 </Pressable>
               )}
             </View>
@@ -254,7 +262,7 @@ function BuildWatchApp() {
                 selectedProjectId={preview?.id}
                 onBackgroundPress={()=>{selecting.current++;setPreview(null);setConnection('');}}
               />
-              {!!connectionText&&<View pointerEvents="none" style={{position:'absolute',top:12,left:12,right:12,alignItems:'flex-start'}}><Text accessibilityRole="status" style={{backgroundColor:'#F6F7F2',padding:10,borderRadius:10,color:'#63736E',fontSize:12}}>{connectionText}</Text></View>}
+              {!!connectionText&&<View pointerEvents="none" style={{position:'absolute',top:12,left:12,right:12,alignItems:'flex-start'}}><Text accessibilityRole="status" style={paint({backgroundColor:theme.dark?'#1b2a22':'#F6F7F2',padding:10,borderRadius:10,color:theme.dark?'#aebfb5':'#63736E',fontSize:12})}>{connectionText}</Text></View>}
               <View style={s.mapLabel}>
                 <Text style={s.mapLabelText}>
                   {browser.total.toLocaleString()} matching map records
@@ -266,10 +274,10 @@ function BuildWatchApp() {
                     <Text accessibilityRole="header" style={s.cardTitle}>{preview.name}</Text>
                     <Badge status={preview.status}/>
                   </View>
-                  <Pressable accessibilityRole="button" accessibilityLabel="Close project preview" onPress={()=>{selecting.current++;setPreview(null);setConnection('');}} style={{width:44,height:44,borderRadius:22,backgroundColor:'#E5EBE3',alignItems:'center',justifyContent:'center'}}><Text style={{fontSize:24,color:'#42604D'}}>×</Text></Pressable>
+                  <Pressable accessibilityRole="button" accessibilityLabel="Close project preview" onPress={()=>{selecting.current++;setPreview(null);setConnection('');}} style={paint({width:44,height:44,borderRadius:22,backgroundColor:theme.dark?'#293d31':'#E5EBE3',alignItems:'center',justifyContent:'center'})}><Text style={paint({fontSize:24,color:theme.dark?'#e5eee8':'#42604D'})}>×</Text></Pressable>
                 </View>
                 <Text style={s.address}>{preview.address}</Text>
-                <Pressable accessibilityRole="button" accessibilityLabel={'Open '+preview.name} onPress={()=>{setSelected(preview);setPreview(null);}} style={{backgroundColor:'#214D3B',borderRadius:14,padding:14,flexDirection:'row',justifyContent:'space-between'}}><Text style={{color:'white',fontWeight:'700',fontSize:16}}>Open</Text><Text style={{color:'white',fontSize:16}}>↗</Text></Pressable>
+                <Pressable accessibilityRole="button" accessibilityLabel={'Open '+preview.name} onPress={()=>{setSelected(preview);setPreview(null);}} style={paint({backgroundColor:'#214D3B',borderRadius:14,padding:14,flexDirection:'row',justifyContent:'space-between'})}><Text style={paint({color:'white',fontWeight:'700',fontSize:16})}>Open</Text><Text style={paint({color:'white',fontSize:16})}>↗</Text></Pressable>
               </View>}
             </View>
             {!browser.loading&&!browser.error&&browser.total===0&&<Text style={[s.body,{padding:16}]}>No matching projects. Try another search or clear the selected status.</Text>}
@@ -305,7 +313,7 @@ function BuildWatchApp() {
                 <Text style={s.address}>{selected.address}</Text>
                 {selected.county && <Text style={s.muted}>{selected.county} County{selected.jurisdiction ? ` · Source jurisdiction: ${selected.jurisdiction}` : ""}</Text>}
                 {selected.reviewedAt && <Text style={s.muted}>Sources reviewed {selected.reviewedAt} · Pin shows an approximate project location</Text>}
-                {selected.verificationNote && <View style={{ padding: 14, marginVertical: 12, borderRadius: 12, backgroundColor: selected.evidenceType === "permit" ? '#FFF0D8' : '#E5ECE4' }}><Text style={s.body}>{selected.verificationNote}</Text></View>}
+                {selected.verificationNote && <View style={paint({ padding: 14, marginVertical: 12, borderRadius: 12, backgroundColor: theme.dark?"#293d31":selected.evidenceType === "permit" ? '#FFF0D8' : '#E5ECE4' })}><Text style={s.body}>{selected.verificationNote}</Text></View>}
                 <Badge status={selected.status} />
                 <Text style={s.description}>{selected.description}</Text><ProjectActivity projectId={selected.id}/>
                 <View style={s.facts}>
@@ -327,14 +335,14 @@ function BuildWatchApp() {
                       setEditing({ project: selected });
                       setSelected(null);
                     }}
-                    style={{
+                    style={paint({
                       padding: 14,
                       backgroundColor: "#E3EBDD",
                       borderRadius: 10,
                       marginBottom: 20,
-                    }}
+                    })}
                   >
-                    <Text style={{ color: "#164A37", fontWeight: "700" }}>
+                    <Text style={paint({ color: "#164A37", fontWeight: "700" })}>
                       Edit this project
                     </Text>
                   </Pressable>
@@ -367,7 +375,7 @@ function BuildWatchApp() {
                     onPress={() => void Linking.openURL(source.url)}
                     style={{ paddingVertical: 12 }}
                   >
-                    <Text style={{ color: "#2466A5" }}>{source.title} ↗</Text>
+                    <Text style={paint({ color: "#2466A5" })}>{source.title} ↗</Text>
                   </Pressable>
                 ))}
                 <Text style={s.sectionTitle}>Upcoming public meetings</Text>
@@ -420,15 +428,15 @@ function BuildWatchApp() {
           onRequestClose={() => setMenu(false)}
         >
           <View
-            style={{ flex: 1, flexDirection: "row", backgroundColor: "#0005" }}
+            style={paint({ flex: 1, flexDirection: "row", backgroundColor: "#0005" })}
           >
             <SafeAreaView
-              style={{
+              style={paint({
                 width: 290,
                 maxWidth: "90%",
-                backgroundColor: "#F6F7F2",
+                backgroundColor: theme.dark?"#101b16":"#F6F7F2",
                 padding: 20,
-              }}
+              })}
             >
               <ScrollView contentContainerStyle={{ gap: 12 }}>
                 <Text style={s.brand}>BuildWatch.</Text>
@@ -438,13 +446,6 @@ function BuildWatchApp() {
                     : "Explore freely as a guest"}
                 </Text>
                 <Action title="Close menu" onPress={() => setMenu(false)} />
-                <Action
-                  title="Explore Map"
-                  onPress={() => {
-                    setMenu(false);
-
-                  }}
-                />
                 <Action title="Coverage & sources" onPress={()=>{setMenu(false);setCoverageOpen(true);}}/>
                 <Action
                   title="Settings"
@@ -547,6 +548,8 @@ function BuildWatchApp() {
   );
 }
 function Badge({ status }: { status: Status }) {
+ const s=useThemeStyles(baseStyles);
+
   return (
     <View style={s.badge}>
       <View style={[s.statusDot, { backgroundColor: statusColors[status] }]} />
@@ -554,7 +557,7 @@ function Badge({ status }: { status: Status }) {
     </View>
   );
 }
-const s = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   page: { flex: 1, backgroundColor: "#F6F7F2" },
   header: {
     paddingHorizontal: 22,

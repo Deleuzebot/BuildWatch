@@ -1,8 +1,13 @@
+import {useThemeStyles} from "../lib/Theme";
 import React,{useEffect,useState,useRef} from 'react';
 import {View,Text,Pressable,TextInput,Linking,StyleSheet} from 'react-native';
 import {api} from './http';
-function Button({title,onPress,disabled=false}:{title:string;onPress:()=>void;disabled?:boolean}){return <Pressable accessibilityRole="button" disabled={disabled} onPress={onPress} style={[s.button,disabled&&{opacity:.4}]}><Text style={s.link}>{title}</Text></Pressable>;}
+function Button({title,onPress,disabled=false}:{title:string;onPress:()=>void;disabled?:boolean}){
+ const s=useThemeStyles(baseStyles);
+return <Pressable accessibilityRole="button" disabled={disabled} onPress={onPress} style={[s.button,disabled&&{opacity:.4}]}><Text style={s.link}>{title}</Text></Pressable>;}
 export default function ResearchReview({onDuplicates,onEdit,onAdd}:{onDuplicates:()=>void;onEdit:(id:string)=>void;onAdd:()=>void}){
+ const s=useThemeStyles(baseStyles);
+
  const[queue,setQueue]=useState<any>(),[selected,setSelected]=useState<any>(),[preview,setPreview]=useState<any>(),[status,setStatus]=useState('pending'),[kind,setKind]=useState('all'),[search,setSearch]=useState(''),[query,setQuery]=useState(''),[page,setPage]=useState(0),[tick,setTick]=useState(0),[busy,setBusy]=useState(false),[message,setMessage]=useState(''),[target,setTarget]=useState(''),[note,setNote]=useState(''),[showCoverage,setShowCoverage]=useState(false);const lock=useRef(false);
  const run=async(work:()=>Promise<void>)=>{if(lock.current)return;lock.current=true;setBusy(true);setMessage('');try{await work();}catch(e){setMessage(e instanceof Error?e.message:'Request failed.');}finally{lock.current=false;setBusy(false);}};
  useEffect(()=>{let live=true;setQueue(undefined);void api('/api/admin/research?'+new URLSearchParams({status,kind,page:String(page),search:query})).then(r=>{if(live)setQueue(r);}).catch(e=>{if(live)setMessage(e.message);});return()=>{live=false;};},[status,kind,page,query,tick]);
@@ -20,4 +25,4 @@ export default function ResearchReview({onDuplicates,onEdit,onAdd}:{onDuplicates
  <Text style={s.title}>Review history</Text>{selected.audit.map((a:any)=><Text key={a.id} selectable style={s.text}>{new Date(a.created).toLocaleString()} · {a.action} · {a.actor}{a.note?' · '+a.note:''}</Text>)}<Button title="Close proposal" disabled={busy} onPress={()=>{setSelected(undefined);setPreview(undefined);}}/></View>}
  </View>;
 }
-const s=StyleSheet.create({heading:{fontSize:22,fontWeight:'700',color:'#203F36'},title:{fontSize:16,fontWeight:'700',color:'#203F36'},text:{color:'#394D44',lineHeight:22},row:{flexDirection:'row',flexWrap:'wrap',gap:8},card:{backgroundColor:'#fff',borderWidth:1,borderColor:'#dce3db',borderRadius:14,padding:16,gap:10},button:{backgroundColor:'#edf2e9',borderRadius:9,padding:12,alignSelf:'flex-start'},link:{color:'#2466a5',fontWeight:'600'},input:{borderWidth:1,borderColor:'#bdc8bb',borderRadius:8,padding:12,color:'#203F36'},notice:{backgroundColor:'#edf2e9',padding:12,color:'#203F36',lineHeight:22},mono:{fontSize:12,color:'#394D44',lineHeight:18}});
+const baseStyles = StyleSheet.create({heading:{fontSize:22,fontWeight:'700',color:'#203F36'},title:{fontSize:16,fontWeight:'700',color:'#203F36'},text:{color:'#394D44',lineHeight:22},row:{flexDirection:'row',flexWrap:'wrap',gap:8},card:{backgroundColor:'#fff',borderWidth:1,borderColor:'#dce3db',borderRadius:14,padding:16,gap:10},button:{backgroundColor:'#edf2e9',borderRadius:9,padding:12,alignSelf:'flex-start'},link:{color:'#2466a5',fontWeight:'600'},input:{borderWidth:1,borderColor:'#bdc8bb',borderRadius:8,padding:12,color:'#203F36'},notice:{backgroundColor:'#edf2e9',padding:12,color:'#203F36',lineHeight:22},mono:{fontSize:12,color:'#394D44',lineHeight:18}});

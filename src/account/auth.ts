@@ -59,6 +59,7 @@ export async function login(
   connection?: string,
   fresh = false,
   secondary = false,
+  emailHint?: string,
 ): Promise<string> {
   if (!authConfigured)
     throw new Error(
@@ -77,6 +78,7 @@ export async function login(
     usePKCE: true,
     extraParams: {
       audience,
+      ...(emailHint ? {login_hint:emailHint} : {}),
       ...(connection ? { connection } : {}),
       ...(fresh || secondary ? { prompt: "login", max_age: "0" } : {}),
     },

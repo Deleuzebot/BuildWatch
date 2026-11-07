@@ -25,7 +25,7 @@ const Context = createContext<{
   capabilities: Capabilities;
   error: string;
   refresh: () => Promise<void>;
-  signIn: (connection?: string, fresh?: boolean) => Promise<void>;
+  signIn: (connection?: string, fresh?: boolean, emailHint?:string) => Promise<void>;
   signOut: () => Promise<void>;
 }>({
   account: null,
@@ -76,8 +76,8 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
         capabilities,
         error,
         refresh,
-        signIn: async (connection, fresh) => {
-          await login(connection, fresh);
+        signIn: async (connection, fresh, emailHint) => {
+          await login(connection, fresh, false, emailHint);
           await refresh();
         },
         signOut: async () => {

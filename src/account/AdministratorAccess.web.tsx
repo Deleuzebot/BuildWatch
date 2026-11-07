@@ -1,3 +1,4 @@
+import {useThemeStyles} from "../lib/Theme";
 import React,{useEffect,useState}from'react';
 import{View,Text,TextInput,Pressable,StyleSheet}from'react-native';
 import{authenticatorQrSource}from'./authenticatorQr';
@@ -8,6 +9,8 @@ import{backendFetch}from'../lib/transport';
 import{login}from'./auth.web';
 import{administratorStep,normalizeAuthenticatorCode}from'./adminSetup';
 export default function AdministratorAccess(){
+ const s=useThemeStyles(baseStyles);
+
  const session=useSession(),setup=session.account?.role==='admin'&&!administratorSelected();
  const[email,setEmail]=useState(session.account?.email||''),[password,setPassword]=useState(''),[confirm,setConfirm]=useState(''),[code,setCode]=useState(''),[busy,setBusy]=useState(false),[message,setMessage]=useState(''),[signed,setSigned]=useState(false),[factors,setFactors]=useState<any[]>([]),[enrolling,setEnrolling]=useState<any>(null),[verifiedNow,setVerifiedNow]=useState(false),[done,setDone]=useState(false);
  const[linked,setLinked]=useState(administratorSelected()),[needsPassword,setNeedsPassword]=useState(false),[restoring,setRestoring]=useState(true);
@@ -59,4 +62,4 @@ export default function AdministratorAccess(){
  {!administratorSelected()&&button('Use existing Auth0 login instead',async()=>{window.sessionStorage.setItem('buildwatch-admin-setup-return','1');await session.signIn(undefined,true);})}
  <Text style={s.text}>One authenticator is required. If you lose access to it, administrator recovery will be needed. Never share passwords, QR codes, setup keys, or verification codes in chat.</Text></View>;
 }
-const s=StyleSheet.create({card:{padding:18,gap:14,borderRadius:18,backgroundColor:'#fff',borderColor:'#dce3dd',borderWidth:1},heading:{fontSize:21,fontWeight:'700',color:'#173d31'},text:{fontSize:14,lineHeight:21,color:'#4e6057'},label:{fontSize:14,fontWeight:'600',color:'#173d31'},input:{padding:12,borderWidth:1,borderColor:'#cad5cc',borderRadius:10,fontSize:16,color:'#183c30'},button:{padding:13,borderRadius:11,backgroundColor:'#214b3c'},buttonText:{color:'#fff',fontWeight:'600',textAlign:'center'},notice:{color:'#8e342a',fontSize:14,lineHeight:20}});
+const baseStyles = StyleSheet.create({card:{padding:18,gap:14,borderRadius:18,backgroundColor:'#fff',borderColor:'#dce3dd',borderWidth:1},heading:{fontSize:21,fontWeight:'700',color:'#173d31'},text:{fontSize:14,lineHeight:21,color:'#4e6057'},label:{fontSize:14,fontWeight:'600',color:'#173d31'},input:{padding:12,borderWidth:1,borderColor:'#cad5cc',borderRadius:10,fontSize:16,color:'#183c30'},button:{padding:13,borderRadius:11,backgroundColor:'#214b3c'},buttonText:{color:'#fff',fontWeight:'600',textAlign:'center'},notice:{color:'#8e342a',fontSize:14,lineHeight:20}});
