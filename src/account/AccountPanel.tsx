@@ -860,7 +860,7 @@ export default function AccountPanel({
                     title="Complete administrator verification"
                     disabled={busy}
                     onPress={() =>
-                      void run(() => session.signIn(undefined, true))
+                      setScreen('Administrator Security')
                     }
                   />
                 )}
@@ -901,7 +901,7 @@ export default function AccountPanel({
                     title="Complete administrator verification"
                     disabled={busy}
                     onPress={() =>
-                      void run(() => session.signIn(undefined, true))
+                      setScreen('Administrator Security')
                     }
                   />
                 )}
