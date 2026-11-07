@@ -4,7 +4,7 @@ export async function accessToken(){return authConfigured?administratorToken():n
 export async function login(connection?:string,_fresh=false,secondary=false,_emailHint?:string):Promise<string>{
  if(secondary)throw Error('Account linking is not enabled. Sign in with your original BuildWatch method.');
  if(connection!=='google')throw Error('Use the email and password fields to sign in.');
- const {error}=await adminClient().auth.signInWithOAuth({provider:'google',options:{redirectTo:window.location.origin}});if(error)throw error;return '';
+ const {error}=await adminClient().auth.signInWithOAuth({provider:'google',options:{redirectTo:window.location.origin,queryParams:{prompt:'select_account'}}});if(error)throw error;return '';
 }
 export async function logout(){
  if(administratorSelected())return signOutAdministrator();

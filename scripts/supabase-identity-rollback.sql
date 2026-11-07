@@ -14,10 +14,14 @@ BEGIN
  EXCEPTION WHEN OTHERS THEN IF SQLERRM NOT LIKE 'BW401:%' THEN RAISE;END IF;END;
  FOR admin_row IN SELECT b.auth_user_id,s.id FROM buildwatch.admin_login_bindings b JOIN auth.sessions s ON s.user_id=b.auth_user_id WHERE s.aal='aal2' LIMIT 1 LOOP
   BEGIN
-   PERFORM public.buildwatch_supabase_identity(jsonb_build_object('authUserId',admin_row.auth_user_id,'sessionId',admin_row.id,'mfa',false));
+   PERFORM public.buildwatch_supabase_identity(jsonb_build_object('authUserId',admin_row.auth_user_id,'sessionId',admin_row.id,'mfa',false,'passwordAuthenticated',true));
    RAISE EXCEPTION 'administrator MFA bypass';
   EXCEPTION WHEN OTHERS THEN IF SQLERRM NOT LIKE 'BW401:%' THEN RAISE;END IF;END;
-  value=public.buildwatch_supabase_identity(jsonb_build_object('authUserId',admin_row.auth_user_id,'sessionId',admin_row.id,'mfa',true,'authenticatedAt',(extract(epoch from now())*1000)::bigint));
+  BEGIN
+   PERFORM public.buildwatch_supabase_identity(jsonb_build_object('authUserId',admin_row.auth_user_id,'sessionId',admin_row.id,'mfa',true,'passwordAuthenticated',false));
+   RAISE EXCEPTION 'OAuth administrator bypass';
+  EXCEPTION WHEN OTHERS THEN IF SQLERRM NOT LIKE 'BW401:%' THEN RAISE;END IF;END;
+  value=public.buildwatch_supabase_identity(jsonb_build_object('authUserId',admin_row.auth_user_id,'sessionId',admin_row.id,'mfa',true,'passwordAuthenticated',true,'authenticatedAt',(extract(epoch from now())*1000)::bigint));
   IF NOT (value->'methods' ? 'supabase-admin') OR value->>'mfa'<>'true' THEN RAISE EXCEPTION 'existing administrator binding lost';END IF;
  END LOOP;
 END $$;

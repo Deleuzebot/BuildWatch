@@ -8,7 +8,7 @@ export async function login(connection?:string,_fresh=false,secondary=false,_ema
  if(secondary)throw Error('Account linking is not enabled. Use your original BuildWatch sign-in method.');
  if(connection!=='google')throw Error('Use the email and password fields to sign in.');
  const redirectTo=AuthSession.makeRedirectUri({scheme:'buildwatch',path:'auth'});
- const{data,error}=await adminClient().auth.signInWithOAuth({provider:'google',options:{redirectTo,skipBrowserRedirect:true}});
+ const{data,error}=await adminClient().auth.signInWithOAuth({provider:'google',options:{redirectTo,skipBrowserRedirect:true,queryParams:{prompt:'select_account'}}});
  if(error)throw error;if(!data.url)throw Error('Unable to open Google sign-in.');
  const result=await WebBrowser.openAuthSessionAsync(data.url,redirectTo);
  if(result.type!=='success')throw Error('Sign-in was cancelled.');

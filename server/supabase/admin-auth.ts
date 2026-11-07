@@ -14,13 +14,14 @@ export async function supabaseSession(token:string,config:RuntimeConfig,requireM
  if(claims.iss!==base+'/auth/v1'||claims.sub!==user.id||!user.email_confirmed_at||!user.email||!claims.exp||claims.exp<=now||!claims.iat||claims.iat>now+30||claims.role!=='authenticated'||!(Array.isArray(claims.aud)?claims.aud.includes('authenticated'):claims.aud==='authenticated')||typeof claims.session_id!=='string')denied();
  const method=(Array.isArray(claims.amr)?claims.amr:[]).filter((x:any)=>x?.method==='totp'&&Number.isFinite(x.timestamp)&&x.timestamp<=now+30).sort((a:any,b:any)=>b.timestamp-a.timestamp)[0] as any;
  const mfa=claims.aal==='aal2'&&!!method&&user.factors?.some((f:any)=>f.factor_type==='totp'&&f.status==='verified');
+ const passwordAuthenticated=(Array.isArray(claims.amr)?claims.amr:[]).some((x:any)=>x?.method==='password'&&Number.isFinite(x.timestamp)&&x.timestamp<=now+30);
  if(requireMfa&&!mfa)denied();
- return{authUserId:user.id as string,sessionId:claims.session_id,email:String(user.email).toLowerCase(),authenticatedAt:mfa?method.timestamp*1000:claims.iat*1000,mfa:!!mfa};
+ return{authUserId:user.id as string,sessionId:claims.session_id,email:String(user.email).toLowerCase(),authenticatedAt:mfa?method.timestamp*1000:claims.iat*1000,mfa:!!mfa,passwordAuthenticated};
 }
 export async function verifyBuildWatchToken(token:string,config:RuntimeConfig,rpc:Rpc):Promise<Identity>{
  // The issuer chooses a verifier; it does not establish trust.
  let issuer:unknown;try{issuer=decodeJwt(token).iss;}catch{denied();}
  if(issuer!==config.SUPABASE_URL?.replace(/\/$/,'')+'/auth/v1')denied('Sign in with your BuildWatch account.');
  const session=await supabaseSession(token,config,false);
- return rpc('buildwatch_supabase_identity',{input:{authUserId:session.authUserId,sessionId:session.sessionId,authenticatedAt:session.authenticatedAt,mfa:session.mfa}});
+ return rpc('buildwatch_supabase_identity',{input:{authUserId:session.authUserId,sessionId:session.sessionId,authenticatedAt:session.authenticatedAt,mfa:session.mfa,passwordAuthenticated:session.passwordAuthenticated}});
 }
