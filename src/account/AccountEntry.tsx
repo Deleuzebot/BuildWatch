@@ -23,7 +23,7 @@ export default function AccountEntry({onGuest,onAdministrator}:{onGuest:(query:s
  }
  const field=(label:string,value:string,change:(v:string)=>void,secure=false)=><TextInput accessibilityLabel={label} placeholder={label} placeholderTextColor={dark?'#aebfb5':'#6c7d73'} autoCapitalize="none" autoCorrect={false} secureTextEntry={secure} keyboardType={label==='Email address'?'email-address':label==='Authenticator code'?'number-pad':'default'} value={value} onChangeText={change} style={s.input}/>;
  return <View style={s.wrap}>
- <Text accessibilityRole="header" style={s.brand}>BuildWatch<Text style={{color:'#D36D43'}}>.</Text></Text><Text style={s.subtitle}>Your community, taking shape.</Text>
+ <Text accessibilityRole="header" style={s.brand}>BuildWatch<Text style={{color:'#D36D43'}}>.</Text></Text><Text style={s.subtitle}>Your neighborhood, in progress.</Text>
  <View style={s.card}><Text style={s.title}>Your BuildWatch account</Text><Text style={s.body}>Sign in or create an account to follow developments.</Text>
  {google&&<Pressable accessibilityRole="button" disabled={busy} onPress={()=>void run(()=>login('google').then(()=>{}))} style={s.provider}><Image source={require('../../assets/google-logo.png')} style={s.logo} accessible={false}/><Text style={s.providerText}>Log in with Google</Text></Pressable>}
  <Pressable accessibilityRole="button" accessibilityLabel="Log in with email" accessibilityState={{expanded:open}} disabled={busy||!authConfigured} onPress={()=>setOpen(!open)} style={s.provider}><Text style={s.mail}>✉</Text><Text style={s.providerText}>Log in with email</Text></Pressable>
