@@ -512,8 +512,8 @@ export default function AccountPanel({
                 {layout.preference!=='auto'&&<Action title="Use automatic layout" onPress={()=>layout.choose('auto')}/>}
                 {!!layout.error&&<Text accessibilityRole="alert" style={s.notice}>{layout.error}</Text>}
               </View>}
-              {accountUI}
-              {admin&&Platform.OS==='web'&&<Action title="Set up or manage free administrator MFA" onPress={()=>setScreen('Administrator Security')}/>}
+              {screen === "Account" && accountUI}
+              {screen === "Account"&&admin&&Platform.OS==='web'&&<Action title="Set up or manage free administrator MFA" onPress={()=>setScreen('Administrator Security')}/>}
               {screen === "Settings" && (
                 <>
                   {prefs}
